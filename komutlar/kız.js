@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
       if(!isim) return message.channel.send("Lütfen bir isim girin!").then(m => m.delete(5000));
    let yas = args[2];
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
-await member.setNickname(`て ${isim} | ${yas}`);
+await member.setNickname(` ${isim} | ${yas}`);
   member.addRole("İD"); //kadın Rol id
   member.removeRole("İD"); //kayıtsız id
   message.react('İD') //emojiid
@@ -24,7 +24,7 @@ await member.setNickname(`て ${isim} | ${yas}`);
     .setTimestamp()
   let embed = new Discord.RichEmbed() 
   .setColor("BLACK")
-  .addField(`Kob's`, `<a:white_check_mark:704339111095435354> ${member.user} **adlı üyeye** <@&704273141429567508> **rolünü verip ismini**  \`て ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
+  .addField(`Medusa's`, `<a:white_check_mark:704339111095435354> ${member.user} **adlı üyeye** <@&704273141429567508> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
   .setTimestamp()
   return message.channel.send(embed).then(kanal.send(embed1))
