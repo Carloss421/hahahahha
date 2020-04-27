@@ -13,8 +13,8 @@ exports.run = async (client, message, args) => {
    let yas = args[2];
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
 await member.setNickname(`${isim} | ${yas}`);
-  member.addRole("Kızrolİd"); //kadın1
-  member.removeRole("KayıtsızRolid"); //kayıtsız
+  member.addRole("Kızrolİd"); //Kız Rolü İD
+  member.removeRole("KayıtsızRolid"); //kayıtsız Rolü İD
   message.react('emojiid')
      const kanal = message.guild.channels.find(c => c.id == "logid") 
     const embed1 = new Discord.RichEmbed() 
@@ -24,7 +24,7 @@ await member.setNickname(`${isim} | ${yas}`);
     .setTimestamp()
   let embed = new Discord.RichEmbed() 
   .setColor("BLACK")
-  .addField(`${member.user} **adlı üyeye** <@&704273141429567508> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
+  .addField(`${member.user} **adlı üyeye** <@&kızrolid> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
   .setTimestamp()
   return message.channel.send(embed).then(kanal.send(embed1))
