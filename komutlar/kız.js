@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const db = require("quick.db")
 exports.run = async (client, message, args) => {
- if (!message.member.roles.has('704273133426704404') && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
+ if (!message.member.roles.has('YetkiliRolİD') && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
   let kullanıcı = message.mentions.users.first()
   if (!kullanıcı) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bir üye etiketlemelisin!').setColor("Black"));
   let user = message.mentions.users.first();
@@ -12,19 +12,19 @@ exports.run = async (client, message, args) => {
       if(!isim) return message.channel.send("Lütfen bir isim girin!").then(m => m.delete(5000));
    let yas = args[2];
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
-await member.setNickname(`${isim} | ${yas}`);
-  member.addRole("704273141429567508"); //Kız Rolü İD
-  member.removeRole("704279651903602748"); //kayıtsız Rolü İD
-  message.react('704329294595358723')
-     const kanal = message.guild.channels.find(c => c.id == "704273096063844404") 
+await member.setNickname(` ${isim} | ${yas}`);
+  member.addRole("İD"); //Kadın Rol İd
+  member.removeRole("İD"); //kayıtsız Rol İd
+  message.react('İD') //Emoji İD
+     const kanal = message.guild.channels.find(c => c.id == "İD")  //LOG KANALI
     const embed1 = new Discord.RichEmbed() 
-    .addField(`${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
+    .addField(`Kob'a`, `<a:699246114028912670:703599459870834778>  ${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
     .setColor("BLACK")
     .setFooter(message.author.tag ,message.author.avatarURL)
     .setTimestamp()
   let embed = new Discord.RichEmbed() 
   .setColor("BLACK")
-  .addField(`${member.user} **adlı üyeye** <@&704273141429567508> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
+  .addField(`Kob'a`, `<a:698556804795465820:703599475607863296> ${member.user} **adlı üyeye** <@&703588858348175391> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
   .setTimestamp()
   return message.channel.send(embed).then(kanal.send(embed1))
@@ -32,12 +32,12 @@ await member.setNickname(`${isim} | ${yas}`);
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["k" , "kadın"],
+  aliases: ["k"],
   kategori: "Yetkili Komutları",
   permLevel: 0
 }
 exports.help = {
-  name: 'kadın',
+  name: 'kullanıcı',
   description: "Sunucuya kaydolmaya ne dersin ?",
   usage: 'kayıt isim yaş'
 } 
