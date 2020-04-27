@@ -64,7 +64,7 @@ client.reload = command => {
 
 client.on('message', async (msg, member, guild) => {
   if (msg.content.toLowerCase() === "sa") {
-    msg.reply("**Aleyküm Selam Hoşgeldin  <a:white_check_mark:704280109775061033>** ");
+    msg.reply("**Aleyküm Selam Hoşgeldin  <a:white_check_mark:704339111095435354>** ");
   }
 });
 

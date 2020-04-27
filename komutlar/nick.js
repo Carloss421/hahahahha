@@ -17,7 +17,7 @@ const embed = new Discord.RichEmbed()
 .setDescription(`${member} **kişisinin ismi başarıyla değiştirildi.** `)
 .setFooter(` Komutu Kullanan: ${message.author.tag}` , `${message.author.avatarURL}`)
 .setColor('RANDOM')
-message.react('704329294595358723')
+message.react('704339111095435354')
 message.channel.send(embed).then(m =>m.delete(10000))
 };
 

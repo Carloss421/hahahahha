@@ -13,18 +13,18 @@ exports.run = async (client, message, args) => {
    let yas = args[2];
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
 await member.setNickname(` ${isim} | ${yas}`);
-  member.addRole("İD"); //Kadın Rol İd
-  member.removeRole("İD"); //kayıtsız Rol İd
-  message.react('İD') //Emoji İD
-     const kanal = message.guild.channels.find(c => c.id == "İD")  //LOG KANALI
+  member.addRole("704273141429567508"); //Kadın Rol İd
+  member.removeRole("704279651903602748"); //kayıtsız Rol İd
+  message.react('704339111095435354') //Emoji İD
+     const kanal = message.guild.channels.find(c => c.id == "704273096063844404")  //LOG KANALI
     const embed1 = new Discord.RichEmbed() 
-    .addField(`Kob'a`, `<a:699246114028912670:703599459870834778>  ${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
+    .addField(`Kob'a  ${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
     .setColor("BLACK")
     .setFooter(message.author.tag ,message.author.avatarURL)
     .setTimestamp()
   let embed = new Discord.RichEmbed() 
   .setColor("BLACK")
-  .addField(`Kob'a`, `<a:698556804795465820:703599475607863296> ${member.user} **adlı üyeye** <@&703588858348175391> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
+  .addField(`Kob'a${member.user} **adlı üyeye** <@&703588858348175391> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
   .setTimestamp()
   return message.channel.send(embed).then(kanal.send(embed1))
