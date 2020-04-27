@@ -135,3 +135,4 @@ Davet linkimiz:** https://discord.gg/NP7Ar2j `);
   
 }); 
 
+client.login(ayarlar.token);
