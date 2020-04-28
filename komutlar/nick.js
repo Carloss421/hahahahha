@@ -2,7 +2,7 @@
 
 exports.run = async (client, message, args) => {
 
-if(!message.member.roles.has("İD")) return message.channel.send(`**bu komutu kullanabilmek için Gerekli Yetkiye sahip olmasınız.**`);
+if(!message.member.roles.has("704679594120183930")) return message.channel.send(`**bu komutu kullanabilmek için Gerekli Yetkiye sahip olmasınız.**`);
 let user = message.mentions.users.first() || client.users.get(args[0]) || message.author  
 let member = message.mentions.members.first()
 let isim = args.slice(1).join(" ")
@@ -17,7 +17,7 @@ const embed = new Discord.RichEmbed()
 .setDescription(`${member} **kişisinin ismi başarıyla değiştirildi.** `)
 .setFooter(` Komutu Kullanan: ${message.author.tag}` , `${message.author.avatarURL}`)
 .setColor('RANDOM')
-message.react('İD') //emoji id
+message.react('704682052133584917') //emoji id
 message.channel.send(embed).then(m =>m.delete(10000))
 };
 
