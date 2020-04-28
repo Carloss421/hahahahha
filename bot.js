@@ -60,13 +60,15 @@ client.reload = command => {
   });
 };
 
-
+////////////////////İsterseniz Aşağıdaki Komutu Silebilirsiniz///////////////////////
 
 client.on('message', async (msg, member, guild) => {
   if (msg.content.toLowerCase() === "sa") {
     msg.reply("**Aleyküm Selam Hoşgeldin  <a:white_check_mark:704619926324903987>** ");
   }
 });
+
+////////////////////İsterseniz Yukarıdaki Komutu Silebilirsiniz///////////////////////
 
 client.load = command => {
   return new Promise((resolve, reject) => {
@@ -124,7 +126,7 @@ client.on("error", e => {
 });
 
 
-
+////////////////////////Aşağıdaki Yazıyı Değiştirebilirsiniz///////////////////////
 
 client.on('guildMemberAdd', member => {
  member.send(`**Sunucumuza hoşgeldin,
@@ -134,5 +136,7 @@ client.on('guildMemberAdd', member => {
 Davet linkimiz:** https://discord.gg/NP7Ar2j `);
   
 }); 
+
+//////////////////////////Hata Alırsanız Discorddan Bildirebilirsiniz//////////////
 
 client.login(ayarlar.token);
