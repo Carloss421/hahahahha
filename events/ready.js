@@ -9,7 +9,7 @@ module.exports = client => {
 }, 8000);
 client.user.setPresence({
         game: {
-            name: `Değiştirin`,
+            name: `Değiştirebilirsiniz`,
             type: 'Watching'
         },
         status: 'idle'

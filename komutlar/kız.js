@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const db = require("quick.db")
 exports.run = async (client, message, args) => {
- if (!message.member.roles.has('704679594120183930') && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
+ if (!message.member.roles.has('İD') && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
   let kullanıcı = message.mentions.users.first()
   if (!kullanıcı) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bir üye etiketlemelisin!').setColor("Black"));
   let user = message.mentions.users.first();
@@ -13,10 +13,10 @@ exports.run = async (client, message, args) => {
    let yas = args[2];
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
 await member.setNickname(` ${isim} | ${yas}`);
-  member.addRole("704679595156307987"); //kadın,kız Rol id
-  member.removeRole("704679697623154769"); //kayıtsız id
-  message.react('704682052133584917') //emojiid
-     const kanal = message.guild.channels.find(c => c.id == "704679559290814544")  //LOG İD
+  member.addRole("İD"); //kadın,kız Rol id
+  member.removeRole("İD"); //kayıtsız id
+  message.react('İD') //emojiid
+     const kanal = message.guild.channels.find(c => c.id == "İD")  //LOG İD
     const embed1 = new Discord.RichEmbed() 
     .addField(`Kob's`, `<a:white_check_mark:704682052133584917>  ${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
     .setColor("BLACK")
@@ -24,7 +24,7 @@ await member.setNickname(` ${isim} | ${yas}`);
     .setTimestamp()
   let embed = new Discord.RichEmbed() 
   .setColor("BLACK")
-  .addField(`Kob's`, `<a:white_check_mark:704682052133584917> ${member.user} **adlı üyeye** <@&704679595156307987> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
+  .addField(`Kob's`, `<a:white_check_mark:704682052133584917> ${member.user} **adlı üyeye** <@&İD> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
   .setTimestamp()
   return message.channel.send(embed).then(kanal.send(embed1))
