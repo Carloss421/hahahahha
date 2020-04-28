@@ -9,7 +9,7 @@ module.exports = client => {
 }, 8000);
 client.user.setPresence({
         game: {
-            name: `Medusa Krallığını İzliyor`,
+            name: `youtube.com/OgünSert Kob's`,
             type: 'Watching'
         },
         status: 'idle'

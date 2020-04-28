@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const db = require("quick.db")
 exports.run = async (client, message, args) => {
- if (!message.member.roles.has('İD') && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
+ if (!message.member.roles.has('704273133426704404') && !message.member.hasPermission('ADMINISTRATOR')) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!').setColor("Black"));
   let kullanıcı = message.mentions.users.first()
   if (!kullanıcı) return message.channel.sendEmbed(new Discord.RichEmbed().setDescription('Bir üye etiketlemelisin!').setColor("Black"));
   let user = message.mentions.users.first();
@@ -12,10 +12,10 @@ exports.run = async (client, message, args) => {
    let yas = args[2];
       if(!yas) return message.channel.send("Lütfen bir yaş girin!")
 await member.setNickname(` ${isim} | ${yas}`);
-  member.addRole("İD"); //erkek rol id
-  member.removeRole("İD"); //kayıtsız rol id
-  message.react('İD') //Emojiid
-     const kanal = message.guild.channels.find(c => c.id == "İD") //LOGİD
+  member.addRole("704273135645622302"); //erkek rol id
+  member.removeRole("704279651903602748"); //kayıtsız rol id
+  message.react('704619264472121384') //Emojiid
+     const kanal = message.guild.channels.find(c => c.id == "704273096063844404") //LOGİD
     const embed1 = new Discord.RichEmbed() 
     .addField(`Kob's`, `<a:white_check_mark:704339111095435354>  ${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
     .setColor("RED")
