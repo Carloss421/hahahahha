@@ -17,13 +17,13 @@ await member.setNickname(` ${isim} | ${yas}`);
   message.react('704619264472121384') //Emojiid
      const kanal = message.guild.channels.find(c => c.id == "704273096063844404") //LOGİD
     const embed1 = new Discord.RichEmbed() 
-    .addField(`Kob's`, `<a:white_check_mark:704339111095435354>  ${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
+    .addField(`Kob's`, `<a:white_check_mark:704619926324903987>  ${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
     .setColor("RED")
     .setFooter(message.author.tag ,message.author.avatarURL)
     .setTimestamp()
   let embed = new Discord.RichEmbed() 
   .setColor("PİNK")
-  .addField(`Kob's`, `<a:white_check_mark:704339111095435354> ${member.user} **adlı üyeye** <@&704273135645622302> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
+  .addField(`Kob's`, `<a:white_check_mark:704619926324903987> ${member.user} **adlı üyeye** <@&704273135645622302> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
   .setTimestamp()
   return message.channel.send(embed).then(kanal.send(embed1))

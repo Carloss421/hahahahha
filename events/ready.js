@@ -9,7 +9,7 @@ module.exports = client => {
 }, 8000);
 client.user.setPresence({
         game: {
-            name: `youtube.com/OgünSert Kob's`,
+            name: `Hepiniz Hoşgeldiniz`,
             type: 'Watching'
         },
         status: 'idle'
