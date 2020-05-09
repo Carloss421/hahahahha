@@ -9,10 +9,10 @@ module.exports = client => {
 }, 8000);
 client.user.setPresence({
         game: {
-            name: `Değiştirebilirsiniz`,
-            type: 'Watching'
+            name: `RegisterBot Dönem#DİRİLİŞ AliBerat#9480 sahibim`,
+            type: 'Playing'
         },
-        status: 'idle'
+        status: 'Online'
     })
     console.log(`[BOT]: Giriş Yaptı! Komutlar Yüklendi galiba!`);
 }
