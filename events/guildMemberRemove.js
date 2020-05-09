@@ -3,3 +3,4 @@ module.exports = member => {
   member.send('niye gittin?');
   guild.defaultChannel.send(`${member.user.username} gitti.`);
 };
+  
