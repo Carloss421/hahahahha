@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const http = require('http');
-    app.get("/",(request, response) => {
+    app.get(".",(request, response) => {
       console.log(`pingleme işlemi başarılı başarılıysa bu yazıyı loglarda görürsün`);
       response.sendStatus(200);
     });
@@ -131,9 +131,9 @@ client.on("error", e => {
 client.on('guildMemberAdd', member => {
  member.send(`**Sunucumuza hoşgeldin,
 
-                 \Abone Olmayı Unutmayınız
+                 
  
-Davet linkimiz:** https://discord.gg/NP7Ar2j `);
+Davet linkimiz:** https://discord.gg/YR8BnDB `);
   
 }); 
 

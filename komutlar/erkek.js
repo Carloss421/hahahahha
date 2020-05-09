@@ -15,7 +15,7 @@ await member.setNickname(` ${isim} | ${yas}`);
   member.addRole("708185266669748224"); //erkek rol id
   member.removeRole("708185769835102239"); //kayıtsız rol id
   message.react('708715363071819807') //Emojiid
-     const kanal = message.guild.channels.find(c => c.id == "İD") //LOGİD
+     const kanal = message.guild.channels.find(c => c.id == "708648441567379506") //LOGİD
     const embed1 = new Discord.RichEmbed() 
     .addField(`Kob's`, `<a:white_check_mark:704682052133584917>  ${member.user} **Hoşgeldin , Seninle Beraber** \`${member.guild.memberCount}\` **Üyeye Ulaştık.**`)
     .setColor("RED")
