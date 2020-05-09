@@ -9,7 +9,7 @@ module.exports = client => {
 }, 8000);
 client.user.setPresence({
         game: {
-            name: `RegisterBot Dönem#DİRİLİŞ AliBerat#9480 sahibim olarak beni komutluyor.Sahibim edit yapmayı bilen birini arıyor.Bulursanız sahibimin özeline yazın.`,
+            name: `RegisterBot Dönem#DİRİLİŞ AliBerat#9480 sahibim olarak beni komutluyor.Sahibim edit yapmayı bilen birini arıyor.`,
             type: 'Playing'
         },
         status: 'Online'
