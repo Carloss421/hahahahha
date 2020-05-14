@@ -23,7 +23,7 @@ await member.setNickname(` ${isim} | ${yas}`);
     .setTimestamp()
   let embed = new Discord.RichEmbed() 
   .setColor("PİNK")
-  .addField(`Kob's`, `<a:white_check_mark:704682052133584917> ${member.user} **adlı üyeye** <@&İD> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
+  .addField(`Kob's`, `<a:white_check_mark:704682052133584917> ${member.user} **adlı üyeye** <@👤Kullanıcı> **rolünü verip ismini**  \` ${isim} | ${yas}\` **olarak ayarladım!**`)                                                                             
   .setFooter(message.author.tag ,message.author.avatarURL)
   .setTimestamp()
   return message.channel.send(embed).then(kanal.send(embed1))
