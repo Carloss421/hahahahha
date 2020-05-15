@@ -20,7 +20,7 @@ exports.conf = {
   permLevel: 4
 };
 exports.help = {
-  name: 'karalist',
+  name: 'karaliste',
   description: '[Admin Komutu]',
   usage: 'karaliste <ID>'
 }; 
