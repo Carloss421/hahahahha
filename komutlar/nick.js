@@ -2,7 +2,7 @@
 
 exports.run = async (client, message, args) => {
 
-if(!message.member.roles.has("708184972296585246")) return message.channel.send(`**bu komutu kullanabilmek için Gerekli Yetkiye sahip olmasınız.**`);
+if(!message.member.roles.has("826001720567398411")) return message.channel.send(`**bu komutu kullanabilmek için Gerekli Yetkiye sahip olmasınız.**`);
 let user = message.mentions.users.first() || client.users.get(args[0]) || message.author  
 let member = message.mentions.members.first()
 let isim = args.slice(1).join(" ")
