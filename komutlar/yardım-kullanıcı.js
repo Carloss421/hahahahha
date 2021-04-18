@@ -9,10 +9,10 @@ let embed = new Discord.MessageEmbed()
 👤 \`${ayarlar.prefix}kullanıcı-bilgi\` kullanıcı'nın bilgilerine bakarsınız.
 📊 \`${ayarlar.prefix}sunucu-bilgi\` sunucu'nun bilgilerine bakarsınız.
 🔮 \`${ayarlar.prefix}rol-bilgi\` rol'ün bilgilerine bakarsınız.
-🧰 \`${ayarlar.prefix}canlı-destek\` Destek alırsın
-
-
-`)
+🧰 \`${ayarlar.prefix}canlı-destek\` Destek alırsınız. Troll amaçlı kullanılırsa karalisteye alınırsınız.
+⚠️ \`${ayarlar.prefix}hata-bildir\` Hatayı, açığı bildirebilirsiniz.
+📝 \`${ayarlar.prefix}öneri\` Bot için öneri'de bulunursunuz.`)
+message.channel.send(embed)
 };
 
 exports.conf = {
