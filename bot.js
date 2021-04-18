@@ -145,7 +145,7 @@ client.on("message", async message => {
       return message.channel.send(new Discord.MessageEmbed()
         
         .setDescription(`
-  \`${message.author}\`\`${kullanıcı.tag}\``, " afa. Sebep :",` \`${sebep}\``)
+  \`${message.author}\`\`${kullanıcı.tag}\``, " afk moduna girdi. Sebep :",` \`${sebep}\``)
       );
   }
   if (!message.content.includes(`<@${kullanıcı.id}>`)) {

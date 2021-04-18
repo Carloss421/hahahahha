@@ -8,7 +8,7 @@ let isim = args.slice(1).join(" ")
 if (!sebep) 
 return message.channel.send(`Afk olmak için bir sebep yazmalısın.`) 
 db.set(`afk_${user.id}`, sebep) 
-message.channel.send(`Şu anda \`${sebep}\` sebebiyle AFK'sın.`) 
+message.channel.send(`Şu anda \`${sebep}\` sebebiyle AFK moduna girdi.`) 
 };
 
 exports.conf = { 
