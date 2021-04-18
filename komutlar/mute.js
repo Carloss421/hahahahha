@@ -3,7 +3,7 @@ const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.member.hasPermissions('KICK_MEMBERS')) return message.channel.send("Komudu Kullanmak İçin Üyeleri At Yetkisine Sahip Olmalısın.")
+    if (!message.member.hasPermissions ('KICK_MEMBERS')) return message.channel.send("Komudu Kullanmak İçin Üyeleri At Yetkisine Sahip Olmalısın.")
     const mod = message.author;
     let guild = message.guild
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -11,13 +11,13 @@ module.exports.run = async (bot, message, args) => {
     let reason = message.content.split(" ").slice(2).join(" ");
     let modlog = guild.channels.find('name', 'cezalog');
     if (!modlog) return message.reply('`cezalog` kanalını bulamıyorum.');
-    if (!reason) return message.channel.sendEmbed(new Discord.RichEmbed().setAuthor('Hata').setDecription('Hapis Sebebini Yazman Gerek').setColor('RANDOM'))
-    let muterole = message.guild.roles.find(`name`, "Jail");
+    if (!reason) return message.channel.sendEmbed(new Discord.RichEmbed().setAuthor('Hata').setDecription('Mute Sebebini Yazman Gerek').setColor('RANDOM'))
+    let muterole = message.guild.roles.find(`name`, "Susturuldu");
   if (!muterole) {
         try {
             muterole = await message.guild.createRole({
-                name: "Jail",
-                color: "RED",
+                name: "Susturuldu",
+                color: "GREY",
                 permissions: ["VIEW_CHANNELS"]
             })
             message.guild.channels.forEach(async (channel, id) => {
@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
 
     await (user.addRole(muterole.id));
     const muteembed = new Discord.RichEmbed()
-            .setAuthor('Eylem: Hapis')
+            .setAuthor('Eylem: Susturma')
             .addField('Kullanıcı:', `<@${user.id}>`)
             .addField('Sebep:', `${reason}`)
             .addField('Yetkili:', `${mod}`)
