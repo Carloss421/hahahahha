@@ -24,7 +24,7 @@ let ekonomi = new Discord.MessageEmbed()
 ~~\`a!çalış\`      Rastgele bir işte çalışıp maaş alırsınız.~~
 ~~\`a!yatır\`      Kendi cüzdanınızdan bankaya para yatırırsınız.~~
 ~~\`a!çek\`        Bankadan kendi cüzdanınıza para çekersiniz.~~
-~~\`a!çal\`        Etiketlediğiniz kişinin cüzdanından para çalarsınız.~~~~
+~~\`a!çal\`        Etiketlediğiniz kişinin cüzdanından para çalarsınız.~~
 
 **🎲 | Oyun Komutları**
 

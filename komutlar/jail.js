@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
     }
 
     await (user.addRole(muterole.id));
-    const muteembed = new Discord.RichEmbed()
+    const muteembed = new Discord.MessageEmbed()
             .setAuthor('Eylem: Hapis')
             .addField('Kullanıcı:', `<@${user.id}>`)
             .addField('Sebep:', `${reason}`)
