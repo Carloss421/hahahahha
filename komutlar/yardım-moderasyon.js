@@ -15,7 +15,11 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}spam-engel | aç - kapat\` Spam engeli açar,kapatır.
 \`${ayarlar.prefix}sil | a!sil 100\` Belirtilen miktar kadar siler.
 \`${ayarlar.prefix}sayaç | sayaç-ayarla\` Sayaç ayarlar,sıfırlar.
-Komutu kullanmayı bilmeyenler \`a!sayaç-yardım\` komutunu kullanarak kurabilirler.
+\`${ayarlar.prefix}kanal-koruma | aç - kapat\` Kanal korumayı açar,kapatır.
+\`${ayarlar.prefix}rol-koruma | aç - kapat\` Rol korumayı açar,kapatır.
+
+**Otorol** Komutunu kullanmayı bilmeyenler \`a!otorol-yardım\` komutunu kullanarak kurabilirler.
+**Sayaç** Komutunu kullanmayı bilmeyenler \`a!sayaç-yardım\` komutunu kullanarak kurabilirler.
 
 Burada çok fazla komut olduğu için ~~\`a!moderasyon2\`~~ **(YAKINDA!)** yazarak öbür komutlara bakabilirsiniz.`)
 message.channel.send(embed)
