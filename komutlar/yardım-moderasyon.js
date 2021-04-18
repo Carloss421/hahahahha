@@ -14,7 +14,7 @@ const embed = new Discord.MessageEmbed()
 .addField(`:recycle:・\`${ayarlar.prefix}otorol | otorol-ayarla | otorol-sıfırla\``,`Otorol ayarlar,sıfırlar.`,true)
 .addField(`:no_enrty:・\`${ayarlar.prefix}spam-engel | aç - kapat\``,`Spam engeli açar,kapatır.`,true)
 .setFooter("Burada çok fazla komut olduğu için ~~`a!moderasyon2`~~ **(YAKINDA!)** yazarak öbür komutlara bakabilirsiniz.")
-
+message.channel.send(embed)
 };
 
 exports.conf = {

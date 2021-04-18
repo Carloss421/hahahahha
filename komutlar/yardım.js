@@ -15,7 +15,7 @@ komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyors
 .addField(`:money_with_wings:・ekonomi menüsü: \`${ayarlar.prefix}yardım-ekonomi\``,`Eğlence amaçlı ayalarnamıştır.`,true)
 .addField(`:keyboard:・yapımcı menüsü: \`${ayarlar.prefix}yardım-yapımcı | ${ayarlar.prefix}yardım-owner\``,`Yapımcı'nın kullanabiliceği komutları açar.`,true)
 .addField(`:bell:・güncelleme menüsü: \`${ayarlar.prefix}yardım-güncelleme | ${ayarlar.prefix}yardım-uptade\``,`Bot'a genel güncellemeleri gösterir`,true)
-
+message.channel.send(embed)
 };
 
 exports.conf = {

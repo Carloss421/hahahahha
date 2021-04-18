@@ -1,46 +1,41 @@
 const Discord = require('discord.js')
 exports.run = function(client, message, args) {
 let yardim = new Discord.MessageEmbed()
-.setTitle("Ovanakovic Yardım Menüsü")
 .setColor("RANDOM")
 .addField("💰 | Ekonomi",`
-**\`!yardım ekonomi\`** - Ekonomi Komutları Hakkında Yardım Alırsınız
+**\`a!yardım ekonomi\`** - Ekonomi Komutları Hakkında Yardım Alırsınız
 
 \`günlük\`, \`çalış\`, \`soygun\`, \`yatır\`, \`çek\`, \`gönder\``)
 .addField("🎲 | Oyunlar",`
-**\`!yardım oyunlar\`** - Oyunlar Komutları Hakkında Yardım Alırsınız
+**\`a!yardım oyunlar\`** - Oyunlar Komutları Hakkında Yardım Alırsınız
 
 \`balık-tut\`, \`bahis\`, \`slot\``)
-.addField("💼 | Destek",`
-**\`!yardım destek\`** - Destek Komutları Hakkında Yardım Alırsınız
 
-\`davet\`, \`yapımcım\`, \`destek\`,\`yardım\`
-
-`)
 
 let ekonomi = new Discord.MessageEmbed()
 .setTitle("💰 | Ekonomi Komutları")
 .setColor("RANDOM")
 .setDescription(`
-\`!günlük\`    =>  24 saat aralıkla günlük bir ödül alırsınız.
-\`!para\`      =>  Etiketlediğiniz kişinin veya kendi paranızı görürsünüz.
-\`!gönder\`    =>  Etiketlediğiniz kullanıcıya para gönderirsiniz.
-\`!soygun\`    =>  10 dakikada bir soygun yaparsınız.
-\`!çalış\`     =>  Rastgele bir işte çalışıp maaş alırsınız.
-\`!yatır\`     =>  Kendi cüzdanınızdan bankaya para yatırırsınız.
-\`!çek\`       =>  Bankadan kendi cüzdanınıza para çekersiniz.
-\`!çal\`       =>  Etiketlediğiniz kişinin cüzdanından para çalarsınız.\n
-• [Destek Sunucumuz](Destek Sunucunuzun Sınırsız Davet Linki)`)
+\`a!günlük\`     24 saat aralıkla günlük bir ödül alırsınız.
+\`a!para\`       Etiketlediğiniz kişinin veya kendi paranızı görürsünüz.
+\`a!gönder\`     Etiketlediğiniz kullanıcıya para gönderirsiniz.
+\`a!soygun\`     10 dakikada bir soygun yaparsınız.
+\`a!çalış\`      Rastgele bir işte çalışıp maaş alırsınız.
+\`a!yatır\`      Kendi cüzdanınızdan bankaya para yatırırsınız.
+\`a!çek\`        Bankadan kendi cüzdanınıza para çekersiniz.
+\`a!çal\`        Etiketlediğiniz kişinin cüzdanından para çalarsınız.
+[Destek Sunucumuz](https://discord.gg/NAzGC2cxXR)`)
+message.channel.send(ekonomi)
 
 let oyunlar = new Discord.MessageEmbed()
 .setTitle("🎲 | Oyun Komutları")
 .setColor("RANDOM")
 .setDescription(`
-\`!bahis\`     =>  Bahis oynarsınız, para kaybeder veya 2 katını kazanırsınız.
-\`!slot\`      =>  Slots oynarsınız, para kaybeder veya 2 katını kazanırsınız.
-\`!balık-tut\` =>  Balık tutarsınız, rastgele para kazanırsınız veya kaybedersiniz.\n
-[Destek Sunucumuz](Destek Sunucunuzun Sınırsız Davet Linki)`)
-
+\`a!bahis\`     :  Bahis oynarsınız, para kaybeder veya 2 katını kazanırsınız.
+\`a!slot\`      :  Slots oynarsınız, para kaybeder veya 2 katını kazanırsınız.
+\`a!balık-tut\` :  Balık tutarsınız, rastgele para kazanırsınız veya kaybedersiniz.
+[Destek Sunucumuz](https://discord.gg/NAzGC2cxXR)`)
+message.channel.send(oyunlar)
   
 };
 

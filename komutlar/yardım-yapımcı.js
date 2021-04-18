@@ -14,7 +14,7 @@ const embed = new Discord.MessageEmbed()
 .addField(`:arrows_counterclockwise:・\`${ayarlar.prefix}reboot\``,`Bot'u yeniden başlatır.`,true)
 .addField(`:low_brightness:・\`${ayarlar.prefix}premium | ver - al\``,`ID'si belirtilen kullanıcıya premium verir.`,true)
 .addField(`:high_brightness:・\`${ayarlar.prefix}premium-sunucu | ver - al\``,`ID'si belirtilen sunucuya premium verir.`,true)
-
+message.channel.send(embed)
 };
 
 exports.conf = {
