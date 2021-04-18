@@ -3,17 +3,16 @@ const ayarlar = require('../ayarlar.json')
 
 exports.run = function(client, message, args) {
 let embed = new Discord.MessageEmbed()
-let users = client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()
-let servers = client.guilds.cache.size
 .setTitle("Alvi - Bot")
 .setColor("RANDOM")
 .setDescription(`
-**Linkler;**
-[Davet Linki]() - [Destek Sunucusu Linki]() - OyVer linki**(YAKINDA!)**
 
-Toplam Kullanıcı Sayısı:  \`${users}\`
-Toplam Sunucu Sayısı: \`\`
+[Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - OyVer **(YAKINDA!)**
+
+Ping: ${client.ws.ping}ms - Developer by <@${ayarlar.ownerID}>
+
 `)
+message.channel.send(embed)
 };
 
 exports.conf = {
@@ -24,4 +23,4 @@ exports.conf = {
 };
 exports.help = {
   name: "yardım-bot"
-}
+};
