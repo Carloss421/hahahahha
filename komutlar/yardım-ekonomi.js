@@ -13,9 +13,10 @@ let yardim = new Discord.MessageEmbed()
 
 
 let ekonomi = new Discord.MessageEmbed()
-.setTitle("💰 | Ekonomi Komutları")
 .setColor("RANDOM")
 .setDescription(`
+**💰 | Ekonomi Komutları**
+
 \`a!günlük\`     24 saat aralıkla günlük bir ödül alırsınız.
 \`a!para\`       Etiketlediğiniz kişinin veya kendi paranızı görürsünüz.
 \`a!gönder\`     Etiketlediğiniz kullanıcıya para gönderirsiniz.
@@ -24,18 +25,15 @@ let ekonomi = new Discord.MessageEmbed()
 \`a!yatır\`      Kendi cüzdanınızdan bankaya para yatırırsınız.
 \`a!çek\`        Bankadan kendi cüzdanınıza para çekersiniz.
 \`a!çal\`        Etiketlediğiniz kişinin cüzdanından para çalarsınız.
-[Destek Sunucumuz](https://discord.gg/NAzGC2cxXR)`)
-message.channel.send(ekonomi)
 
-let oyunlar = new Discord.MessageEmbed()
-.setTitle("🎲 | Oyun Komutları")
-.setColor("RANDOM")
-.setDescription(`
+**🎲 | Oyun Komutları**
+
 \`a!bahis\`     :  Bahis oynarsınız, para kaybeder veya 2 katını kazanırsınız.
 \`a!slot\`      :  Slots oynarsınız, para kaybeder veya 2 katını kazanırsınız.
 \`a!balık-tut\` :  Balık tutarsınız, rastgele para kazanırsınız veya kaybedersiniz.
+
 [Destek Sunucumuz](https://discord.gg/NAzGC2cxXR)`)
-message.channel.send(oyunlar)
+message.channel.send(ekonomi)
   
 };
 

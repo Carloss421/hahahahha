@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
-const embed = new Discord.MessageEmbed()
+let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon`)
 .setColor(`#add8e6`)
 .setDescription(`
