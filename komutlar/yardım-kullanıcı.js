@@ -12,7 +12,7 @@ let embed = new Discord.MessageEmbed()
 🧰 \`${ayarlar.prefix}canlı-destek\` Destek alırsınız. Troll amaçlı kullanılırsa karalisteye alınırsınız.
 ⚠️ \`${ayarlar.prefix}hata-bildir\` Hatayı, açığı bildirebilirsiniz.
 📝 \`${ayarlar.prefix}öneri\` Bot için öneri'de bulunursunuz.
-:information_source: \`\`
+:information_source: \`${ayarlar.prefix}isstatistik\` Botun bilgilerini gösterir.
 `)
 message.channel.send(embed)
 };
