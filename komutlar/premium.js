@@ -69,7 +69,7 @@ if(message.author.id !== sahip) {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ['sevpre'],
+  aliases: ['servpre'],
   permLevel: 0
 }  
 
