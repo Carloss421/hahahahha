@@ -11,7 +11,7 @@ const embed = new Discord.MessageEmbed()
 .addField(`:monkey:・\`${ayarlar.prefix}maymun-ol\``,`Maymun olursunuz.`,true)
 .addField(`👑・\`${ayarlar.prefix}kral-ol\``,`Kral olursunuz.`,true)
 .addField(`:desktop:・\`${ayarlar.prefix}hackle\``,`Hacker olursunuz`,true)
-message.channel.send(embed)
+
 };
 
 exports.conf = {

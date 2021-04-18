@@ -86,6 +86,8 @@ client.unload = command => {
   });
 };
 
+
+
 const bot = new Discord.Client();
 
 var oyun = [
