@@ -9,12 +9,16 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 
-Bot'un Prefixi:** ${prefix}
-Bot'un Adı: ${botNAME}
-Bot'un Dili: :flag_tr:
-Sahip Adı: ${ayarlar.ownerNAME}
-Sahip ID: ${ayarlar.ownerID}
-Sahip Discord Nick: ${ayarlar.ownerDcname}
+**Bot'un Prefixi** \`${prefix}\`
+**Bot'un Adı** \`${botNAME}\`
+**Bot'un Dili** :flag_tr:
+**Sahip Adı** \`${ayarlar.ownerNAME}\`
+**Sahip ID** \`${ayarlar.ownerID}\`
+**Sahip Discord Nick** \`${ayarlar.ownerDcname}\`
+
+**Kodlandığı Uygulama** \`Visual Studi Code (VSC)\`
+**Kodlandığı Dil** \`Node.JS - Discord.JS - JavaScript\`
+**Toplam Üye Sayısı** 
 `)
 
 };
