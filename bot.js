@@ -2,27 +2,25 @@ const express = require('express');
 const app = express();
 const http = require('http');
     app.get(".",(request, response) => {
-      console.log(`pingleme işlemi başarılı başarılıysa bu yazıyı loglarda görürsün`);
+      console.log(`BOT AKTIF!`);
       response.sendStatus(200);
     });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+  http.get(`http://alvibotaltyapi.glitch.me/`);
 }, 280000);
-
+const Discord = require('discord.js');
+const client = new Discord.Client({ disableMentions: 'everyone' });
+const ayarlar = require('./ayarlar.json');
+const fs = require('fs');
+const moment = require('moment');
 const db = require('quick.db')
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const ayarlar = require("./ayarlar.json");
-const chalk = require("chalk");
-const fs = require("fs");
-const moment = require("moment"); 
-require("./util/eventLoader")(client);
+require('./util/eventLoader')(client);
 
 var prefix = ayarlar.prefix;
 
 const log = message => {
-  console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
 };
 
 client.commands = new Discord.Collection();
@@ -39,7 +37,6 @@ fs.readdir("./komutlar/", (err, files) => {
     });
   });
 });
-
 client.reload = command => {
   return new Promise((resolve, reject) => {
     try {
@@ -59,17 +56,6 @@ client.reload = command => {
     }
   });
 };
-
-////////////////////İsterseniz Aşağıdaki Komutu Silebilirsiniz///////////////////////
-
-client.on('message', async (msg, member, guild) => {
-  if (msg.content.toLowerCase() === "sa") {
-    msg.reply("**Aleyküm Selam Hoşgeldin  <a:white_check_mark:704682052133584917>** ");
-  }
-});
-
-////////////////////İsterseniz Yukarıdaki Komutu Silebilirsiniz///////////////////////
-
 client.load = command => {
   return new Promise((resolve, reject) => {
     try {
@@ -84,7 +70,6 @@ client.load = command => {
     }
   });
 };
-
 client.unload = command => {
   return new Promise((resolve, reject) => {
     try {
@@ -99,7 +84,28 @@ client.unload = command => {
       reject(e);
     }
   });
-  };
+};
+
+const bot = new Discord.Client();
+
+var oyun = [
+`🎀 Yardım almak için | a!yardım`,
+`🔔 Yeni Özellikler İçin | a!yardım-güncelleme`,
+`🤖 Botu eklemek için | a!bot`
+]
+  
+client.on("ready", () => {
+setInterval(function() {
+
+         var random = Math.floor(Math.random()*(oyun.length-0+1)+0);
+         client.user.setActivity(oyun[random], {"type": "PLAYING"});
+
+        }, 2 * 3500);
+    // Oynuyor - PLAYING
+    // Dinliyor - LISTENING
+    // İzliyor - WATCHING
+    // Dinleniyor - RERSTING    
+});
 
 client.elevation = message => {
   if (!message.guild) {
@@ -111,32 +117,5 @@ client.elevation = message => {
   if (message.author.id === ayarlar.sahip) permlvl = 4;
   return permlvl;
 };
-
-var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
-// client.on('debug', e => {
-//   console.log(chalk.bgBlue.green(e.replace(regToken, 'that was redacted')));
-// });
-
-client.on("warn", e => {
-  console.log(chalk.bgYellow(e.replace(regToken, "that was redacted")));
-});
-
-client.on("error", e => {
-  console.log(chalk.bgRed(e.replace(regToken, "that was redacted")));
-});
-
-
-////////////////////////Aşağıdaki Yazıyı Değiştirebilirsiniz///////////////////////
-
-client.on('guildMemberAdd', member => {
- member.send(`**Sunucumuza hoşgeldin,
-
-                 
- 
-Davet linkimiz:** https://discord.gg/YR8BnDB `);
-  
-}); 
-
-//////////////////////////Hata Alırsanız Discorddan Bildirebilirsiniz//////////////
 
 client.login(ayarlar.token);
