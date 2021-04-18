@@ -133,20 +133,24 @@ client.on("message", async message => {
   if (message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
       message.channel.send(
-        new Discord.MessageEmbed()
-        `\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`
+         new Discord.MessageEmbed()
+        
+      .setDescription(`${message.author.tag}\``,"adlı kullanıcı afk modundan çıktı. Afk Süresi:", afkdkullanıcı.setTimestamp())
+                           
       );
+      
       db.delete(`afk_${message.author.id}`);
     }
     if (afkkullanıcı)
-      return message.channel.send(
-        new Discord.MessageEmbed()
-        `${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``
+      return message.channel.send(new Discord.MessageEmbed()
+        
+        .setDescription(`
+  \`${message.author}\`\`${kullanıcı.tag}\``, " afa. Sebep :",` \`${sebep}\``)
       );
   }
   if (!message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
-      message.channel.sendEmbed(
+      message.channel.send(
         
         `\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`
       );
