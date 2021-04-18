@@ -121,3 +121,36 @@ client.elevation = message => {
 };
 
 client.login(ayarlar.token);
+
+client.on("message", async message => {
+  let prefix = ayarlar.prefix;
+  let kullanıcı = message.mentions.users.first() || message.author;
+  let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
+  let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`);
+  let sebep = afkkullanıcı;
+  if (message.author.bot) return;
+  if (message.content.includes(`${prefix}afk`)) return;
+  if (message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(
+        new Discord.MessageEmbed()
+        `\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`
+      );
+      db.delete(`afk_${message.author.id}`);
+    }
+    if (afkkullanıcı)
+      return message.channel.send(
+        new Discord.MessageEmbed()
+        `${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``
+      );
+  }
+  if (!message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.sendEmbed(
+        
+        `\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`
+      );
+      db.delete(`afk_${message.author.id}`);
+    }
+  }
+});
