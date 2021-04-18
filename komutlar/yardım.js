@@ -6,7 +6,9 @@ const embed = new Discord.MessageEmbed()
 .setTitle('Alvi - Yardım')
 .setColor('BLACK')
 .setImage('https://cdn.discordapp.com/attachments/826412435321126953/833210593602437191/alvi.PNG')
-.addField(`Alvi'de bulduğunuz hata,çalışmama veya açıkları bildirmek için **${ayarlar.prefix}hata-bildir**\nkomutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyorsanız [Destek Sunucumuza](https://discord.gg/NAzGC2cxXR) gelerekte bildirebilirsiniz.`)
+.addField(`
+Alvi'de bulduğunuz hata,çalışmama veya açıkları bildirmek için **${ayarlar.prefix}hata-bildir**
+komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyorsanız [Destek Sunucumuza](https://discord.gg/NAzGC2cxXR) gelerekte bildirebilirsiniz.`)
 .addField(`:bust_in_silhouette:・kullanıcı menüsü: \`${ayarlar.prefix}yardım-kullanıcı\``,`Kullanıcı menüsünü açar.`,true)
 .addField(`:gift:・eğlence menüsü: \`${ayarlar.prefix}yardım-eğlence\``,`Canı sıkılanlar için yararlı bir menü.`,true)
 .addField(`:man_police_officer:・ moderasyon menüsü: \`${ayarlar.prefix}yardım-moderasyon\``,`Yetkilere kolaylık olsun diye ayarlandı.`,true)
