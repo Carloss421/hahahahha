@@ -17,20 +17,20 @@ let ekonomi = new Discord.MessageEmbed()
 .setDescription(`
 **💰 | Ekonomi Komutları**
 
-\`a!günlük\`     24 saat aralıkla günlük bir ödül alırsınız.
-\`a!para\`       Etiketlediğiniz kişinin veya kendi paranızı görürsünüz.
-\`a!gönder\`     Etiketlediğiniz kullanıcıya para gönderirsiniz.
-\`a!soygun\`     10 dakikada bir soygun yaparsınız.
-\`a!çalış\`      Rastgele bir işte çalışıp maaş alırsınız.
-\`a!yatır\`      Kendi cüzdanınızdan bankaya para yatırırsınız.
-\`a!çek\`        Bankadan kendi cüzdanınıza para çekersiniz.
-\`a!çal\`        Etiketlediğiniz kişinin cüzdanından para çalarsınız.
+~~\`a!günlük\`     24 saat aralıkla günlük bir ödül alırsınız.~~
+~~\`a!para\`       Etiketlediğiniz kişinin veya kendi paranızı görürsünüz.~~
+~~\`a!gönder\`     Etiketlediğiniz kullanıcıya para gönderirsiniz.~~
+~~\`a!soygun\`     10 dakikada bir soygun yaparsınız.~~
+~~\`a!çalış\`      Rastgele bir işte çalışıp maaş alırsınız.~~
+~~\`a!yatır\`      Kendi cüzdanınızdan bankaya para yatırırsınız.~~
+~~\`a!çek\`        Bankadan kendi cüzdanınıza para çekersiniz.~~
+~~\`a!çal\`        Etiketlediğiniz kişinin cüzdanından para çalarsınız.~~~~
 
 **🎲 | Oyun Komutları**
 
-\`a!bahis\`     :  Bahis oynarsınız, para kaybeder veya 2 katını kazanırsınız.
-\`a!slot\`      :  Slots oynarsınız, para kaybeder veya 2 katını kazanırsınız.
-\`a!balık-tut\` :  Balık tutarsınız, rastgele para kazanırsınız veya kaybedersiniz.
+~~\`a!bahis\`      Bahis oynarsınız, para kaybeder veya 2 katını kazanırsınız.~~
+~~\`a!slot\`       Slots oynarsınız, para kaybeder veya 2 katını kazanırsınız.~~
+~~\`a!balık-tut\`  Balık tutarsınız, rastgele para kazanırsınız veya kaybedersiniz.~~
 
 [Destek Sunucumuz](https://discord.gg/NAzGC2cxXR)`)
 message.channel.send(ekonomi)
