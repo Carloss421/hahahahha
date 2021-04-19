@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json')
 const moment = require("moment");
 require("moment-duration-format");
 
-exports.run = function(client, message, args, bot) {
+exports.run = function(client, message, args, bot, size) {
     const duration = moment
     .duration(bot.uptime)
     .format("D [gün], H [saat], m [dakika], s [saniye]");
@@ -24,8 +24,7 @@ let embed = new Discord.MessageEmbed()
 **Bot Ping** \`${client.ping}ms\`
 **Toplam Üye Sayısı** \`Ölçülemedi\`
 **Toplam Sunucu Sayısı** \`${bot.guilds.size.toLocaleString()}\`
-**Toplam Kanal Sayısı** \`${bot.channels.size}\`
-**Toplam Komut Sayısı** \`${bot.commands.size}\`
+
 
 
 **Verileri alınan komutlar**
