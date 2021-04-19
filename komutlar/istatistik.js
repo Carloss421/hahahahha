@@ -21,7 +21,7 @@ let embed = new Discord.MessageEmbed()
 **Kodlandığı Dil** \`Node.JS - Discord.JS - JavaScript\`
 **Bot Uptime** \`${duration}\`
 **Bot Ping** \`${client.ws.ping}ms\`
-**Toplam Üye Sayısı** \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}\`
+**Toplam Üye Sayısı** \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} UYE [${client.guilds.cache.reduce((a, b) => a + b.botCount, 0).toLocaleString} BOT]\`
 **Toplam Sunucu Sayısı** \`${client.guilds.cache.size}\`
 **Toplam Kanal Sayısı** \`${client.channels.cache.size}\`
 **Verileri alınan komutlar**
