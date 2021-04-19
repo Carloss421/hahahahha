@@ -30,6 +30,7 @@ module.exports = message => {
 
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db');
+const Discord = require('discord.js')
 let talkedRecently = new Set();
 module.exports = async message => {
 if(message.author.bot) return
@@ -56,16 +57,15 @@ if(message.author.bot) return
   }
   if (cmd) {
   let bakım = await db.fetch('bakım');
-  if(message.author.id !== ayarlar.sahip){
-  if(message.author.id !== ayarlar.sahip2)
+  if(message.author.id !== ayarlar.ownerID){
+
 
     if(bakım){
-  return message.channel.send(`
+  return message.channel.send(new Discord.MessageEmbed().setDescription(`
   **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.
-  Bakım Sebebi: \`${bakım}\`
-  :arrows_counterclockwise: Lütfen Daha Sonra Tekrar Deneyin.**`)
-     }
-    }
+  ❓Bakım Sebebi: \`${bakım}\`
+  :arrows_counterclockwise: Lütfen Daha Sonra Tekrar Deneyin.**`).setColor("RANDOM"))
+                              }}
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }
