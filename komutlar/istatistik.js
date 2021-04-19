@@ -2,16 +2,11 @@ const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
 const moment = require("moment");
 require("moment-duration-format");
+
 exports.run = function(client, message, args, bot) {
     const duration = moment
     .duration(bot.uptime)
     .format("D [gün], H [saat], m [dakika], s [saniye]");
-let users = bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()
-let servers = bot.guilds.size.toLocaleString()
-let channels = bot.channels.size
-let commands = bot.commands.size
-
-
 let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - İstatistik")
 .setColor("RANDOM")
@@ -27,10 +22,10 @@ let embed = new Discord.MessageEmbed()
 **Kodlandığı Dil** \`Node.JS - Discord.JS - JavaScript\`
 **Bot Uptime** \`${duration}\` 
 **Bot Ping** \`${client.ping}ms\`
-**Toplam Üye Sayısı** \`${users}\`
-**Toplam Sunucu Sayısı** \`${servers}\`
-**Toplam Kanal Sayısı** \`${channels}\`
-**Toplam Komut Sayısı** \`${commands}\`
+**Toplam Üye Sayısı** \`Ölçülemedi\`
+**Toplam Sunucu Sayısı** \`${bot.guilds.size.toLocaleString()}\`
+**Toplam Kanal Sayısı** \`${bot.channels.size}\`
+**Toplam Komut Sayısı** \`${bot.commands.size}\`
 
 
 **Verileri alınan komutlar**
