@@ -32,7 +32,6 @@ let embed = new Discord.MessageEmbed()
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - cezalog - afk - jail - ban - mute\`
 \`Premium\`
-
 Veri depolaması fazla artarsa silineceketir!`)
 message.channel.send(embed)
 };
