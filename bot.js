@@ -147,9 +147,9 @@ client.on("message", async message => {
   }
   if (!message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
-      message.channel.send(new Discord.MessageEmbed().setDescription(`
-      <@${message.author.id}> adlı kullanıcı artık AFK modundan çıktı.`
-      ));
+      message.channel.send(new Discord.MessageEmbed().setDescription(
+`<@${message.author.id}>`,"**adlı kullanıcı artık afk modundan çıktı. Afk kalma süresi:**", afkdkullanıcı.setTimestamp())
+      );
       db.delete(`afk_${message.author.id}`);
     }
   }
