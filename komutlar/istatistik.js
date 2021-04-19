@@ -22,8 +22,8 @@ let embed = new Discord.MessageEmbed()
 **Kodlandığı Dil** \`Node.JS - Discord.JS - JavaScript\`
 
 **Bot Uptime** \`${duration}\`
-**Bot Ping** \`${client.ws.ping}ms\`
-**Bot Ping(Mesaj Gecikmesi)** \`\`
+**Bot Bot Gecikmesi** \`${client.ws.ping}ms\`
+**Bot Mesaj Gecikmesi** \`-${new Date().getTime() - message.createdTimestamp}ms\`
 
 **Toplam Üye Sayısı** \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}\`
 **Toplam Sunucu Sayısı** \`${client.guilds.cache.size}\`
@@ -31,6 +31,8 @@ let embed = new Discord.MessageEmbed()
 
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - cezalog - afk - jail - ban - mute\`
+\`Premium\`
+
 Veri depolaması fazla artarsa silineceketir!`)
 message.channel.send(embed)
 };

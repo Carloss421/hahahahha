@@ -1,4 +1,4 @@
-const ayarlar = require('../ayarlar.json');
+/*const ayarlar = require('../ayarlar.json');
 let talkedRecently = new Set();
 module.exports = message => {
   if (talkedRecently.has(message.author.id)) {
@@ -25,9 +25,9 @@ module.exports = message => {
     cmd.run(client, message, params, perms);
   }
 
-};
+};*/
 
-/*
+
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db');
 let talkedRecently = new Set();
@@ -71,4 +71,3 @@ if(message.author.bot) return
   }
 };
 
-*/

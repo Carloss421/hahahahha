@@ -1,7 +1,12 @@
 const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
+const moment = require('moment')
+require("moment-duration-format")
 
 exports.run = function(client, message, args) {
+  const duration = moment
+    .duration(client.uptime)
+    .format(" D [gün], H [saat], m [dakika], s [saniye]");
 let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Bot")
 .setColor("RANDOM")
@@ -9,7 +14,7 @@ let embed = new Discord.MessageEmbed()
 
 [Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - OyVer **(YAKINDA!)**
 
-Ping: ${client.ws.ping}ms - Developer by <@${ayarlar.ownerID}>
+Bot Uptime: **${duration}** Developer by <@${ayarlar.ownerID}>
 
 `)
 message.channel.send(embed)

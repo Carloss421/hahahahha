@@ -14,6 +14,8 @@ let embed = new Discord.MessageEmbed()
 📝 \`${ayarlar.prefix}öneri\` Bot için öneri'de bulunursunuz.
 :information_source: \`${ayarlar.prefix}istatistik\` Botun bilgilerini gösterir.
 :zzz: \`${ayarlar.prefix}afk\` Afk olursunuz.
+🧰 \`${ayarlar.prefix}hızlı-destek(PREMUIM)\` Çok çabuk destek alabilirsiniz.
+
 🔐 \`${ayarlar.prefix}premium-yardım\` premium özeliklerini fln görürsünüz.
 `)
 message.channel.send(embed)
