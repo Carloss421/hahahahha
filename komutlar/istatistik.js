@@ -14,16 +14,21 @@ let embed = new Discord.MessageEmbed()
 **Bot Prefix** \`a!\`
 **Bot İsmi** \`Alvi\`
 **Bot Dili** :flag_tr:
+
 **Sahip Adı** \`${ayarlar.ownerNAME}\`
 **Sahip ID** \`${ayarlar.ownerID}\`
 **Sahip Discord Nick** \`${ayarlar.ownerDcname}\`
 **Kodlandığı Uygulama** \`Visual Studio Code (VSC)\`
 **Kodlandığı Dil** \`Node.JS - Discord.JS - JavaScript\`
+
 **Bot Uptime** \`${duration}\`
 **Bot Ping** \`${client.ws.ping}ms\`
-**Toplam Üye Sayısı** \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} UYE [${client.guilds.cache.reduce((a, b) => a + b.botCount, 0).toLocaleString} BOT]\`
+**Bot Ping(Mesaj Gecikmesi)** \`\`
+
+**Toplam Üye Sayısı** \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}\`
 **Toplam Sunucu Sayısı** \`${client.guilds.cache.size}\`
 **Toplam Kanal Sayısı** \`${client.channels.cache.size}\`
+
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - cezalog - afk - jail - ban - mute\`
 Veri depolaması fazla artarsa silineceketir!`)
