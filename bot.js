@@ -133,7 +133,7 @@ client.on("message", async message => {
   if (message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
       message.channel.send(new Discord.MessageEmbed().setDescription(`
-   <@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi:`, afkdkullanıcı.setTimestamp())
+   <@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi:`, afkdkullanıcı.setTimestamp().setColor("RANDOM"))
                            
       );
       
@@ -141,15 +141,15 @@ client.on("message", async message => {
     }
     if (afkkullanıcı)
       return message.channel.send(new Discord.MessageEmbed().setDescription(`
-      <@${message.author.id}> afk moduna girdi. Sebep: \`${sebep}\``)
+      <@${message.author.id}> afk moduna girdi. Sebep: \`${sebep}\``).setColor("RANDOM")
       );
     
   }
   if (!message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
       message.channel.send(new Discord.MessageEmbed().setDescription(
-`<@${message.author.id}>`,"**adlı kullanıcı artık afk modundan çıktı. Afk kalma süresi:**", afkdkullanıcı.setTimestamp())
-      );
+`<@${message.author.id}>`,"**adlı kullanıcı artık afk modundan çıktı. Afk kalma süresi: **Yakında!**").setColor("RANDOM"))
+      
       db.delete(`afk_${message.author.id}`);
     }
   }
