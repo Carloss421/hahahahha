@@ -6,9 +6,9 @@ let sebep = args.join(" ")
 let member = message.mentions.members.first()
 let isim = args.slice(1).join(" ") 
 if (!sebep) 
-return message.channel.send(new Discord.MessageEmbed().addField(`Afk olmak için bir sebep yazmalısın.`))
+return message.channel.send(new Discord.MessageEmbed().setDescription(`**Afk olmak için bir sebep yazmalısın.**`))
 db.set(`afk_${user.id}`, sebep) 
-message.channel.send(new Discord.MessageEmbed().setDescription(`Şu anda \`${sebep}\` sebebiyle AFK moduna girdi.`)) 
+message.channel.send(new Discord.MessageEmbed().setDescription(`<@${message.author.id}> \`${sebep}\` **sebebiyle AFK moduna girdin.**`)) 
 };
 
 exports.conf = { 
