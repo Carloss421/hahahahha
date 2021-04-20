@@ -165,22 +165,26 @@ client.on("message", async message => {
 
 //     [-----------------> Otorol <------------------]  \\
 
-client.on("guildMemberAdd", async member => {
-  let kanal = await db.fetch(`otoRK_${member.guild.id}`);
-  let rol = await db.fetch(`otoRL_${member.guild.id}`);
-  let mesajGIRDI = db.fetch(`otoRM_${member.guild.id}`);
-  if (!rol) return;
+client.on('guildMemberAdd', async (member, guild, message) => {
 
-  if (!mesajGIRDI) {
-    client.channels.get(kanal).send(new Discord.MessageEmbed().setDescription(":inbox_tray: Otomatik Rol Verildi Seninle Beraber `" + member.guild.memberCount + "` Kişiyiz! Hoşgeldin! `" + member.user.username + "`").setColor("RANDOM"));
-    return member.addRole(rol);
-  }
+let role = await db.fetch(`otorolisim_${member.guild.id}`)
+let kanal = await db.fetch(``)
+ if (!otorol || otorol.toLowerCase() === 'yok') return;
+else {
+ try {
 
-  if (mesajGIRDI) {
-    var mesajs = mesajGIRDI.replace("uye", `${member.user}`).replace("uyetag", `${member.user.tag}`).replace("rol", `${member.guild.roles.get(rol).name}`).replace("server", `${member.guild.name}`).replace("uyesayisi", `${member.guild.memberCount}`).replace("botsayisi", `${member.guild.members.filter(m => m.user.bot).size}`).replace("bolge", `${member.guild.region}`).replace("kanalsayisi", `${member.guild.channels.size}`);
-    member.addRole(rol);
-    return client.channels.get(kanal).send(mesajs);
-     }});
+  if (!otorol) return
+
+  member.addRole(member.guild.roles.get(otorol))
+                        .setDescription(`**Sunucuya Yeni Katılan** \`${member.user.tag}\` **Kullanıcısına** \`${role}\` **Rolü verildi.**`)
+                        .setColor('0x36393E')
+                        .setFooter(`Sadis BOT Otorol Sistemi`)
+     member.guild.channels.get(otorol).send(embed)  } catch (e) {
+ console.log(e)
+}
+}
+
+});
 
 //     [-----------------> Sayaç <------------------]  \\
 
