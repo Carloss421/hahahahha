@@ -11,8 +11,8 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}kapat\` Ticket'ı kapatır.
 \`${ayarlar.prefix}ticket-sil\` Ticket'ı siler.
 \`${ayarlar.prefix}ticket-kanal\` ticket-kanal [ayarla/sıfırla] (kanal) Ticket Kanalı Ayarlar.
-\`${ayarlar.prefix}ticket\` ticket gönder Ticket Mesajı Yollar.
-`)
+\`${ayarlar.prefix}ticket\` ticket gönder Ticket Mesajı Yollar.`)
+message.channel.send(embed)
 };
 exports.conf = {
   enabled: true,

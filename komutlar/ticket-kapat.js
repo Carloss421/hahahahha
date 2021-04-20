@@ -7,7 +7,7 @@ const prefix = ayarlar.prefix;
 const ad = await data.fetch(`numara.${message.channel.id}`)
 if(!ad) {
 ad = '0' }
-if(message.channel.name === `ticket-${ad}` || message.channel.name === `closed-${ad}`) {
+if(message.channel.name === `ticket-${ad}` || message.channel.name === `kapandı-${ad}`) {
 const ann = await data.fetch(`asd.${message.guild.id}.${message.channel.id}.${message.author.id}`)
 if(!ann) return message.channel.send(`Bu bilet senin değil.`)
 message.delete()
@@ -17,7 +17,7 @@ message.channel.send(new Discord.MessageEmbed()
 message.channel.setName(`closed-${ad}`)
 message.channel.send(new Discord.MessageEmbed()
 .setColor('RED')
-.setDescription(`:unlock:: Ticketi tekrar açar.
+.setDescription(`:unlock: Ticketi tekrar açar.
 :no_entry:: Ticketi siler.`)).then(m => {
 m.react('🔓')
 m.react('⛔')

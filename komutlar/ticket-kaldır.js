@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const data = require('quick.db')
 const ayarlar = require('../ayarlar.json')
 exports.run = async (client, message, args) => {
-const prefix = await data.fetch(`prefix.${message.guild.id}`) || client.ayarlar.prefix;
+const prefix = ayarlar.prefix;
   
 if(!args[0]) {
 message.delete()
@@ -62,5 +62,5 @@ exports.conf = {
 }
 
 exports.help = {
-  name: 'sil'
+  name: 'kaldırK'
 };

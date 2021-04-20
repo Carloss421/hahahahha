@@ -8,7 +8,7 @@ if(message.channel.name === `ticket-${ad}` || message.channel.name === `closed-$
 const ann = await data.fetch(`asd.${message.guild.id}.${message.channel.id}.${message.author.id}`)
 if(!ann) return message.channel.send(`Bu bilet senin değil.`)
 message.delete()
-message.channel.send(new Discord.RichEmbed()
+message.channel.send(new Discord.MessageEmbed()
 .setColor('RED')
 .setDescription(`Bilet 5 saniye sonra ebediyen silinecek.`))
 setTimeout(async () => {

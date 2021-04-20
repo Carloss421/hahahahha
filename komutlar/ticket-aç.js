@@ -9,7 +9,7 @@ const ann = await data.fetch(`asd.${message.guild.id}.${message.channel.id}.${me
 if(!ann) return message.channel.send(`Bu bilet senin değil.`)
 message.delete()
 
-message.channel.send(new Discord.RichEmbed()
+message.channel.send(new Discord.MessageEmbed()
 .setColor('#ffff00')
 .setDescription(`Ticket ${message.author} tarafından açıldı.`))
 message.channel.setName(`ticket-${ad}`)
