@@ -3,22 +3,22 @@ const db = require('quick.db');
 
 exports.run = async (client, message, args) => {
   
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`).setColor("RANDOM"));
   
   let mlog = message.mentions.channels.first()
   let cezalog = db.fetch(`mlog_${message.guild.id}`)
 
 if(args[0] === "sıfırla") {
     if(!cezalog) {
-      message.channel.send(new Discord.RichEmbed()
-      .setDescription(`:x: | Mod Log Kanalı zaten ayarlı değil.`)
+      message.channel.send(new Discord.MessageEmbed()
+      .setDescription(`:x:  Ceza Log Kanalı zaten ayarlı değil.`)
       .setColor("RED"))                     
       return
     }
     
     db.delete(`mlog_${message.guild.id}`)
-    message.channel.send(new Discord.RichEmbed()
-     .setDescription(`✅ | Ceza Log Kanalı başarıyla sıfırlandı.`)
+    message.channel.send(new Discord.MessageEmbed()
+     .setDescription(`✅  Ceza Log Kanalı başarıyla sıfırlandı.`)
       .setColor("GREEN"))                   
     return
   }
@@ -26,8 +26,8 @@ if(args[0] === "sıfırla") {
 
   
   if (!mlog) {
-    return message.channel.send(new Discord.RichEmbed()
-     .setDescription(`:x: | Mod Log Kanalı etiketlemelisin.`)
+    return message.channel.send(new Discord.MessageEmbed()
+     .setDescription(`:x:  Ceza Log Kanalı etiketlemelisin.`)
     .setColor("RED"))                          
   }
   
@@ -38,8 +38,8 @@ if(args[0] === "sıfırla") {
   
    // message.channel.send(`Otorol \`${rol.name}\`, otorol kanalı ${rolk} olarak ayarlandı.`)
   
-  const embed = new Discord.RichEmbed()
-        .setDescription(`✅ Mod Log Kanalı başarıyla ${mlog} olarak ayarlandı.\nKanalı sıfırlamak için **a!cezalog sıfırla** yazabilirsiniz!`)
+  const embed = new Discord.MessageEmbed()
+        .setDescription(`✅ Ceza Log Kanalı başarıyla ${mlog} olarak ayarlandı.\nKanalı sıfırlamak için **a!cezalog sıfırla** yazabilirsiniz!`)
         .setColor("RANDOM")
         .setTimestamp()
     message.channel.send({embed})
@@ -49,7 +49,7 @@ if(args[0] === "sıfırla") {
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['ceza-log'],
+    aliases: ['ceza-log','cezalog'],
     permLevel: 0
 }
 

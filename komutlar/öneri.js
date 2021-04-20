@@ -1,10 +1,8 @@
 const Discord = require("discord.js");
-const Alone = "#36393e"; 
-const db = require("quick.db");
-const ayarlar = require("../ayarlar/bot.json");
+const ayarlar = require("../ayarlar.json");
 
 exports.run = function(client, message, args) {
-      let p = db.fetch(`prefix.${message.guild.id}`) || ayarlar.prefix;
+      let p = ayarlar.prefix;
 
 
 const onerisiz = new Discord.MessageEmbed()
@@ -22,7 +20,7 @@ const onerili = new Discord.MessageEmbed()
 
   var öneri = args.slice(0).join(" ");
  
-  var guildID = "666967704569380864"; // Sunucu ID
+  var guildID = "833185818629111838"; // Sunucu ID
  
   var channelID = "718509292675923998"; // Kanal ID
  
@@ -36,11 +34,10 @@ const onerili = new Discord.MessageEmbed()
       .setColor("RANDOM")
  
       .setAuthor("👤 Yeni Bir Öneri!", client.user.avatarURL())
-      .addField("👤 • Öneren Kullanıcı:", message.author.tag, true)
-      .addField("👤 • Öneren Kullanıcı ID:", message.author.id,true)
-      .addField(":hypesquad1: • Önerisi:", öneri)
-    
-      .setThumbnail(message.author.avatarURL());
+      .addField("👤 Öneren Kullanıcı:", message.author.tag, true)
+      .addField("👤 Öneren Kullanıcı ID:", message.author.id,true)
+      .addField("📜 Önerisi:", öneri)
+  
  
     client.guilds
       .cache.get(guildID)
@@ -51,7 +48,12 @@ const onerili = new Discord.MessageEmbed()
   }
 };
  
-exports.config = {
-  name: "öneri",
-  aliases: ["istek"],
+exports.conf = {
+enabled: true,
+guildOnly: false,
+aliases: ["istek"],
+permlevel: 0
+};
+exports.help = {
+  name: "öneri"
 };
