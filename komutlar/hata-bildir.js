@@ -9,7 +9,7 @@ const onerisiz = new Discord.MessageEmbed()
 .setColor("RED")
 .setTitle("• Hata: 0014 •")
 .setDescription("Öneri gönderebilmek için bir öneri belirtiniz.")
-.setFooter(`©️ Tüm hakları saklıdır | Yeni Nesil Gelişmiş Bot | 2020`);
+.setFooter(`©️ Tüm hakları saklıdır | Yeni Nesil Gelişmiş Bot | 2021`);
 
 const onerili = new Discord.MessageEmbed()
 .setColor("GREEN")
@@ -18,13 +18,13 @@ const onerili = new Discord.MessageEmbed()
 .setFooter(`©️ Tüm hakları saklıdır | Yeni Nesil Gelişmiş Bot | 2021`);  
   
 
-  var öneri = args.slice(0).join(" ");
+  var hata = args.slice(0).join(" ");
  
   var guildID = "833185818629111838"; // Sunucu ID
  
   var channelID = "833971968176291840"; // Kanal ID
  
-  if (!öneri) {
+  if (!hata) {
     return message.channel.send(embed);
   } else {
     var embed = new Discord.MessageEmbed()
@@ -36,7 +36,7 @@ const onerili = new Discord.MessageEmbed()
       .setAuthor("👤 Hata!", client.user.avatarURL())
       .addField("👤 Hatayı Bildiren Kullanıcı:", message.author.tag, true)
       .addField("👤 Hatayı Bildiren Kullanıcı ID:", message.author.id,true)
-      .addField("📜 Hata:", öneri)
+      .addField("📜 Hata:", hata)
   
  
     client.guilds
