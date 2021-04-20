@@ -9,12 +9,12 @@ const onerisiz = new Discord.MessageEmbed()
 .setColor("RED")
 .setTitle("• Hata: 0014 •")
 .setDescription("Öneri gönderebilmek için bir öneri belirtiniz.")
-.setFooter(`©️ Tüm hakları saklıdır | Yeni Nesil Gelişmiş Bot | 2021`);
+.setFooter(`©️ Tüm hakları saklıdır | Yeni Nesil Gelişmiş Bot | 2020`);
 
 const onerili = new Discord.MessageEmbed()
 .setColor("GREEN")
 .setTitle("Başarılı")
-.setDescription("Öneriniz alınmıştır! Teşekkür ederiz.")
+.setDescription("Hatanız alınmıştır! Teşekkür ederiz.")
 .setFooter(`©️ Tüm hakları saklıdır | Yeni Nesil Gelişmiş Bot | 2021`);  
   
 
@@ -22,7 +22,7 @@ const onerili = new Discord.MessageEmbed()
  
   var guildID = "833185818629111838"; // Sunucu ID
  
-  var channelID = "718509292675923998"; // Kanal ID
+  var channelID = "833971968176291840"; // Kanal ID
  
   if (!öneri) {
     return message.channel.send(embed);
@@ -33,10 +33,10 @@ const onerili = new Discord.MessageEmbed()
  
       .setColor("RANDOM")
  
-      .setAuthor("👤 Yeni Bir Öneri!", client.user.avatarURL())
-      .addField("👤 Öneren Kullanıcı:", message.author.tag, true)
-      .addField("👤 Öneren Kullanıcı ID:", message.author.id,true)
-      .addField("📜 Önerisi:", öneri)
+      .setAuthor("👤 Hata!", client.user.avatarURL())
+      .addField("👤 Hatayı Bildiren Kullanıcı:", message.author.tag, true)
+      .addField("👤 Hatayı Bildiren Kullanıcı ID:", message.author.id,true)
+      .addField("📜 Hata:", öneri)
   
  
     client.guilds
@@ -51,9 +51,9 @@ const onerili = new Discord.MessageEmbed()
 exports.conf = {
 enabled: true,
 guildOnly: false,
-aliases: ["istek"],
+aliases: ["hata"],
 permlevel: 0
 };
 exports.help = {
-  name: "öneri"
+  name: "hata-bildir"
 };
