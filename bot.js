@@ -90,12 +90,14 @@ client.unload = command => {
 
 const bot = new Discord.Client();
 
-const bots = new Discord.Client({
-    disableEveryone: true,
-    autoReconnect: true,
-    disabledEvents: ["TYPING_START"],
-    partials: ['MESSAGE', 'CHANNEL', 'GUILD_MEMBER', 'REACTION']
-});
+client.on("channelAdd", async channel => {
+channel.create(`
+  disableEveryone: false,
+  autoReconnect: true,
+  disabledEvents: ["TYPING_START"],
+  partials: ['MESSAGE', 'CHANNEL', 'GUILD_MEMBER', 'REACTION']`)
+
+})
 
 var oyun = [
 `🎀 Yardım almak için | a!yardım`,
