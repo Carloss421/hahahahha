@@ -7,7 +7,7 @@ exports.run = async (bot, message, args, functions) => {
 if(message && message.deletable) message.delete().catch(e => {});
 
 let embed = new Discord.MessageEmbed()
-.setTitle(`Alv, - Ticket Sistemi`)
+.setTitle(`Alvi - Ticket Sistemi`)
 .setColor(color.none)
 .setDescription(`Ticket açmak için 🎟️ emojisine tıkla.`);
 message.channel.send(embed).then(m => {
@@ -16,7 +16,12 @@ message.channel.send(embed).then(m => {
 
 }
 
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+    aliases: ['ticket-open'],
+permlevel: 0
+};
 exports.help = {
-    name: "ticket",
-    aliases: ['createticket', "t"]
-}
+  name: "ticket-aç"
+};

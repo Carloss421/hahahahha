@@ -62,6 +62,7 @@ if(message.author.bot) return
 
     if(bakım){
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
+  <@${message.author.id}>
   **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.
   ❓Bakım Sebebi: \`${bakım}\`
   :arrows_counterclockwise: Lütfen Daha Sonra Tekrar Deneyin.**`).setColor("RANDOM"))

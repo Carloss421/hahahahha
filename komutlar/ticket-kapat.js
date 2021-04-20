@@ -62,7 +62,7 @@ exports.run = async (bot, message, args, functions) => {
         let staffEmbed = new Discord.MessageEmbed()
       .setAuthor(`🗑️| Ticket Kapat`)
       .setColor(color.none)
-      .setDescription(`Un membre ayant le rôle ${support} Rolü olan bir üye, biletin kapatılmasını talep etti.`)
+      .setDescription(`${support} Rolü olan bir üye, biletin kapatılmasını talep etti.`)
       .setTimestamp()
       .setFooter(`Ticket Sistemi`, bot.user.displayAvatarURL())
       .addField(
@@ -85,7 +85,12 @@ exports.run = async (bot, message, args, functions) => {
 
 }
 
+exports.conf = {
+    enabled: true,
+   guildOnly: false,
+    aliases: ["ticket-close"],
+  permlevel: 0
+};
 exports.help = {
-    name: "ticket-kapat",
-    aliases: []
-}
+  name: "ticket-kapat"
+};
