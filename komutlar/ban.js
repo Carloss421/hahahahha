@@ -1,47 +1,46 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-const db = require('quick.db')
+const fs = require('fs');
 
-exports.run = function(client, message, args)  {
-  let cezalog = db.fetch(`mlog_${message.guild.id}`)
-  if (!message.guild) {
+exports.run = (client, message, args) => {
   
-  const ozelmesajuyari = new Discord.MessageEmbed()
-  .setColor(0xFF0000)
-  .setTimestamp()
-  .setAuthor(message.author.username, message.author.avatarURL)
-  .addField(':warning: Uyarı :warning:', '`ban` adlı komutu özel mesajlarda kullanamazsın.')
+
+    
+  if (!message.guild.members.get(client.user.id).hasPermission("BAN_MEMBERS")) return message.reply('Gerekli izin yok')
+
   
-  return message.author.sendEmbed(ozelmesajuyari); }
-  let guild = message.guild
-  let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  if (reason.length < 1) return message.reply('Ban sebebini yazmalısın.');
-  if (message.mentions.users.size < 1) return message.reply('Kimi banlayacağını yazmalısın.').catch(console.error);
+  let reason = args.slice(1).join(' ');
+ 
+  if (message.mentions.users.size < 1) return message.reply('Banalamak İstediğiniz Kişiyi Etiketleyiniz');
+  if (reason.length < 1) return message.reply('Sebeb belirtin');
+  if (user.id === message.author.id) return message.reply('Kendini Banlayamazssın');
 
-  if (!message.guild.member(user).bannable) return message.reply('Yetkilileri banlayamam.');
+
+  
+
   message.guild.ban(user, 2);
-
-  const embed = new Discord.MessageEmbed()
-    .setColor(0x00AE86)
-    .setTimestamp()
-    .addField('Eylem:', 'Sunucudan Yasaklama :bangbang: ')
-    .addField('Yasaklanan Kullanıcı:', `${user.username}#${user.discriminator} (${user.id})`)
-    .addField('Yasaklayan Yetkili:', `${message.author.username}#${message.author.discriminator}`)
-    .addField('Yasaklama Sebebi:', reason);
- message.channel.send(embed)
+  
+  const narkozban = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .setDescription(`🧹 Başarıyla banlandı`)
+  .setAuthor(`${message.author.tag} Tarafından Banlandı`, message.author.avatarURL)
+  .setTimestamp()
+.setFooter(`${client.user.username} `, client.user.avatarURL);
+  message.channel.send(narkozban)
+    
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
-  category: "admin",
-  permLevel: 2
+  aliases: ['ban', 'yasakla'],
+  permLevel: 3,
+    kategori: "moderasyon",
 };
 
 exports.help = {
   name: 'ban',
   description: 'İstediğiniz kişiyi sunucudan yasaklar.',
-  usage: 'ban [kullanıcı] [sebep]'
+  usage: 'yasakla <@kullanıcı> <sebep>',
+ 
 };

@@ -583,9 +583,9 @@ client.on('message', msg => {
   	if (Math.floor((Math.random() * 4) + 1) === 1) {
    		msg.reply('Çok değil! https://media.giphy.com/media/xUOwGn1kOzKcUZPBSw/giphy.gif');
    	}else if (Math.floor((Math.random() * 4) + 1) === 2) {
-   		msg.reply('Görende 3 gün aç kaldı sanacak! www.com');
+   		msg.reply('Görende 3 gün aç kaldı sanacak!');
    	}else if (Math.floor((Math.random() * 4) + 1) === 3) {
-   		msg.reply('Görende 3 gün susuz kaldı sanacak! www.com');
+   		msg.reply('Görende 3 gün susuz kaldı sanacak!');
    	}else if (Math.floor((Math.random() * 4) + 1) === 4) {
    		msg.reply('Biraz Google la! :D');
    	}
@@ -662,11 +662,11 @@ client.on('message', msg => {
   }
     if (msg.content === 'a!ramazan') {
    	msg.channel.send(new Discord.MessageEmbed().setDescription(
-`\`a!iftar\`  Yazarak istediğiniz şehirin iftar saatine bakarsınız 
-\`susadım\`  Sizlere mesajlar atar 
-\`acıktım\`  Sizlere mesajlar atar 
-\`iftar ne zaman\` Sizlere mesajlar atar 
-\`iftara ne kadar kaldı = Sizlere mesajlar atar`).setColor("RANDOM"))
+`\`a!iftar\` Yazarak istediğiniz şehirin iftar saatine bakarsınız.
+\`susadım\` Sizlere mesajlar atar.
+\`acıktım\` Sizlere mesajlar atar. 
+\`iftar ne zaman\` Sizlere mesajlar atar. 
+\`iftara ne kadar kaldı\` Sizlere mesajlar atar.`).setColor("RANDOM"))
   }
 
 });
