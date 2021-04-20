@@ -1,96 +1,62 @@
-const Discord = require("discord.js");
-const fs = require("fs");
-const db = require("quick.db");
-const dateFormat = require("dateformat");
-const color = JSON.parse(fs.readFileSync(`color.json`, `utf8`));
+const Discord = require('discord.js');
+const data = require('quick.db')
+const ayarlar = require('../ayarlar.json')
 
-exports.run = async (bot, message, args, functions) => {
+exports.run = async (client, message, args) => {
+const prefix = ayarlar.prefix;
+const ad = await data.fetch(`numara.${message.channel.id}`)
+if(!ad) {
+ad = '0' }
+if(message.channel.name === `ticket-${ad}` || message.channel.name === `closed-${ad}`) {
+const ann = await data.fetch(`asd.${message.guild.id}.${message.channel.id}.${message.author.id}`)
+if(!ann) return message.channel.send(`Bu bilet senin değil.`)
+message.delete()
+message.channel.send(new Discord.MessageEmbed()
+.setColor('#ffff00')
+.setDescription(`Bilet ${message.author} tarafından kapatıldı.`))
+message.channel.setName(`closed-${ad}`)
+message.channel.send(new Discord.MessageEmbed()
+.setColor('RED')//RABEL CODE
+.setDescription(`:unlock:: Ticketi tekrar açar.
+:no_entry:: Ticketi siler.`)).then(m => {//RABEL CODE
+m.react('🔓')
+m.react('⛔')
+let sil = (reaction, user) => reaction.emoji.name === "⛔" && user.id !== client.user.id && user.id == message.author.id
+let sill = m.createReactionCollector(sil, { time: 0 });//RABEL CODE
+let geri = (reaction, user) => reaction.emoji.name === "🔓" && user.id !== client.user.id && user.id == message.author.id
+let geriaç = m.createReactionCollector(geri, { time: 0 });//RABEL CODE
+//RABEL CODE
+geriaç.on('collect', async reaction => {
+const author = reaction.users.last()//RABEL CODE
+m.delete('500')//RABEL CODE
+reaction.remove(author.id) //RABEL CODE
+message.channel.send(new Discord.MessageEmbed()
+.setColor('https://i.hizliresim.com/dg9kdN.png')//RABEL CODE
+.setDescription(`Bilet ${message.author} tarafından tekrar açıldı.`))
+message.channel.setName(`ticket-${ad}`)
+})
+sill.on('collect', async reaction => {
+const author = reaction.users.last()
+reaction.remove(author.id) 
+message.channel.send(new Discord.MessageEmbed()
+.setColor('RED')
+.setDescription(`Bilet 5 saniye sonra ebediyen silinecek.`))
+setTimeout(async () => {
+message.channel.delete()
+data.delete(`asd.${message.guild.id}.${message.channel.id}`)
+}, 5000)
+}) 
+})
+} else { return message.channel.send(`Bu komutu bir bilet kanalında kullanın.`) }
 
-    let logsChannel = message.guild.channels.cache.find(c => c.id === db.get(`logs_${message.guild.id}`));
-
-    if(!message.channel.name.startsWith(`ticket-`)) return;
-    
-    if(message.author.id === db.get(`ticket.${message.channel.name}.user`)) {
-    
-      let userEmbed = new Discord.MessageEmbed()
-      .setAuthor(`🗑️ | Ticket'ı Kapat`)
-      .setColor(color.none)
-      .setDescription(`Bileti açan o olduğu için o kapatabilir.`)
-      .setTimestamp()
-      .setFooter(`Ticket Sistemi`, bot.user.displayAvatarURL())
-      .addField(
-  `Bilgiler`, `**Kullanıcı :** \`${message.author.tag}\`
-  **ID :** \`${message.author.id}\`
-  **Ticket :** \`${message.channel.name}\`
-  **Tarih :** \`${dateFormat(new Date(), "dd/mm/yyyy - HH:MM:ss")}\``);
-    
-      db.delete(`ticket.${message.channel.name}`);
-      if(logsChannel) await logsChannel.send(userEmbed);
-      await message.channel.delete();
-    } else {
-    
-      let support = message.guild.roles.cache.find(r => r.name === "Ticket Support");
-      if(!support) return functions.errorEmbed(message, message.channel, "Le rôle `Ticket Support` n'existe pas, veuillez le créer.");
-      if(message.deletable) message.delete();
-    
-      if(args[0] === "force"){
-    
-        let forceEmbed = new Discord.MessageEmbed()
-        .setAuthor(`🗑️ | Ticket Kapat`)
-        .setColor(color.none)
-        .setDescription(`Rolü olan bir üye bir bileti zorla sildi.`)
-        .setTimestamp()
-        .setFooter(`Ticket Sistemi`, bot.user.displayAvatarURL())
-        .addField(
-  `Bilgiler`, `**Kullanıcı :** \`${message.author.tag}\`
-  **ID :** \`${message.author.id}\`
-  **Ticket :** \`${message.channel.name}\`
-  **Tarih :** \`${dateFormat(new Date(), "dd/mm/yyyy - HH:MM:ss")}\``);
-    
-        let embed1 = new Discord.MessageEmbed()
-        .setAuthor(`📥 | Ticket Kapat`)
-        .setColor(color.blue)
-        .setDescription(`\`${message.author.tag}\` biletiniz kapanmaya zorlandı.`);
-        db.delete(`ticket.${message.channel.name}`);
-        if(logsChannel) await logsChannel.send(forceEmbed);
-        if(bot.users.cache.get(db.get(`ticket.${message.channel.name}.user`))) bot.users.cache.get(db.get(`ticket.${message.channel.name}.user`)).send(embed1).catch(e => {console.log(e)})
-        message.channel.delete();
-        
-    
-      } else {
-    
-        let staffEmbed = new Discord.MessageEmbed()
-      .setAuthor(`🗑️| Ticket Kapat`)
-      .setColor(color.none)
-      .setDescription(`${support} Rolü olan bir üye, biletin kapatılmasını talep etti.`)
-      .setTimestamp()
-      .setFooter(`Ticket Sistemi`, bot.user.displayAvatarURL())
-      .addField(
-  `Bilgiler`, `**Bilgiler :** \`${message.author.tag}\`
-  **ID :** \`${message.author.id}\`
-  **Ticket :** \`${message.channel.name}\`
-  **Tarih :** \`${dateFormat(new Date(), "dd/mm/yyyy - HH:MM:ss")}\``);
-    
-        if(!message.guild.member(message.author).roles.cache.has(support.id)) return functions.errorEmbed(message, message.channel, "Üzgünüm, rolünüz yok `Ticket Destek`.");
-        let embed2 = new Discord.MessageEmbed()
-        .setColor(color.green)
-        .setTitle(`🎟️ | Ticket Kapandı`)
-        .setDescription(
-          `Bileti kapatmak için 🗑️ tepkisine tıklayınız başka talepleriniz varsa tıklamayınız.`);
-        if(logsChannel) await logsChannel.send(staffEmbed);
-        message.channel.send(embed2).then(m => m.react(`🗑️`));
-      }
-    
-    }
-
+};
+exports.conf = {
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: 0
 }
 
-exports.conf = {
-    enabled: true,
-   guildOnly: false,
-    aliases: ["ticket-close"],
-  permlevel: 0
-};
 exports.help = {
-  name: "ticket-kapat"
+  name: 'kapat'
 };
