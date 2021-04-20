@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const ms = require('ms');
+const ms = require('parse-ms');
 const db = require('quick.db')
 module.exports.run = async (client, message, args) => {
   function rastgeleMiktar(min, max) {
@@ -42,7 +42,7 @@ var lostmoney = rastgeleMiktar(150,500)
   let moneyEmbed2 = new Discord.MessageEmbed()
   .setColor("RED")
   .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))  
-  .setDescription(`⛔ Faqir birisini soymaya çalıştın ve ${lostmoney} 💸 ceza yedin`);
+  .setDescription(`⛔ Fakir birisini soymaya çalıştın ve ${lostmoney} TL 💸  ceza yedin`);
   
 
   

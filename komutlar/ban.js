@@ -16,8 +16,6 @@ exports.run = function(client, message, args)  {
   let guild = message.guild
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let cezaslog = guild.channels.find('name', 'cezalog');
-  if (!cezaslog) return message.reply('`cezalog` kanalını bulamıyorum.');
   if (reason.length < 1) return message.reply('Ban sebebini yazmalısın.');
   if (message.mentions.users.size < 1) return message.reply('Kimi banlayacağını yazmalısın.').catch(console.error);
 
@@ -31,7 +29,7 @@ exports.run = function(client, message, args)  {
     .addField('Yasaklanan Kullanıcı:', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('Yasaklayan Yetkili:', `${message.author.username}#${message.author.discriminator}`)
     .addField('Yasaklama Sebebi:', reason);
-  return guild.channels.get(cezalog.id).sendEmbed(embed);
+ message.channel.send(embed)
 };
 
 exports.conf = {

@@ -4,7 +4,7 @@ const db = require('quick.db')
 
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.member.hasPermissions('KICK_MEMBERS')) return message.channel.send("Komudu Kullanmak İçin Üyeleri At Yetkisine Sahip Olmalısın.")
+    if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send("Komudu Kullanmak İçin Üyeleri At Yetkisine Sahip Olmalısın.")
  let cezalog = db.fetch(`mlog_${message.guild.id}`)
     const mod = message.author;
     let guild = message.guild
@@ -51,7 +51,7 @@ exports.conf = {
 };
 
 module.exports.help = {
-    name: "mute",
+    name: "jail",
     description: "Etiketlenen Kişiye Mute Atar",
     usage: "mute [kullanıcı] [sebep]"
 }
