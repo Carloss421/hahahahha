@@ -19,7 +19,8 @@
     "express": "^4.17.1",
     "superagent": "^6.1.0",
     "parse-ms": "^3.0.0",
-    "jimp": "^0.16.1"
+    "jimp": "^0.16.1",
+    "dateformat": "^4.5.1"
   },
   "engines": {
     "node": "12.x"
