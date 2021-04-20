@@ -15,6 +15,7 @@ let embed = new Discord.MessageEmbed()
 **Bot İsmi** \`Alvi\`
 **Bot Dili** :flag_tr:
 
+
 **Sahip Adı** \`${ayarlar.ownerNAME}\`
 **Sahip ID** \`${ayarlar.ownerID}\`
 **Sahip Discord Nick** \`${ayarlar.ownerDcname}\`
@@ -28,11 +29,14 @@ let embed = new Discord.MessageEmbed()
 **Toplam Üye Sayısı** \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}\`
 **Toplam Sunucu Sayısı** \`${client.guilds.cache.size}\`
 **Toplam Kanal Sayısı** \`${client.channels.cache.size}\`
+**Toplam Komut Sayısı** \`${client.commands.size}\`
 
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - cezalog - afk - jail - ban - mute\`
 \`Premium\`
-Veri depolaması fazla artarsa silineceketir!`)
+Veri depolaması fazla artarsa silineceketir!
+[Destek Sunucusu]() - [Davet Et] - Oyver **YAKINDA!**
+`)
 message.channel.send(embed)
 };
 exports.conf = {
