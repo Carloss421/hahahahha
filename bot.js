@@ -661,7 +661,12 @@ client.on('message', msg => {
    	msg.reply('Ve Aleykümselam');
   }
     if (msg.content === 'a!ramazan') {
-   	msg.reply('a!iftar = Yazarak istediğiniz şehirin iftar saatine bakarsınız \n susadım = Sizlere mesajlar atar \n acıktım = Sizlere mesajlar atar \n iftar ne zaman = Sizlere mesajlar atar \n iftara ne kadar kaldı = Sizlere mesajlar atar');
+   	msg.channel.send(new Discord.MessageEmbed().setDescription(
+`\`a!iftar\`  Yazarak istediğiniz şehirin iftar saatine bakarsınız 
+\`susadım\`  Sizlere mesajlar atar 
+\`acıktım\`  Sizlere mesajlar atar 
+\`iftar ne zaman\` Sizlere mesajlar atar 
+\`iftara ne kadar kaldı = Sizlere mesajlar atar`).setColor("RANDOM"))
   }
 
 });

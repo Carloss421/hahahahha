@@ -6,9 +6,8 @@ let embedd = new Discord.MessageEmbed()
 .setTitle('Alvi - Ramazan')
 .setColor('RANDOM')
 .setDescription(`
-
-
-`)
+\`a!ramazan\` yazarak bütün ramazan komutlarını görebilirsiniz.`)
+message.channel.send(embedd)
 };
 exports.conf = {
   enabled: true,
