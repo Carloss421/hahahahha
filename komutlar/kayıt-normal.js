@@ -10,16 +10,16 @@ let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
 let kayıtsayı = db.fetch(`kayıtsayı_${message.author.id}`)
 let normal = db.fetch(`norml_${message.guild.id}`)
 
-if(!message.member.roles.cache.has(kayıtçı)) return message.channel.send(`Bu Komudu Kullanabilmen İçin <@&${kayıtçı}> Adlı Role Sahip olman Lazım ! `)
-if(message.channel.id !== kanal) return message.channel.send(`Bu Komudu Sadece <#${kanal}> Adlı Kanalda Kullanabilirsin ! `)
-if (!erkekrol) return message.channel.send(`Sunucuda Normal Üye Rolü Ayarlanmadığı İçin Komut Kullanılamaz ! `)
+if(!message.member.roles.cache.has(kayıtçı)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu Komudu Kullanabilmen İçin <@&${kayıtçı}> Adlı Role Sahip olman Lazım!`).setColor("RANDOM"))
+if(message.channel.id !== kanal) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu Komudu Sadece <#${kanal}> Adlı Kanalda Kullanabilirsin!`).setColor("RANDOM"))
+if (!erkekrol) return message.channel.send(new discord.MessageEmbed().setDescription(`Sunucuda Normal Üye Rolü Ayarlanmadığı İçin Komut Kullanılamaz!`).setColor("RANDOM"))
 
 let member = message.mentions.members.first();
-if (!member) return message.channel.send(`Normal Üye Olarak Kayıt Edeceğin Kullanıcıyı Belirtmelisin ! `)
+if (!member) return message.channel.send(new discord.MessageEmbed().setDescription(`Normal Üye Olarak Kayıt Edeceğin Kullanıcıyı Belirtmelisin!`).setColor("RANDOM"))
 let isim = args[1]
-if (!isim) return message.channel.send(`İsmini Belirtmelisin ! `)
+if (!isim) return message.channel.send(new discord.MessageEmbed().setDescription(`İsim Belirtmelisin!`).setColor("RANDOM"))
 let yaş = args[2]
-if (!yaş) return message.channel.send(`Yaşını Belirtmelisin ! `)
+if (!yaş) return message.channel.send(new discord.MessageEmbed().setDescription(`Yaş Belirtmelisin!`).setColor("RANDOM"))
 member.setNickname(`${isim} | ${yaş}`)
 member.roles.remove(alınacakrol)
 member.roles.add(erkekrol)

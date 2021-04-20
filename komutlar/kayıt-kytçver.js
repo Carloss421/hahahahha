@@ -5,9 +5,8 @@ exports.run = async(client, message, args) => {
 
 let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
 let member = message.mentions.members.first();
-if (!kayıtçı) return message.channel.send(`Kayıtçı Rolü Ayarlanmadığı İçin Bu Komudu Kullanamazsınız ! `)
-if (!member) return message.channel.send(`Kayıtçı Rolü Vereceğiniz Kullanıcıyı Belirtiniz ! `)
-
+if (!kayıtçı) return message.channel.send(new discord.MessageEmbed().setDescription(`Kayıtçı Rolü Ayarlanmadığı İçin Bu Komudu Kullanamazsınız!`).setColor("RANDOM"))
+if (!member) return message.channel.send(new discord.MessageEmbed().setDescription(`Kayıtçı Rolü Vereceğiniz Kullanıcıyı Belirtiniz!`).setColor("RANDOM"))
 member.roles.add(kayıtçı) 
 const ayarlandı = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
