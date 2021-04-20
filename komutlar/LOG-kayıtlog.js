@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
   
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`).setColor("RANDOM"));
   
-  let mlog = message.mentions.channels.first()
+  let klogS = message.mentions.channels.first()
   let kayıtlog = db.fetch(`klog_${message.guild.id}`)
 
 if(args[0] === "sıfırla") {
@@ -16,7 +16,7 @@ if(args[0] === "sıfırla") {
       return
     }
     
-    db.delete(`mlog_${message.guild.id}`)
+    db.delete(`klog_${message.guild.id}`)
     message.channel.send(new Discord.MessageEmbed()
      .setDescription(`✅  Kayıt Log Kanalı başarıyla sıfırlandı.`)
       .setColor("GREEN"))                   
@@ -25,7 +25,7 @@ if(args[0] === "sıfırla") {
 
 
   
-  if (!mlog) {
+  if (!klogS) {
     return message.channel.send(new Discord.MessageEmbed()
      .setDescription(`:x:  Kayıt Log Kanalı etiketlemelisin.`)
     .setColor("RED"))                          
@@ -34,12 +34,12 @@ if(args[0] === "sıfırla") {
   
   
   
-  db.set(`mlog_${message.guild.id}`, mlog.id)
+  db.set(`klog_${message.guild.id}`, klogS.id)
   
    // message.channel.send(`Otorol \`${rol.name}\`, otorol kanalı ${rolk} olarak ayarlandı.`)
   
   const embed = new Discord.MessageEmbed()
-        .setDescription(`✅ Kayıt Log Kanalı başarıyla ${mlog} olarak ayarlandı.\nKanalı sıfırlamak için **a!kayıtlog sıfırla** yazabilirsiniz!`)
+        .setDescription(`✅ Kayıt Log Kanalı başarıyla ${klogS} olarak ayarlandı.\nKanalı sıfırlamak için **a!kayıtlog sıfırla** yazabilirsiniz!`)
         .setColor("RANDOM")
         .setTimestamp()
     message.channel.send({embed})
@@ -49,12 +49,12 @@ if(args[0] === "sıfırla") {
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['ceza-log','cezalog'],
+    aliases: ['kayıt-log','kayıtlog'],
     permLevel: 0
 }
 
 exports.help = {
-    name: 'cezalog-ayarla',
+    name: 'kayıtlog-ayarla',
     description: 'Mod-log kanalı ayarlar.',
     usage: 'mod-log #kanal'
 }

@@ -8,7 +8,8 @@ let alınacakrol = db.fetch(`alınacakrol_${message.guild.id}`)
 let kızrol = db.fetch(`kızrol_${message.guild.id}`)
 let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
 let kayıtsayı = db.fetch(`kayıtsayı_${message.author.id}`)
-  
+let kayıtlog = db.fetch(`klog_${message.guild.id}`)
+
 if(!message.member.roles.cache.has(kayıtçı)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu Komudu Kullanabilmen İçin <@&${kayıtçı}> Adlı Role Sahip olman Lazım!`).setColor("RANDOM"))
 if(message.channel.id !== kanal) return message.channel.send(`Bu Komudu Sadece <#${kanal}> Adlı Kanalda Kullanabilirsin ! `)
 if (!kızrol) return message.channel.send(new discord.MessageEmbed().setDescription(`Sunucuda Kız Rolü Ayarlanmadığı İçin Komut Kullanılamaz ! `).setColor("RANDOM"))
@@ -32,7 +33,7 @@ const başarılı = new discord.MessageEmbed()
 .addField(`Kullanıcının Yaşı;`, `${yaş}`, true)
 .setThumbnail(member.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-message.channel.send(başarılı)
+return message.guild.channels.get(kayıtlog.id).sendEmbed(başarılı);
 db.add(`kayıtsayı_${message.author.id}`, 1)
 }
 exports.conf = {
