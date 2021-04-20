@@ -93,7 +93,7 @@ const bot = new Discord.Client();
 var oyun = [
 `🎀 Yardım almak için | a!yardım`,
 `🔔 Yeni Özellikler İçin | a!yardım-güncelleme`,
-`🤖 Botu eklemek için | a!bot`
+`🤖 Botu eklemek için | a!yardım-bot`
 ]
   
 client.on("ready", () => {
