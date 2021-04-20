@@ -17,7 +17,6 @@ if(message.author.id !== sahip) {
 .setColor('RANDOM')
 .setAuthor(message.guild.name, message.guild.iconURL)
 .setDescription(`Bu sunucu için **Premium** sistemi **${açıkmı ? 'aktif' : 'kapalı'}**!`)
-.setFooter(`Gelişmiş Premium Sistemi Virus X FadeAway`)
 .setTimestamp())   
 }}
 ////----------------------\\\\ PREMİUM VER ////----------------------\\\\   
