@@ -5,10 +5,9 @@ exports.run = (client, message, args) => {
 const embed = new Discord.MessageEmbed()  
 .setTitle("Alvi - Sayaç HATA")
 .setColor('BLUE')
-.addField(`
-**a!sayaç-ayarla** Sayacı Ayarlar.\n Örnek: \`a!sayac-ayarla #logkanal **Sayı**\`
-**a!sayac-hg-msg ** Sayaç Hoşgeldin Mesajını Ayarlar. \n Örnek: \`s!sayac-hg-msg server\` | Sunucumuza Hoşgeldin ! | uye hedefuye Kişiye Ulaşabilmek İçin kalanuye Kişi Kaldı! |  **uyesayisi** Kişiyiz. 
-**s!sayac-bb-msg** **Sayaç Bay Bay Mesajını Ayarlar. **\nÖrnek: \`s!sayac-bb-msg uyetag\` | Sunucumuzdan Ayrıldı | hedefuye Kişiye Ulaşabilmek İçin kalanuye Kişi Kaldı. **uyesayisi** Kişiyiz.`)
+.setDescription(`
+**a!sayaç-ayarla** Sayacı Ayarlar.
+Örnek: \`a!sayac-ayarla #logkanal Hedef\``)
 .setTimestamp()
  message.channel.send(embed) 
   };

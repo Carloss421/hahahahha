@@ -37,7 +37,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'oto-rol-ayarla',
+  name: 'otorol-ayarla',
   description: 'taslak', 
   usage: 'Otorol-ayarla'
 };

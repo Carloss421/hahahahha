@@ -5,7 +5,9 @@ exports.run = (client, message, args) => {
 const embed = new Discord.MessageEmbed()  
 .setTitle("Alvi - Otorol HATA")
 .setColor('BLUE')
-.addField('**a!otorol-ayarla** Otorolü Ayarlar.\n Örnek: `a!otorol-ayarla @rolünüz #otorolLOG`')
+.setDescription(`
+a!otorol-ayarla Otorolü Ayarlar.
+Örnek: \`a!otorol-ayarla @rolünüz #otorolLOG\``)
 
 .setTimestamp()
  message.channel.send(embed) 
