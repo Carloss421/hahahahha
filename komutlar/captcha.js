@@ -27,7 +27,7 @@ message.channel.send(adım1).then(l => {
           errors: ["time"]
         })
         .then(collected => {
-let rol = collected.first().mentions.roles.first() || message.guild.roles.get(collected.first().content)
+let rol = collected.first().mentions.roles.first() || message.guild.roles.cache.get(collected.first().content)
 if(!rol) {
   
 l.delete()
