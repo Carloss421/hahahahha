@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const ms = require("ms");
+const db = require('quick.db')
 
 module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermissions('KICK_MEMBERS')) return message.channel.send("Komudu Kullanmak İçin Üyeleri At Yetkisine Sahip Olmalısın.")
-
+ let cezalog = db.fetch(`mlog_${message.guild.id}`)
     const mod = message.author;
     let guild = message.guild
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
@@ -39,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
             .addField('Sebep:', `${reason}`)
             .addField('Yetkili:', `${mod}`)
             .setColor('RANDOM')
-  return guild.channels.get(modlog.id).send(muteembed);
+  return guild.channels.get(cezalog.id).send(muteembed);
   
   
 }
