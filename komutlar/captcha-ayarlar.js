@@ -12,9 +12,8 @@ let kanal = await db.fetch(`captchaKanal.${message.guild.id}`)
 if(!zorluk) return message.reply('Sistem devre dışı! Lütfen Ayarlayınız!')
 
 
-   let adım3 = new Discord.RichEmbed()
-.setTitle('Sistem Ayarları!')
-.addBlankField()
+   let adım3 = new Discord.MessageEmbed()
+.setTitle('Alvi - Captcha Ayarları')
 .addField('Sistem', 'Rol **»** <@&'+rol+'> \n\n Zorluk Seviyesi *kanal*»** `'+zorluk+'` \n\n Log Kanalı **»** `'+kanal+'')
 .setTimestamp()
 .setURL('https://discord.gg/NAzGC2cxXR')

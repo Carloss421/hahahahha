@@ -12,14 +12,11 @@ exports.run = async(client, message, args) => {
         })
         .then(collected => {
 
-let adım1 = new Discord.RichEmbed()
+let adım1 = new Discord.MessageEmbed()
 .setTitle('Adım 1')
 .setDescription('İlk önce eğer kullanıcılar kodu doğru bir şekilde bilirse verilecek rolü belirlemen gerekiyor.')
-.addBlankField()
 .addField('Örnek:', '**@kullanıcı** `/` **685770403146367007 (Rol ID)**')
-.addBlankField()
 .addField('Devam!', 'Devam etmek için bulunduğunuz kanala yukardaki örnek gibi bir rol belirtin.')
-.setFooter('Emirhan Saraç', client.user.avatarURL)
 .setTimestamp()
 .setURL('https://discord.gg/udUvKzJ')
 .setColor('RED')      
@@ -38,12 +35,10 @@ collected.first().react('❌')
 message.channel.send('Belirttiğiniz rolü sunucuda bulamadım.').then(t => t.delete(10000))
 return
 }
-    let adim = new Discord.RichEmbed()
+    let adim = new Discord.MessageEmbed()
 .setTitle('Adım 2')
 .setDescription('Kullanıcı kayıt olunca loga yansıtılacak bir kanal belirlemeniz gerekiyor.')
-.addBlankField()
 .addField('Örnek:', '**#log** `/` **685770403146367007 (Kanal ID)**')
-.addBlankField()
 .addField('Devam!', 'Devam etmek için bulunduğunuz kanala yukardaki örnek gibi bir kanal belirtin.')
 .setTimestamp()
 .setURL('https://discord.gg/NAzGC2cxXR')
@@ -64,7 +59,7 @@ collected.first().react('❌')
 message.channel.send('Belirttiğiniz kanalı sunucuda bulamadım.').then(t => t.delete(10000))
 return
 }
- let adım2 = new Discord.RichEmbed()
+ let adım2 = new Discord.MessageEmbed()
 .setTitle('Adım 3')
 .setDescription('Zorluk seviyesini seçmemiz gerekmektedir.')
 .addBlankField()
@@ -93,7 +88,7 @@ if(!zorluk) {
 return
 }
 
- let adım3 = new Discord.RichEmbed()
+ let adım3 = new Discord.MessageEmbed()
 .setTitle('Sistem Aktifleştirildi!')
 .setDescription('Captcha Sistemini Aktif Ettiniz!')
 .addBlankField()
