@@ -3,7 +3,7 @@ const db = require('quick.db')
 
 exports.run = async(client, message, args) => {
 
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(` Bu komutu kullanabilmek için "\`yönetici\`" yetkisine sahip olmalısın`);
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RANDOM"));
 
 if(args[0] === "sıfırla") {
 const sıfırlandı = new discord.MessageEmbed()
@@ -21,7 +21,6 @@ return;
 let rol = message.mentions.roles.first();   
 if (!rol) {
   const ayarlanmadı = new discord.MessageEmbed()
-.setAuthor(client.user.username, client.user.avatarURL)  
 .setTitle(`${client.user.username} - Kız Rol Ayarla `)
 .setColor('BLACK')
 .setDescription(`Ayarlayacağınız Kız Rolünü Belirtiniz ! `)

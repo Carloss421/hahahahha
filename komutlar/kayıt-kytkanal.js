@@ -4,7 +4,7 @@ const db = require('quick.db')
 exports.run = async(client, message, args) => {
 
     
-if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`);
+if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RANDOM"));
 
 
 if(args[0] === "sıfırla") {
