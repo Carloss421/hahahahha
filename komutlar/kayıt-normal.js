@@ -9,8 +9,9 @@ let erkekrol = db.fetch(`erkekrol_${message.guild.id}`)
 let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
 let kayıtsayı = db.fetch(`kayıtsayı_${message.author.id}`)
 let normal = db.fetch(`norml_${message.guild.id}`)
-let kayıtlog = db.fetch(`klog_${message.guild.id}`)
 
+let modlog = message.guild.channels.find('name', 'kayıtlog');
+if (!modlog) return message.reply('`kayıtlog` kanalını bulamıyorum. Ayarlamak için `a!kayıtlog #kayıtlog`');
 if(!message.member.roles.cache.has(kayıtçı)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu Komudu Kullanabilmen İçin <@&${kayıtçı}> Adlı Role Sahip olman Lazım!`).setColor("RANDOM"))
 if(message.channel.id !== kanal) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu Komudu Sadece <#${kanal}> Adlı Kanalda Kullanabilirsin!`).setColor("RANDOM"))
 if (!erkekrol) return message.channel.send(new discord.MessageEmbed().setDescription(`Sunucuda Normal Üye Rolü Ayarlanmadığı İçin Komut Kullanılamaz!`).setColor("RANDOM"))
@@ -34,7 +35,7 @@ const darkcode = new discord.MessageEmbed()
 .addField(`Kullanıcının Yaşı;`, `${yaş}`, true)
 .setThumbnail(member.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-return message.guild.channels.get(kayıtlog.id).sendEmbed(darkcode);
+return message.guild.channels.get(modlog.id).sendEmbed(darkcode);
 db.add(`kayıtsayı_${message.author.id}`, 1)
 }
 exports.conf = {

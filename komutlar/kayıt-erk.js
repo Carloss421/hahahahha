@@ -8,8 +8,9 @@ let alınacakrol = db.fetch(`alınacakrol_${message.guild.id}`)
 let erkekrol = db.fetch(`erkekrol_${message.guild.id}`)
 let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
 let kayıtsayı = db.fetch(`kayıtsayı_${message.author.id}`)
-let kayıtlog = db.fetch(`klog_${message.guild.id}`)
-  
+
+let modlog = message.guild.channels.find('name', 'kayıtlog');
+if (!modlog) return message.reply('`kayıtlog` kanalını bulamıyorum. Ayarlamak için `a!kayıtlog #kayıtlog`');
 if(!message.member.roles.cache.has(kayıtçı)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu Komudu Kullanabilmen İçin <@&${kayıtçı}> Adlı Role Sahip olman Lazım ! `).setColor("RANDOM"))
 if(message.channel.id !== kanal) return message.channel.send(new discord.MessageEmbed().setDescirpion(`Bu Komudu Sadece <#${kanal}> Adlı Kanalda Kullanabilirsin ! `).setColor("RANDOM"))
 if (!erkekrol) return message.channel.send(new discord.MessageEmbed().setDescription(`Sunucuda Erkek Rolü Ayarlanmadığı İçin Komut Kullanılamaz ! `).setColor("RANDOM"))
@@ -31,7 +32,7 @@ const darkcode = new discord.MessageEmbed()
 .setDescription(`Erkek Olarak Kayıt Edilen Kullanıcı: ${member} \n Erkek Olarak Kayıt Eden Yetkili: <@!${message.author.id}> \n Erkek Olarak Kayıt Eden Kullanıcının Kayıt Sayısı: **${kayıtsayı ? `${kayıtsayı}` : "0"}**`)
 .addField(`Kayıt Edilenin İsmi;`, `${isim}`, true)
 .addField(`Kayıt Edilenin Yaşı;`, `${yaş}`, true)
-return message.guild.channels.get(kayıtlog.id).sendEmbed(darkcode);
+return message.guild.channels.get(modlog.id).sendEmbed(darkcode);
 db.add(`kayıtsayı_${message.author.id}`, 1)
 }
 exports.conf = {

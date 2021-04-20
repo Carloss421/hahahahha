@@ -9,13 +9,13 @@ module.exports.run = async (bot, message, args) => {
 
 
   let xdemb = new Discord.MessageEmbed()
-let 
+let logEMD = new Discord.MessageEmbed()
     .setColor("#00ff00")
     .setTitle(`Unmute Komut`)
     .addField("Açıklama:", "`Üyenin susturulmasını kaldır`" + "\n")
     .addField("Kullanım", "`a!unmute <@kullanıcı>`" + "\n")
     .addField("Örnek", "`c!unmute @Ali deneme`");
-  return message.guild.channels.get(modlog.id).send(xdemb);
+  return message.guild.channels.get(modlog.id).send(logEMD);
 let embed = new Discord.MessageEmbed()
   .setDescription(":warning: **İzniniz yok (**__`Mesajları_Yönet`__**)**")
 .setColor("RED")
