@@ -16,22 +16,21 @@ message.channel.send(new Discord.MessageEmbed()
 .setDescription(`Bilet ${message.author} tarafından kapatıldı.`))
 message.channel.setName(`closed-${ad}`)
 message.channel.send(new Discord.MessageEmbed()
-.setColor('RED')//RABEL CODE
+.setColor('RED')
 .setDescription(`:unlock:: Ticketi tekrar açar.
-:no_entry:: Ticketi siler.`)).then(m => {//RABEL CODE
+:no_entry:: Ticketi siler.`)).then(m => {
 m.react('🔓')
 m.react('⛔')
 let sil = (reaction, user) => reaction.emoji.name === "⛔" && user.id !== client.user.id && user.id == message.author.id
-let sill = m.createReactionCollector(sil, { time: 0 });//RABEL CODE
+let sill = m.createReactionCollector(sil, { time: 0 });
 let geri = (reaction, user) => reaction.emoji.name === "🔓" && user.id !== client.user.id && user.id == message.author.id
-let geriaç = m.createReactionCollector(geri, { time: 0 });//RABEL CODE
-//RABEL CODE
+let geriaç = m.createReactionCollector(geri, { time: 0 });
 geriaç.on('collect', async reaction => {
-const author = reaction.users.last()//RABEL CODE
-m.delete('500')//RABEL CODE
-reaction.remove(author.id) //RABEL CODE
+const author = reaction.users.last()
+m.delete('500')
+reaction.remove(author.id)
 message.channel.send(new Discord.MessageEmbed()
-.setColor('https://i.hizliresim.com/dg9kdN.png')//RABEL CODE
+.setColor('https://i.hizliresim.com/dg9kdN.png')
 .setDescription(`Bilet ${message.author} tarafından tekrar açıldı.`))
 message.channel.setName(`ticket-${ad}`)
 })
