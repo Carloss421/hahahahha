@@ -4,6 +4,7 @@ const ms = require("ms");
 module.exports.run = async (bot, message, args) => {
 
     if (!message.member.hasPermissions('KICK_MEMBERS')) return message.channel.send("Komudu Kullanmak İçin Üyeleri At Yetkisine Sahip Olmalısın.")
+
     const mod = message.author;
     let guild = message.guild
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
