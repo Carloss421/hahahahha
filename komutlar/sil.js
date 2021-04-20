@@ -12,8 +12,8 @@ exports.run = function(client, message, args) {
 
   message.channel.send(
   new Discord.MessageEmbed()
-    .setTitle(':gear: **Başarılı!**')
-    .setDescription('**Başarı ile __'+m+'__ mesaj sildim! :gear:**')
+    .setTitle('**Başarılı!**')
+    .setDescription('**Başarı ile __'+m+'__ mesaj sildim!**')
   .setColor('0x36393E')
   ).then(i=>{
     i.react(':gear: 585186945471086620')

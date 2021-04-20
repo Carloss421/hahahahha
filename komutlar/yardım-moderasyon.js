@@ -17,8 +17,11 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}sayaç | sayaç-ayarla\` Sayaç ayarlar,sıfırlar.
 \`${ayarlar.prefix}kanal-koruma | aç - kapat\` Kanal korumayı açar,kapatır.
 \`${ayarlar.prefix}rol-koruma | aç - kapat\` Rol korumayı açar,kapatır.
+\`${ayarlar.prefix}emoji-koruma | aç - kapat (PREMUIM)\` Emoji korumayı açar,kapatır.
+\`${ayarlar.prefix}sunucu-koruma | aç - kapat (PREMUIM)\` Sunucu korumayı açar,kapatır.
 \`${ayarlar.prefix}kayıt-sistemi\` Kayıt komutlarını görürsünüz.
-\`${ayarlar.prefix}ticket-sistemi\` Ticket komutlarını görürsünüz.
+~~\`${ayarlar.prefix}ticket-sistemi (YAKINDA)\` Ticket komutlarını görürsünüz.~~
+
 
 **Otorol** Komutunu kullanmayı bilmeyenler \`a!otorol-yardım\` komutunu kullanarak kurabilirler.
 **Sayaç** Komutunu kullanmayı bilmeyenler \`a!sayaç-yardım\` komutunu kullanarak kurabilirler.
