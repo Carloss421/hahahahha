@@ -1,27 +1,39 @@
-const Discord = require('discord.js');
-const db = require('quick.db')
-exports.run = (client, message, args) => { 
+const Discord = require('discord.js')
+const fs = require('fs')
 
-if (!message.channel.permissionsFor("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`).setColor("RANDOM"));
- const rol = db.fetch(`otoRL_${message.guild.id}`)  
- if(!rol) return message.reply(new Discord.MessageEmbed().setDescription(`Sanırım bu özellik zaten kapalıymış :slight_smile:`).setColor("RANDOM"))
- message.reply(`:white_check_mark: Bu özellik **başarıyla kapatıldı.**`)
-  db.delete(`otoRL_${message.guild.id}`)  
-  db.delete(`otoRK_${message.guild.id}`) 
-  db.delete(`otoRM_${message.guild.id}`)  
-};
-  
+exports.run = async (client, message, args) => {
+      let sunucuyaözelayarlarOtorol = JSON.parse(fs.readFileSync("otorol.json", "utf8"));
+        let otorolkapat = JSON.parse(fs.readFileSync("otorol.json", "utf8"));
+        if(!sunucuyaözelayarlarOtorol[message.guild.id]) {
+            const embed = new Discord.RichEmbed()
+                .setDescription(`Otorolü Ayarlamadığın İçin Sıfırlayamazsın!`)
+                .setColor("RED")
+                .setTimestamp('Ayarlamak İçin a!otorol @roladi')
+            message.channel.send({embed})
+            return
+        }
+        delete sunucuyaözelayarlarOtorol[message.guild.id]
+        fs.writeFile("otorol.json", JSON.stringify(sunucuyaözelayarlarOtorol), (err) => {
+            console.log(err)
+        })
+        const embed = new Discord.RichEmbed()
+            .setDescription(`Otorol Başarıyla Sıfırlandı`)
+            .setColor("RANDOM")
+            .setTimestamp()
+        message.channel.send({embed})
+        return
+    }
 
- 
+
 exports.conf = {
-  enabled: true,  
-  guildOnly: false, 
-  aliases: ["otorol-kapat", "otorolkapat"], 
+  enabled: true,
+  guildOnly: false,
+  aliases: ["otorol-sıfırla","otorol-kapat","otorol kapat"],
   permLevel: 0
 };
 
 exports.help = {
-  name: 'otorol-kapat',
-  description: 'taslak', 
-  usage: 'Otorol-ayarla'
+  name: 'Otorol Kapat',
+  description: 'Slots oyunu oynar',
+  usage: 'otorolkapat'
 };

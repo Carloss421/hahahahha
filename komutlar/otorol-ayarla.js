@@ -1,43 +1,58 @@
-const Discord = require('discord.js');
-const db = require('quick.db');
-let prefix = 'a!';
-exports.run = function(client, message, args)  { 
-  
-let rol = message.mentions.roles.first() 
-let kanal = message.mentions.channels.first()
-if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescripiton(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`).setColor("RANDOM"));
- 
- if(!rol) return message.channel.send(new Discord.MessageEmbed().setDescription(`
-:warning: Ayarlamam İçin Bir Rol Etiketlemeilisin. 
-Rolü Etiketleyemiyorsan **Rolün Etiketleme Seçeneğini Aktif Etmeyi Unutma**
-Kullanım : ${prefix}otorol-ayarla @rol #kanalLOG
+const fs = require ('fs')
+const Discord = require('discord.js')
+var sunucuyaözelayarlarOtorol = JSON.parse(fs.readFileSync("./otorol.json", "utf8"));
 
-NOT: Rol vermem için verilecek rolün üstünde bir rolüm olmalı yoksa rolü veremem`).setColor("RANDOM"))
- 
- if(!kanal) return message.channel.send(new Discord.MessageEmbed().setDescription(`
-:warning: Ayarlamam İçin Bir Kanal Etiketlemeilisin.
 
-`).setColor("RANDOM"))
- const embed = new Discord.MessageEmbed()
-  .setDescription(`
-:white_check_mark: Otorol Aktif Edildi.
-:white_check_mark: **${rol}** Olarak Güncelledim! 
-📋 Otorol Log Kanalını **${kanal}** Olarak Güncelledim! 
-`)
-message.channel.send(embed)
- 
-  db.set(`otoRL_${message.guild.id}`, rol.id)  
-  db.set(`otoRK_${message.guild.id}`, kanal.id) 
-};
-exports.conf = {
-  enabled: true,  
-  guildOnly: false, 
-  aliases: [], 
-  permLevel: 0
-};
+exports.run = async (bot, message, args) =>
+{
+      let profil = JSON.parse(fs.readFileSync("./otorol.json", "utf8"));
+  var mentionedChannel = message.mentions.channels.first();
+  if (!mentionedChannel && args[0] !== "sıfırla") return message.channel.send("Ayarlamam İçin Bir Rol Etiketlemelisin. \nRolü Etiketleyemiyorsan **Rolün Etiketleme Seçeneğini Aktif Etmeyi Unutma** \nÖrnek Kullanım: a!otorol @rol #kanal**");
+  if (message.guild.member(message.author.id).hasPermission(0x8))
+   
+    {
+      var mentionedRole = message.mentions.roles.first();
+      if (!mentionedRole) return message.channel.send("**Doğru Kullanım = a!otorol @<roladı> #<metinkanalı>**".then(msg => msg.delete(5000)));
+     
 
-exports.help = {
-  name: 'otorol-ayarla',
-  description: 'taslak', 
-  usage: 'Otorol-ayarla'
-};
+    if(!profil[message.guild.id]){
+   
+        profil[message.guild.id] = {
+     
+            sayi: mentionedRole.id,
+      kanal: mentionedChannel.id
+        };
+    }
+   
+    profil[message.guild.id].sayi = mentionedRole.id
+  profil[message.guild.id].kanal = mentionedChannel.id
+   
+    fs.writeFile("./otorol.json", JSON.stringify(profil), (err) => {
+        console.log(err)
+
+    })
+
+    const embed = new Discord.MessageEmbed()
+        .setDescription(`:white_check_mark: Otorol başarıyla ${args[0]} olarak ayarlandı! \nOtorol Mesaj kanalı başarıyla ${mentionedChannel} olarak ayarlandı.`)
+        .setColor("RANDOM")
+        .setTimestamp()
+    message.channel.send({embed})
+}
+
+}
+
+
+
+exports.conf =
+{
+  enabled: true,
+  guildOnly: true,
+  aliases: ["setautorole", "otorol", "otoroldeğiştir"]
+}
+
+exports.help =
+{
+  name: 'Otorol',
+  description: 'Sunucuya Girenlere Verilecek Olan Otorolü Ayarlar.',
+  usage: 'otorolayarla'
+}
