@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, client) => {
 
-    if (!message.member.hasPermissions ('KICK_MEMBERS')) return message.channel.send("Komudu Kullanmak İçin Üyeleri At Yetkisine Sahip Olmalısın.")
+if (!message.guild.members.get(client.user.id).hasPermission("KİCK_MEMBERS")) return message.reply('Gerekli izin yok')
     const mod = message.author;
     let guild = message.guild
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
