@@ -1,28 +1,28 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
-let prefix = 's!';
-exports.run = (client, message, args) => { 
+let prefix = 'a!';
+exports.run = function(client, message, args)  { 
   
 let rol = message.mentions.roles.first() 
 let kanal = message.mentions.channels.first()
-if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescripiton(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`).setColor("RANDOM"));
  
- if(!rol) return message.channel.send(`
-${client.emojis.get("742697074457313353")} Ayarlamam İçin Bir Rol Etiketlemeilisin. 
+ if(!rol) return message.channel.send(new Discord.MessageEmbed().setDescription(`
+:warning: Ayarlamam İçin Bir Rol Etiketlemeilisin. 
 Rolü Etiketleyemiyorsan **Rolün Etiketleme Seçeneğini Aktif Etmeyi Unutma**
-Kullanım : ${prefix}otorol @rol #kanal 
+Kullanım : ${prefix}otorol-ayarla @rol #kanalLOG
 
-NOT: Rol vermem için verilecek rolün üstünde bir rolüm olmalı yoksa rolü veremem`)
+NOT: Rol vermem için verilecek rolün üstünde bir rolüm olmalı yoksa rolü veremem`).setColor("RANDOM"))
  
- if(!kanal) return message.channel.send(`
-${client.emojis.get("742697074457313353")} Ayarlamam İçin Bir Kanal Etiketlemeilisin.
+ if(!kanal) return message.channel.send(new Discord.MessageEmbed().setDescription(`
+:warning: Ayarlamam İçin Bir Kanal Etiketlemeilisin.
 
-`)
+`).setColor("RANDOM"))
  const embed = new Discord.MessageEmbed()
   .setDescription(`
- ${client.emojis.get("742698066288574535")} Otorol Aktif Edildi.
- ${client.emojis.get("742698066288574535")} **${rol}** Olarak Güncelledim! 
- ${client.emojis.get("742698066288574535")} Kayıt Kanalını **${kanal}** Olarak Güncelledim! 
+:white_check_mark: Otorol Aktif Edildi.
+:white_check_mark: **${rol}** Olarak Güncelledim! 
+📋 Otorol Log Kanalını **${kanal}** Olarak Güncelledim! 
 `)
 message.channel.send(embed)
  

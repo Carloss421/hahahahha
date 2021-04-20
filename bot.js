@@ -121,7 +121,7 @@ client.elevation = message => {
 };
 
 client.login(ayarlar.token);
-
+//     [-----------------> Afk <------------------]  \\
 client.on("message", async message => {
   let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
@@ -151,10 +151,32 @@ client.on("message", async message => {
 `<@${message.author.id}>`,"**adlı kullanıcı artık afk modundan çıktı. Afk kalma süresi: **Yakında!**").setColor("RANDOM"))
       
       db.delete(`afk_${message.author.id}`);
-    }
+    }}});
+
+//     [-----------------> Otorol <------------------]  \\
+client.on("guildMemberAdd", async member => {
+  let kanal = await db.fetch(`otoRK_${member.guild.id}`);
+  let rol = await db.fetch(`otoRL_${member.guild.id}`);
+  let mesajGIRDI = db.fetch(`otoRM_${member.guild.id}`);
+  if (!rol) return;
+
+  if (!mesajGIRDI) {
+    client.channels.get(kanal).send(new Discord.MessageEmbed().setDescription(":inbox_tray: Otomatik Rol Verildi Seninle Beraber `" + member.guild.memberCount + "` Kişiyiz! Hoşgeldin! `" + member.user.username + "`").setColor("RANDOM"));
+    return member.addRole(rol);
   }
-  
-  
-  
-  
-});
+
+  if (mesajGIRDI) {
+    var mesajs = mesajGIRDI.replace("uye", `${member.user}`).replace("uyetag", `${member.user.tag}`).replace("rol", `${member.guild.roles.get(rol).name}`).replace("server", `${member.guild.name}`).replace("uyesayisi", `${member.guild.memberCount}`).replace("botsayisi", `${member.guild.members.filter(m => m.user.bot).size}`).replace("bolge", `${member.guild.region}`).replace("kanalsayisi", `${member.guild.channels.size}`);
+    member.addRole(rol);
+    return client.channels.get(kanal).send(mesajs);
+     }});
+
+client.on("guildMemberRemove", async member => {
+  let kanal = await db.fetch(`otoRK_${member.guild.id}`);
+  let rol = await db.fetch(`otoRL_${member.guild.id}`);
+  let mesaj = db.fetch(`otoRM_${member.guild.id}`);
+  if (!rol) return;
+if (!mesajÇIKTI) {
+  client.channels.get(kanal).send(new Discord.MessageEmbed().setDescription("").setColor("RANDOM"))
+}
+})
