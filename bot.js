@@ -170,13 +170,3 @@ client.on("guildMemberAdd", async member => {
     member.addRole(rol);
     return client.channels.get(kanal).send(mesajs);
      }});
-
-client.on("guildMemberRemove", async member => {
-  let kanal = await db.fetch(`otoRK_${member.guild.id}`);
-  let rol = await db.fetch(`otoRL_${member.guild.id}`);
-  let mesaj = db.fetch(`otoRM_${member.guild.id}`);
-  if (!rol) return;
-if (!mesajÇIKTI) {
-  client.channels.get(kanal).send(new Discord.MessageEmbed().setDescription("").setColor("RANDOM"))
-}
-})

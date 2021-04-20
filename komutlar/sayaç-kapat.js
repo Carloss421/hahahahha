@@ -3,12 +3,11 @@ const db = require('quick.db')
 exports.run = (client, message, args) => { 
 
 if (!message.channel.permissionsFor("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`).setColor("RANDOM"));
- const rol = db.fetch(`otoRL_${message.guild.id}`)  
+ const rol = db.fetch(`sayacK_${message.guild.id}`)  
  if(!rol) return message.reply(new Discord.MessageEmbed().setDescription(`Sanırım bu özellik zaten kapalıymış :slight_smile:`).setColor("RANDOM"))
  message.reply(`:white_check_mark: Bu özellik **başarıyla kapatıldı.**`)
-  db.delete(`otoRL_${message.guild.id}`)  
-  db.delete(`otoRK_${message.guild.id}`) 
-  db.delete(`otoRM_${message.guild.id}`)  
+  db.delete(`sayacK_${message.guild.id}`)  
+  db.delete(`sayacS_${message.guild.id}`) 
 };
   
 
