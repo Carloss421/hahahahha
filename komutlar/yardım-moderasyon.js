@@ -4,7 +4,7 @@ const ayarlar = require('../ayarlar.json');
 exports.run = function(client, message, args) {
 let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon`)
-.setColor(`#add8e6`)
+.setColor("RANDOM")
 .setDescription(`
 \`${ayarlar.prefix}ban\` Belirtilen kullanıcıyı sunucudan yasaklar.
 \`${ayarlar.prefix}mute\` Belirtilen kullanıcıyı sunucuda susturur.
@@ -20,7 +20,7 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}emoji-koruma | aç - kapat (PREMUIM)\` Emoji korumayı açar,kapatır.
 \`${ayarlar.prefix}sunucu-koruma | aç - kapat (PREMUIM)\` Sunucu korumayı açar,kapatır.
 \`${ayarlar.prefix}kayıt-sistemi\` Kayıt komutlarını görürsünüz.
-~~\`${ayarlar.prefix}ticket-sistemi (YAKINDA)\` Ticket komutlarını görürsünüz.~~
+~~\`${ayarlar.prefix}ticket-sistemi\`~~\`(YAKINDA)\` ~~Ticket komutlarını görürsünüz.~~
 
 
 **Otorol** Komutunu kullanmayı bilmeyenler \`a!otorol-yardım\` komutunu kullanarak kurabilirler.

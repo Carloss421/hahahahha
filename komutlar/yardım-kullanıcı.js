@@ -16,7 +16,7 @@ let embed = new Discord.MessageEmbed()
 :zzz: \`${ayarlar.prefix}afk\` Afk olursunuz.
 🧰 \`${ayarlar.prefix}hızlı-destek(PREMUIM)\` Çok çabuk destek alabilirsiniz.
 
-🔐 \`${ayarlar.prefix}premium-yardım\` premium özeliklerini fln görürsünüz.
+🔐 \`${ayarlar.prefix}pre-yardım - ${ayarlar.prefix}yardım-premium\` premium özeliklerini fln görürsünüz.
 `)
 message.channel.send(embed)
 };
