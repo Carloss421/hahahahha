@@ -8,7 +8,7 @@ exports.run = function(client, message, args) {
 const onerisiz = new Discord.MessageEmbed()
 .setColor("RED")
 .setTitle("• Hata: 0014 •")
-.setDescription("Öneri gönderebilmek için bir öneri belirtiniz.")
+.setDescription("Hata bildirebilmek için hatayı yazmalısın.")
 .setFooter(`©️ Tüm hakları saklıdır | Yeni Nesil Gelişmiş Bot | 2021`);
 
 const onerili = new Discord.MessageEmbed()

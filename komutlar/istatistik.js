@@ -32,7 +32,7 @@ let embed = new Discord.MessageEmbed()
 
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - cezalog - afk -\`~~\`jail\`~~\` - ban - mute\`
-\`Premium - CaptchaSistemi\`
+\`Premium - CaptchaSistemi - kayıtlog\`
 Veri depolaması fazla artarsa silineceketir!
 [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - [Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - Oyver **YAKINDA!**
 `)
