@@ -199,7 +199,7 @@ client.on("guildMemberAdd", async member => {
   if (!skanal9) return;
   const skanal31 = member.guild.channels.find('name', skanal9)
   if (!skanal31) return;
-  skanal31.send(new Dis`:inbox_tray: <@${member.user.id}> sunucuya katıldı, **${sayac}** kişi olmamıza **${sayac - member.guild.members.size}** kişi kaldı.`)
+  skanal31.send(new Discord.MessageEmbed().setDescription(`:inbox_tray: <@${member.user.id}> sunucuya katıldı, **${sayac}** kişi olmamıza **${sayac - member.guild.members.size}** kişi kaldı.`).setColor("GREEN").setTitle("Alvi - Sayaç"))
 
 });
 
@@ -212,7 +212,7 @@ client.on("guildMemberRemove", async member => {
   if (!skanal31) return;
     
 
-  skanal31.send(new Discord.MessageEmbed().setDescription(`:outbox_tray: <@${member.user.id}> adlı kullanıcı sunucudan ayrıldı. **${sayac}** kullanıcı olmaya **${sayac - member.guild.members.size}** kullanıcı kaldı.`).setColor("RANDOM").setTitle("Alvi - Sayaç"))
+  skanal31.send(new Discord.MessageEmbed().setDescription(`:outbox_tray: <@${member.user.id}> adlı kullanıcı sunucudan ayrıldı. **${sayac}** kullanıcı olmaya **${sayac - member.guild.members.size}** kullanıcı kaldı.`).setColor("RED").setTitle("Alvi - Sayaç"))
 
   });
 // ---------------------> [Ramazan] <------------------------- \\
