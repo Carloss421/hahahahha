@@ -57,8 +57,8 @@ if(message.author.bot) return
   }
   if (cmd) {
   let bakım = await db.fetch('bakım');
-  if(message.author.id !== ayarlar.ownerID){
-
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD){
 
     if(bakım){
   return message.channel.send(new Discord.MessageEmbed().setDescription(`

@@ -3,7 +3,8 @@ const db = require("quick.db");
 const ayarlar = require("../ayarlar.json")
 exports.run = async (client, message, args) => {
   
-  if(message.author.id !== ayarlar.ownerID)  {
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD)  {
     const embed = new Discord.MessageEmbed()
     .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
     .setColor('BLUE')
