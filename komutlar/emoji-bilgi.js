@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
 
     let emojiname = args[0];
 
-    const emoji = (message.guild.emojis.find("name", `${emojiname}`))
+    const emoji = message.guild.emojis.find("name", `${emojiname}`)
 
     if (!emojiname) { 
       

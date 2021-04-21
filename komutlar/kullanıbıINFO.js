@@ -24,7 +24,7 @@ exports.run = async (bot, msg, args) => {
         const uembed = new Discord.MessageEmbed()
         .setThumbnail(userinfo.avatar)
         .setTitle('Alvi - Kullanıcı Bilgi')
-        .setDescription(`Bilgilerine Bakılan Kullanıcı: <@${msg.author.id}>`)
+        .setDescription(`Bilgilerine Bakan Kullanıcı: <@${msg.author.id}>`)
         .addField(`Durum`, userinfo.status,true)
         .setColor('03f2df')
         .addField(`Katılım Tarihi (Sunucu)`, tanım,true)
