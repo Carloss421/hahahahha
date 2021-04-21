@@ -6,19 +6,19 @@ exports.run = async (client, message, args) => {
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`).setColor("RANDOM"));
   
   let mlog = message.mentions.channels.first()
-  let cezalog = db.fetch(`clog_${message.guild.id}`)
+  let çekilişlogS = db.fetch(`çlog_${message.guild.id}`)
 
 if(args[0] === "sıfırla") {
-    if(!cezalog) {
+    if(!çekilişlogS) {
       message.channel.send(new Discord.MessageEmbed()
-      .setDescription(`:x:  Ceza Log Kanalı zaten ayarlı değil.`)
+      .setDescription(`:x:  Çekiliş Log Kanalı zaten ayarlı değil.`)
       .setColor("RED"))                     
       return
     }
     
     db.delete(`mlog_${message.guild.id}`)
     message.channel.send(new Discord.MessageEmbed()
-     .setDescription(`✅  Ceza Log Kanalı başarıyla sıfırlandı.`)
+     .setDescription(`✅  Çekiliş Log Kanalı başarıyla sıfırlandı.`)
       .setColor("GREEN"))                   
     return
   }
@@ -27,7 +27,7 @@ if(args[0] === "sıfırla") {
   
   if (!mlog) {
     return message.channel.send(new Discord.MessageEmbed()
-     .setDescription(`:x:  Ceza Log Kanalı etiketlemelisin.`)
+     .setDescription(`:x:  Çekiliş Log Kanalı etiketlemelisin.`)
     .setColor("RED"))                          
   }
   
@@ -39,7 +39,7 @@ if(args[0] === "sıfırla") {
    // message.channel.send(`Otorol \`${rol.name}\`, otorol kanalı ${rolk} olarak ayarlandı.`)
   
   const embed = new Discord.MessageEmbed()
-        .setDescription(`✅ Ceza Log Kanalı başarıyla ${mlog} olarak ayarlandı.\nKanalı sıfırlamak için **a!cezalog sıfırla** yazabilirsiniz!`)
+        .setDescription(`✅ Çekiliş Log Kanalı başarıyla ${mlog} olarak ayarlandı.\nKanalı sıfırlamak için **a!çekilişlog sıfırla** yazabilirsiniz!`)
         .setColor("RANDOM")
         .setTimestamp()
     message.channel.send({embed})
@@ -49,12 +49,12 @@ if(args[0] === "sıfırla") {
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['ceza-log','cezalog'],
+    aliases: ['çekiliş-log','çekilişlog'],
     permLevel: 0
 }
 
 exports.help = {
-    name: 'cezalog-ayarla',
+    name: 'çekilişlog-ayarla',
     description: 'Mod-log kanalı ayarlar.',
     usage: 'mod-log #kanal'
 }
