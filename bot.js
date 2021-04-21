@@ -234,7 +234,7 @@ var prefix = ayarlar.prefix;
 client.on('message', msg => {
   if (msg.content === prefix + 'iftar') {
   	if (msg.author.bot) return;
-   	msg.reply(' !iftar [Şehir İsmi] | Şehirin baş harfi büyük olacak şekilde yazınız!');
+   	msg.reply(' a!iftar [Şehir İsmi] | Şehirin baş harfi büyük olacak şekilde yazınız!');
   }
   if (msg.content === prefix + 'iftar'+' Adana') {
    	msg.reply('https://iftaranekadarkaldi.com/sehir/4892/ADANA/TURKIYE');
