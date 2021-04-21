@@ -9,11 +9,17 @@ module.exports.run = async (client, message, args) => {
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(3000));
     }
-  cont
+  const embedD = new Discord.MessageEmbed()
   let görevADD = await db.fetch(`görevEKLE_${message.guild.id}`)
+  .setColor("RED")
+  .setDescription(`${message.guild.id} bu kullanıcının görev eklenme sınırına ulaşıldı! (5/5)`)
   
   let user = message.mentions.users.first()
-let money = args[1]    
+let görev1 = db.add(`görevEKLE_${user.id}`, 1)
+let görev2 = db.add(`görevEKLE_${user.id}`, 2)
+let görev3 = db.add(`görevEKLE_${user.id}`, 3)
+let görev4 = db.add(`görevEKLE_${user.id}`, 4)
+let görev5 = db.add(`görevEKLE_${user.id}`, 5)
   if(message.author.id !== ayarlar.botsahibi) return message.react("❌")
   if(!user) return message.channel.send(new Discord.MessageEmbed()
 .setColor("RED")
@@ -40,8 +46,29 @@ let money = args[1]
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ ${user} kullanıcısının cüzdanına ${money} 💸 eklendi!`))
-db.add(`görevEKLE_${user.id}`, money)  
+.setDescription(`✅ ${user} kullanıcısına ${görev1} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevADD}\``))
+  
+message.channel.send(new Discord.MessageEmbed()
+.setColor("GREEN")
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
+.setDescription(`✅ ${user} kullanıcısına ${görev2} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevADD}\``))
+
+message.channel.send(new Discord.MessageEmbed()
+.setColor("GREEN")
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
+.setDescription(`✅ ${user} kullanıcısına ${görev3} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevADD}\``))
+
+message.channel.send(new Discord.MessageEmbed()
+.setColor("GREEN")
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
+.setDescription(`✅ ${user} kullanıcısına ${görev4} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevADD}\``))
+
+message.channel.send(new Discord.MessageEmbed()
+.setColor("GREEN")
+.setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
+.setDescription(`✅ ${user} kullanıcısına ${görev5} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevADD}\``))
+
+
 }
   
 exports.conf = {
