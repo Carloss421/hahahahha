@@ -5,6 +5,7 @@ exports.run = async(client, message, args) => {
 
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RANDOM"));
   let çekilişlogS = db.fetch(`çlog_${message.guild.id}`)
+  let çrol = db.fetch(`çrol_${message.guild.id}`)
   let çlogS = message.guild.channels.find('name', 'çekilişlog');
 if (!çlogS) return message.reply('`çekilişlog` kanalını bulamıyorum. Ayarlamak için `a!çekilişlog #çekilişlog`');
 if(args[0] === "sıfırla") {
@@ -16,7 +17,7 @@ const sıfırlandı = new discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
 message.channel.send(sıfırlandı)
-db.delete(`kayıtçırol_${message.guild.id}`)
+db.delete(`çrol_${message.guild.id}`)
 return;
 return message.guild.channels.get(çlogS.id).sendEmbed(sıfırlandı);
 }

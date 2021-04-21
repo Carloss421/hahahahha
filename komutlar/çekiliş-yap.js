@@ -1,10 +1,11 @@
 const ms = require('ms');
+const db = require('quick.db')
+const discord = require('discord.js')
 
 exports.run = async (client, message, args) => {
-
-    if(!message.member.hasPermission('MANAGE_MESSAGES')){
-        return message.channel.send(':x: Bu Komutu Kullanmak İçin "Mesajları Yönet" Yetkisine Sahip Olman Gerekiyor.');
-    }
+let çrol = await db.fetch(`çrol_${message.guild.id}`)
+  
+if(!message.member.roles.cache.has(çrol)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu Komudu Kullanabilmen İçin <@&${çrol}> Adlı Role Sahip olman Lazım!`))
 
     let giveawayChannel = message.mentions.channels.first();
     if(!giveawayChannel){
