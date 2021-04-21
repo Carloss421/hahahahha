@@ -37,7 +37,7 @@ exports.conf = {
   kategori : `Moderasyon`
 }
 exports.help = {
-  name : "giriş-izni",
+  name : "bot-izni",
   description : "Sunucuyu botlara karşı koruyan sistem. (Kullanmanızı öneririz)",
   usage : "giriş-izni <botid>"
 }

@@ -7,7 +7,8 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 \`${ayarlar.prefix}çekiliş-sistemi\` Çekiliş komutlarını açar.
-\`${ayarlar.prefix}botkoruma (YAKINDA - PREMUIM)\` İzinsiz sunucuya bot giremez.
+\`${ayarlar.prefix}botkoruma <aç/kapat>  (PREMUIM)\` Botkoruma açıp kapatır.
+\`${ayarlar.prefix}botizin | a!bot-izin ID\` İzin verilen botlara girimesini engellemez.
 \`${ayarlar.prefix}müzik-sistemi\` Müzik komutlarını açar.
 \`${ayarlar.prefix}davet-sistemi\` Davet komutlarını açar.
 \`${ayarlar.prefix}oylama\` Oylama Yapar.
