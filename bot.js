@@ -1291,7 +1291,63 @@ client.on("roleCreate", async (rolee, member, guild) => {
     return;
   } else {
     return;
-  }
-});
+  }});
+client.on("roleDelete", async (rol, member, guild) => {
+let rolkoruma = await db.fetch(`rolk_${rol.guild.id}`);
+if (rolkoruma == "acik") {
+  rol.clone();
+  const embed = new Discord.MessageEmbed()
+ .setDescription(`Sunucunuzda rol silindi ama herşeyi ayarladım! (Rol Koruma Sistemi)`)
+  .setColor("GREEN");
+  rol.guild.owner.send(embed);
+  return;
+} else {
+  return;
+}});
+client.on("roleUptade", async (roll, member, guild) => {
+let rolkoruma = await db.fetch(`rolk_${roll.guild.id}`);
+if (rolkoruma == "acik") {
+roll.old();
+  const embed = new Discord.MessageEmbed()
+  .setDescription(`Sunucunuzda birtane rol'ün adı/rengi/yetkileri değiştirildi ama herşeyi eski haline getirdim! (Rol Koruma Sistemi)`)
+  .setColor("GREEN")
+ roll.guild.owner.send(embed);
+return;
+} else {
+ return; 
+}});
+// ----------------> {Kanal-Koruma} <------------------------ \\
+client.on("channelDelete", async channel => {
+  if(!channel.guild.me.hasPermission("MANAGE_CHANNELS")) return;
+  let guild = channel.guild;
+  const logs = await channel.guild.fetchAuditLogs({ type: 'CHANNEL_DELETE' })
+  let member = guild.members.get(logs.entries.first().executor.id);
+  if(!member) return;
+  if(member.hasPermission("ADMINISTRATOR")) return;
+  channel.clone(channel.name, true, true, "Kanal silme koruması sistemi").then(async klon => {
+    if(!db.has(`korumalog_${guild.id}`)) return;
+    let logs = guild.channels.find(ch => ch.id === db.fetch(`korumalog_${guild.id}`));
+    if(!logs) return db.delete(`korumalog_${guild.id}`); else {
+      const embed = new Discord.RichEmbed()
+      .setDescription(`Silinen Kanal: <#${klon.id}> (Yeniden oluşturuldu!)\nSilen Kişi: ${member.user}`)
+      .setColor('RED')
+      .setAuthor(member.user.tag, member.user.displayAvatarURL)
+      logs.send(embed);
+    }
+    await klon.setParent(channel.parent);
+    await klon.setPosition(channel.position);
+  })});
+client.on("channelCreate", async channel => {
+ if(!channel.guild.me.hasPermission("MANAGE_CHANNELS")) return;
+  let guild = channel.guild;
+  const logs = await channel.guild.fetchAuditLogs({ type: 'CHANNEL_CREATE' })
+  let member = guild.members.get(logs.entries.first().executor.id);
+  if(!member) return;
+  if(member.hasPermission("ADMINISTRATOR")) return;
+  channel.delete()
+
+})
+
+
 
 client.login(ayarlar.token);
