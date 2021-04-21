@@ -33,7 +33,7 @@ message.channel.send(premium)
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["pre-yardım"],
+  aliases: ["pre-yardım","premium-sistemi"],
   permlevel: 0
 };
 exports.help = {
