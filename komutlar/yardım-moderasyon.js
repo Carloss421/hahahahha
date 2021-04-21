@@ -21,12 +21,14 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}sunucu-koruma | aç - kapat (PREMUIM)\` Sunucu korumayı açar,kapatır.
 \`${ayarlar.prefix}kayıt-sistemi\` Kayıt komutlarını görürsünüz.
 \`${ayarlar.prefix}captcha-sistemi\` Captcha komutlarını görürsünüz.
+\`${ayarlar.prefix}görev-sistemi\` Görev komutlarını görürsünüz.
 ~~\`${ayarlar.prefix}ticket-sistemi\`~~\`(YAKINDA - PREMUIM)\` ~~Ticket komutlarını görürsünüz.~~
 ~~\`${ayarlar.prefix}jail\`~~\`(YAKINDA)\`~~Belirtilen üyeyi hapise atarsınız~~
 
 
 **Otorol** Komutunu kullanmayı bilmeyenler \`a!otorol-yardım\` komutunu kullanarak kurabilirler.
 **Sayaç** Komutunu kullanmayı bilmeyenler \`a!sayaç-yardım\` komutunu kullanarak kurabilirler.
+**görev-sistemi** Komutu çalışır durumda ama içinde yazan komutları deneyemezsiniz çünkü onun üzerinde çalışıyor!
 
 Burada çok fazla komut olduğu için ~~\`a!moderasyon2\`~~ **(YAKINDA!)** yazarak öbür komutlara bakabilirsiniz.`)
 message.channel.send(embed)
