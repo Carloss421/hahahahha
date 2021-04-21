@@ -10,6 +10,7 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}botkoruma (YAKINDA - PREMUIM)\` İzinsiz sunucuya bot giremez.
 \`${ayarlar.prefix}müzik-sistemi\` Müzik komutlarını açar.
 \`${ayarlar.prefix}davet-sistemi\` Davet komutlarını açar.
+\`${ayarlar.prefix}oylama\` Oylama Yapar.
 
 **müzik-sistemi**'nin içindeki volume komutunu Normal Kullanıcılar: %59'a kadar - Premium Kullanıcıları: %100'yüze kadar arttırabiliyorlar.
 **şuan herkes %100'e kadar çekebilir.**
