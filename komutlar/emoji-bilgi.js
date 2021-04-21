@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
 
     if (!emojiname) { 
       
-       const embed2 = new Discord.RichEmbed()
+       const embed2 = new Discord.MesageEmbed()
 
      .setColor("BLACK")
      .setDescription("Emoji İsmi Belirtmediniz?")
@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
 
     }
 
-    const embed = new Discord.MesageeMBED()
+    const embed = new Discord.MesageEmbed()
 
     .setColor("RANDOM")
 
