@@ -583,28 +583,7 @@ client.on('message', msg => {
   if (msg.content === 'selamun aleyküm') {
    	msg.reply('ve aleyküm selam');
   }
- if (msg.content === 'selamın aleyeküm') {
-   msg.reply('ve aleyküm selam')
- }
-  if (msg.content === 'sA') {
-    msg.reply('ve aleyküm selam')
-  } 
-  if (msg.content === 'SA') {
-  msg.reply('ve aleyküm selam')
-  }
-  if (msg.content === 'Selamun Aleyküm') {
-    msg.reply('ve aleyküm selam')
-  }
-  if (msg.content === 'Selamın Aleyküm')  {
-    msg.reply('ve aleyküm selam')
-  }
-  if (msg.content === 'Selamun Aleykum') {
-    msg.reply('ve aleyküm selam')
-  }
-  if (msg.content == 'Selamın Aleykum')
-  if (msg.content === 'bye','by') {
-   	msg.reply('su gibi git su gibi gel ');
-  }
+ 
   if (msg.content === 'günaydın') {
    	msg.reply('sana da günaydın');
   }
@@ -614,21 +593,7 @@ client.on('message', msg => {
   if (msg.content === 'iyi geceler') {
    	msg.reply('sana da iyi geceler ');
   }
-  if (msg.content === 'sa') {
-   	msg.reply('as');
-  }
-  if (msg.content === 'Sa') {
-   	msg.reply('as');
-  }
-  if (msg.content === 's.a') {
-   	msg.reply('a.s');
-  }
-  if (msg.content === 'S.a') {
-   	msg.reply('as');
-  }
-  if (msg.content === 'sea') {
-   	msg.reply('as');
-  }
+  
   if (msg.content === 'iyi akşamlar') {
    	msg.reply('sana da iyi akşamlar');
   }
@@ -647,9 +612,8 @@ client.on('message', msg => {
   if (msg.content === 'gelsin') {
    	msg.reply('iyi tamam geldim :)');
   }
-  if (msg.content === 'selamun aleyküm') {
-   	msg.reply('Ve Aleykümselam');
-  }
+
+
     if (msg.content === 'a!ramazan') {
    	msg.channel.send(new Discord.MessageEmbed().setDescription(
 `\`a!iftar\` Yazarak istediğiniz şehirin iftar saatine bakarsınız.
@@ -1145,4 +1109,80 @@ member.kick(member, `Bot koruması aktif!`)
 
 member.guild.owner.send(`Sunucunuza bir bot eklendi ve sunucudan otomatik olarak atıldı, sunucuya eklenmesini onaylıyor iseniz \`a!giriş-izni ${member.id}\``)
 })
+
+
+// ----------------> [Sa-AS] <--------------------- \\
+client.on("message", async (msg, member, guild) => {
+  let i = await db.fetch(`ss_${msg.guild.id}`);
+  if (db.has(`ss_${msg.guild.id}`) === true) {
+    if (db.has(`üyelikk_${msg.author.id}`)) {
+      if (msg.content.toLowerCase() === "sa") {
+        msg.channel.send(
+          `:wave: Aleyküm Selam, \`${msg.author.tag}\` Hoşgeldin `
+        );
+        db.add(`slmal_${msg.author.id}`, 1);
+      }
+      if (msg.content.toLowerCase() === "selam") {
+        msg.channel.send(
+          `:wave: Aleyküm Selam, \`${msg.author.tag}\` Hoşgeldin `
+        );
+        db.add(`slmal_${msg.author.id}`, 1);
+      }
+      if (msg.content.toLowerCase() === "s.a") {
+        msg.channel.send(
+          `:wave: Aleyküm Selam, \`${msg.author.tag}\` Hoşgeldin `
+        );
+        db.add(`slmal_${msg.author.id}`, 1);
+      }
+      if (msg.content.toLowerCase() === "selamun aleyküm") {
+        msg.channel.send(
+          `:wave: Aleyküm Selam, \`${msg.author.tag}\` Hoşgeldin `
+        );
+        db.add(`slmal_${msg.author.id}`, 1);
+      }
+      if (msg.content.toLowerCase() === "selamün aleyküm") {
+        msg.channel.send(
+          `:wave: Aleyküm Selam, \`${msg.author.tag}\` Hoşgeldin `
+        );
+        db.add(`slmal_${msg.author.id}`, 1);
+      }
+    } else if (msg.content.toLowerCase() === "sa") {
+      msg.channel.send(
+        `Aleyküm Selam Hoşgeldin ${msg.author}`
+      );
+      db.add(`slmal_${msg.author.id}`, 1);
+    } else if (msg.content.toLowerCase() === "selam") {
+      msg.channel.send(
+        `Aleyküm Selam Hoşgeldin ${msg.author}`
+      );
+      db.add(`slmal_${msg.author.id}`, 1);
+    }
+  }
+});
+client.on("message", async (msg, member, guild) => {
+  let i = await db.fetch(`ss_${msg.guild.id}`);
+  if (db.has(`ss_${msg.guild.id}`) === true) {
+    if (db.has(`üyelikk_${msg.author.id}`)) {
+      if (msg.content.toLowerCase() === "as") {
+        db.add(`slm_${msg.author.id}`, 1);
+      }
+      if (msg.content.toLowerCase() === "a.s") {
+        db.add(`slm_${msg.author.id}`, 1);
+      }
+      if (msg.content.toLowerCase() === "aleyküm") {
+        db.add(`slm_${msg.author.id}`, 1);
+      }
+      if (msg.content.toLowerCase() === "selam") {
+        db.add(`slm_${msg.author.id}`, 1);
+      }
+      if (msg.content.toLowerCase() === "aleykümselam") {
+        db.add(`slm_${msg.author.id}`, 1);
+      }
+    } else if (msg.content.toLowerCase() === "as") {
+      db.add(`slm_${msg.author.id}`, 1);
+    } else if (msg.content.toLowerCase() === "aleyküm selam") {
+      db.add(`slm_${msg.author.id}`, 1);
+    }
+  }
+});
 client.login(ayarlar.token);

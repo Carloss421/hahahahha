@@ -2,6 +2,7 @@ dependencies:
   chance: 1.1.7
   common-tags: 1.8.0
   dateformat: 4.5.1
+  dblapi.js: 2.4.1
   discord.js: 12.5.3
   express: 4.17.1
   figlet: 1.5.0
@@ -710,6 +711,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-OD0TZ+B7yP7ZgpJf5K2DIbj3FZvFvxgFUuaqA/V5zTjAtAAXZ1E8bktHxmAGs4x5b7PflqA9LeQ84Og7wYtF7Q==
+  /dblapi.js/2.4.1:
+    deprecated: Module is no longer maintained
+    dev: false
+    resolution:
+      integrity: sha512-g+u1inF/qOLit5qPK4hBGk5pKL1vy09uBLV+nukkRMvw2S9D1PyiyO70n4fboUXOgbExPp6Sho/Y782OqQOUiQ==
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -2358,6 +2364,7 @@ specifiers:
   chance: ^1.1.7
   common-tags: ^1.8.0
   dateformat: ^4.5.1
+  dblapi.js: ^2.4.1
   discord.js: ^12.5.1
   express: ^4.17.1
   figlet: ^1.5.0
