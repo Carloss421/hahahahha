@@ -1369,7 +1369,7 @@ let member = guild.members.get(logs.entries.first().executor.id);
   channel.guild.owner.send(embed);
 }});
 // ---------------> [Emoji-Koruma] <------------------- \\
-  client.on('emojiDelete',async function(emoji, kisi) {
+  client.on('emojiDelete',async function(emoji, kisi, user, yetkili) {
     
     const i = await db.fetch(`emojikoruma_${emoji.guild.id}`, true)
     if(i) {
@@ -1393,17 +1393,16 @@ if (members.id !== id) return
 members.roles.forEach(role => {
 if (role.hasPermission(8) || role.hasPermission("MANAGE_EMOJIS")) {
 members.removeRole(role.id)
+
+
+
+
+
+emoji.guild.owner.send(`** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adlı Kişiyi Banladı Ve Yetkilerini Aldı`)
 }
 })
 })
-
 }
 }  );
-
-guild.owner.send(`** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adlı Kişiyi Banladı Ve Yetkilerini Aldı`)
-},2000)
-    }
-})
-
 
 client.login(ayarlar.token);
