@@ -14,6 +14,8 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}gif-sistemi\` Gif komutlarını açar.
 \`${ayarlar.prefix}kanal-aç\` Kanala yazma izninini açar.
 \`${ayarlar.prefix}kanal-kilitle\` Kanal yazma iznini kapatır.
+\`${ayarlar.prefix}seviye-sistemi\` Seviye komutlarını açar.
+\`${ayarlar.prefix}snipe\` Son silinen mesajı atar.
 
 **müzik-sistemi**'nin içindeki volume komutunu Normal Kullanıcılar: %59'a kadar - Premium Kullanıcıları: %100'yüze kadar arttırabiliyorlar.
 **şuan herkes %100'e kadar çekebilir.**
