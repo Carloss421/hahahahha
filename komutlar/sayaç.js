@@ -7,7 +7,7 @@ const embed = new Discord.MessageEmbed()
 .setColor('BLUE')
 .setDescription(`
 **a!sayaç-ayarla** Sayacı Ayarlar.
-Örnek: \`a!sayac-ayarla #logkanal Hedef\``)
+Örnek: \`a!sayaç-ayarla #logkanal Hedef\``)
 .setTimestamp()
  message.channel.send(embed) 
   };

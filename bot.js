@@ -193,46 +193,28 @@ else {
 //     [-----------------> Sayaç <------------------]  \\
 
 client.on("guildMemberAdd", async member => {
-  const kanal = await db.fetch(`sayacK_${member.guild.id}`);
-  if (!kanal) return;
-  const sayaç = await db.fetch(`sayacS_${member.guild.id}`);
-    const sonuç = sayaç - member.guild.memberCount;
-  const mesaj = await db.fetch(`sayacHG_${member.guild.id}`)
-    ///....
+  
+  let sayac = await db.fetch(`sayac_${member.guild.id}`);
+  let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
+  if (!skanal9) return;
+  const skanal31 = member.guild.channels.find('name', skanal9)
+  if (!skanal31) return;
+  skanal31.send(new Dis`:inbox_tray: <@${member.user.id}> sunucuya katıldı, **${sayac}** kişi olmamıza **${sayac - member.guild.members.size}** kişi kaldı.`)
 
-  ///....
-  if (!mesaj) {
-    return client.channels.get(kanal).send(":inbox_tray: Kullanıcı Katıldı! `" + sayaç + "` Kişi Olmamıza `" + sonuç + "` Kişi Kaldı `" + member.guild.memberCount + "` Kişiyiz!" +  "`" + member.user.username + "`");
-  }
-
-  if (member.guild.memberCount == sayaç) {
-    return client.channels.get(kanal).send(`:loudspeaker: Sayaç Sıfırlandı! \`${member.guild.memberCount}\` Kişiyiz!`)
-    await db.delete(`sayacK_${member.guild.id}`)
-    await db.delete(`sayacS_${member.guild.id}`)
-  }
-  if (mesaj) {
-    const mesaj31 = mesaj.replace("uyetag", `${member.user.tag}`).replace("server", `${member.guild.name}`).replace("uyesayisi", `${member.guild.memberCount}`).replace("botsayisi", `${member.guild.members.filter(m => m.user.bot).size}`).replace("bolge", `${member.guild.region}`).replace("kanalsayisi", `${member.guild.channels.size}`).replace("kalanuye", `${sonuç}`).replace("hedefuye", `${sayaç}`)
-    return client.channels.get(kanal).send(new Discord.MessageEmbed().setDescription(mesaj31).setColor("RANDOM"))}});
-client.on("guildMemberRemove", async member => {
-
-  const kanal = await db.fetch(`sayacK_${member.guild.id}`);
-  const sayaç = await db.fetch(`sayacS_${member.guild.id}`);
-  const sonuç = sayaç - member.guild.memberCount;
-
-  if (!kanal) return;
-  if (!sayaç) return;
-    ///....
-
-  if (!sayaç) {
-    return client.channels.get(kanal).send(":outbox_tray: Kullanıcı Ayrıldı. `" + sayaç + "` Kişi Olmamıza `" + sonuç + "` Kişi Kaldı `" + member.guild.memberCount + "` Kişiyiz!" +   "`" + member.user.username + "`");
-      }
-
-  if (sayaç) {
-    const mesaj31 = sayaç.replace("uye", `${member.user.tag}`).replace("server", `${member.guild.name}`).replace("uyesayisi", `${member.guild.memberCount}`).replace("botsayisi", `${member.guild.members.filter(m => m.user.bot).size}`).replace("bolge", `${member.guild.region}`).replace("kanalsayisi", `${member.guild.channels.size}`).replace("kalanuye", `${sonuç}`).replace("hedefuye", `${sayaç}`)
-    return client.channels.get(kanal).send(mesaj31);
-  }
 });
 
+client.on("guildMemberRemove", async member => {
+  
+  let sayac = await db.fetch(`sayac_${member.guild.id}`);
+  let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
+  if (!skanal9) return;
+  const skanal31 = member.guild.channels.find('name', skanal9)
+  if (!skanal31) return;
+    
+
+  skanal31.send(new Discord.MessageEmbed().setDescription(`:outbox_tray: <@${member.user.id}> adlı kullanıcı sunucudan ayrıldı. **${sayac}** kullanıcı olmaya **${sayac - member.guild.members.size}** kullanıcı kaldı.`).setColor("RANDOM").setTitle("Alvi - Sayaç"))
+
+  });
 // ---------------------> [Ramazan] <------------------------- \\
 var prefix = ayarlar.prefix;
 client.on('message', msg => {
@@ -1152,4 +1134,15 @@ let rrrsembed = new Discord.MessageEmbed()
   
 });
 
+// ------------------> [AntiRaid] <-------------------------- \\
+
+client.on("guildMemberAdd", async member => {
+if (db.has(`botkoruma_${member.guild.id}`) === false) return;
+if (member.user.bot === false) return;
+if (db.has(`botİzinli_${member.id}`) === true) return;
+
+member.kick(member, `Bot koruması aktif!`)
+
+member.guild.owner.send(`Sunucunuza bir bot eklendi ve sunucudan otomatik olarak atıldı, sunucuya eklenmesini onaylıyor iseniz \`a!giriş-izni ${member.id}\``)
+})
 client.login(ayarlar.token);
