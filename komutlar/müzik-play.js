@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const { RichEmbed } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube('AIzaSyAqi6LvT3nLMefsoDiXuHaptzamMUjU3Z8');
@@ -13,28 +12,28 @@ exports.run = async (client, message, args) => {
 
     var voiceChannel = message.member.voiceChannel;//tüm thisleri message yap 
 
-    const embed = new RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor("#0f0f0f")
-    .setTitle(":x: Missing args")
-    .setDescription("+play [Link or query]")
+    .setTitle(":x: Eksik bağımsız değişkenler")
+    .setDescription("a!play [Bağlantı veya sorgu]")
     if (!args[0]) return message.channel.send(embed);
         
-    const voiceChannelAdd = new RichEmbed()
+    const voiceChannelAdd = new Discord.MessageEmbed()
     .setColor("#0f0f0f")
-    .setDescription(`:x: **You have to be in a voice channel to use this command.**`)
+    .setDescription(`:x: **Bu komutu kullanmak için bir ses kanalında olmanız gerekir.**`)
     if (!voiceChannel) return message.channel.send(voiceChannelAdd);
 
     var permissions = voiceChannel.permissionsFor(client.user);
     if (!permissions.has('CONNECT')) {
-      const warningErr = new RichEmbed()
+      const warningErr = new Discord.MessageEmbed()
       .setColor("#0f0f0f")
-      .setDescription(`:x: I don't have enough permission to join any voice channel.`)
+      .setDescription(`:x: Herhangi bir ses kanalına katılmak için yeterli iznim yok.`)
       return message.channel.send(warningErr);
     }
     if (!permissions.has('SPEAK')) {
-      const musicErr = new RichEmbed()
+      const musicErr = new Discord.MessageEmbed()
       .setColor("#0f0f0f")
-      .setDescription(`:x: I can't turn on music/i can't play songs because I'm not allowed to talk on the channel or my microphone is off.`)
+      .setDescription(`:x: Kanalda konuşmaya iznim olmadığı veya mikrofonum kapalı olduğu için müziği açamıyorum / şarkı çalamıyorum.`)
       return message.channel.send(musicErr);
     }
       if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
@@ -44,9 +43,9 @@ exports.run = async (client, message, args) => {
         var video2 = await youtube.getVideoByID(video.id);
         await handleVideo(video2, message.message, voiceChannel, true);
       }
-      const PlayingListAdd = new RichEmbed()
+      const PlayingListAdd = new Discord.MessageEmbed()
       .setColor("#0f0f0f")
-      .setDescription(`[${playlist.title}](https://www.youtube.com/watch?v=${playlist.id}) added to the playlist of the song!`)
+      .setDescription(`[${playlist.title}](https://www.youtube.com/watch?v=${playlist.id}) şarkının çalma listesine eklendi!`)
       return message.channel.send(PlayingListAdd);
     } else {
       try {
@@ -60,7 +59,7 @@ exports.run = async (client, message, args) => {
           var video = await youtube.getVideoByID(videos[r - 1].id);
         } catch (err) {
           console.error(err);
-          const songNope = new RichEmbed()
+          const songNope = new Discord.MessageEmbed()
           .setColor("#0f0f0f")
           .setDescription(`:x: No song could be found with the name you were looking for!`) 
           return message.channel.send(songNope);
@@ -100,18 +99,18 @@ exports.run = async (client, message, args) => {
             queueConstruct.connection = connection;
             play(message.guild, queueConstruct.songs[0]);
           } catch (error) {
-            console.error(`:x: I couldn't get into the audio channel ERROR: ${error}`);
+            console.error(`:x: Ses kanalına giremedim HATA: ${error}`);
             queue.delete(message.guild.id);
-            return message.channel.send(`:x: I couldn't get into the audio channel ERROR: ${error}`);
+            return message.channel.send(`:x: Ses kanalına giremedim HATA: ${error}`);
           }
         } else {
           serverQueue.songs.push(song);
           
           if (playlist) return undefined;
       
-          const songListBed = new RichEmbed()
+          const songListBed = new Discord.MessageEmbed()
           .setColor("RANDOM")
-          .setDescription(`[${song.title}](https://www.youtube.com/watch?v=${song.id}) added to queue!`)
+          .setDescription(`[${song.title}](https://www.youtube.com/watch?v=${song.id}) sıraya eklendi!`)
           return message.channel.send(songListBed);
         }
         return undefined;
@@ -141,12 +140,12 @@ exports.run = async (client, message, args) => {
             y = `${song.durationh || 0}:${song.durationm || 0}:${song.durations || 0}`
         }
 
-        const playingBed = new RichEmbed()
+        const playingBed = new Discord.MessageEmbed()
         .setColor("#0f0f0f")
         .setAuthor(`Now Playing`, song.thumbnail)
         .setDescription(`[${song.title}](${song.url})`)
-        .addField("Estimated time until playing", `${y}`, true)
-        .addField("The User Who Opened the Song", `${song.requester}`, true)
+        .addField("Oynamaya kadar tahmini süre", `${y}`, true)
+        .addField("Şarkıyı Açan Kullanıcı", `${song.requester}`, true)
         .setThumbnail(song.thumbnail)
         serverQueue.textChannel.send(playingBed);
       }  

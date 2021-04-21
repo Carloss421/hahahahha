@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
     if (!voiceChannel) return message.channel.send(err1);
     const err2 = new Discord.MessageEmbed()
     .setColor("#0f0f0f")
-    .setDescription(`:x: There's no song playing right now.`)
+    .setDescription(`:x: Şu anda çalan şarkı yok.`)
     if (!serverQueue) return message.channel.send(err2);
     serverQueue.songs = [];
     const songEnd = new Discord.MessageEmbed()
