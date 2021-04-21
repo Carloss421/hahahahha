@@ -18,6 +18,7 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}seviye-sistemi\` Seviye komutlarını açar.
 \`${ayarlar.prefix}snipe\` Son silinen mesajı atar.
 \`${ayarlar.prefix}yavaşmod\` Bütün kanallara girdiğiniz miktar kadar yavaş mod ayarlar.
+\`${ayarlar.prefix}caps-engel <aç/kapat>\` Caps mesaj engeller. 
 
 **müzik-sistemi**'nin içindeki volume komutunu Normal Kullanıcılar: %59'a kadar - Premium Kullanıcıları: %100'yüze kadar arttırabiliyorlar.
 **şuan herkes %100'e kadar çekebilir.**

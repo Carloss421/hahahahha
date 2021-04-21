@@ -1262,4 +1262,36 @@ client.on("message", async msg => {
     } else return;
   } else return;
 });
+// -----------------> [Caps-Engel] <-------------------- \\
+   client.on("message", async msg => {
+  if (msg.channel.type === "dm") return;
+  if (msg.author.bot) return;
+  if (msg.content.length > 4) {
+    if (db.fetch(`capslock_${msg.guild.id}`)) {
+      let caps = msg.content.toUpperCase();
+      if (msg.content == caps) {
+        if (!msg.member.hasPermission("ADMINISTRATOR")) {
+          if (!msg.mentions.users.first()) {
+            msg.delete();
+            return msg.channel
+              .send(`<@${msg.author.id}>Lütfen CAPS kapat!`).edit(`Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor.Bu yüzden mesajını sildim!`)
+              .then(m => m.delete(5000));
+          }}}}}});
+// -------------------> [ROL-KORUMA] <------------------ \\
+client.on("roleCreate", async (rolee, member, guild) => {
+  let rolkoruma = await db.fetch(`rolk_${rolee.guild.id}`);
+  if (rolkoruma == "acik") {
+    rolee.delete();
+    const embed = new Discord.MessageEmbed()
+      .setDescription(
+        "Sunucunuzda yeni bir rol oluşturuludu! fakat geri silindi! (Rol Koruma Sistemi)"
+      )
+      .setColor("BLACK");
+    rolee.guild.owner.send(embed);
+    return;
+  } else {
+    return;
+  }
+});
+
 client.login(ayarlar.token);
