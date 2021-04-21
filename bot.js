@@ -1317,7 +1317,9 @@ return;
  return; 
 }});
 // ----------------> {Kanal-Koruma} <------------------------ \\
-client.on("channelDelete", async channel => {
+client.on("channelDelete", async (channel, message) => {
+  let kanalkoruma = await db.fetch(`kanalk_${message.guild.id}`)
+  if (kanalkoruma == "acik") {
   if(!channel.guild.me.hasPermission("MANAGE_CHANNELS")) return;
   let guild = channel.guild;
   const logs = await channel.guild.fetchAuditLogs({ type: 'CHANNEL_DELETE' })
@@ -1328,16 +1330,19 @@ client.on("channelDelete", async channel => {
     if(!db.has(`korumalog_${guild.id}`)) return;
     let logs = guild.channels.find(ch => ch.id === db.fetch(`korumalog_${guild.id}`));
     if(!logs) return db.delete(`korumalog_${guild.id}`); else {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       .setDescription(`Silinen Kanal: <#${klon.id}> (Yeniden oluşturuldu!)\nSilen Kişi: ${member.user}`)
-      .setColor('RED')
+       .setColor('RED')
       .setAuthor(member.user.tag, member.user.displayAvatarURL)
-      logs.send(embed);
+      channel.guild.owner.send(embed);
+   
     }
     await klon.setParent(channel.parent);
     await klon.setPosition(channel.position);
-  })});
-client.on("channelCreate", async channel => {
+  })}});
+client.on("channelCreate", async (channel, message) => {
+    let kanalkoruma = await db.fetch(`kanalk_${message.guild.id}`)
+  if (kanalkoruma == "acik") {
  if(!channel.guild.me.hasPermission("MANAGE_CHANNELS")) return;
   let guild = channel.guild;
   const logs = await channel.guild.fetchAuditLogs({ type: 'CHANNEL_CREATE' })
@@ -1345,9 +1350,60 @@ client.on("channelCreate", async channel => {
   if(!member) return;
   if(member.hasPermission("ADMINISTRATOR")) return;
   channel.delete()
+ const embed = new Discord.MessageEmbed()
+ .setDescription(`Sunucunuzda kanal oluşturuldu ama silindi! (Kanal Koruma Sistemi)`)
+ channel.guild.owner.send(embed);
+}});
+client.on("channelUptade", async (channel, message) => {
+      let kanalkoruma = await db.fetch(`kanalk_${message.guild.id}`)
+  if (kanalkoruma == "acik") {
+if(!channel.guild.me.hasPermission("MANAGE_CHANNELS")) return;
+  let guild = channel.guild;
+const logs = await channel.guild.fetchAuditLogs({ type: 'CHANNEL_UPTADE' })
+let member = guild.members.get(logs.entries.first().executor.id);
+  if(!member) return;
+  if(member.hasPermission("ADMINISTRATOR")) return;
+  channel.old()
+  const embed = new Discord.MessageEmbed()
+  .setDescription(`Sunucunuzda kanal adı/rol izinleri/webhook güncellendi ama herşeyi eski haline getirdim! (Kanal Koruma Sistemi)`)
+  channel.guild.owner.send(embed);
+}});
+// ---------------> [Emoji-Koruma] <------------------- \\
+  client.on('emojiDelete',async function(emoji, kisi) {
+    
+    const i = await db.fetch(`emojikoruma_${emoji.guild.id}`, true)
+    if(i) {
+        const entry = await emoji.guild.fetchAuditLogs({type: 'EMOJİ_DELETE'}).then(audit => audit.entries.first())
 
+    let kisi = emoji.guild.member(entry.executor);
+kisi.roles.filter(a => a.hasPermission('ADMINISTRATOR')).forEach(x => kisi.removeRole(x.id))
+kisi.roles.filter(a => a.hasPermission('MANAGE_CHANNELS')).forEach(x => kisi.removeRole(x.id))
+kisi.roles.filter(a => a.hasPermission('MANAGE_ROLES')).forEach(x => kisi.removeRole(x.id))
+kisi.kick()
+
+  
+const deleter = emoji.executor;
+const id = emoji.executor.id;
+
+if (id === client.user.id || id === emoji.guild.ownerID) return
+
+
+emoji.guild.members.forEach(async function(members) {
+if (members.id !== id) return
+members.roles.forEach(role => {
+if (role.hasPermission(8) || role.hasPermission("MANAGE_EMOJIS")) {
+members.removeRole(role.id)
+}
+})
 })
 
+}
+}  );
+
+guild.owner.send(`** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adlı Kişiyi Banladı Ve Yetkilerini Aldı`)
+},2000)
+    }
+})
 
 
 client.login(ayarlar.token);
