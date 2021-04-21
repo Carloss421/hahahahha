@@ -48,27 +48,27 @@ let görev5 = db.add(`görevEKLE_${user.id}`, 5)
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ ${user} kullanıcısına ${görev1} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
+.setDescription(`✅ ${user} kullanıcısına **${görev1}** tane görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
   
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ ${user} kullanıcısına ${görev2} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
+.setDescription(`✅ ${user} kullanıcısına **${görev2}** tane görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
 
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ ${user} kullanıcısına ${görev3} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
+.setDescription(`✅ ${user} kullanıcısına **${görev3}** tane görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
 
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ ${user} kullanıcısına ${görev4} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
+.setDescription(`✅ ${user} kullanıcısına **${görev4}** tane görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
 
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ ${user} kullanıcısına ${görev5} görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
+.setDescription(`✅ ${user} kullanıcısına **${görev5}** tane görev eklendi!\nKullanıcı'nın Toplam Görev Sayısı: \`${görevNUMBER}\``))
 
 
 }
