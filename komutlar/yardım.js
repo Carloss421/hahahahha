@@ -9,6 +9,8 @@ let embed = new Discord.MessageEmbed()
 Alvi'de bulduğunuz hata,çalışmama veya açıkları bildirmek için **${ayarlar.prefix}hata-bildir**
 komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyorsanız [Destek Sunucumuza](https://discord.gg/NAzGC2cxXR) gelerekte bildirebilirsiniz.
 
+****
+
 :bust_in_silhouette: **kullanıcı menüsü** \`${ayarlar.prefix}yardım-kullanıcı\` Kullanıcı menüsünü açar.
 :gift: **eğlence menüsü** \`${ayarlar.prefix}yardım-eğlence\` Canı sıkılanlar için yararlı bir menü.
 :man_police_officer:  **moderasyon menüsü** \`${ayarlar.prefix}yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.

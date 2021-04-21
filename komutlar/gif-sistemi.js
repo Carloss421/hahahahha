@@ -1,7 +1,7 @@
-const Discord = require("discord.js")
-const ayarlar = require("../ayarlar.json")
+const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json');
 
-exports.run = function(message, msg) {
+exports.run = function(client, message, args) {
 let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Gif Sistemi")
 .setColor("RANDOM")
@@ -12,15 +12,17 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}couple-gif\` Rastgele Sevgili Gifi Atar.
 \`${ayarlar.prefix}baby-gif\` Rastgele Bebek Gifi Atar.
 \`${ayarlar.prefix}animal-gif\` Rastgele Hayvan Gifi Atar.
+\`${ayarlar.prefix}anime-gif\` Rastgele Anime Gifi Atar.`)
+message.channel.send(embed)
+};
 
-`)
-};
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ["yardım-gif"],
-  permlevel: 0
+ enabled: true,
+ guildOnly: false,
+ aliases: ["yardım-gif"],
+ permlevel: 0
 };
+
 exports.help = {
-  name: "gif-sistemi"
+    name: "gif-sistemi"
 };
