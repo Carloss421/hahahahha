@@ -32,7 +32,7 @@ if(!rol) {
   
 l.delete()
 collected.first().react('❌')  
-message.channel.send('Belirttiğiniz rolü sunucuda bulamadım.').then(t => t.delete(10000))
+message.channel.send('Belirttiğiniz rolü sunucuda bulamadım.')
 return
 }
     let adim = new Discord.MessageEmbed()
