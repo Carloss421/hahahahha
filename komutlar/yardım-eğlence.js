@@ -6,12 +6,12 @@ let eğlence = new Discord.MessageEmbed()
 .setTitle('Alvi - Eğlence')
 .setColor('RANDOM')
 .setDescription(`
-:skull_crossbones: ~~ \`${ayarlar.prefix}wasted\` Öldün resmi gönderir.~~
-:cat: ~~ \`${ayarlar.prefix}kedi-ol\` Kedi olursunuz.~~
-:heart: ~~ \`${ayarlar.prefix}aşk-ölçer\` Aşk ölçer.~~
-:monkey: ~~ \`${ayarlar.prefix}maymun-ol\` Maymun olursunuz~~
-👑~~ \`${ayarlar.prefix}kral-ol\` Kral olursunuz.~~
-:desktop: ~~\`${ayarlar.prefix}hackle\` Hacker olursunuz~~
+\`${ayarlar.prefix}8ball\` Sihirli 8ball sorularınızı cevaplar 
+\`${ayarlar.prefix}ara155\` Polisi Arar(ciddiye almayın)
+\`${ayarlar.prefix}atatürk\` Atatürk fotoğraları gönderir. 
+\`${ayarlar.prefix}avatar\` Avatarınızı gösterir
+\`${ayarlar.prefix}kral-ol\` 
+\`${ayarlar.prefix}hackle\` 
 
 **YAKINDA KOMUTLAR AKTIF OLUCAKTIR!**
 `)

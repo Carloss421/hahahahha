@@ -12,6 +12,7 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}davet-sistemi\` Davet komutlarını açar.
 
 **müzik-sistemi**'nin içindeki volume komutunu Normal Kullanıcılar: %59'a kadar - Premium Kullanıcıları: %100'yüze kadar arttırabiliyorlar.
+**şuan herkes %100'e kadar çekebilir.**
 `)
 message.channel.send(embed)
 };
