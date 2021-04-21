@@ -14,10 +14,10 @@ exports.run = async (client, message) => {
   let args = message.content.split(' ').slice(1);
   const secenekler = args.slice(0).join(' ');
 
-  if(secenekler.length < 1) return message.reply(`**${prefix}seviye-sistem aç** veya **${prefix}seviye-sistem kapat** yazınz `);
+  if(secenekler.length < 1) return message.reply(`**${prefix}seviye-ayarlar aç** veya **${prefix}seviye-ayarlar kapat** yazınz `);
   //if(secenekler === "aç" || "kapat") return message.channel.send(errembed);
 
-  if (secenekler !== "aç" && secenekler !== "kapat" && secenekler !== "on" && secenekler !== "off") return message.reply(`**${prefix}seviye-sistem aç** veya **${prefix}seviye-sistem kapat** yazınz `)
+  if (secenekler !== "aç" && secenekler !== "kapat" && secenekler !== "on" && secenekler !== "off") return message.reply(`**${prefix}seviye-ayarlar aç** veya **${prefix}seviye-ayarlar kapat** yazınz `)
   
   if (secenekler === "aç" || secenekler === "on") {
     
@@ -25,7 +25,7 @@ exports.run = async (client, message) => {
     
       const embed = new Discord.RichEmbed()
     .setColor('RED')
-    .setDescription(`Seviye Sistem Başarıyla açıldı\nSeviye sistemini kapatmak isterseniz **${prefix}seviye-sistem kapat** yazmanız yeterlidir.`)
+    .setDescription(`Seviye Sistem Başarıyla açıldı\nSeviye sistemini kapatmak isterseniz **${prefix}seviye-ayarlar kapat** yazmanız yeterlidir.`)
     message.channel.send(embed)
     /*let kufurEngel = JSON.parse(fs.readFileSync("././jsonlar/kufurEngelle.json", "utf8"));
  if(!kufurEngel[message.guild.id]){
@@ -73,7 +73,7 @@ exports.conf = {
 	};
 
 module.exports.help = {
-  name: 'seviye-sistemi',
+  name: 'seviye-ayarlar',
   description: 'seviye-sistem aç kapat.',
   usage: 'seviye-sistem'
 };

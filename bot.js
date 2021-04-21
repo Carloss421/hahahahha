@@ -1182,7 +1182,84 @@ client.on("message", async (msg, member, guild) => {
       db.add(`slm_${msg.author.id}`, 1);
     } else if (msg.content.toLowerCase() === "aleyküm selam") {
       db.add(`slm_${msg.author.id}`, 1);
-    }
-  }
+    }}});
+// ------------> [Seviye-Sistemi] <----------- \\
+client.on("message", async msg => {
+  const request = require("node-superfetch");
+  const db = require("quick.db");
+  if (db.has(`lvl2_${msg.author.id}`) === true) {
+    if (db.has(`lvll_${msg.guild.id}`) === true) {
+      let memberChannel = await db.fetch(`sk_${msg.guild.id}`);
+
+      if (msg.channel.type === "dm") return;
+      if (msg.author.bot) return;
+
+      if (msg.content.length > 40) {
+        db.add(`puancik_${msg.author.id + msg.guild.id}`, 4);
+      }
+      if (msg.content.length > 35) {
+        db.add(`puancik_${msg.author.id + msg.guild.id}`, 4);
+      }
+      if (msg.content.length > 30) {
+        db.add(`puancik_${msg.author.id + msg.guild.id}`, 3);
+      }
+      if (msg.content.length > 25) {
+        db.add(`puancik_${msg.author.id + msg.guild.id}`, 3);
+      }
+      if (msg.content.length > 20) {
+        db.add(`puancik_${msg.author.id + msg.guild.id}`, 2);
+      }
+      if (msg.content.length > 15) {
+        db.add(`puancik_${msg.author.id + msg.guild.id}`, 2);
+      }
+      if (msg.content.length > 10) {
+        db.add(`puancik_${msg.author.id + msg.guild.id}`, 1);
+      }
+      if (msg.content.length < 5) {
+        db.add(`puancik_${msg.author.id + msg.guild.id}`, 1);
+      }
+
+      if (db.fetch(`puancik_${msg.author.id + msg.guild.id}`) > 250) {
+        db.add(`seviye_${msg.author.id + msg.guild.id}`, 1);
+        if (memberChannel) {
+          if (db.has(`üyelikk_${msg.author.id}`)) {
+            msg.guild.channels
+              .get(memberChannel)
+              .send(
+                `:crow: Kral <@${
+                  msg.author.id
+                }>, Seviye atladın ve \`${db.fetch(
+                  `seviye_${msg.author.id + msg.guild.id}`
+                )}\` seviye oldun :tada:`
+              );
+          } else
+            msg.guild.channels
+              .get(memberChannel)
+              .send(
+                `Tebrik ederim <@${
+                  msg.author.id
+                }>! Seviye atladın ve \`${db.fetch(
+                  `seviye_${msg.author.id + msg.guild.id}`
+                )}\` seviye oldun!`
+              );
+        } else if (db.has(`üyelikk_${msg.author.id}`)) {
+          msg.channel.send(
+            `:crowng: Kral <@${
+              msg.author.id
+            }>, Seviye atladın ve \`${db.fetch(
+              `seviye_${msg.author.id + msg.guild.id}`
+            )}\` seviye oldun :tada:`
+          );
+        } else
+          msg.channel.send(
+            `Tebrik ederim <@${msg.author.id}>! Seviye atladın ve \`${db.fetch(
+              `seviye_${msg.author.id + msg.guild.id}`
+            )}\` seviye oldun!`
+          );
+
+        db.delete(`puancik_${msg.author.id + msg.guild.id}`);
+      }
+    } else return;
+  } else return;
 });
 client.login(ayarlar.token);
