@@ -27,6 +27,13 @@ exports.run = async (client, message, args) => {
   if (db.has(`karalist_${user.id}`) === true) return message.reply("Bu kullanıcı zaten kara listede!");
   
   db.add(`karalist_${user.id}`, "al")
+  if (db) {
+  let karaliste = db.fetch(`karalist_${user.id}`);
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD){
+    if(karaliste){
+ return message.channel.send(new Discord.MessageEmbed() .setColor("RANDOM").setDescription("Sen botun komutlarını kullanamazsın! Çünkü karalistedesin!"))
+    }}};
   
   let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")

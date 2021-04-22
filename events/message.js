@@ -1,6 +1,8 @@
-/*const ayarlar = require('../ayarlar.json');
+const ayarlar = require('../ayarlar.json');
+const Discord = require('discord.js')
+const db = require('quick.db')
 let talkedRecently = new Set();
-module.exports = message => {
+module.exports = (message, args, user) => {
   if (talkedRecently.has(message.author.id)) {
     return;
   }
@@ -20,14 +22,13 @@ module.exports = message => {
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
   }
+   
   if (cmd) {
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
-  }
+  }};
 
-};*/
-
-
+/*
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db');
 const Discord = require('discord.js')
@@ -54,13 +55,8 @@ if(message.author.bot) return
     cmd = client.commands.get(command);
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
-  }/*
-      let embed = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setDescription("Sen botun komutlarını kullanamazsın! Çünkü karalistedesin!")
-    message.channel.send({embed: embed})
-return
-      */
+  }*/
+      /*
   if (cmd) {
   let bakım = await db.fetch('bakım');
   if(message.author.id !== ayarlar.ownerID)
@@ -77,4 +73,4 @@ return
     cmd.run(client, message, params, perms);
   }
 };
-
+*/
