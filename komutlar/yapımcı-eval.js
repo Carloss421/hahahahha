@@ -66,11 +66,11 @@ if (args[0] === "ayarlar.token") code="Siktir Git"
 exports.conf = {
 enabled: true,
 guildOnly: false,
-aliases: ['eval'],
+aliases: ['koddene'],
 permLvl: 4
 };
 exports.help = {
-name: 'eval',
+name: 'evalKOD',
 description: 'Kod test etmek için kullanılır.',
 usage: 'eval kod'
 };
