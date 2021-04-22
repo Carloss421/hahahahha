@@ -1,3 +1,4 @@
+/*
 const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js')
 const db = require('quick.db')
@@ -22,19 +23,29 @@ module.exports = (message, args, user) => {
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
   }
-     if (cmd) {
-  let bakım = db.fetch(`karalist_${user.id}`);
-  if(message.author.id !== ayarlar.ownerID)
-  if(message.author.id !== ayarlar.ownerİD){
-
-    if(bakım){
-  return message.channel.send(new Discord.MessageEmbed().setDescription(`
-  **<@${message.author.id}> Sen karalistede olduğun için komutları kullanamazdın**`).setColor("RANDOM"))
-  if (cmd) {
+   if (cmd) {
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }};
-
+*/
+const ayarlar = require('../ayarlar.json');
+const db = require('quick.db')
+const Discord = require('discord.js')
+let talkedRecently = new Set();
+module.exports = async message => {
+if(message.author.bot) return
+  if (talkedRecently.has(message.author.id)) {
+    return;
+  }
+  talkedRecently.add(message.author.id);
+  setTimeout(() => {
+    talkedRecently.delete(message.author.id);
+  }, 2500);
+  let client = message.client;
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
+  if (message.author.bot) return;
+  if (!message.content.starsWith(prefix))
+}
 /*
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db');

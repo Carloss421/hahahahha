@@ -9,9 +9,10 @@ exports.run = async(client, message, args) => {
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(3000));
     };
+
   
     if (args[0] == 'al') {
-   let user = client.users.get(args.slice(0).join(' '));
+ let user = client.users.get(args.slice(0).join(' '));
   if (!user) {
     let e = new Discord.MessageEmbed()
     .setColor("RANDOM")
