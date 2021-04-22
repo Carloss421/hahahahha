@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 
-exports.run = async(client, message, args, get) => {
+exports.run = async(client, message, args) => {
   
   
 const emoji1 = message.client.emojis.get('📞');

@@ -921,7 +921,7 @@ client.on('message', async msg => {
 						console.error(err);
 						 return msg.channel.sendEmbed(new Discord.MessageEmbed()
             .setColor('BLACK')
-            .setDescription(':x: ***Selection cancelled for not specifying Song Value**.'));
+            .setDescription(':x: **Şarkı Değerini belirtmediği için seçim iptal edildi**.'));
                     }
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
@@ -929,7 +929,7 @@ client.on('message', async msg => {
 					console.error(err);
 					return msg.channel.sendEmbed(new Discord.MessageEmbed()
           .setColor('BLACK')
-          .setDescription(':x: **I called but no results**'));
+          .setDescription(':x: **Aradım ama sonuç yok**'));
                 }
             }
 			return handleVideo(video, msg, voiceChannel);
@@ -957,7 +957,7 @@ client.on('message', async msg => {
     .setColor('BLACK'));
 		return msg.channel.sendEmbed(new Discord.MessageEmbed()
     .setColor('BLACK')
-    .setTitle(" :headphones: | Now Playing")                            
+    .setTitle(" :headphones: | Şimdi oynuyor")                            
     .addField('Şarkı Adı', `[${serverQueue.songs[0].title}](${serverQueue.songs[0].url})`, true)
     .addField("Oynamaya kadar tahmini süre", `${serverQueue.songs[0].durationm}:${serverQueue.songs[0].durations}`, true))
 	} else if (command === '') {
@@ -1434,6 +1434,86 @@ if (kurulus > 1296000000) kontrol = ':white_check_mark: **__Bu Hesap Güvenilir 
   strigalog.send(embed)
   strigalog.send(register)
 });
+// -----------------------> [Davet-Sistemi] <------------------------------ \\
+client.on("guildMemberRemove", async member => {
+  let kanal = await db.fetch(`davetkanal_${member.guild.id}`);
+  if (!kanal) return;
+  let veri = await db.fetch(`rol1_${member.guild.id}`);
+  let veri12 = await db.fetch(`roldavet1_${member.guild.id}`);
+  let veri21 = await db.fetch(`roldavet2_${member.guild.id}`);
+  let veri2 = await db.fetch(`rol2_${member.guild.id}`);
+  let d = await db.fetch(`bunudavet_${member.id}`);
+  const sa = client.users.get(d);
+  const sasad = member.guild.members.get(d);
+  let sayı2 = await db.fetch(`davet_${d}_${member.guild.id}`);
+  db.add(`davet_${d}_${member.guild.id}`, -1);
 
+  if (!d) {
+    client.channels.get(kanal).send(`<:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ **BULUNAMADI**]`);
+    return;
+  } else {
+    client.channels.get(kanal).send(`:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ <@${sa.id}> ]`);
 
+    if (!veri) return;
+
+    if (sasad.roles.has(veri)) {
+      if (sayı2 <= veri12) {
+        sasad.removeRole(veri);
+        return;
+      }
+    }
+    if (sasad.roles.has(veri2)) {
+      if (!veri2) return;
+      if (sayı2 <= veri21) {
+        sasad.removeRole(veri2);
+        return;
+      }
+    }
+  }
+});
+
+client.on("guildMemberAdd", async member => {
+  member.guild.fetchInvites().then(async guildInvites => {
+    let veri = await db.fetch(`rol1_${member.guild.id}`);
+    let veri12 = await db.fetch(`roldavet1_${member.guild.id}`);
+    let veri21 = await db.fetch(`roldavet2_${member.guild.id}`);
+    let veri2 = await db.fetch(`rol2_${member.guild.id}`);
+    let kanal = await db.fetch(`davetkanal_${member.guild.id}`);
+    if (!kanal) return;
+    const ei = invites[member.guild.id];
+
+    invites[member.guild.id] = guildInvites;
+
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const sasad = member.guild.members.get(invite.inviter.id);
+    const davetçi = client.users.get(invite.inviter.id);
+
+    db.add(`davet_${invite.inviter.id}_${member.guild.id}`, +1);
+    db.set(`bunudavet_${member.id}`, invite.inviter.id);
+    let sayı = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
+
+    let sayı2;
+    if (!sayı) {
+      sayı2 = 0;
+    } else {
+      sayı2 = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
+    }
+    
+    client.channels.get(kanal).send(`:inbox_tray:  <@${member.user.id}> Sunucuya Katıldı.! Davet Eden Kişi: <@${davetçi.id}> [**${sayı2}**]`);
+    if (!veri) return;
+
+    if (!sasad.roles.has(veri)) {
+      if (sayı2 => veri12) {
+        sasad.addRole(veri);
+        return;
+      }
+    } else {
+      if (!veri2) return;
+      if (sayı2 => veri21) {
+        sasad.addRole(veri2);
+        return;
+      }
+    }
+  });
+});
 client.login(ayarlar.token);
