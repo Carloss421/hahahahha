@@ -22,7 +22,14 @@ module.exports = (message, args, user) => {
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
   }
-   
+     if (cmd) {
+  let bakım = db.fetch(`karalist_${user.id}`);
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD){
+
+    if(bakım){
+  return message.channel.send(new Discord.MessageEmbed().setDescription(`
+  **<@${message.author.id}> Sen karalistede olduğun için komutları kullanamazdın**`).setColor("RANDOM"))
   if (cmd) {
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
