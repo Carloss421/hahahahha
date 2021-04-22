@@ -1,4 +1,4 @@
-/*
+
 const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js')
 const db = require('quick.db')
@@ -24,50 +24,15 @@ module.exports = (message, args, user) => {
     cmd = client.commands.get(client.aliases.get(command));
   }
    if (cmd) {
+const dl = db.fetch(`kara_${message.author.id}`); // \\
+    if (dl == 'kara') return message.reply("Malesef Sen Karalistedesin Ve Komutları Kullanamassın ")
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }};
-*/
-const ayarlar = require('../ayarlar.json');
-const db = require('quick.db')
-const Discord = require('discord.js')
-let talkedRecently = new Set();
-module.exports = async message => {
-if(message.author.bot) return
-  if (talkedRecently.has(message.author.id)) {
-    return;
-  }
-  talkedRecently.add(message.author.id);
-  setTimeout(() => {
-    talkedRecently.delete(message.author.id);
-  }, 2500);
-  let client = message.client;
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-  let command = message.content.split(' ')[0].slice(prefix.length);
-  let params = message.content.split(' ').slice(1);
-  let perms = client.elevation(message);
-  let cmd;
-  if (client.commands.has(command)) {
-    cmd = client.commands.get(command);
-    } else if (client.aliases.has(command)) {
-      cmd = client.commands.get(client.aliases.get(command));
-    }
-  if (cmd) {
-    let karaliste = await db.fetch('karalist')
-      if(message.author.id !== ayarlar.ownerID)
-  if(message.author.id !== ayarlar.ownerİD){
-       if(karaliste){
-  return message.channel.send(new Discord.MessageEmbed().setDescription(`
-  <@${message.author.id}>
-  **:warning: Aov sen karalistedesin komutlarımı kullanamazsın.
-  ❓ Karalisteye Alınma Sebebin: \`${karaliste}\`**`).setColor("RANDOM"))
-}}
-    if (perms < cmd.conf.permLevel) return;
-    cmd.run(client, message, params, perms);
-  }
-};
+
+
+
+
 /*
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db');

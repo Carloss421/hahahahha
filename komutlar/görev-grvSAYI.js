@@ -7,7 +7,7 @@ module.exports.run = async (client, message, args) => {
     .setDescription(`**:warning: Bu komut bakımda!\nSebep: Ayarlanıyor**`)
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(3000));
-    }
+    };
   
 const embed = new Discord.MessageEmbed()
 let görevNUMBER = await db.fetch(`görevNUMBER_${user.id}`)
