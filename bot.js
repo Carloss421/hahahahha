@@ -135,13 +135,14 @@ client.on("message", async message => {
   let kullanıcı = message.mentions.users.first() || message.author;
   let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
   let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`);
+  let user = db.fetch(`afk_${user.id}`);
   let sebep = afkkullanıcı;
   if (message.author.bot) return;
   if (message.content.includes(`${prefix}afk`)) return;
   if (message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
       message.channel.send(new Discord.MessageEmbed().setDescription(`
-   <@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi:\``+ süre +`\``).setColor("RANDOM"))
+   <@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi: \``+ süre +`\``).setColor("RANDOM"))
       
       db.delete(`afk_${message.author.id}`);
     }
@@ -150,6 +151,12 @@ client.on("message", async message => {
       <@${message.author.id}> afk moduna girdi. Sebep: \`${sebep}\``).setColor("RANDOM")
       );
   }
+  
+  client.on('message', msg => {
+  if (msg.content === `<@${user}>`) {
+    msg.channel.send(new Discord.MessageEmbed().setDescription(`<@${message.author.id}>, <@${user}> adlı kullanıcı afk! Sebep: `).setTitle("Alvi - Afk Sistemi"));
+  }
+});
   
   
   
@@ -163,26 +170,7 @@ client.on("message", async message => {
 
 //     [-----------------> Otorol <------------------]  \\
 
-client.on('guildMemberAdd', async (member, guild, message) => {
 
-let role = await db.fetch(`otorolisim_${member.guild.id}`)
-let kanal = await db.fetch(``)
- if (!otorol || otorol.toLowerCase() === 'yok') return;
-else {
- try {
-
-  if (!otorol) return
-
-  member.addRole(member.guild.roles.get(otorol))
-                        .setDescription(`**Sunucuya Yeni Katılan** \`${member.user.tag}\` **Kullanıcısına** \`${role}\` **Rolü verildi.**`)
-                        .setColor('0x36393E')
-                        .setFooter(`Sadis BOT Otorol Sistemi`)
-     member.guild.channels.get(otorol).send(embed)  } catch (e) {
- console.log(e)
-}
-}
-
-});
 
 //     [-----------------> Sayaç <------------------]  \\
 
