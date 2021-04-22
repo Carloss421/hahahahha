@@ -20,6 +20,7 @@ exports.run = async(client, message, args) => {
   let newRole;
   let tworole;
   if (!rol) return message.channel.send('Otorol ayarlamanız için bir rol etiketlemeniz gerek. `a!otorol-ayar aç @Üye #kanal`')
+    //    if (!message.guild.roles.get(newRole)) return message.channel.send("Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz.")
   else newRole = message.mentions.roles.first().id
   let isim = message.mentions.roles.first().name  
   let otorolkanal = message.mentions.channels.first();
@@ -27,19 +28,19 @@ exports.run = async(client, message, args) => {
     db.set(`otorolisim_${message.guild.id}`, isim)
     db.set(`otorolKanal_${message.guild.id}`, otorolkanal)
   let otorol = await db.set(`autoRole_${message.guild.id}`, newRole)
-  if (!message.guild.roles.get(newRole)) return message.channel.send("Etiketlediğiniz rol bulunamadı, etiketlediğiniz rolün etiketlenebilirliğinin aktif olduğundan emin olunuz.")
-    message.channel.send(`Otorol, <@&${newRole}> mesaj kanalı <#${otorolkanal}> olarak ayarlandı.`)  
+
+    message.channel.send(new Discord.MessageEmbed().setDescription(`Otorol, <@&${newRole}> mesaj kanalı ${otorolkanal} olarak ayarlandı.`))  
      
   } 
 
   if (args[0] == 'kapat') {
-    
 
     
     
     db.delete(`otorolisim_${message.guild.id}`)
         db.delete(`otorolKanal_${message.guild.id}`)
-return message.channel.send(new Discord.MessageEmbed().setDescription(`Otorolü başarıyla kapattım.`))
+
+    message.channel.send(`Otorolü başarıyla kapattım.`)
   }
 };
   

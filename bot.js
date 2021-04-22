@@ -1379,7 +1379,7 @@ let member = guild.members.get(logs.entries.first().executor.id);
 kisi.roles.filter(a => a.hasPermission('ADMINISTRATOR')).forEach(x => kisi.removeRole(x.id))
 kisi.roles.filter(a => a.hasPermission('MANAGE_CHANNELS')).forEach(x => kisi.removeRole(x.id))
 kisi.roles.filter(a => a.hasPermission('MANAGE_ROLES')).forEach(x => kisi.removeRole(x.id))
-kisi.kick()
+kisi.mute()
 
   
 const deleter = emoji.executor;
@@ -1394,15 +1394,31 @@ members.roles.forEach(role => {
 if (role.hasPermission(8) || role.hasPermission("MANAGE_EMOJIS")) {
 members.removeRole(role.id)
 
+emoji.guild.owner.send(`** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adlı Kişiyi Susturuldu Ve Yetkilerini Aldı`)
+}})})}});
 
+// -----------------------> [Kayıt-sistemi] <--------------------------------- \\
 
+client.on("guildMemberAdd", member => {  
+  const strigadiyorumlogdiyorum = "HG LOG";
+  const register = "<@&REGİSTER ROL ID>";
+  let user = client.users.get(member.id);
+  require("moment-duration-format");
+    const kurulus = new Date().getTime() - user.createdAt.getTime();  
+ 
+  var kontrol;
+if (kurulus < 1296000000) kontrol = '<a:chromastar:738482773181988944> **__Bu Hesap Güvenilir Değil__**'
+if (kurulus > 1296000000) kontrol = '<a:chromastar:738482773181988944> **__Bu Hesap Güvenilir Gözüküyor__**'
+  moment.locale("tr");
+  let strigalog = client.channels.get(strigadiyorumlogdiyorum);
+  const embed = new Discord.RichEmbed()
+  .setColor("0xd8d8d8")
+  .setTitle(`**STRİGA ADAMDIR BENCE**`)
+.setDescription("**<Emoji Gelecek> Hoşgeldin!** " + member + " **Seninle \`" + member.guild.memberCount + "\` Kişiyiz.**  \n \n<Emoji Gelcek> **Müsait olduğunda Confirmed Odalarından Birine Geçip Kaydını Yaptırabilirsin.** \n \n<Emoji Gelcek> <@&REGİSTER ID> seninle ilgilenicektir. \n \n<Emoji Gelcek> Hesabın Oluşturulma Tarihi:" + moment(member.user.createdAt).format("** YYYY __DD MMMM dddd__**") +  "\n \n"  + kontrol + " \n \n**<Emoji Gelcek>** **Tagımızı alarak ` TAG ` bize destek olabilirsin.** \n")              
+.setImage("https://64.media.tumblr.com/970f6a5a05855cc23249f1ee07de6a6b/tumblr_nejdxa6kQR1qk9powo1_500.gif")
+  strigalog.send(embed)
+  strigalog.send(register)
+});
 
-
-emoji.guild.owner.send(`** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adlı Kişiyi Banladı Ve Yetkilerini Aldı`)
-}
-})
-})
-}
-}  );
 
 client.login(ayarlar.token);
