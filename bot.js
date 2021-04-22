@@ -1400,7 +1400,7 @@ emoji.guild.owner.send(`** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adl
 // -----------------------> [Kayıt-sistemi] <--------------------------------- \\
 
 client.on("guildMemberAdd", (member, message) => {  
-  let kanal = db.fetch(`kayıtkanal_${message.guild.id}`)
+let kanal = db.fetch(`kchannel_${message.guild.id}`)
 let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
   const strigadiyorumlogdiyorum = `${kanal}`
   const register = `${kayıtçı}`;
