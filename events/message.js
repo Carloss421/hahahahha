@@ -54,13 +54,13 @@ if(message.author.bot) return
     cmd = client.commands.get(command);
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
-  }
+  }/*
       let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setDescription("Sen botun komutlarını kullanamazsın! Çünkü karalistedesin!")
     message.channel.send({embed: embed})
 return
-      
+      */
   if (cmd) {
   let bakım = await db.fetch('bakım');
   if(message.author.id !== ayarlar.ownerID)
