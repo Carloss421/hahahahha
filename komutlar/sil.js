@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 
-exports.run = function(client, message, args) {
+exports.run = function(client, message, args, msg) {
   const m = args.join(' ');
   if(!m) return message.channel.send('**:gear: Bir miktar girmelisiniz!**');
   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('**:xx: Bu işlem için gerekli izne sahip değilsiniz!**');
@@ -13,7 +13,7 @@ exports.run = function(client, message, args) {
   message.channel.send(
   new Discord.MessageEmbed()
     .setTitle('**Başarılı!**')
-    .setDescription('**Başarı ile __'+m+'__ mesaj sildim!**')
+    .setDescription('**Başarı ile __'+m+'__ mesaj sildim!**').then(msg=>msg.delete(3000))
   .setColor('0x36393E')
   ).then(i=>{
     i.react(':gear: 585186945471086620')
