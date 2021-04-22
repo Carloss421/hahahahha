@@ -1399,23 +1399,28 @@ emoji.guild.owner.send(`** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adl
 
 // -----------------------> [Kayıt-sistemi] <--------------------------------- \\
 
-client.on("guildMemberAdd", member => {  
-  const strigadiyorumlogdiyorum = "HG LOG";
-  const register = "<@&REGİSTER ROL ID>";
+client.on("guildMemberAdd", (member, message) => {  
+  let kanal = db.fetch(`kayıtkanal_${message.guild.id}`)
+let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
+  const strigadiyorumlogdiyorum = `${kanal}`
+  const register = `${kayıtçı}`;
   let user = client.users.get(member.id);
   require("moment-duration-format");
     const kurulus = new Date().getTime() - user.createdAt.getTime();  
  
   var kontrol;
-if (kurulus < 1296000000) kontrol = '<a:chromastar:738482773181988944> **__Bu Hesap Güvenilir Değil__**'
-if (kurulus > 1296000000) kontrol = '<a:chromastar:738482773181988944> **__Bu Hesap Güvenilir Gözüküyor__**'
+if (kurulus < 1296000000) kontrol = ':warning: **__Bu Hesap Güvenilir Değil__**'
+if (kurulus > 1296000000) kontrol = ':white_check_mark: **__Bu Hesap Güvenilir Gözüküyor__**'
   moment.locale("tr");
   let strigalog = client.channels.get(strigadiyorumlogdiyorum);
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
   .setColor("0xd8d8d8")
-  .setTitle(`**STRİGA ADAMDIR BENCE**`)
-.setDescription("**<Emoji Gelecek> Hoşgeldin!** " + member + " **Seninle \`" + member.guild.memberCount + "\` Kişiyiz.**  \n \n<Emoji Gelcek> **Müsait olduğunda Confirmed Odalarından Birine Geçip Kaydını Yaptırabilirsin.** \n \n<Emoji Gelcek> <@&REGİSTER ID> seninle ilgilenicektir. \n \n<Emoji Gelcek> Hesabın Oluşturulma Tarihi:" + moment(member.user.createdAt).format("** YYYY __DD MMMM dddd__**") +  "\n \n"  + kontrol + " \n \n**<Emoji Gelcek>** **Tagımızı alarak ` TAG ` bize destek olabilirsin.** \n")              
-.setImage("https://64.media.tumblr.com/970f6a5a05855cc23249f1ee07de6a6b/tumblr_nejdxa6kQR1qk9powo1_500.gif")
+  .setTitle(`**Alvi - Kayıt Sistemi**`)
+.setDescription(`
+**:wave: Hoşgeldin!** ${member}  **Seninle \`${member.guild.memberCount}\` Kişiyiz.**  
+**Müsait olduğunda Ses Teyit Odalarından Birine Geçip Kaydını Yaptırabilirsin.** 
+👤 <@&${register}> seninle ilgilenicektir.
+📖 Hesabın Oluşturulma Tarihi: ${moment(member.user.createdAt).format("** YYYY __DD MMMM dddd__**")} ${kontrol}`)              
   strigalog.send(embed)
   strigalog.send(register)
 });
