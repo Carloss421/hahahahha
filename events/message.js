@@ -24,8 +24,9 @@ module.exports = (message, args, user) => {
     cmd = client.commands.get(client.aliases.get(command));
   }
    if (cmd) {
-const dl = db.fetch(`kara_${message.author.id}`); // \\
-    if (dl == 'kara') return message.reply("Malesef Sen Karalistedesin Ve Komutları Kullanamassın ")
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD){
+  };
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }};
