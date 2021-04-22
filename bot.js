@@ -126,16 +126,44 @@ client.elevation = message => {
 
 client.login(ayarlar.token);
 //     [-----------------> Afk <------------------]  \\
+client.on('message', async message => {
+ 
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
+ 
+  let kullanıcı = message.mentions.users.first() || message.author
+  let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`)
+  let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`)
+  let sebep = afkkullanıcı
+ 
+  if (message.author.bot) return;
+  if (message.content.includes(`${prefix}afk`)) return;
+ 
+  if (message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(new Discord.MessageEmbed().setDescription(`**${message.author.tag}** adlı kullanıcı artık AFK degil!`).setTitle("Alvi - Afk Sistemi"))
+      db.delete(`afk_${message.author.id}`)
+          if (afkdkullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription(`**${kullanıcı.tag}** şu anda AFK.\n Sebep : **${sebep}**`).setTitle("Alvi - Afk Sistemi"));
+    }
 
-client.on("message", async message => {
+  }
+
+  if (!message.content.includes(`<@${kullanıcı.id}>`)) {
+    if (afkdkullanıcı) {
+      message.channel.send(new Discord.MessageEmbed().setDescription(`**${message.author.tag}** adlı kullanıcı artık AFK degil!`).setTitle("Alvi - Afk Sistemi"))
+      db.delete(`afk_${message.author.id}`)
+    }}});
+
+
+/*
+client.on("message", async (message, user) => {
   const süre = moment
     .duration(client.time)
     .format(" D [gün], H [saat], m [dakika], s [saniye]");
   let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
   let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
-  let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`);
-  let user = db.fetch(`afk_${user.id}`);
+  let afkkullanıcı = await db.fetch(`afk_${user.id}`);
+  let Kulcn = db.fetch(`afk_${user.id}`);
   let sebep = afkkullanıcı;
   if (message.author.bot) return;
   if (message.content.includes(`${prefix}afk`)) return;
@@ -153,8 +181,8 @@ client.on("message", async message => {
   }
   
   client.on('message', msg => {
-  if (msg.content === `<@${user}>`) {
-    msg.channel.send(new Discord.MessageEmbed().setDescription(`<@${message.author.id}>, <@${user}> adlı kullanıcı afk! Sebep: `).setTitle("Alvi - Afk Sistemi"));
+  if (msg.content === `<@${Kulcn}>`) {
+    msg.channel.send(new Discord.MessageEmbed().setDescription(`<@${message.author.id}>, <@${Kulcn}> adlı kullanıcı afk! Sebep: ${user.sebep}`).setTitle("Alvi - Afk Sistemi"));
   }
 });
   
@@ -167,7 +195,7 @@ client.on("message", async message => {
       
       db.delete(`afk_${message.author.id}`);
     }}});
-
+*/
 //     [-----------------> Otorol <------------------]  \\
 
 
