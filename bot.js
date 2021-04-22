@@ -20,7 +20,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 client.queue = new Map()
 require('./util/eventLoader')(client);
-
+require('moment-duration-format');
 var prefix = ayarlar.prefix;
 
 const log = message => {
@@ -92,16 +92,7 @@ client.unload = command => {
 
 
 
-const bot = new Discord.Client();
 
-client.on("channelAdd", async channel => {
-channel.create(`
-  disableEveryone: false,
-  autoReconnect: true,
-  disabledEvents: ["TYPING_START"],
-  partials: ['MESSAGE', 'CHANNEL', 'GUILD_MEMBER', 'REACTION']`)
-
-})
 
 var oyun = [
 `🎀 Yardım almak için | a!yardım`,
@@ -137,6 +128,9 @@ client.login(ayarlar.token);
 //     [-----------------> Afk <------------------]  \\
 
 client.on("message", async message => {
+  const süre = moment
+    .duration(client.time)
+    .format(" D [gün], H [saat], m [dakika], s [saniye]");
   let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
   let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
@@ -147,9 +141,7 @@ client.on("message", async message => {
   if (message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
       message.channel.send(new Discord.MessageEmbed().setDescription(`
-   <@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi:`, afkdkullanıcı.setTimestamp().setColor("RANDOM"))
-                           
-      );
+   <@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi:\``+ süre +`\``).setColor("RANDOM"))
       
       db.delete(`afk_${message.author.id}`);
     }
@@ -157,12 +149,14 @@ client.on("message", async message => {
       return message.channel.send(new Discord.MessageEmbed().setDescription(`
       <@${message.author.id}> afk moduna girdi. Sebep: \`${sebep}\``).setColor("RANDOM")
       );
-    
   }
+  
+  
+  
   if (!message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
       message.channel.send(new Discord.MessageEmbed().setDescription(
-`<@${message.author.id}>`,"**adlı kullanıcı artık afk modundan çıktı. Afk kalma süresi: **Yakında!**").setColor("RANDOM"))
+`<@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi:\``+ süre +`\``).setColor("RANDOM"))
       
       db.delete(`afk_${message.author.id}`);
     }}});

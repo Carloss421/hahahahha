@@ -30,7 +30,7 @@ let embed = new Discord.MessageEmbed()
 **Sayaç** Komutunu kullanmayı bilmeyenler \`a!sayaç-yardım\` komutunu kullanarak kurabilirler.
 **görev-sistemi** Komutu çalışır durumda ama içinde yazan komutları deneyemezsiniz çünkü onun üzerinde çalışıyor!
 
-Burada çok fazla komut olduğu için \`a!yardım-moderasyon2\` yazarak öbür komutlara bakabilirsiniz.`)
+Burada çok fazla komut olduğu için \`a!yardım-moderasyon2\` yazarak komutların devamına bakabilirsiniz.`)
 message.channel.send(embed)
 };
 

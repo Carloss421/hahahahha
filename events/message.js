@@ -1,4 +1,4 @@
-
+/*
 const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js')
 const db = require('quick.db')
@@ -30,11 +30,11 @@ module.exports = (message, args, user) => {
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }};
+*/
 
 
 
 
-/*
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db');
 const Discord = require('discord.js')
@@ -61,8 +61,8 @@ if(message.author.bot) return
     cmd = client.commands.get(command);
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
-  }*/
-      /*
+  }
+      
   if (cmd) {
   let bakım = await db.fetch('bakım');
   if(message.author.id !== ayarlar.ownerID)
@@ -79,4 +79,4 @@ if(message.author.bot) return
     cmd.run(client, message, params, perms);
   }
 };
-*/
+
