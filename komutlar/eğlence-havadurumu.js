@@ -23,7 +23,7 @@ exports.run =  (bot, message, args) => {
             }
             var current = result[0].current; 
             var location = result[0].location;   
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
                 .setDescription(`**${current.skytext}**`) 
                 .setTimestamp()
                 .setAuthor(`${current.observationpoint} İçin Hava Durumu`)
