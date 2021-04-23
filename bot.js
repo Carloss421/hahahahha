@@ -1327,8 +1327,8 @@ client.on("roleCreate", async (rolee, member, guild) => {
     return;
   }});
 client.on("roleDelete", async (rol, member, guild) => {
-let rolkoruma = await db.fetch(`rolk_${rol.guild.id}`);
-if (rolkoruma == "acik") {
+  let rolkoruma = await db.fetch(`rolk_${rol.guild.id}`);
+    if (rolkoruma == "acik") {
   rol.clone();
   const embed = new Discord.MessageEmbed()
  .setDescription(`Sunucunuzda rol silindi ama herşeyi ayarladım! (Rol Koruma Sistemi)`)
