@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
   
 
     
-  if (!message.guild.members.get(client.user.id).hasPermission("BAN_MEMBERS")) return message.reply('Gerekli izin yok')
+  if (!message.guild.roles.has("BAN_MEMBERS")) return message.reply('Gerekli izin yok')
 
   
   let user = message.mentions.users.first();

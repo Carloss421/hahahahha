@@ -1064,16 +1064,40 @@ client.on('message', msg => {
     msg.channel.send(eris);
   }
 });
+
+
+client.on("guildCreate", guild => {
+const emmmmbed = new Discord.MessageEmbed()
+.setColor("RANDOM")
+.edit("RANDOM").edit("RANDOM")
+.edit("RANDOM").edit("RANDOM")
+.addField(`Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun`)
+.setTimestamp();
+
+  
+let defaultChannel = "";
+guild.channels.cache.forEach((channel) => {
+if(channel.type == "text" && defaultChannel == "") {
+if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+defaultChannel = channel;
+}
+}
+})
+
+defaultChannel.send(emmmmbed)
+
+});
+/*
 client.on('guildCreate', guild => {
 
-    let kanal = guild.channels.filter(c => c.type === "text").random()
+let kanal = guild.channels.filters(c => c.type === "text").random()
 const embed = new Discord.MessageEmbed()
 .setTitle('Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun')
 kanal.send(embed)
     
 
 });
-
+*/
 // ------------------------> [EKLENDİM-ATILDIM] <------------------------- \\
 
 client.on('guildDelete', guild => {
