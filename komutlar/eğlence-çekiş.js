@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
     .setAuthor('')
     .setColor('RANDOM')
     .setDescription(`** ${mesaj} ` + message.author.username + ' Sana :hammer: Attı. Canın Acımış Olmalı!**')
-    return message.channel.sendEmbed(embed);
+    return message.channel.send(embed);
 };
 
 exports.conf = {
