@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
     .setColor('BLUE')
-    return message.channel.send(embed).then(msg=>msg.delete(3000));
+    return message.channel.send(embed).then(msg=>msg.delete(5000));
     }
 if(args[0] === "aç"){
   if(!args[1]){

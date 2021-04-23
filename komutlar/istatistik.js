@@ -29,6 +29,7 @@ let embed = new Discord.MessageEmbed()
 **Toplam Sunucu Sayısı** \`${client.guilds.cache.size}\`
 **Toplam Kanal Sayısı** \`${client.channels.cache.size}\`
 **Toplam Komut Sayısı** \`${client.commands.size}\`
+**Toplam Müzik Oynatılan Sunucu Sayısı** \`${client.voice.connections.size}\`
 
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - cezalog - afk - jail - ban - mute\`

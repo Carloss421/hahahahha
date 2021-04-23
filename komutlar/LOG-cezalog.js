@@ -1,8 +1,14 @@
 const Discord = require('discord.js')
 const db = require('quick.db');
-
+const ayarlar = require('../ayarlar.json')
 exports.run = async (client, message, args) => {
-  
+    if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD)  {
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`**:x: Bu Komut YAKINDA!**`)
+    .setColor('BLUE')
+    return message.channel.send(embed).then(msg=>msg.delete(3000));
+    }
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`).setColor("RANDOM"));
   
   let mlog = message.mentions.channels.first()
