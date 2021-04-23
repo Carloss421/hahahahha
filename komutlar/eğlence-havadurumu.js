@@ -33,7 +33,7 @@ exports.run =  (bot, message, args) => {
                 .addField('Hissedilen Sıcaklık',`${current.feelslike} Derece`, true)
                 .addField('Rüzgar',current.winddisplay, true)
                 .addField('Rüzgar Hızı',current.windspeed, true)
-                .addField('Nem', `${current.humidity}%`, true)
+                .addField('Nem', `%${current.humidity}`, true)
                 message.channel.send({embed});
         });
     }
