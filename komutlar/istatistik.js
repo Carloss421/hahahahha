@@ -11,30 +11,29 @@ let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - İstatistik")
 .setColor("RANDOM")
 .setDescription(`
-**Bot Prefix** \`a!\`
-**Bot İsmi** \`Alvi\`
-**Bot Dili** :flag_tr:
 
-**Sahip Adı** \`${ayarlar.ownerNAME}\`
-**Sahip ID** \`${ayarlar.ownerID}\`
-**Sahip Discord Nick** \`${ayarlar.ownerDcname}\`
-**Kodlandığı Uygulama** \`Visual Studio Code (VSC)\`
-**Kodlandığı Dil** \`Node.JS - Discord.JS - JavaScript\`
+Geliştirici Adı **${ayarlar.ownerNAME}**
+Geliştirici ID **${ayarlar.ownerID}**
+Sahip Discord Nick **${ayarlar.ownerDcname}**
 
-**Bot Uptime** \`${duration}\`
-**Bot Bot Gecikmesi** \`${client.ws.ping}ms\`
-**Bot Mesaj Gecikmesi** \`-${new Date().getTime() - message.createdTimestamp}ms\`
 
-**Toplam Üye Sayısı** \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}\`
-**Toplam Sunucu Sayısı** \`${client.guilds.cache.size}\`
-**Toplam Kanal Sayısı** \`${client.channels.cache.size}\`
-**Toplam Komut Sayısı** \`${client.commands.size}\`
-**Toplam Müzik Oynatılan Sunucu Sayısı** \`${client.voice.connections.size}\`
+Çalışma Süresi **${duration}**
+Bot Gecikmesi **${client.ws.ping}ms**
+Mesaj Gecikmesi **-${new Date().getTime() - message.createdTimestamp}ms**
+
+Toplam kullanıcı \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}\`
+Toplam sunucu \`${client.guilds.cache.size}\`
+Toplam kanal \`${client.channels.cache.size}\`
+Toplam komut \`${client.commands.size}\`
+Toplam Müzik Oynatılan sunucu** \`${client.voice.connections.size}\`
+
+Discord.js sürümü **v${Discord.version}**
+Node.js sürmü **v${Node.version}**
 
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - cezalog - afk - jail - ban - mute\`
 \`Premium - CaptchaSistemi - kayıtlog - GörevSistemi\`
-Veri depolaması fazla artarsa silineceketir!
+**Veri depolaması fazla artarsa silineceketir!**
 [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - [Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - Oyver **YAKINDA!**
 `)
 message.channel.send(embed)
