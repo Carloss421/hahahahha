@@ -17,7 +17,7 @@ exports.run = (bot, message) => {
       embed.setTitle(`**Alvi - Son Silinen Mesaj**`);
       embed.setColor('RANDOM')
       embed.setDescription(`
-    **Silinen mesaj sahibi:** <@${profil[message.g]}> \`-\` \`${profil[message.guild.id].kimlik}\`
+    **Silinen mesaj sahibi:** ${profil[message.guild.id].isim}
     
     **Silinen Mesaj İçeriği;**
     \`\`\`${profil[message.guild.id].mesaj}\`\`\``)
