@@ -894,6 +894,38 @@ client.on("message", async msg => {
               .send(`<@${msg.author.id}>Lütfen CAPS kapat!`).edit(`Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor.Bu yüzden mesajını sildim!`)
               .then(m => m.delete(5000));
           }}}}}});
+
+// -------------------> [Kufur-Engel] <---------------- \\
+client.on("message", msg => {
+  let kufurEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));
+  if (!msg.guild) return;
+  if (!kufurEngel[msg.guild.id]) return;
+  if (kufurEngel[msg.guild.id].kufurEngel === 'kapali') return;
+    if (kufurEngel[msg.guild.id].kufurEngel === 'acik') {
+      const kufur = [
+  "mk", "amk", "aq", "orospu", "oruspu", "oç", "sikerim", "yarrak", "piç", "amq", "sik", "amcık", "çocu", "sex", "seks", "amına", "orospu çocuğu", "sg", "siktir git","am çorbası","am oşafı","annanı sikim","anneni pandikleyim","OÇ","taşşak","piç","sikiş","porno","porn"];
+  if (kufur.some(word => msg.content.toLowerCase().includes(word)) ) {
+    if (!msg.member.hasPermission("ADMINISTRATOR")) {
+      msg.delete()
+       msg.reply(new Discord.MessageEmbed().setDescription(
+  "Bu sunucuda küfürler **Alvi Bot** tarafından engellenmektedir! Küfür etmene izin vermeyeceğim!").then(message => message.delete(3000)));
+    }}}});
+
+client.on("messageUptade", msg => {
+let kufurEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));
+  if (!msg.guild) return;
+  if (!kufurEngel[msg.guild.id]) return;
+  if (kufurEngel[msg.guild.id].kufurEngel === 'kapali') return;
+  if (kufurEngel[msg.guild.id].kufurEngel === 'acik') {
+    
+const kufur = [
+  "mk", "amk", "aq", "orospu", "oruspu", "oç", "sikerim", "yarrak", "piç", "amq", "sik", "amcık", "çocu", "sex", "seks", "amına", "orospu çocuğu", "sg", "siktir git","am çorbası","am oşafı","annanı sikim","anneni pandikleyim","OÇ","taşşak","piç","sikiş","porno","porn"];
+  if (kufur.some(word => msg.content.toLowerCase().includes(word)) ) {
+    if (!msg.member.hasPermission("ADMINISTRATOR")) {
+      msg.delete()
+       msg.reply(new Discord.MessageEmbed().setDescription(
+  "Hoop dur bakayım! Kendini akıllı zanneden ben **Alvi BOT**'um istediğini yap küfürlerini engellicem!").then(message => message.delete(3000)));
+    }}}});
 // -------------------> [ROL-KORUMA] <------------------ \\
 client.on("roleCreate", async (rolee, member, guild) => {
   let rolkoruma = await db.fetch(`rolk_${rolee.guild.id}`);

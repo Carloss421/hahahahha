@@ -12,7 +12,7 @@ exports.run = (client, message) => {
  let args = message.content.split(' ').slice(1);
  const secenekler = args.slice(0).join(' ');
 
- var errembed = new Discord.RichEmbed()
+ var errembed = new Discord.MessageEmbed()
  .setColor("RANDOM")
  .setDescription(`Yanlış Kullanım!`)
  .addField(`Doğru Kullanım:`, `${ayarlar.prefix}küfür-engelle aç veya kapat`)
