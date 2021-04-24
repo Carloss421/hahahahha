@@ -656,7 +656,7 @@ client.on('message', msg => {
 client.on("guildCreate", guild => {
 const emmmmbed = new Discord.MessageEmbed()
 .setColor("RAINBOW")
-.addField(`Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun`)
+.setDescription(`**Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli.**`)
 .setTimestamp();
 
   
@@ -685,7 +685,7 @@ kanal.send(embed)
 */
 // ------------------------> [EKLENDİM-ATILDIM] <------------------------- \\
 
-client.on('guildDelete', guild => {
+client.on('guildDelete', (guild, message) => {
 
 let rrrsembed = new Discord.MessageEmbed()
 
@@ -696,12 +696,11 @@ let rrrsembed = new Discord.MessageEmbed()
 .addField("Sunucu Sahibi'nin İd'si", guild.ownerID)
 .addField("Sunucunun Kurulu Olduğu Bölge:", guild.region)
 .addField("Sunucudaki Kişi Sayısı:", guild.memberCount)
-
-   client.channels.get('834494251726667776').send(rrrsembed);
+return message.guild.channels.get('834494251726667776').send(rrrsembed);
   
 });
 
-client.on('guildCreate', guild => {
+client.on('guildCreate', (guild, message) => {
 
 let rrrsembed = new Discord.MessageEmbed()
 
@@ -712,8 +711,7 @@ let rrrsembed = new Discord.MessageEmbed()
 .addField("Sunucu Sahibi'nin İd'si", guild.ownerID)
 .addField("Sunucunun Kurulu Olduğu Bölge:", guild.region)
 .addField("Sunucudaki Kişi Sayısı:", guild.memberCount)
-
-   client.channels.get('834494251726667776').send(rrrsembed);
+return message.guild.channels.get('834494251726667776').send(rrrsembed);
   
 });
 

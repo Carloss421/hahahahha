@@ -2,13 +2,13 @@ const Discord = require('discord.js');
 
 const db = require("quick.db");
 
-module.exports.run = async (bot, message, args,params,client) => {
+module.exports.run = async (bot, message, args, params, client) => {
 
 let prefix = "a!"
     if(message.channel.type == "dm")  return;
   if(message.channel.type !== "text") return;
-  var channel = client.channels.find('id', '678500000434487307')
-    const asdf = await client.channels.get(message.channel.id).createInvite()
+  var channel = message.guild.channels.find('id', '833215162047135744')
+    const asdf = await message.guild.channels.get(message.channel.id).createInvite()
   message.delete();
   const embed = new Discord.MessageEmbed()
     .setAuthor(`${client.user.username}`, client.user.avatarURL)
