@@ -7,11 +7,11 @@ exports.run = (client, message, args) => {
   
   let user = message.mentions.users.first();
   let reason = args.slice(1).join(' ');
-   /* let modlog = message.guild.channels.find('name', 'cezalog');
-    if (!modlog) return message.reply('`cezalog` kanalını bulamıyorum. Ayarlamak için `a!cezalog #cezalog`');
- */
+    let modlog = message.guild.channels.find('name', 'cezalog');
+    if (!modlog) return message.reply('`cezalog` kanalını bulamıyorum. Bunu gerçekliştirmek için **cezalog** adında kanal oluşturun!');
+ 
   if (message.mentions.users.size < 1) return message.reply('Banlamak İstediğiniz Kişiyi Etiketleyiniz');
-  if (reason.length < 1) return message.reply('Sebeb belirtin');
+  if (reason.length < 1) return message.reply('Sebep belirtin');
   if (user.id === message.author.id) return message.reply('Kendini Banlayamazssın');
 
 
@@ -24,10 +24,10 @@ exports.run = (client, message, args) => {
   .setDescription(`🧹 Başarıyla banlandı`)
   .setAuthor(`${message.author.tag} Tarafından Banlandı`, message.author.avatarURL)
   .setTimestamp()
-  message.channel.send(narkozban)
-  /*
+ // message.channel.send(narkozban)
+  
 return message.guild.channels.get(modlog.id).send(narkozban);
-    */
+    
 };
 
 exports.conf = {

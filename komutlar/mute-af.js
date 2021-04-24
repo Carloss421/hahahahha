@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
   let xdemb = new Discord.MessageEmbed()
 let logEMD = new Discord.MessageEmbed()
     .setColor("#00ff00")
-    .setTitle(`Unmute Komut`)
+    .setTitle(`Alvi - Unmute HATA`) 
     .addField("Açıklama:", "`Üyenin susturulmasını kaldır`" + "\n")
     .addField("Kullanım", "`a!unmute <@kullanıcı>`" + "\n")
     .addField("Örnek", "`c!unmute @Ali deneme`");
@@ -35,8 +35,8 @@ let role = message.guild.roles.cache.find(val => val.name === "Muted");
         if(!role || !toMute.roles.has(role.id)) return message.channel.send(embed3);
 
         await toMute.removeRole(role);
-    /*   let modlog = message.guild.channels.find('name', 'cezalog');
-    if (!modlog) return message.reply('`cezalog` kanalını bulamıyorum.');*/
+      let modlog = message.guild.channels.find('name', 'cezalog');
+    if (!modlog) return message.reply('`cezalog` kanalını bulamıyorum. Bunu gerçekliştirmek için **cezalog** adında kanal oluşturun!');
   let embed4 = new Discord.MessageEmbed()
   .setDescription(`:white_check_mark: **<@${toMute.id}> yoksaymaktan vazgeçildi!**`)
 .setColor("GREEN")

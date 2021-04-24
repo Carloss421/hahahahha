@@ -8,10 +8,18 @@ exports.run = (client, message, args) => {
   let user = message.mentions.users.first();
   if (reason.length < 1) return message.reply(new Discord.MessageEmbed().setDescription(
     `**Ne Kazandirirsiniz:**
-    **Istediniz Yetki:**
+    **İstediğiniz Yetki:**
     **Kac Saat Aktif Olacaginiz:**
     **Adınız:**
-    **Yaşınız ve Kendinizi Etiketleyin: **`));
+    **Yaşınız ve Kendinizi Etiketleyin:**
+    
+    \`Örnek;\` 
+    **Ne kazandirirsiniz:** Sunucuyu güvende tutarım
+    **İstediğim Yetki:** @Moderatör
+    **Aktifliğim:** 7/24
+    **İsmim:** AliBerat
+    **Yaşım:** 15 @AliBerat
+    `));
   if (message.mentions.users.size < 1) return message.reply('Isminizi Etiketleyin.').catch(console.error);
   const embed = new Discord.MessageEmbed()
     .setColor(0xD97634)
@@ -21,7 +29,7 @@ exports.run = (client, message, args) => {
     .addField('Gonderen Kisi:', `${user.username}#${user.discriminator} (${user.id})`)
     .addField('Bilgiler', reason);
 	
-	return guild.channels.cache.get(terfiler.id).sendEmbed(embed);
+	return guild.channels.cache.get(terfiler.id).send(embed);
 };
 
 exports.conf = {

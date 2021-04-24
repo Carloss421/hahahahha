@@ -2,7 +2,8 @@ const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
 
 exports.run = function(msg, message) {
-let embed = new Discord.Messag
+let embed = new Discord.MessageEmbed()
+.setDescription("`a!başvur - a!başvuru-yap` komutunu kullanarak başvurabilirsiniz.")
 };
 
 exports.conf = {
