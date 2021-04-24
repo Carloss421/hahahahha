@@ -683,12 +683,33 @@ Akşam ezanı **19:03**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 \`susadım\` Sizlere mesajlar atar.
 \`acıktım\` Sizlere mesajlar atar. 
 \`iftar ne zaman\` Sizlere mesajlar atar. 
-\`iftara ne kadar kaldı\` Sizlere mesajlar atar.
-\`iftara kaç saat kaldı\` Sizlere mesajlar atar.
-\`iftara kaç dakka kaldı\` Sizler mesajlar atar.
-`).setColor("RANDOM"))
+\`iftara ne kadar var\` Sizlere mesajlar atar.
+\`iftara kaç saat var\` Sizlere mesajlar atar.
+\`iftara kaç dakka var\` Sizlere mesajlar atar.
+\`iftara kaç gün var\` Sizlere mesajlar atar.`).setColor("RANDOM"))
   }
-
+      if (msg.content === 'a!yardım-ramazan') {
+   	msg.channel.send(new Discord.MessageEmbed().setDescription(
+`\`a!iftar\` Yazarak istediğiniz şehirin iftar saatine bakarsınız.
+\`susadım\` Sizlere mesajlar atar.
+\`acıktım\` Sizlere mesajlar atar. 
+\`iftar ne zaman\` Sizlere mesajlar atar. 
+\`iftara ne kadar var\` Sizlere mesajlar atar.
+\`iftara kaç saat var\` Sizlere mesajlar atar.
+\`iftara kaç dakka var\` Sizlere mesajlar atar.
+\`iftara kaç gün var\` Sizlere mesajlar atar.`).setColor("RANDOM"))
+  }
+    if (msg.content === 'a!ramazan-yardım') {
+   	msg.channel.send(new Discord.MessageEmbed().setDescription(
+`\`a!iftar\` Yazarak istediğiniz şehirin iftar saatine bakarsınız.
+\`susadım\` Sizlere mesajlar atar.
+\`acıktım\` Sizlere mesajlar atar. 
+\`iftar ne zaman\` Sizlere mesajlar atar. 
+\`iftara ne kadar var\` Sizlere mesajlar atar.
+\`iftara kaç saat var\` Sizlere mesajlar atar.
+\`iftara kaç dakka var\` Sizlere mesajlar atar.
+\`iftara kaç gün var\` Sizlere mesajlar atar.`).setColor("RANDOM"))
+  }
 });
 
 
