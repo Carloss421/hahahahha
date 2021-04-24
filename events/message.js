@@ -31,11 +31,9 @@ module.exports = (message, args, user) => {
     cmd.run(client, message, params, perms);
   }};
 */
-
-
-const ayarlar = require('../ayarlar.json')
-const db = require('quick.db');
+const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js')
+const db = require('quick.db');
 let talkedRecently = new Set();
 module.exports = async message => {
 if(message.author.bot) return
