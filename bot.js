@@ -233,44 +233,74 @@ var prefix = ayarlar.prefix;
 client.on('message', msg => {
   const ms = require('parse-ms');
   let adana = new Date('2021-04-24:19:28') //2022-01-01:00:00
-  let adıyaman = new Date('2021-04-24:19:17 ')
+  let adıyaman = new Date('2021-04-24:19:17')
+  let ağrı = new Date("2021-04-24:19:01")
+  let amasya = new Date("2021-04-24:19:32")
+  let ankara = new Date("2021-04-24:19:42")
+  let antalya = new Date("2021-04-24:19:46")
+  let artvin = new Date("2021-04-24:19:09")
+  let aydın = new Date("2021-04-24:19:59")
   if (msg.content === prefix + 'iftar') {
   	if (msg.author.bot) return;
    	msg.reply('a!iftar [Şehir İsmi] | Şehirin baş harfi büyük olacak şekilde yazınız!');
   }
   if (msg.content === prefix + 'iftar'+' Adana') {
 msg.reply(new Discord.MessageEmbed().setDescription(`
-İftara **${adana}** kaldı. Akşam ezanı **19:28** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi"));
+İftara **${adana}** kaldı. 
+Akşam ezanı **19:28** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   } 
     if (msg.content === prefix + 'iftar'+' Adıyaman') {
 msg.reply(new Discord.MessageEmbed().setDescription(`
-İftara **${adana}** kaldı. Akşam ezanı **19:27** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi"));
+İftara **${adana}** kaldı.
+Akşam ezanı **19:27** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
     if (msg.content === prefix + 'iftar'+' Afyon') {
-   	msg.reply(new Discord.MessageEmbed().setDescription(`Belirtilen şehir bulunamadı!`).setTitle("Alvi - Ramazan Sistemi").setFooter(
-      "
-                                                                                                                                     Alvi hayırlı ramazanlar diler..."));
+msg.reply(new Discord.MessageEmbed().setDescription(`Belirtilen şehir bulunamadı!`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
     if (msg.content === prefix + 'iftar'+' Ağrı') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4895/AGRI/TURKIYE');
+   	msg.reply(new Discord.MessageEmbed().setDescription(`
+    İftara **${ağrı}** kaldı.
+    Akşam ezanı **19:01** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Amasya') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4911/AMASYA/TURKIYE');
+   	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${amasya}** kaldı.
+Akşam ezanı **19:32** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Ankara') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4913/ANKARA/TURKIYE');
+   	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${adana}** kaldı.
+Akşam ezanı **19:42**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Antalya') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4914/ANTALYA/TURKIYE');
+      	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${antalya}** kaldı.
+Akşam ezanı **19:46**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Artvin') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4921/ARTVIN/TURKIYE');
+   	   	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${artvin}** kaldı.
+Akşam ezanı **19:09**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Aydın') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4924/AYDIN/TURKIYE');
+      	   	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${aydın}** kaldı.
+Akşam ezanı **19:59**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Balıkesir') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4928/BALIKESIR/TURKIYE');
+         	   	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${aydbın}** kaldı.
+Akşam ezanı **20:02**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Bilecik') {
    	msg.reply('https://iftaranekadarkaldi.com/sehir/4938/BILECIK/TURKIYE');
