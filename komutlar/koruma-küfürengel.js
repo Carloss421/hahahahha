@@ -22,7 +22,7 @@ exports.run = (client, message) => {
     message.delete();
 
    if (secenekler === "aç") {
-  message.channel.send(`Küfür Engelleme Sistemi: **açık**!`).then(m => m.delete(5000));
+  message.channel.send(`Küfür Engelleme Sistemi: **açık**!`)
   küfürEngel[message.guild.id] = {
    küfürEngel: "acik"
     };
@@ -33,7 +33,7 @@ exports.run = (client, message) => {
  };
 
  if (secenekler === "kapat") {
-  message.channel.send(`Küfür Engelleme Sistemi: **kapalı**!`).then(m => m.delete(5000));
+  message.channel.send(`Küfür Engelleme Sistemi: **kapalı**!`)
    küfürEngel: "kapali"
     };
 
@@ -45,7 +45,7 @@ exports.run = (client, message) => {
  exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['küfürengel','küfür-engelle'],
+  aliases: ['küfürengel','küfür-engelle','küfür-engel'],
   permLevel: 3
    };
 
