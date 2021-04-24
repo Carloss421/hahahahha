@@ -237,7 +237,7 @@ client.on('message', msg => {
    	msg.reply('a!iftar [Şehir İsmi] | Şehirin baş harfi büyük olacak şekilde yazınız!');
   }
   if (msg.content === prefix + 'iftar'+' Adana') {    
-    let adana = new Date('19:28')
+    let adana = new Date('2021-04-24:19:28')
      let zaman = ms(adana - Date.now())
 msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${adana.hours}saat ${adana.minutes}dakika ${adana.seconds}saniye** kaldı. 
@@ -246,8 +246,9 @@ Akşam ezanı **19:28** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").
   } 
     if (msg.content === prefix + 'iftar'+' Adıyaman') {
       let adıyaman = new Date('19:17')
+      let adZAMAN = ms(adıyaman - Date.now())
 msg.reply(new Discord.MessageEmbed().setDescription(`
-İftara **${adıyaman}** kaldı.
+İftara **${adZAMAN.hours} saat ${adZAMAN.minutes} dakika ${adZAMAN.seconds} s** kaldı.
 Akşam ezanı **19:27** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
@@ -256,70 +257,70 @@ msg.reply(new Discord.MessageEmbed().setDescription(`Belirtilen şehir bulunamad
 "Alvi hayırlı ramazanlar diler..."));
   }
     if (msg.content === prefix + 'iftar'+' Ağrı') {
-        let ağrı = new Date("19:01")
+        let ağrı = new Date("2021-04-24:19:01")
    	msg.reply(new Discord.MessageEmbed().setDescription(`
     İftara **${ağrı}** kaldı.
     Akşam ezanı **19:01** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Amasya') {
-       let amasya = new Date("19:32")
+       let amasya = new Date("2021-04-24:19:32")
    	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${amasya}** kaldı.
 Akşam ezanı **19:32** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Ankara') {
-       let ankara = new Date("19:42")
+       let ankara = new Date("2021-04-24:19:42")
    	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${ankara}** kaldı.
 Akşam ezanı **19:42**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Antalya') {
-       let antalya = new Date("19:46")
+       let antalya = new Date("2021-04-24:19:46")
       	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${antalya}** kaldı.
 Akşam ezanı **19:46**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Artvin') {
-       let artvin = new Date("19:09")
+       let artvin = new Date("2021-04-24:19:09")
    	   	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${artvin}** kaldı.
 Akşam ezanı **19:09**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Aydın') {
-       let aydın = new Date("19:59")
+       let aydın = new Date("2021-04-24:19:59")
       	   	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${aydın}** kaldı.
 Akşam ezanı **19:59**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Balıkesir') {
-       let balıkesir = new Date("20:02")
+       let balıkesir = new Date("2021-04-24:20:02")
          	   	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${balıkesir}** kaldı.
 Akşam ezanı **20:02**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Bilecik') {
-       let bilecik = new Date("19:54")
+       let bilecik = new Date("2021-04-24:19:54")
          	   	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${bilecik}** kaldı.
 Akşam ezanı **19:54**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Bingöl') {
-       let bingöl = new Date("19:54")
+       let bingöl = new Date("2021-04-24:19:54")
          	   	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${bingöl}** kaldı.
 Akşam ezanı **19:54**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Bitlis') {
-        let bitlis = new Date("19:03")
+        let bitlis = new Date("2021-04-24:19:03")
          	   	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${bitlis}** kaldı.
 Akşam ezanı **19:03**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
