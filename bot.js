@@ -162,52 +162,43 @@ if (afkdkullanıcı) return message.channel.send(new Discord.MessageEmbed().setD
 }}
 if (!message.content.includes(`<@${kullanıcı.id}>`)) {
 if (afkdkullanıcı) {
-      message.channel.send(new Discord.MessageEmbed().setDescription(`**${message.author.tag}** adlı kullanıcı artık AFK degil!`).setTitle("Alvi - Afk Sistemi"))
-      db.delete(`afk_${message.author.id}`)
-    }}});*/
-/* ----------------------------- */
-/*
+message.channel.send(new Discord.MessageEmbed().setDescription(`**${message.author.tag}** adlı kullanıcı artık AFK degil!`).setTitle("Alvi - Afk Sistemi"))
+db.delete(`afk_${message.author.id}`)
+}}});
+
 client.on("message", async (message, user) => {
-  const süre = moment
-    .duration(client.time)
-    .format(" D [gün], H [saat], m [dakika], s [saniye]");
-  let prefix = ayarlar.prefix;
-  let kullanıcı = message.mentions.users.first() || message.author;
-  let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
-  let afkkullanıcı = await db.fetch(`afk_${user.id}`);
-  let Kulcn = db.fetch(`afk_${user.id}`);
-  let sebep = afkkullanıcı;
-  if (message.author.bot) return;
-  if (message.content.includes(`${prefix}afk`)) return;
-  if (message.content.includes(`<@${kullanıcı.id}>`)) {
-    if (afkdkullanıcı) {
-      message.channel.send(new Discord.MessageEmbed().setDescription(`
-   <@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi: \``+ süre +`\``).setColor("RANDOM"))
-      
-      db.delete(`afk_${message.author.id}`);
-    }
-    if (afkkullanıcı)
-      return message.channel.send(new Discord.MessageEmbed().setDescription(`
-      <@${message.author.id}> afk moduna girdi. Sebep: \`${sebep}\``).setColor("RANDOM")
-      );
-  }
-  
-  client.on('message', msg => {
-  if (msg.content === `<@${Kulcn}>`) {
-    msg.channel.send(new Discord.MessageEmbed().setDescription(`<@${message.author.id}>, <@${Kulcn}> adlı kullanıcı afk! Sebep: ${user.sebep}`).setTitle("Alvi - Afk Sistemi"));
-  }
-});
-  
-  
-  
-  if (!message.content.includes(`<@${kullanıcı.id}>`)) {
-    if (afkdkullanıcı) {
-      message.channel.send(new Discord.MessageEmbed().setDescription(
+const süre = moment
+.duration(client.time)
+.format(" D [gün], H [saat], m [dakika], s [saniye]");
+let prefix = ayarlar.prefix;
+let kullanıcı = message.mentions.users.first() || message.author;
+let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
+let afkkullanıcı = await db.fetch(`afk_${user.id}`);
+let Kulcn = db.fetch(`afk_${user.id}`);
+let sebep = afkkullanıcı;
+if (message.author.bot) return;
+if (message.content.includes(`${prefix}afk`)) return;
+if (message.content.includes(`<@${kullanıcı.id}>`)) {
+if (afkdkullanıcı) {
+message.channel.send(new Discord.MessageEmbed().setDescription(`
+<@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi: \``+ süre +`\``).setColor("RANDOM"))
+db.delete(`afk_${message.author.id}`);
+}
+if (afkkullanıcı)
+return message.channel.send(new Discord.MessageEmbed().setDescription(`
+<@${message.author.id}> afk moduna girdi. Sebep: \`${sebep}\``).setColor("RANDOM")
+);
+  } 
+client.on('message', msg => {
+if (msg.content === `<@${Kulcn}>`) {
+msg.channel.send(new Discord.MessageEmbed().setDescription(`<@${message.author.id}>, <@${Kulcn}> adlı kullanıcı afk! Sebep: ${user.sebep}`).setTitle("Alvi - Afk Sistemi"));
+}});
+if (!message.content.includes(`<@${kullanıcı.id}>`)) {
+if (afkdkullanıcı) {
+message.channel.send(new Discord.MessageEmbed().setDescription(
 `<@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi:\``+ süre +`\``).setColor("RANDOM"))
-      
-      db.delete(`afk_${message.author.id}`);
-    }}});
-*/
+db.delete(`afk_${message.author.id}`);
+    }}});*/
 //     [-----------------> Otorol <------------------]  \\
 
 
@@ -240,12 +231,14 @@ client.on("guildMemberRemove", async member => {
 // ---------------------> [Ramazan] <------------------------- \\
 var prefix = ayarlar.prefix;
 client.on('message', msg => {
+  const ms = require('parse-ms');
+  let adana = new Date('2021-04-24:19:28') //2022-01-01:00:00
   if (msg.content === prefix + 'iftar') {
   	if (msg.author.bot) return;
-   	msg.reply(' a!iftar [Şehir İsmi] | Şehirin baş harfi büyük olacak şekilde yazınız!');
+   	msg.reply('a!iftar [Şehir İsmi] | Şehirin baş harfi büyük olacak şekilde yazınız!');
   }
   if (msg.content === prefix + 'iftar'+' Adana') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4892/ADANA/TURKIYE');
+   	msg.reply(new Discord.MessageEmbed().setDescription(`İftara **${adana}** kaldı.`).setTitle("Alvi - Ramazan Sistemi"));
   } 
     if (msg.content === prefix + 'iftar'+' Adıyaman') {
    	msg.reply('https://iftaranekadarkaldi.com/sehir/4893/ADIYAMAN/TURKIYE');
