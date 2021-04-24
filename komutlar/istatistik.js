@@ -7,29 +7,30 @@ exports.run = function(client, message, args) {
 const duration = moment
     .duration(client.uptime)
     .format(" D [gün], H [saat], m [dakika], s [saniye]");
+let araEmoji =  "**⇢**"
 let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - İstatistik")
 .setColor("RANDOM")
 .setDescription(`
 
 
-Geliştirici **⇛** **<@${ayarlar.ownerID}>**
-Bot ortağı **⇛** **<@${ayarlar.ownerİD}>**
-Kuruluş tarihi **⇛** **${ayarlar.krştrh}**
-Sunuluş tarihi **⇛** **${ayarlar.snştrh}**
+Geliştirici ${araEmoji} **<@${ayarlar.ownerID}>**
+Bot ortağı ${araEmoji} **<@${ayarlar.ownerİD}>**
+Kuruluş tarihi ${araEmoji} **${ayarlar.krştrh}**
+Sunuluş tarihi ${araEmoji} **${ayarlar.snştrh}**
 
-Çalışma Süresi **⇛** **${duration}**
-Bot Gecikmesi **⇛** **${client.ws.ping}ms**
-Mesaj Gecikmesi **⇛** **-${new Date().getTime() - message.createdTimestamp}ms**
+Çalışma Süresi ${araEmoji} **${duration}**
+Bot Gecikmesi ${araEmoji} **${client.ws.ping}ms**
+Mesaj Gecikmesi ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
 
-Toplam kullanıcı **⇛** **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}**
-Toplam sunucu **⇛** **${client.guilds.cache.size}**
-Toplam kanal **⇛** **${client.channels.cache.size}**
-Toplam komut **⇛** **${client.commands.size}**
-Müzik Oynatılan sunucu **⇛** **${client.voice.connections.size}**
+Toplam kullanıcı ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}**
+Toplam sunucu ${araEmoji} **${client.guilds.cache.size}**
+Toplam kanal ${araEmoji} **${client.channels.cache.size}**
+Toplam komut ${araEmoji} **${client.commands.size}**
+Müzik Oynatılan sunucu ${araEmoji} **${client.voice.connections.size}**
 
-Discord.js sürümü **⇛** **v${Discord.version}**
-Node.js sürmü **⇛** **${process.version}**
+Discord.js sürümü ${araEmoji} **v${Discord.version}**
+Node.js sürümü ${araEmoji} **${process.version}**
 
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - Premium - CaptchaSistemi - kayıtlog - GörevSistemi\`
