@@ -15,8 +15,8 @@ let embed = new Discord.MessageEmbed()
 
 Geliştirici **⇛** **<@${ayarlar.ownerID}>**
 Bot ortağı **⇛** **<@${ayarlar.ownerİD}>**
-Kuruluş tarihi **⇛** **${krştr}**
-Sunuluş tarihi **⇛** **29.04.2021**
+Kuruluş tarihi **⇛** **${ayarlar.krştrh}**
+Sunuluş tarihi **⇛** **${ayarlar.snştrh}**
 
 Çalışma Süresi **⇛** **${duration}**
 Bot Gecikmesi **⇛** **${client.ws.ping}ms**
