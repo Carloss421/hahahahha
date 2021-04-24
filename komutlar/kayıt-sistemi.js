@@ -15,7 +15,7 @@ let embed = new Discord.MessageEmbed()
 📋 \`${ayarlar.prefix}kayıt-log\` Kayıt logunu ayarlar.
 👤 \`${ayarlar.prefix}normal | ${ayarlar.prefix}normal-kayıt | ${ayarlar.prefix}nk\` Üye kaydı yapar.
 👤 \`${ayarlar.prefix}normal-rol\` Üye kaydı yapıldığında verilecek rol.
-📋 \``
+📋 \`${ayarlar.prefix}kayıt-kontrol\` Kontrollerinizi sağlayabilirsiniz.
 `)
 message.channel.send(embed)
 };
