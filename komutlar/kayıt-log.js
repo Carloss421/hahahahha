@@ -4,7 +4,7 @@ let { hata, oldu, bot } = require("../ayarlar.json")
 module.exports.run = async (client, message, args) => {
     let ayarlar = require("../ayarlar.json")
 
-        let prefix = await require("quick.db").fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
+        let prefix = ayarlar.prefix
 
 if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!`).setColor(hata))
     if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`
