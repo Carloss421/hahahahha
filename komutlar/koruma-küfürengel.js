@@ -5,7 +5,7 @@ let küfürEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "ut
 var ayarlar = require('../ayarlar.json');
 
 exports.run = (client, message) => {
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(`Bu komutu kullanabilmek için **Yönetici** iznine sahip olmalısın!`);
+  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`Bu komutu kullanabilmek için **Mesajları Yönet** iznine sahip olmalısın!`);
             if(message.channel.type == "dm")  return;
   if(message.channel.type !== "text") return;
 

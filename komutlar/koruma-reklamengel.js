@@ -3,7 +3,7 @@ const db = require('quick.db');
 
 exports.run = async(client, message, args) => {
 
-  if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(` Bu komudu kullanabilmek için "Sunucuyu Yönet" yetkisine sahip olman gerek.`)
+  if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(` Bu komudu kullanabilmek için **Mesajları Yönet** yetkisine sahip olman gerek.`)
   if (!args[0]) return message.channel.send(`:no_entry: Reklam Filtresini Ayarlamak İçin \`a!reklam aç\` | Kapatmak İstiyorsanız \`a!reklam kapat\` Yazabilirsiniz`)
   if (args[0] !== 'aç' && args[0] !== 'kapat') return message.channel.send(`:no_entry: Reklam Filtresini Ayarlamak İçin \`a!reklam aç\` | Kapatmak İstiyorsanız \`a!reklam kapat\` Yazabilirsiniz`)
 

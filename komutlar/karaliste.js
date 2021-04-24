@@ -1,8 +1,14 @@
 const Discord = require("discord.js");
 const db = require('quick.db');
+const ayarlar = require('../ayarlar.json')
 
 exports.run = async (client, message, args) => {
-  
+   if(message.author.id !== ayarlar.ownerID)  {
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
+    .setColor('BLUE')
+    return message.channel.send(embed).then(msg=>msg.delete(5000));
+    }
   let user = client.users.get(args.slice(0).join(' '));
   if (!user) {
     let e = new Discord.MessageEmbed()
