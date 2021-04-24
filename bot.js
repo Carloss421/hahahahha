@@ -908,6 +908,24 @@ client.on('messageDelete', msg => {
                 
             asd[msg.guild.id].mesaj = msg.content 
 })
+// -------------------> [Spam-koruma] <--------------- \\
+client.on("message", msg => {
+const antispam = require("discord-anti-spam-tr");
+let spamEngel = JSON.parse(fs.readFileSync("./jsonlar/spamEngelle.json", "utf8"));
+if (!msg.guild) return
+
+antispam(client, {
+  uyarmaSınırı: 4,
+  banlamaSınırı: 7,
+  aralık: 1000,
+  uyarmaMesajı: "Spamı Durdur Yoksa Mutelerim.",
+  rolMesajı: "Spam için yasaklandı, başka biri var mı?",
+  maxSpamUyarı: 8,
+  maxSpamBan: 12,
+  zaman: 7,
+  rolİsimi: "spam-susturulmuş"
+});
+});
 // -------------------> [Kufur-Engel] <---------------- \\
 client.on("message", msg => {
   let kufurEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));

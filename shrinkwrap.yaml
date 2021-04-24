@@ -3,6 +3,7 @@ dependencies:
   common-tags: 1.8.0
   dateformat: 4.5.1
   dblapi.js: 2.4.1
+  discord-anti-spam-tr: 0.7.4
   discord.js: 12.5.3
   express: 4.17.1
   figlet: 1.5.0
@@ -780,6 +781,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
+  /discord-anti-spam-tr/0.7.4:
+    dev: false
+    resolution:
+      integrity: sha512-LSk5KjdP0FVWH1Usx5tABMEYTsWivWeR/WxUklEKaPYNXKgbytMbwEd2T6ZB5fJEGwzMZedz4SccIGWUJNWJnw==
   /discord.js/12.5.3:
     dependencies:
       '@discordjs/collection': 0.1.6
@@ -2370,6 +2375,7 @@ specifiers:
   common-tags: ^1.8.0
   dateformat: ^4.5.1
   dblapi.js: ^2.4.1
+  discord-anti-spam-tr: ^0.7.4
   discord.js: ^12.5.1
   express: ^4.17.1
   figlet: ^1.5.0
