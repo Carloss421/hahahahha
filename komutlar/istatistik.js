@@ -12,23 +12,22 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 
-Geliştirici Adı **${ayarlar.ownerNAME}**
-Geliştirici ID **${ayarlar.ownerID}**
-Sahip Discord Nick **${ayarlar.ownerDcname}**
 
+Geliştirici **⇛** **<@${ayarlar.ownerID}>**
+Bot ortağı **⇛** **<@${ayarlar.ownerİD}>**
 
-Çalışma Süresi **${duration}**
-Bot Gecikmesi **${client.ws.ping}ms**
-Mesaj Gecikmesi **-${new Date().getTime() - message.createdTimestamp}ms**
+Çalışma Süresi **⇛** **${duration}**
+Bot Gecikmesi **⇛** **${client.ws.ping}ms**
+Mesaj Gecikmesi **⇛** **-${new Date().getTime() - message.createdTimestamp}ms**
 
-Toplam kullanıcı \`${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}\`
-Toplam sunucu \`${client.guilds.cache.size}\`
-Toplam kanal \`${client.channels.cache.size}\`
-Toplam komut \`${client.commands.size}\`
-Toplam Müzik Oynatılan sunucu** \`${client.voice.connections.size}\`
+Toplam kullanıcı **⇛** **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}**
+Toplam sunucu **⇛** **${client.guilds.cache.size}**
+Toplam kanal **⇛** **${client.channels.cache.size}**
+Toplam komut **⇛** **${client.commands.size}**
+Toplam Müzik Oynatılan sunucu **⇛** **${client.voice.connections.size}**
 
-Discord.js sürümü **v${Discord.version}**
-Node.js sürmü **v${Node.version}**
+Discord.js sürümü **⇛** **v${Discord.version}**
+Node.js sürmü **⇛** **${process.version}**
 
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - cezalog - afk - jail - ban - mute\`
