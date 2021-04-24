@@ -240,7 +240,7 @@ client.on('message', msg => {
     let adana = new Date('2021-04-24:19:28')
      let zaman = ms(adana - Date.now())
 msg.reply(new Discord.MessageEmbed().setDescription(`
-İftara **${adana.hours}saat ${adana.minutes}dakika ${adana.seconds}saniye** kaldı. 
+İftara **${zaman.hours}saat ${zaman.minutes}dk ${zaman.seconds}sn** kaldı. 
 Akşam ezanı **19:28** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   } 
@@ -248,7 +248,7 @@ Akşam ezanı **19:28** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").
       let adıyaman = new Date('19:17')
       let adZAMAN = ms(adıyaman - Date.now())
 msg.reply(new Discord.MessageEmbed().setDescription(`
-İftara **${adZAMAN.hours} saat ${adZAMAN.minutes} dakika ${adZAMAN.seconds} s** kaldı.
+İftara **${adıyaman.hours}saat ${adıyaman.minutes}dk ${adıyaman.seconds}sn** kaldı.
 Akşam ezanı **19:27** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
@@ -615,7 +615,7 @@ Akşam ezanı **19:03**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
   if (msg.content === 'iftara kaç saat var') {
    	msg.reply('Şimdi öğren -> a!iftar [Şehir ismi ilk harfi büyük yaz]');
   }
-  if (msg.content === 'iftara kaç dakika var') {
+  if (msg.content === 'iftara kaç dakka var') {
    	msg.reply('Şimdi öğren -> a!iftar [Şehir ismi ilk harfi büyük yaz]');
   }
   if (msg.content === 'iftara kaç gün var') {

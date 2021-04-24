@@ -12,9 +12,9 @@ message.channel.send(embedd)
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['ramazan-yardım','ramazan-sistemi'],
+  aliases: ['ramazan-system'],
   permlevel: 0
 };
 exports.help = {
-  name: "yardım-ramazan"
+  name: "ramazan-sistemi"
 };
