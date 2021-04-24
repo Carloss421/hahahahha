@@ -233,18 +233,23 @@ var prefix = ayarlar.prefix;
 client.on('message', msg => {
   const ms = require('parse-ms');
   let adana = new Date('2021-04-24:19:28') //2022-01-01:00:00
+  let adıyaman = new Date('2021-04-24:19:17 ')
   if (msg.content === prefix + 'iftar') {
   	if (msg.author.bot) return;
    	msg.reply('a!iftar [Şehir İsmi] | Şehirin baş harfi büyük olacak şekilde yazınız!');
   }
   if (msg.content === prefix + 'iftar'+' Adana') {
-   	msg.reply(new Discord.MessageEmbed().setDescription(`İftara **${adana}** kaldı.`).setTitle("Alvi - Ramazan Sistemi"));
+msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${adana}** kaldı. Akşam ezanı **19:28** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi"));
   } 
     if (msg.content === prefix + 'iftar'+' Adıyaman') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4893/ADIYAMAN/TURKIYE');
+msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${adana}** kaldı. Akşam ezanı **19:27** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi"));
   }
     if (msg.content === prefix + 'iftar'+' Afyon') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4894/AFYON/TURKIYE');
+   	msg.reply(new Discord.MessageEmbed().setDescription(`Belirtilen şehir bulunamadı!`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+      "
+                                                                                                                                     Alvi hayırlı ramazanlar diler..."));
   }
     if (msg.content === prefix + 'iftar'+' Ağrı') {
    	msg.reply('https://iftaranekadarkaldi.com/sehir/4895/AGRI/TURKIYE');
