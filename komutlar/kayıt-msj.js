@@ -169,7 +169,7 @@ message.channel.send(embed)
 
 
 
-})};
+};
 
 
 

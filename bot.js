@@ -1017,8 +1017,8 @@ emoji.guild.owner.send(`** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adl
 // -----------------------> [Kayıt-sistemi] <--------------------------------- \\
 
 client.on("guildMemberAdd", (member, message) => {  
-let kanal = db.fetch(`kchannel_${message.guild.id}`)
-let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
+let kanal = db.fetch(`logkayıt_${message.guild.id}`)
+let kayıtçı = db.fetch(`kayıty_${message.guild.id}`)
   const strigadiyorumlogdiyorum = `${kanal}`
   const register = `${kayıtçı}`;
   let user = client.users.get(member.id);
@@ -1040,6 +1040,7 @@ if (kurulus > 1296000000) kontrol = '<a:acik:827618729193242634> **__Bu Hesap G�
 📖 Hesabın Oluşturulma Tarihi: ${moment(member.user.createdAt).format("** YYYY __DD MMMM dddd__**")} ${kontrol}`)              
   strigalog.send(embed)
   strigalog.send(register)
+  .a
 });
 // -----------------------> [Davet-Sistemi] <------------------------------ \\
 client.on("guildMemberRemove", async member => {

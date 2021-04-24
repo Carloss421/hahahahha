@@ -14,7 +14,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(n
 
  let ayarlar = require("../ayarlar.json")
 
-        let prefix = await require("quick.db").fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
+        let prefix = ayarlar.prefix
 let user = message.mentions.members.first() || message.author
 
   
@@ -47,7 +47,7 @@ if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setColor(hat
 
 
 
-})};
+};
    
 
 module.exports.conf = {
