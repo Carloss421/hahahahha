@@ -232,27 +232,21 @@ client.on("guildMemberRemove", async member => {
 var prefix = ayarlar.prefix;
 client.on('message', msg => {
   const ms = require('parse-ms');
-  let adana = new Date('2021-04-24:19:28') //2022-01-01:00:00
-  let adıyaman = new Date('2021-04-24:19:17')
-  let ağrı = new Date("2021-04-24:19:01")
-  let amasya = new Date("2021-04-24:19:32")
-  let ankara = new Date("2021-04-24:19:42")
-  let antalya = new Date("2021-04-24:19:46")
-  let artvin = new Date("2021-04-24:19:09")
-  let aydın = new Date("2021-04-24:19:59")
   if (msg.content === prefix + 'iftar') {
   	if (msg.author.bot) return;
    	msg.reply('a!iftar [Şehir İsmi] | Şehirin baş harfi büyük olacak şekilde yazınız!');
   }
   if (msg.content === prefix + 'iftar'+' Adana') {
+    let adana = new Date('2021-04-24:19:28')
 msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${adana}** kaldı. 
 Akşam ezanı **19:28** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   } 
     if (msg.content === prefix + 'iftar'+' Adıyaman') {
+      let adıyaman = new Date('2021-04-24:19:17')
 msg.reply(new Discord.MessageEmbed().setDescription(`
-İftara **${adana}** kaldı.
+İftara **${adıyaman}** kaldı.
 Akşam ezanı **19:27** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
@@ -261,259 +255,278 @@ msg.reply(new Discord.MessageEmbed().setDescription(`Belirtilen şehir bulunamad
 "Alvi hayırlı ramazanlar diler..."));
   }
     if (msg.content === prefix + 'iftar'+' Ağrı') {
+        let ağrı = new Date("2021-04-24:19:01")
    	msg.reply(new Discord.MessageEmbed().setDescription(`
     İftara **${ağrı}** kaldı.
     Akşam ezanı **19:01** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Amasya') {
+       let amasya = new Date("2021-04-24:19:32")
    	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${amasya}** kaldı.
 Akşam ezanı **19:32** saatinde okunacak.`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Ankara') {
+       let ankara = new Date("2021-04-24:19:42")
    	msg.reply(new Discord.MessageEmbed().setDescription(`
-İftara **${adana}** kaldı.
+İftara **${ankara}** kaldı.
 Akşam ezanı **19:42**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Antalya') {
+       let antalya = new Date("2021-04-24:19:46")
       	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${antalya}** kaldı.
 Akşam ezanı **19:46**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Artvin') {
+       let artvin = new Date("2021-04-24:19:09")
    	   	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${artvin}** kaldı.
 Akşam ezanı **19:09**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Aydın') {
+       let aydın = new Date("2021-04-24:19:59")
       	   	msg.reply(new Discord.MessageEmbed().setDescription(`
 İftara **${aydın}** kaldı.
 Akşam ezanı **19:59**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Balıkesir') {
+       let balıkesir = new Date("2021-04-24:20:02")
          	   	msg.reply(new Discord.MessageEmbed().setDescription(`
-İftara **${aydbın}** kaldı.
+İftara **${balıkesir}** kaldı.
 Akşam ezanı **20:02**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 "Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Bilecik') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4938/BILECIK/TURKIYE');
+       let bilecik = new Date("2021-04-24:19:54")
+         	   	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${bilecik}** kaldı.
+Akşam ezanı **19:54**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Bingöl') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4939/BINGOL/TURKIYE');
+       let bingöl = new Date("2021-04-24:19:54")
+         	   	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${bingöl}** kaldı.
+Akşam ezanı **19:54**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Bitlis') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4941/BITLIS/TURKIYE');
+        let bitlis = new Date("2021-04-24:19:03")
+         	   	msg.reply(new Discord.MessageEmbed().setDescription(`
+İftara **${bitlis}** kaldı.
+Akşam ezanı **19:03**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
+"Alvi hayırlı ramazanlar diler..."));
   }
      if (msg.content === prefix + 'iftar'+' Bolu') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4942/BOLU/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4942/BOLU/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Burdur') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4946/BURDUR/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4946/BURDUR/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Bursa') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4947/BURSA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4947/BURSA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Çanakkale') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4953/CANAKKALE/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4953/CANAKKALE/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Çankırı') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4954/CANKIRI/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4954/CANKIRI/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Çorum') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4968/CORUM/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4968/CORUM/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Denizli') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4976/DENIZLI/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4976/DENIZLI/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Diyarbakır') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4984/DIYARBAKIR/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4984/DIYARBAKIR/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Edirne') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4987/EDIRNE/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4987/EDIRNE/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Elazığ') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4989/ELAZIG/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4989/ELAZIG/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Erzincan') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4995/ERZINCAN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4995/ERZINCAN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Erzurum') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4996/ERZURUM/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4996/ERZURUM/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Eskişehir') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4998/ESKISEHIR/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4998/ESKISEHIR/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Gaziantep') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5005/GAZIANTEP/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5005/GAZIANTEP/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Giresun') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5010/GIRESUN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5010/GIRESUN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Gümüşhane') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5015/GUMUSHANE/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5015/GUMUSHANE/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Hakkari') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5020/HAKKARI/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5020/HAKKARI/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Hatay') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5023/HATAY/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5023/HATAY/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Isparta') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5039/ISPARTA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5039/ISPARTA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Mersin') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5100/MERSIN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5100/MERSIN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' İstanbul') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5041/ISTANBUL/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5041/ISTANBUL/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' İzmir') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5043/IZMIR/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5043/IZMIR/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kars') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5062/KARS/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5062/KARS/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Malatya') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5094/MALATYA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5094/MALATYA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Manisa') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5097/MANISA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5097/MANISA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Maraş') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5046/KAHRAMANMARAS/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5046/KAHRAMANMARAS/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Mardin') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5098/MARDIN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5098/MARDIN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Muğla') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5104/MUGLA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5104/MUGLA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Muş') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5105/MUS/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5105/MUS/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Nevşehir') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5110/NEVSEHIR/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5110/NEVSEHIR/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Niğde') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5111/NIGDE/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5111/NIGDE/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Ordu') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5117/ORDU/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5117/ORDU/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Rize') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5128/RIZE/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5128/RIZE/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Sakarya') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5130/SAKARYA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5130/SAKARYA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Samsun') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5131/SAMSUN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5131/SAMSUN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Siirt') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5142/SIIRT/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5142/SIIRT/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Sinop') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5147/SINOP/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5147/SINOP/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Sivas') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5149/SIVAS/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5149/SIVAS/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Tekirdağ') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5156/TEKIRDAG/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5156/TEKIRDAG/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Tokat') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5160/TOKAT/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5160/TOKAT/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Bayburt') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4931/BAYBURT/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4931/BAYBURT/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Karaman') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5056/KARAMAN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5056/KARAMAN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kırıkkale') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5076/KIRIKKALE/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5076/KIRIKKALE/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Batman') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4930/BATMAN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4930/BATMAN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Şırnak') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5148/SIRNAK/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5148/SIRNAK/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Bartın') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4929/BARTIN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4929/BARTIN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Ardahan') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4916/ARDAHAN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4916/ARDAHAN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Iğdır') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5033/IGDIR/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5033/IGDIR/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Yalova') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5174/YALOVA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5174/YALOVA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Karabük') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5050/KARABUK/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5050/KARABUK/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kilis') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5073/KILIS/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5073/KILIS/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Osmaniye') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5119/OSMANIYE/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5119/OSMANIYE/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Düzce') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4985/DUZCE/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4985/DUZCE/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kastamonu') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5065/KASTAMONU/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5065/KASTAMONU/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kayseri') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5068/KAYSERI/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5068/KAYSERI/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kırklareli') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5077/KIRKLARELI/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5077/KIRKLARELI/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kırşehir') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5078/KIRSEHIR/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5078/KIRSEHIR/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kocaeli') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5082/KOCAELI/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5082/KOCAELI/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Konya') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5084/KONYA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5084/KONYA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Kütahya') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5092/KUTAHYA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5092/KUTAHYA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Trabzon') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5164/TRABZON/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5164/TRABZON/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Tunceli') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5166/TUNCELI/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5166/TUNCELI/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Şanlıurfa') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5133/SANLIURFA/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5133/SANLIURFA/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Uşak') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5169/USAK/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5169/USAK/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Van') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5172/VAN/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5172/VAN/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Yozgat') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5178/YOZGAT/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5178/YOZGAT/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Zonguldak') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/5181/ZONGULDAK/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/5181/ZONGULDAK/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
      if (msg.content === prefix + 'iftar'+' Aksaray') {
-   	msg.reply('https://iftaranekadarkaldi.com/sehir/4900/AKSARAY/TURKIYE');
+   	msg.reply('https://iftaranekadarkaldi.com/sehir/4900/AKSARAY/TURKIYE (AYARLANACAK ŞUAN BUNU KOYUYORUM)');
   }
   if (msg.content === 'acıktım') {
    	if (Math.floor((Math.random() * 15) + 1) === 1) {
@@ -670,7 +683,10 @@ Akşam ezanı **20:02**`).setTitle("Alvi - Ramazan Sistemi").setFooter(
 \`susadım\` Sizlere mesajlar atar.
 \`acıktım\` Sizlere mesajlar atar. 
 \`iftar ne zaman\` Sizlere mesajlar atar. 
-\`iftara ne kadar kaldı\` Sizlere mesajlar atar.`).setColor("RANDOM"))
+\`iftara ne kadar kaldı\` Sizlere mesajlar atar.
+\`iftara kaç saat kaldı\` Sizlere mesajlar atar.
+\`iftara kaç dakka kaldı\` Sizler mesajlar atar.
+`).setColor("RANDOM"))
   }
 
 });
