@@ -16,13 +16,7 @@ let embed = new Discord.MessageEmbed()
 :information_source: \`${ayarlar.prefix}istatistik\` Botun bilgilerini gösterir.
 :zzz: \`${ayarlar.prefix}afk\` Afk olursunuz.
 🧰 \`${ayarlar.prefix}hızlı-destek(PREMUIM)\` Çok çabuk destek alabilirsiniz.
-👑 \`${ayarlar.prefix}ramazan-sistemi\` Ramazan komutlarını görüntülersiniz.
 🔐 \`${ayarlar.prefix}pre-yardım - ${ayarlar.prefix}yardım-premium\` premium özeliklerini fln görürsünüz.
-
-
-╔═══════════════════════════════════╗
-║**NOT:** Ramazan sistemi RAMAZAN bitene kadar kalacaktır! ║
-╚═══════════════════════════════════╝
 `)
 message.channel.send(embed)
 };
