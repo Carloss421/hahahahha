@@ -458,17 +458,17 @@ client.on('message', async msg => {
 
 	if (command === 'sadecebotunsahibikullanır') {
 		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		if (!voiceChannel) return msg.channel.send(new Discord.MessageEmbed()
       .setColor('BLACK')
     .setDescription(':x: **Bu komutu kullanmak için bir ses kanalında olmanız gerekir.**'));
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {
-			return msg.channel.sendEmbed(new Discord.MessageEmbed()
+			return msg.channel.send(new Discord.MessageEmbed()
     .setColor('BLACK')
     .setTitle(':x: **Bu komutu kullanmak için bir ses kanalında olmanız gerekir.**'));
 		}
 		if (!permissions.has('SPEAK')) {
-			 return msg.channel.sendEmbed(new Discord.MessageEmbed()
+			 return msg.channel.send(new Discord.MessageEmbed()
       .setColor('BLACK')
       .setTitle(":x: Müziği açamıyorum / kanalda konuşmama izin verilmediğinden veya mikrofonum kapalı olduğundan şarkı çalamıyorum."));
         }
@@ -480,7 +480,7 @@ client.on('message', async msg => {
 				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
 				await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
 			}
-			 return msg.channel.sendEmbed(new Discord.MessageEmbed)
+			 return msg.channel.send(new Discord.MessageEmbed)
       .setTitle(`**Oynatma Listesi **${playlist.title}** Sıraya eklendi!**`)
 		} else {
 			try {
@@ -490,7 +490,7 @@ client.on('message', async msg => {
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
           
-				 msg.channel.sendEmbed(new Discord.MessageEmbed()                  
+				 msg.channel.send(new Discord.MessageEmbed()                  
          .setTitle(':musical_note: Şarkı Seçimi')
          .setThumbnail("https://i.postimg.cc/W1b1LW13/youtube-kids-new-logo.png")
          .setDescription(`${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}`)
@@ -506,7 +506,7 @@ client.on('message', async msg => {
 						});
 					} catch (err) {
 						console.error(err);
-						 return msg.channel.sendEmbed(new Discord.MessageEmbed()
+						 return msg.channel.send(new Discord.MessageEmbed()
             .setColor('BLACK')
             .setDescription(':x: **Şarkı Değerini belirtmediği için seçim iptal edildi**.'));
                     }
@@ -514,7 +514,7 @@ client.on('message', async msg => {
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
 				} catch (err) {
 					console.error(err);
-					return msg.channel.sendEmbed(new Discord.MessageEmbed()
+					return msg.channel.send(new Discord.MessageEmbed()
           .setColor('BLACK')
           .setDescription(':x: **Aradım ama sonuç yok**'));
                 }
@@ -524,35 +524,35 @@ client.on('message', async msg => {
 		}
 	
 	} else if (command === 'volume') {
-		if (!msg.member.voiceChannel) if (!msg.member.voiceChannel) return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		if (!msg.member.voiceChannel) if (!msg.member.voiceChannel) return msg.channel.send(new Discord.MessageEmbed()
     .setColor('BLACK')
     .setDescription(':x: **Bu komutu kullanmak için bir ses kanalında olmanız gerekir.**'));
-		if (!serverQueue) return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		if (!serverQueue) return msg.channel.send(new Discord.MessageEmbed()
      .setColor('BLACK')
      .setTitle(":x: Şu anda çalan şarkı yok."));                                              
-		if (!args[1]) return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		if (!args[1]) return msg.channel.send(new Discord.MessageEmbed()
    .setTitle(`Current Volume: **${serverQueue.volume}**`)
     .setColor('BLACK'))
 		serverQueue.volume = args[1];
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
-		return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		return msg.channel.send(new Discord.MessageEmbed()
     .setTitle(`Setting Volume: **${args[1]}**`)
     .setColor('BLACK'));                             
 	} else if (command === 'now') {
-		if (!serverQueue) return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		if (!serverQueue) return msg.channel.send(new Discord.MessageEmbed()
     .setTitle(":x: **Şu anda çalan şarkı yok.**")
     .setColor('BLACK'));
-		return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		return msg.channel.send(new Discord.MessageEmbed()
     .setColor('BLACK')
     .setTitle(" :headphones: | Şimdi oynuyor")                            
     .addField('Şarkı Adı', `[${serverQueue.songs[0].title}](${serverQueue.songs[0].url})`, true)
     .addField("Oynamaya kadar tahmini süre", `${serverQueue.songs[0].durationm}:${serverQueue.songs[0].durations}`, true))
 	} else if (command === '') {
     let index = 0;
-		if (!serverQueue) return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		if (!serverQueue) return msg.channel.send(new Discord.MessageEmbed()
     .setTitle(":x: **Sırada Müzik Yok**")
     .setColor('BLACK'));
-		  return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		  return msg.channel.send(new Discord.MessageEmbed()
     .setColor('RANDOM')
      .setTitle('Şarkı sırası')
     .setDescription(`${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}`))
@@ -595,7 +595,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		} catch (error) {
 			console.error(`:x: Ses kanalına giremedim HATA: ${error}**`);
 			queue.delete(msg.guild.id);
-			return msg.channel.sendEmbed(new Discord.MessageEmbed()
+			return msg.channel.send(new Discord.MessageEmbed()
       .setTitle(`:x: Ses kanalına giremedim HATA: ${error}**`)
       .setColor('BLACK'))
 		}
@@ -603,7 +603,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		return msg.channel.sendEmbed(new Discord.MessageEmbed()
+		return msg.channel.send(new Discord.MessageEmbed()
     .setTitle(`:arrow_heading_up:  **${song.title}** Sıraya Adlandırılmış Müzik Eklendi!`)
     .setColor('BLACK'))
 	}
@@ -630,7 +630,7 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-	 serverQueue.textChannel.sendEmbed(new Discord.MessageEmbed()                                   
+	 serverQueue.textChannel.send(new Discord.MessageEmbed()                                   
   .setTitle("**:microphone: Şarkı Başladı**")
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg`)
   .addField('Şarkı adı', `[${song.title}](${song.url})`, true)
@@ -655,9 +655,7 @@ client.on('message', msg => {
 
 client.on("guildCreate", guild => {
 const emmmmbed = new Discord.MessageEmbed()
-.setColor("RANDOM")
-.edit("RANDOM").edit("RANDOM")
-.edit("RANDOM").edit("RANDOM")
+.setColor("RAINBOW")
 .addField(`Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun`)
 .setTimestamp();
 
