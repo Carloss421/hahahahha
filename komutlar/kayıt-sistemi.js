@@ -12,7 +12,8 @@ let embed = new Discord.MessageEmbed()
 🧑 \`${ayarlar.prefix}erkek-rol\` Erkek kaydı yapıldığında verilecek rol.
 📋 \`${ayarlar.prefix}alınacak-rol\` Bir kayıt yapıldığında **@Kayıtsız , @Misafir** rollerini almasını sağlar.
 📋 \`${ayarlar.prefix}kayıtçı-al\` Kayıt yapacak rol ayarlar.
-📋 \`${ayarlar.prefix}kayıtçı-ver\` Belirtilen kullanıcıya kayıtçı rolü verir.
+📋  \`${ayarlar.prefix}kayıtçı-ver\` Belirtilen kullanıcıya kayıtçı rolü verir.
+📋 \`${ayarlar.prefix}kayıt-kanal\` Kayıt kanalı ayarlar.
 👤 \`${ayarlar.prefix}normal | ${ayarlar.prefix}normal-kayıt | ${ayarlar.prefix}nk\` Üye kaydı yapar.
 👤 \`${ayarlar.prefix}normal-rol\` Üye kaydı yapıldığında verilecek rol.`)
 message.channel.send(embed)
