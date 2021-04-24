@@ -894,7 +894,20 @@ client.on("message", async msg => {
               .send(`<@${msg.author.id}>Lütfen CAPS kapat!`).edit(`Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor.Bu yüzden mesajını sildim!`)
               .then(m => m.delete(5000));
           }}}}}});
-
+// -------------------> [Snipe] <---------------- \\
+client.on('messageDelete', msg => {
+  let asd = JSON.parse(fs.readFileSync("./jsonlar/snipe.json", "utf8"));
+               asd[msg.guild.id] = {
+                mesaj: msg.content,
+                isim: msg.author.username + "#" + msg.author.discriminator
+              };
+            
+            fs.writeFile("./jsonlar/snipe.json", JSON.stringify(asd), (err) => {
+              //console.log(err)
+            })
+                
+            asd[msg.guild.id].mesaj = msg.content 
+})
 // -------------------> [Kufur-Engel] <---------------- \\
 client.on("message", msg => {
   let kufurEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));

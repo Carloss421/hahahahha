@@ -1,4 +1,42 @@
-  
+const Discord = require("discord.js")
+const fs = require("fs")
+
+exports.run = (bot, message) => {
+    let profil = JSON.parse(fs.readFileSync("./jsonlar/snipe.json", "utf8"));
+    if(!profil[message.guild.id]) {
+      const embed = new Discord.MessageEmbed();
+      embed.setTitle(`**Alvi - Son Silinen Mesaj**`);
+      embed.setColor('RANDOM')
+      embed.setDescription(`\`\`\`Bulunamadı!\`\`\``)
+    message.channel.send({embed: embed});
+      
+    } else {
+      
+      if(profil[message.guild.id]) {
+    const embed = new Discord.MessageEmbed();
+      embed.setTitle(`**Alvi - Son Silinen Mesaj**`);
+      embed.setColor('RANDOM')
+      embed.setDescription(`
+    ${profil[message.guild.id].isim} **adlı kullanıcı'nın son silinen mesajı**
+    \`\`\`${profil[message.guild.id].mesaj}\`\`\``)
+    message.channel.send({embed: embed});
+      }
+    }
+}
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ['s','son-silinen mesaj'],
+  permLevel: 0
+};
+
+exports.help = {
+  name: "snipe",
+  description: "En son silinen mesaji gosterir.",
+  usage: "snipe"
+};
+/*  
  const Discord = require('discord.js');
  const db = require('quick.db');
 
@@ -51,4 +89,4 @@ exports.help = {
   description: 'Kanalda son silinen mesajı gösterir',
   usage: 'snipe',
  
-};
+};*/
