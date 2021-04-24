@@ -15,6 +15,8 @@ let embed = new Discord.MessageEmbed()
 
 Geliştirici **⇛** **<@${ayarlar.ownerID}>**
 Bot ortağı **⇛** **<@${ayarlar.ownerİD}>**
+Kuruluş tarihi **⇛** **${krştr}**
+Sunuluş tarihi **⇛** **29.04.2021**
 
 Çalışma Süresi **⇛** **${duration}**
 Bot Gecikmesi **⇛** **${client.ws.ping}ms**
@@ -24,14 +26,13 @@ Toplam kullanıcı **⇛** **${client.guilds.cache.reduce((a, b) => a + b.member
 Toplam sunucu **⇛** **${client.guilds.cache.size}**
 Toplam kanal **⇛** **${client.channels.cache.size}**
 Toplam komut **⇛** **${client.commands.size}**
-Toplam Müzik Oynatılan sunucu **⇛** **${client.voice.connections.size}**
+Müzik Oynatılan sunucu **⇛** **${client.voice.connections.size}**
 
 Discord.js sürümü **⇛** **v${Discord.version}**
 Node.js sürmü **⇛** **${process.version}**
 
 **Verileri alınan komutlar**
-\`Otorol - Sayaç - KayıtSistemi - cezalog - afk - jail - ban - mute\`
-\`Premium - CaptchaSistemi - kayıtlog - GörevSistemi\`
+\`Otorol - Sayaç - KayıtSistemi - Premium - CaptchaSistemi - kayıtlog - GörevSistemi\`
 **Veri depolaması fazla artarsa silineceketir!**
 [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - [Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - Oyver **YAKINDA!**
 `)
