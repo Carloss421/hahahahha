@@ -5,9 +5,9 @@ module.exports.run = async (bot, message, args) => {
 
   //+mute <@üye> <1s/m/h/d | 1s = 1 saniye , 1m = 1 dakika , 1h = 1 saat, 1d = 1 gün> <nedenin>
 
-  let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  let tomute = message.guild.member(message.mentions.users.first() || message.guild.users.get(args[0]));
   if(!tomute) return message.reply(new Discord.MessageEmbed().setDescription(
-    "Doğru Kullanım: a!mute <kullanıcı> <süre> <sebep>\n`Örnek;`\na!mute @AliBerat 15d Küfür\n\n**NOT:** Sonsuz susturmak için şunu kullanın: a!mute @Kullanıcı 10000d 100h 10m 1s\nSüre Kullanım: `d` gün `h` "));
+    "Doğru Kullanım: a!mute <kullanıcı> <süre> <sebep>\n`Örnek;`\na!mute @AliBerat 15d Küfür\n\n**NOT:** Sonsuz susturmak için şunu kullanın: a!mute @Kullanıcı 10000d 100h 10m 1s\nSüre Kullanım: `d` gün `h` saat `m` dakika `s` saniye"));
   if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply(new Discord.MessageEmbed().setDescription("Hata: Geçici olarak susturmaya çalıştığınız kişi yetkili veya bot'un yetkisi belirttiğiniz kişiyi geçici olarak susturmaya yetmiyor!"));
 let muterole = message.guild.roles.find(r => r.name === "MUTE");
 
