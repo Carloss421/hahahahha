@@ -1026,8 +1026,8 @@ let kayıtçı = db.fetch(`kayıtçırol_${message.guild.id}`)
     const kurulus = new Date().getTime() - user.createdAt.getTime();  
  
   var kontrol;
-if (kurulus < 1296000000) kontrol = ':warning: **__Bu Hesap Güvenilir Değil__**'
-if (kurulus > 1296000000) kontrol = ':white_check_mark: **__Bu Hesap Güvenilir Gözüküyor__**'
+if (kurulus < 1296000000) kontrol = '<a:kapali:827620346491830272> **__Bu Hesap Güvenilir Değil__**'
+if (kurulus > 1296000000) kontrol = '<a:acik:827618729193242634> **__Bu Hesap Güvenilir Gözüküyor__**'
   moment.locale("tr");
   let strigalog = client.channels.get(strigadiyorumlogdiyorum);
   const embed = new Discord.MessageEmbed()
