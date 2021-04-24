@@ -101,12 +101,12 @@ message.channel.send(embed)
 module.exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["erkek", "e"],
+  aliases: ["erkek", "e","erkek-kayıt"],
   permLevel: 0
 };
 
 module.exports.help = {
-  name: 'man'
+  name: 'erk'
 };
 
 

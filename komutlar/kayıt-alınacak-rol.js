@@ -32,7 +32,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(n
 module.exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["k-alınacak-rol", "kayıtalınacakrol"],
+  aliases: ["k-alınacak-rol", "kayıtalınacakrol","alınacak-rol"],
   permLevel: 0
 };
 

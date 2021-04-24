@@ -103,12 +103,12 @@ message.channel.send(embed)
 module.exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["kadın", "k"],
+  aliases: ["kadın", "k","kız","kız-kayıt"],
   permLevel: 0
 };
 
 module.exports.help = {
-  name: 'woman'
+  name: 'kız'
 };
 
 

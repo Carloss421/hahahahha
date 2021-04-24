@@ -1040,7 +1040,7 @@ if (kurulus > 1296000000) kontrol = '<a:acik:827618729193242634> **__Bu Hesap G�
 📖 Hesabın Oluşturulma Tarihi: ${moment(member.user.createdAt).format("** YYYY __DD MMMM dddd__**")} ${kontrol}`)              
   strigalog.send(embed)
   strigalog.send(register)
-  .a
+  .setDescription(`@everyone`).then(message=>message.delete < 1000)
 });
 // -----------------------> [Davet-Sistemi] <------------------------------ \\
 client.on("guildMemberRemove", async member => {
