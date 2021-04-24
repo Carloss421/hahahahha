@@ -20,14 +20,14 @@ exports.run = (client, message, args) => {
     **İsmim:** AliBerat
     **Yaşım:** 15 @AliBerat
     `));
-  if (message.mentions.users.size < 1) return message.reply('Isminizi Etiketleyin.').catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('Kendinizi Etiketleyin.').catch(console.error);
   const embed = new Discord.MessageEmbed()
     .setColor(0xD97634)
-	.setThumbnail("https://i.hizliresim.com/mJ20o2.jpg")
+	  .setThumbnail("https://c0.klipartz.com/pngpicture/127/497/gratis-png-nota-con-el-logo-de-la-pluma-formulario-de-iconos-de-computadora-boton-de-registro.png")
     .setTimestamp()
     .addField('Durum:', 'Beklemede')
-    .addField('Gonderen Kisi:', `${user.username}#${user.discriminator} (${user.id})`)
-    .addField('Bilgiler', reason);
+    .addField('Başvuran:', `${user.username}#${user.discriminator} (${user.id})`)
+    .addField('Form', reason);
 	
 	return guild.channels.cache.get(terfiler.id).send(embed);
 };
