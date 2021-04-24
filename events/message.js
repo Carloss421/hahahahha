@@ -51,7 +51,6 @@ if(message.author.bot) return
   if (!message.content.startsWith(prefix)) return;
   let command = message.content.split(' ')[0].slice(prefix.length);
   let params = message.content.split(' ').slice(1);
-  let guild = message.guild;
   let perms = client.elevation(message);
   let cmd;
   if (client.commands.has(command)) {
@@ -73,7 +72,7 @@ if(message.author.bot) return
   :arrows_counterclockwise: Lütfen Daha Sonra Tekrar Deneyin.**`).setColor("RANDOM"))
                               }}
     if (perms < cmd.conf.permLevel) return;
-    cmd.run(client, message, params, perms, guild);
+    cmd.run(client, message, params, perms);
   }
 };
 
