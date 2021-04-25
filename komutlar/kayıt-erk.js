@@ -61,6 +61,8 @@ userca.roles.add(kayıte)
   }
   userca.roles.add(kayıte)
   userca.roles.remove(agacim)
+  let type = message.mentions.channels.first()
+  let log = db.fetch(`logkayıt.${message.guild.id}`)
   let emd = new Discord.MessageEmbed()
  let msj = `
 ${userca} Kaydı ${message.author} Tarafından Yapıldı!
@@ -68,7 +70,7 @@ ${userca} Kaydı ${message.author} Tarafından Yapıldı!
 \`Kullanıcı Başarıyla Kayıt Oldu\`
  
 ${userca}, Kullanıcıya <@&${kayıte}> Rolü Verildi!`
- return guild.channels.get.send(emd)
+ return guild.channels.get(log).send(emd)
  
  if(embed){
    let embed = new Discord.MessageEmbed()
