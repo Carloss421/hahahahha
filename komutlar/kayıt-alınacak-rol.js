@@ -6,7 +6,9 @@ module.exports.run = async (client, message, args) => {
 
         let prefix = ayarlar.prefix
 
-if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!`).setColor(hata))
+let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
+        
+  if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor(hata))
     if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`
     Selam, Kayıt Alınacak Rolü Ayarlamak İçin **Kayıtsız** Bir Seçenek Girmen Gerek Aşşağıda Seçenekleri Bıraktım:
     \`${prefix}k-alınacak-rol @rol\`

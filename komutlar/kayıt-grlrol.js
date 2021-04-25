@@ -6,10 +6,10 @@ module.exports.run = async (client, message, args) => {
     let ayarlar = require("../ayarlar.json")
 
         let prefix = ayarlar.prefix
-
+  let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
         
-if (!message.member.roles.has(db.fetch(`kayıty.${message.guild.id}`))) return message.channel.send(new Discord.MessageEmbed().setDescription(`
-Bu komutu kullanmak için  <@&${type}> yetkisine sahip olmalısın!`))
+  if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor(hata))
+  
       if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`
       Selam, Kayıt Kadın Rolü Ayarlayabilmek İçin Seçenek Belirtmen Gerek Örnekler Aşşağıda:
       

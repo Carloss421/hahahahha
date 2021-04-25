@@ -4,9 +4,10 @@ let { hata, oldu } = require("../ayarlar.json")
 module.exports.run = async (client, message, args) => {
     let ayarlar = require("../ayarlar.json")
 
-        let prefix = await require("quick.db").fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
-
-if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!`).setColor(hata))
+        let prefix = ayarlar.prefix
+let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
+        
+  if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor(hata))
   
   if(!args[0]) return message.channel.send({embed: {color: hata, description: `
   Selam, Erkek Rolünü Ayarlamak İçin Aşşağıda Verdiğimiz Seçenekleri Kullan!:

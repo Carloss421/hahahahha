@@ -2,8 +2,9 @@ const discord = require('discord.js')
 const db = require('quick.db')
 
 exports.run = async(client, message, args) => {
-
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RANDOM"));
+let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
+        
+  if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor("RED"))
 
 if(args[0] === "sıfırla") {
 const darkcodeee = new discord.MessageEmbed()
