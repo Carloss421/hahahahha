@@ -32,7 +32,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(n
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir rol etiketlemelisin!`).setColor(hata))
   
    if(db.has(`kayıty.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Yetkili Rolü Zaten Açık!`).setColor(hata))
-  db.set(`kayıty.${message.guild.id}`)
+  db.set(`kayıty.${message.guild.id}`, type.id)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt yetkili rolü başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
   

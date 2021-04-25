@@ -50,7 +50,7 @@ if(!isim || !yaş) return message.channel.send(new Discord.MessageEmbed().setDes
 
   let guild = message.guild.name
   if(kisim2) {
-    let kisim3 = kisim2.replace(`{isim}`, isim).replace(`{yas}`, yaş)
+    let kisim3 = kisim2.replace(`{isim}`, isim).replace(`{yaş}`, yaş)
     userca.setNickname(kisim3)
   }
   
@@ -61,18 +61,14 @@ userca.roles.add(kayıte)
   }
   userca.roles.add(kayıte)
   userca.roles.remove(agacim)
-  
+  let emd = new Discord.MessageEmbed()
  let msj = `
 ${userca} Kaydı ${message.author} Tarafından Yapıldı!
 
-\`
-Kullanıcı Başarıyla Kayıt Oldu 
-
-\`
+\`Kullanıcı Başarıyla Kayıt Oldu\`
  
-${userca}, Kullanıcıya <@&${kayıte}> Rolü Verildi!
-
-`
+${userca}, Kullanıcıya <@&${kayıte}> Rolü Verildi!`
+ return guild.channels.get.send(emd)
  
  if(embed){
    let embed = new Discord.MessageEmbed()
