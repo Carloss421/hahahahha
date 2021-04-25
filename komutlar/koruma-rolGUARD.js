@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
-  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "a!";
+  let prefix = "a!";
 
   if (!args[0]) {
     const embed = new Discord.MessageEmbed()

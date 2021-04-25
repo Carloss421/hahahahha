@@ -11,13 +11,13 @@ komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyors
 
 **PREMIUM özellikleri 3 ay kullanılabilir olucaktır!**
 
-:bust_in_silhouette: **kullanıcı menüsü** \`${ayarlar.prefix}yardım-kullanıcı\` Kullanıcı menüsünü açar.
-:gift: **eğlence menüsü** \`${ayarlar.prefix}yardım-eğlence\` Canı sıkılanlar için yararlı bir menü.
-:man_police_officer:  **moderasyon menüsü** \`${ayarlar.prefix}yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.
-:money_with_wings: **ekonomi menüsü** \`${ayarlar.prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.
-:keyboard: **yapımcı menüsü** \`${ayarlar.prefix}yardım-yapımcı | ${ayarlar.prefix}yardım-owner\` Yapımcı'nın kullanabiliceği komutları açar.
-:bell: **güncelleme menüsü** \`${ayarlar.prefix}yardım-güncelleme | ${ayarlar.prefix}yardım-uptade\`Bot'a genel güncellemeleri gösterir
-🤖 **bot menüsü** \`${ayarlar.prefix}yardım-bot\` Bot'un davet linkini gibi şeyleri gösterir.
+**kullanıcı menüsü** \`${ayarlar.prefix}yardım-kullanıcı\` Kullanıcı menüsünü açar.
+**eğlence menüsü** \`${ayarlar.prefix}yardım-eğlence\` Canı sıkılanlar için yararlı bir menü.
+**moderasyon menüsü** \`${ayarlar.prefix}yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.
+**ekonomi menüsü** \`${ayarlar.prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.
+**yapımcı menüsü** \`${ayarlar.prefix}yardım-yapımcı | ${ayarlar.prefix}yardım-owner\` Yapımcı'nın kullanabiliceği komutları açar.
+**güncelleme menüsü** \`${ayarlar.prefix}yardım-güncelleme | ${ayarlar.prefix}yardım-uptade\`Bot'a genel güncellemeleri gösterir
+**bot menüsü** \`${ayarlar.prefix}yardım-bot\` Bot'un davet linkini gibi şeyleri gösterir.
 `)
 message.channel.send(embed)
 };

@@ -10,9 +10,12 @@ exports.run = function(client, message, args, msg) {
   message.channel.bulkDelete(m);
 
 
-  message.channel.send(new Discord.MessageEmbed().setTitle('**Başarılı!**').setDescription('**Başarı ile __'+m+'__ mesaj sildim!**').then(msg=>msg.delete(5000)).setColor('0x36393E')).then(i=>{i.react(':gear: 585186945471086620')
- })
-};
+  message.channel.send(
+  new Discord.MessageEmbed()
+    .setTitle('**Başarılı!**')
+    .setDescription('**Başarı ile __'+m+'__ mesaj sildim!**')
+    .setColor('0x36393E')).then(i=>{i.react(':gear: 585186945471086620')
+ })};
 
 exports.conf = {
   enabled: true,

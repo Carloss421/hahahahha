@@ -5,7 +5,7 @@ let küfürEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "ut
 var ayarlar = require('../ayarlar.json');
 
 exports.run = (client, message) => {
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`Bu komutu kullanabilmek için **Mesajları Yönet** iznine sahip olmalısın!`);
+  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için **Mesajları Yönet** iznine sahip olmalısın!`));
             if(message.channel.type == "dm")  return;
   if(message.channel.type !== "text") return;
 
@@ -17,12 +17,12 @@ exports.run = (client, message) => {
  .setDescription(`Yanlış Kullanım!`)
  .addField(`Doğru Kullanım:`, `${ayarlar.prefix}küfür-engelle aç veya kapat`)
  //if(secenekler === "aç" || "kapat") return message.channel.send(errembed);
-   if(secenekler.length < 1) return message.reply("Küfür Engelleme Açmak İçin `a!!küfür-engelle aç` kapatmak için `a!küfür-engelle kapat`").then(m => m.delete(10000));
+   if(secenekler.length < 1) return message.reply(new Discord.MessageEmbed().setDescription("Küfür Engelleme Açmak İçin `a!küfür-engelle aç` kapatmak için `a!küfür-engelle kapat`")).then(m => m.delete(10000));
 
     message.delete();
 
    if (secenekler === "aç") {
-  message.channel.send(`Küfür Engelleme Sistemi: **açık**!`)
+  message.channel.send(new Discord.MessageEmbed().setDescription(`Küfür Engelleme Sistemi: **açık**!`))
   küfürEngel[message.guild.id] = {
    küfürEngel: "acik"
     };
@@ -33,7 +33,7 @@ exports.run = (client, message) => {
  };
 
  if (secenekler === "kapat") {
-  message.channel.send(`Küfür Engelleme Sistemi: **kapalı**!`)
+  message.channel.send(new Discord.MessageEmbed().setDescription(`Küfür Engelleme Sistemi: **kapalı**!`))
    küfürEngel: "kapali"
     };
 

@@ -4,8 +4,8 @@ const db = require('quick.db');
 exports.run = async(client, message, args) => {
 
   if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(` Bu komudu kullanabilmek için **Mesajları Yönet** yetkisine sahip olman gerek.`)
-  if (!args[0]) return message.channel.send(`:no_entry: Reklam Filtresini Ayarlamak İçin \`a!reklam aç\` | Kapatmak İstiyorsanız \`a!reklam kapat\` Yazabilirsiniz`)
-  if (args[0] !== 'aç' && args[0] !== 'kapat') return message.channel.send(`:no_entry: Reklam Filtresini Ayarlamak İçin \`a!reklam aç\` | Kapatmak İstiyorsanız \`a!reklam kapat\` Yazabilirsiniz`)
+  if (!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`:no_entry: Reklam Filtresini Ayarlamak İçin \`a!reklam aç\` | Kapatmak İstiyorsanız \`a!reklam kapat\` Yazabilirsiniz`))
+  if (args[0] !== 'aç' && args[0] !== 'kapat') return message.channel.send(new Discord.MessageEmbed().setDescription(`:no_entry: Reklam Filtresini Ayarlamak İçin \`a!reklam aç\` | Kapatmak İstiyorsanız \`a!reklam kapat\` Yazabilirsiniz`))
 
     if (args[0] == 'aç') {
     db.set(`reklamFiltre_${message.guild.id}`, 'acik')
@@ -17,12 +17,12 @@ exports.run = async(client, message, args) => {
   if (args[0] == 'kapat') {
     
     let üye = await db.fetch(`reklamFiltre_${message.guild.id}`)
-    if (!üye) return message.channel.send(`Reklam filtresini açtığına emin misin?.`)
+    if (!üye) return message.channel.send(new Discord.MessageEmbed().setDescription(`Reklam filtresini açtığına emin misin?.`))
     
     
     db.delete(`reklamFiltre_${message.guild.id}`)
     
-    message.channel.send(`Reklam Filtresini Kapattım.`)
+    message.channel.send(new Discord.MessageEmbed().setDescription(`Reklam Filtresini Kapattım.`))
   }
  
 };
@@ -31,7 +31,7 @@ exports.run = async(client, message, args) => {
 exports.conf = {
  enabled: true,
  guildOnly: false,
-  aliases: ['reklam', 'reklam-filtresi', 'reklamfiltresi', 'reklam-filtre', 'reklamfiltre','reklam-engel'],
+  aliases: ['reklam', 'reklam-filtresi', 'reklamfiltresi', 'reklam-filtre', 'reklamfiltre','reklam-engel','reklamengel'],
  permLevel: 0
 };
 

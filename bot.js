@@ -912,19 +912,22 @@ client.on('messageDelete', msg => {
 client.on("message", msg => {
 const antispam = require("discord-anti-spam-tr");
 let spamEngel = JSON.parse(fs.readFileSync("./jsonlar/spamEngelle.json", "utf8"));
-if (!msg.guild) return
-
+if (!msg.guild) return;
+if (!spamEngel[msg.guild.id]) return;
+if (spamEngel[msg.guild.id].spamEngel === 'kapali') return;
+if (spamEngel[msg.guild.id].spamEngel === 'acik') {
+  
 antispam(client, {
-  uyarmaSınırı: 4,
+  uyarmaSınırı: 3,
   banlamaSınırı: 7,
   aralık: 1000,
   uyarmaMesajı: "Spamı Durdur Yoksa Mutelerim.",
   rolMesajı: "Spam için yasaklandı, başka biri var mı?",
-  maxSpamUyarı: 8,
+  maxSpamUyarı: 4,
   maxSpamBan: 12,
   zaman: 7,
-  rolİsimi: "spam-susturulmuş"
-});
+  rolİsimi: "spamMUTED"
+})};
 });
 // -------------------> [Kufur-Engel] <---------------- \\
 client.on("message", msg => {
