@@ -12,6 +12,10 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 
+:warning: **kayıt-sistemi** HATALI!
+:warning: **otorol** HATALI!
+:
+
 [Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - OyVer **(YAKINDA!)**
 
 Bot Uptime: **${duration}** Developer by <@${ayarlar.ownerID}>
