@@ -14,7 +14,11 @@ let embed = new Discord.MessageEmbed()
 
 :warning: **kayıt-sistemi** HATALI!
 :warning: **otorol** HATALI!
-:
+:warning: **sayaç** HATALI!
+:warning: **captcha-sistemi** HATALI!
+:warning: **görev-sistemi** Üzerinde Çalışılıyor!
+
+**Hata gördüyseniz veya yardım için** \`a!hata-bildir\`
 
 [Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - OyVer **(YAKINDA!)**
 
