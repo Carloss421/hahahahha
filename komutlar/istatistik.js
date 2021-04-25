@@ -24,7 +24,7 @@ Bot Gecikmesi ${araEmoji} **${client.ws.ping}ms**
 Mesaj Gecikmesi ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
 
 Toplam kullanıcı ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}**
-Toplam sunucu ${araEmoji} **${client.guilds.cache.size} ${client.collection.every(user => !user.bot)} BOT]**
+Toplam sunucu ${araEmoji} **${client.guilds.cache.size} [${client.guilds.cache.reduce(user=> user.botCount, 0).toLocaleString()} BOT]**
 Toplam kanal ${araEmoji} **${client.channels.cache.size}**
 Toplam komut ${araEmoji} **${client.commands.size}**
 Müzik Oynatılan sunucu ${araEmoji} **${client.voice.connections.size}**
