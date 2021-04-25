@@ -8,7 +8,8 @@ module.exports.run = async (client, message, args) => {
         let prefix = ayarlar.prefix
 
         
-if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!`).setColor(hata))
+if (!message.member.roles.has(db.fetch(`kayıty.${message.guild.id}`))) return message.channel.send(new Discord.MessageEmbed().setDescription(`
+Bu komutu kullanmak için  <@&${type}> yetkisine sahip olmalısın!`))
       if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`
       Selam, Kayıt Kadın Rolü Ayarlayabilmek İçin Seçenek Belirtmen Gerek Örnekler Aşşağıda:
       

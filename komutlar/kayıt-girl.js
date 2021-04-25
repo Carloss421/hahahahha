@@ -7,8 +7,12 @@ module.exports.run = async (client, message, args) => {
 
         let prefix = await require("quick.db").fetch(`prefix.${message.guild.id}`) || ayarlar.prefix
 
-        
+
   try {
+    
+    let type = message.mentions.roles.first()
+    if (!message.member.roles.has(db.fetch(`kayıty.${message.guild.id}`))) return message.channel.send(new Discord.MessageEmbed().setDescription(`
+Bu komutu kullanmak için  <@&${type}> yetkisine sahip olmalısın!`))
        let kisim2 = await db.fetch(`kisimdüzenisc.${message.guild.id}`)
         let kayıteks = await db.fetch(`kayıteks.${message.guild.id}`)
   let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
