@@ -24,7 +24,7 @@ Bot Gecikmesi ${araEmoji} **${client.ws.ping}ms**
 Mesaj Gecikmesi ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
 
 Toplam kullanıcı ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}**
-Toplam sunucu ${araEmoji} **${client.guilds.cache.size} [${message.guild.member.cache.filter(m => m.user.bot).size} BOT]**
+Toplam sunucu ${araEmoji} **${client.guilds.cache.size} [${client.guilds.cache.reduce((a, b) => a + b.botMemberCount, 0).toLocaleString} BOT]**
 Toplam kanal ${araEmoji} **${client.channels.cache.size}**
 Toplam komut ${araEmoji} **${client.commands.size}**
 Müzik Oynatılan sunucu ${araEmoji} **${client.voice.connections.size}**
@@ -36,7 +36,7 @@ Node.js sürümü ${araEmoji} **${process.version}**
 \`Otorol - Sayaç - KayıtSistemi - Premium - CaptchaSistemi - kayıtlog - GörevSistemi\`
 **Veri depolaması fazla artarsa silineceketir!**
 [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - [Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - Oyver **YAKINDA!**
-`)
+`)//client.guild.member.cache.filter(m => m.user.bot).size
 message.channel.send(embed)
 };
 exports.conf = {
