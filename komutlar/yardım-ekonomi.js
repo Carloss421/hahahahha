@@ -18,7 +18,7 @@ let ekonomi = new Discord.MessageEmbed()
 **💰 | Ekonomi Komutları**
 
 \`a!günlük\`     24 saat aralıkla günlük bir ödül alırsınız.
-\`a!para\`       Etiketlediğiniz kişinin veya kendi paranızı görürsünüz.
+\`a!cüzdan\`       Etiketlediğiniz kişinin veya kendi paranızı görürsünüz.
 \`a!gönder\`     Etiketlediğiniz kullanıcıya para gönderirsiniz.
 \`a!soygun\`     10 dakikada bir soygun yaparsınız.
 \`a!çalış\`      Rastgele bir işte çalışıp maaş alırsınız.

@@ -32,7 +32,7 @@ if (author !== null && timeout - (Date.now() - author) > 0) {
     let moneyEmbed = new Discord.MessageEmbed()
   .setColor("RED")
   .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))  
-  .setDescription(`⛔ Para çalmak için en az 200 💸 paraya ihtiyacın var`);
+  .setDescription(`⛔ Para çalmak için en az **200TL** paraya ihtiyacın var`);
 
 
   if (author2 < 200) {
@@ -42,7 +42,7 @@ var lostmoney = rastgeleMiktar(150,500)
   let moneyEmbed2 = new Discord.MessageEmbed()
   .setColor("RED")
   .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))  
-  .setDescription(`⛔ Fakir birisini soymaya çalıştın ve ${lostmoney} TL 💸  ceza yedin`);
+  .setDescription(`⛔ Fakir birisini soymaya çalıştın ve **${lostmoney}TL** ceza yedin`);
   
 
   
@@ -65,7 +65,7 @@ db.add(`para_${message.author.id}`, -lostmoney)
 
   let embed = new Discord.MessageEmbed()
    .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))  
-   .setDescription(`✅ Soygun Başarılı, ${user}'ı soydun ve ${gotmoney} 💸 kazandın`)
+   .setDescription(`✅ Soygun Başarılı, ${user}'ı soydun ve **${gotmoney}TL** kazandın`)
    .setColor("GREEN")
 
    message.channel.send(embed)

@@ -23,7 +23,7 @@ let moneys = rastgeleMiktar(2300,10000);
       message.channel.send(new Discord.MessageEmbed()
                    .setColor("YELLOW")
                    .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-                   .setDescription(`Günlük ödülünü topladın, cüzdanına ${moneys} 💸 eklendi!`))
+                   .setDescription(`Günlük ödülünü topladın, cüzdanına **${moneys}TL** eklendi!`))
 
 db.set(`worktime_${message.author.id}`, Date.now())
 

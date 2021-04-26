@@ -24,11 +24,11 @@ let para = db.fetch(`para_${message.author.id}`)
  if(miktar > 99999) return message.channel.send(new Discord.MessageEmbed()
                                         .setColor("RED")
                                         .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-                                        .setDescription(`Buna izin veremem dostum eğer kaybedersen çok zarara uğrarsın o yüzden lütfen ``100000 💸`` miktarından az bi miktar gir`))   
+                                        .setDescription(`Buna izin veremem dostum eğer kaybedersen çok zarara uğrarsın o yüzden lütfen ``100000TL`` miktarından az bi miktar gir`))   
 if(miktar > para) return message.channel.send(new Discord.MessageEmbed()
                                               .setColor("RED")
                                         .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-                                        .setDescription(`Bahis oynamak için cüzdanında ${para ? "sadece " + para + ' 💸 var!' : 'hiç paran yok!'}`))
+                                        .setDescription(`Bahis oynamak için cüzdanında ${para ? "sadece **" + para + 'TL** var!' : 'hiç paran yok!'}`))
         const result = [
           "KAZANDIN",
           "KAYBETTİN"
@@ -39,7 +39,7 @@ if(miktar > para) return message.channel.send(new Discord.MessageEmbed()
       message.channel.send(new Discord.MessageEmbed()
                       .setColor("RED")
                       .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-                      .setDescription(`Bahisi kaybettin ve cüzdanından ${kaybettin} 💸 eksildi!`));
+                      .setDescription(`Bahisi kaybettin ve cüzdanından **${kaybettin}TL** silindi!`));
       await db.set(`bahisoynama_${message.author.id}`, Date.now());   
       await db.add(`para_${message.author.id}`, -kaybettin);   
         } else {
@@ -47,7 +47,7 @@ if(miktar > para) return message.channel.send(new Discord.MessageEmbed()
     let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
       .setColor("GREEN")
-      .setDescription(`Bahisi kazandın ve cüzdanına ${kazandın} 💸 eklendi!`)
+      .setDescription(`Bahisi kazandın ve cüzdanına **${kazandın}TL** eklendi!`)
       message.channel.send(embed)     
     await db.set(`bahisoynama_${message.author.id}`, Date.now());   
     await db.add(`para_${message.author.id}`, kazandın);
