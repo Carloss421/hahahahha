@@ -37,7 +37,7 @@ if(miktar < 100) return message.channel.send(new Discord.MessageEmbed()
     let embed = new Discord.MessageEmbed()
        .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
        .setTitle(':slot_machine: Slot Makine :slot_machine:')
- .setDescription(`**${kazandin} 💸 kazandın!**
+ .setDescription(`**${kazandin}TL** kazandın!
 ${slots[ust1]} | ${slots[ust2]} | ${slots[ust3]} |
 ${slots[result1]} | ${slots[result2]} | ${slots[result3]} | :arrow_left:
 ${slots[alt1]} | ${slots[alt2]} | ${slots[alt3]} |`, true)
@@ -49,7 +49,7 @@ ${slots[alt1]} | ${slots[alt2]} | ${slots[alt3]} |`, true)
     let embed2 = new Discord.MessageEmbed()
     .setAuthor(message.author.tag , message.author.avatarURL({dynamic: true}))
        .setTitle(':slot_machine: Slot Makine :slot_machine:')   
- .setDescription(`**${miktar} 💸 kaybettin!**
+ .setDescription(`**${miktar}TL** kaybettin!
 ${slots[ust1]} | ${slots[ust2]} | ${slots[ust3]} |
 ${slots[result1]} | ${slots[result2]} | ${slots[result3]} | :arrow_left:
 ${slots[alt1]} | ${slots[alt2]} | ${slots[alt3]} |`, true)

@@ -22,7 +22,7 @@ db.add(`para_${message.author.id}`, -param)
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ Başarılı, bankaya ${param} 💸 yatırdın!`))
+.setDescription(`✅ Başarılı, bankaya **${param}TL** yatırdın!`))
 } else {
     if(isNaN(miktar)) return message.channel.send(new Discord.MessageEmbed()
 .setColor("RED")
@@ -37,7 +37,7 @@ message.channel.send(new Discord.MessageEmbed()
    if (miktar > param) return message.channel.send(new Discord.MessageEmbed()
 .setColor("RED")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`⛔ Bankaya yatırmak için elinde sadece ${param} 💸 var`))
+.setDescription(`⛔ Bankaya yatırmak için elinde sadece **${param}TL** var`))
  
 if(args[0] === 'all' || args[0] === 'hepsi') {
   return;
@@ -45,7 +45,7 @@ if(args[0] === 'all' || args[0] === 'hepsi') {
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ Başarılı, bankaya ${miktar} 💸 yatırdın!`))
+.setDescription(`✅ Başarılı, bankaya **${miktar}TL** yatırdın!`))
 db.add(`para_${message.author.id}`, -miktar)
 db.add(`bankapara_${message.author.id}`, miktar) 
   }

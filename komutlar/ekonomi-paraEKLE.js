@@ -31,7 +31,7 @@ let money = args[1]
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ ${user} kullanıcısının cüzdanına ${money} 💸 eklendi!`))
+.setDescription(`✅ ${user} kullanıcısının cüzdanına **${money}TL** eklendi!`))
 db.add(`para_${user.id}`, money)  
 }
   

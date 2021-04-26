@@ -11,9 +11,9 @@ exports.run = async (client, message, args) => {
 message.channel.send(new Discord.MessageEmbed()
                   .setColor("RED")
                   .setAuthor(user.tag, user.avatarURL({dynamic: true}))     
-                  .addField("Cüzdan",`**${cüzdan ? cüzdan + 'TL**' : "**0TL**"}`,true)
-                  .addField("Banka",`**${banka ? banka + 'TL**' : "**0TL**"}`,true)
-                  .addField("Toplam Paran",`**${toplam ? toplam + 'TL**' : "**0TL**"}`,true))
+                  .addField("Cüzdan",`${cüzdan ? cüzdan + 'TL' : "0TL"}`,true)
+                  .addField("Banka",`${banka ? banka + 'TL**' : "0TL"}`,true)
+                  .addField("Toplam Paran",`${toplam ? toplam + 'TL' : "0TL"}`,true))
   }
 
 

@@ -40,7 +40,7 @@ exports.run = async (client, message, args) => {
       message.channel.send(new Discord.MessageEmbed()
                       .setColor("RED")
                       .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-                      .setDescription(`${cümle} ve ${kaybettin} 💸 kaybettin!`));
+                      .setDescription(`${cümle} ve **${kaybettin}TL** kaybettin!`));
 
        await db.add(`para_${user.id}`, -kaybettin);   
       await db.set(`soygunsüre_${user.id}`, Date.now());
@@ -51,7 +51,7 @@ exports.run = async (client, message, args) => {
     let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
       .setColor("GREEN")
-      .setDescription(`${sentence2} ve ${kazandın} 💸 kazandın!`)
+      .setDescription(`${sentence2} ve **${kazandın}TL** kazandın!`)
       message.channel.send(embed)       
     await db.add(`para_${user.id}`, kazandın);
     await db.set(`soygunsüre_${user.id}`, Date.now());
