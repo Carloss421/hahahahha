@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let guild = message.guild
   let terfiler = message.guild.channels.cache.find(x => x.name === "başvurulog")  ;
-  if (!terfiler) return message.reply('`başvurulog` kanalını bulamıyorum. ');
+  if (!terfiler) return message.channel.send(new Discord.MessageEmbed().setDescription('`başvurulog` kanalını bulamıyorum. Bu işlemi gerçekleştirmek için `başvurulog` adında kanal oluşturunuz!'));
   let user = message.mentions.users.first();
   if (reason.length < 1) return message.reply(new Discord.MessageEmbed().setDescription(
     `**Ne Kazandirirsiniz:**
@@ -13,12 +13,12 @@ exports.run = (client, message, args) => {
     **Adınız:**
     **Yaşınız ve Kendinizi Etiketleyin:**
     
-    \`Örnek;\` 
-    **Ne kazandirirsiniz:** Sunucuyu güvende tutarım
+    \`Örnek;\`
+    a!başvur @AliBerat **Ne kazandirirsiniz:** Sunucuyu güvende tutarım
     **İstediğim Yetki:** @Moderatör
     **Aktifliğim:** 7/24
     **İsmim:** AliBerat
-    **Yaşım:** 15 @AliBerat
+    **Yaşım:** 15 
     `));
   if (message.mentions.users.size < 1) return message.reply('Kendinizi Etiketleyin.').catch(console.error);
   const embed = new Discord.MessageEmbed()
