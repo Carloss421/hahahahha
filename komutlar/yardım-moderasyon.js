@@ -6,7 +6,7 @@ let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon`)
 .setColor("RANDOM")
 .setDescription(`
-\`${ayarlar.prefix}ban\` Belirtilen kullanıcıyı sunucudan yasaklar.
+\`${ayarlar.prefix}ban-sistemi\` Ban komutlarını açar.
 \`${ayarlar.prefix}mute\` Belirtilen kullanıcıyı sunucuda susturur.
 \`${ayarlar.prefix}unban\` ID'si belirtilen kullanıcının yasağını kaldırır.
 \`${ayarlar.prefix}unmute\` ID'si belirtilen kullanıcının susturulmasını kaldırır.

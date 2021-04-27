@@ -6,10 +6,10 @@ const embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Otorol HATA")
 .setColor('BLUE')
 .setDescription(`
-a!otorol-ayar aç Otorolü Ayarlar.
-Örnek: \`a!otorol-ayar aç @rolünüz #otorolLOG\`
-a!otorol-ayar kapat Otorolü kapatır.
-Örnek: \`a!otorol-ayar kapat\``)
+a!otorol-ayarla Otorolü Ayarlar.
+Örnek: \`a!otorol-ayarla @rolünüz #otorolLOG\`
+a!otorol-sıfırla Otorolü kapatır.
+Örnek: \`a!otorol-sıfırla\``)
 
 .setTimestamp()
  message.channel.send(embed) 
