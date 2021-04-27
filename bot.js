@@ -364,7 +364,7 @@ s.channel.awaitMessages(filtre, {
         })
    .then(collected => {
  if(collected.first().content === beklenen) {
-let embed = new Discord.RichEmbed()   
+let embed = new Discord.MessageEmbed()   
 .setTitle('Teşekkürler!')
 .setDescription('**'+member.guild.name+'** Sunucusuna başarıyla giriş yaptınız.')
 .setTimestamp()

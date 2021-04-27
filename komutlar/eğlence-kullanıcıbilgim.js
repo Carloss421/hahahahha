@@ -25,7 +25,6 @@ exports.run = async (bot, msg, args) => {
         .setThumbnail(userinfo.avatar)
         .setTitle('Alvi - Kullanıcı Bilgi')
         .setDescription(`
-        Bilgilere Bakan Kullanıcı: <@${msg.author.id}>
         Bilgilerine Bakılan Kullanıcı: <@${userinfo.id}>`)
         .addField(`Durum`, userinfo.status,true)
         .setColor('03f2df')
@@ -38,11 +37,11 @@ exports.run = async (bot, msg, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["kullanıcı-bilgi"],
+  aliases: ["kullanıcı-bilgim"],
   permLevel: 0
 };
 exports.help = {
-  name: 'kullanıcı-bilgileri',
+  name: 'kullanıcı-bilgilerim',
   description: 'İstediğiniz kullanıcını bilgilerini gösterir.',
   usage: 'kullanıcı'
 };
