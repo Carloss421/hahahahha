@@ -27,13 +27,27 @@ var prefix = ayarlar.prefix;
 const log = message => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
 };
+client.on("ready" , () => { 
 
-
-var oyun = [
+var actvs = [
 `🎀 Yardım almak için | a!yardım`,
 `🔔 Yeni Özellikler İçin | a!yardım-güncelleme`,
 `🤖 Botu eklemek için | a!yardım-bot`
 ]
+
+    client.user.setActivity(actvs[Math.floor(Math.random() * (actvs.length - 1) + 1)], { type: 'WATCHING' });
+    setInterval(() => {
+        client.user.setActivity(actvs[Math.floor(Math.random() * (actvs.length - 1) + 1)], { type: 'WATCHING'});
+      // IZLIYOR = WATCHING
+     // OYNUYOR = PLAYING
+    // YAYINDA = STREAMING
+   // AKTIF = ONLINE
+  // RAHATSIZ ETMEYIN = DND
+ // BOSTA = IDLE
+// CEVRIM DISI = OFFLINE
+    }, 15000);
+
+});
 
 
 client.elevation = message => {
