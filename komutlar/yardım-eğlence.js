@@ -22,6 +22,7 @@ let eğlence = new Discord.MessageEmbed()
 \`${ayarlar.prefix}çekiç\` İstediğiniz Kişiye Çekiç Atarsınız.
 \`${ayarlar.prefix}şifre\` Rastgele bir şifre oluşturur.
 \`${ayarlar.prefix}yılbaşı\` Yılbaşına ne kadar kaldı öğrenirsin.
+
 Burada çok fazla komut olduğu için \`a!yardım-eğlence2\` yazarak komutların devamına bakabilirsiniz.`)
 message.channel.send(eğlence)
 };

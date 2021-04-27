@@ -22,6 +22,7 @@ let ekonomi = new Discord.MessageEmbed()
 \`a!yatır\`      Kendi cüzdanınızdan bankaya para yatırırsınız.
 \`a!çek\`        Bankadan kendi cüzdanınıza para çekersiniz.
 \`a!çal\`        Etiketlediğiniz kişinin cüzdanından para çalarsınız.
+
 **🎲 | Oyun Komutları**
 \`a!bahis\`      Bahis oynarsınız, para kaybeder veya 2 katını kazanırsınız.
 \`a!slot\`       Slots oynarsınız, para kaybeder veya 2 katını kazanırsınız.
