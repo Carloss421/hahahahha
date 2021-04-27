@@ -1,24 +1,35 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
-exports.run = (message) => {
-const embed = new Discord.MessageEmbed()
+exports.run = function(client, message, args) {
+let eğlence = new Discord.MessageEmbed()
 .setTitle('Alvi - Eğlence')
-.setImage('https://cdn.discordapp.com/attachments/826412435321126953/833210593602437191/alvi.PNG')
-.setColor('#66ff00')
-.addField(`:skull_crossbones:・\`${ayarlar.prefix}wasted\``,`Öldün resmi gönderir.`,true)
-.addField(`:cat:・\`${ayarlar.prefix}kedi-ol\``,`Kedi olursunuz.`,true)
-.addField(`:monkey:・\`${ayarlar.prefix}maymun-ol\``,`Maymun olursunuz.`,true)
-.addField(`👑・\`${ayarlar.prefix}kral-ol\``,`Kral olursunuz.`,true)
-.addField(`:desktop:・\`${ayarlar.prefix}hackle\``,`Hacker olursunuz`,true)
-message.channel.send(embed)
+.setColor('RANDOM')
+.setDescription(`
+\`${ayarlar.prefix}8ball\` Sihirli 8ball sorularınızı cevaplar .
+\`${ayarlar.prefix}ara155\` Polisi Arar(ciddiye almayın).
+\`${ayarlar.prefix}atatürk\` Atatürk fotoğraları gönderir. 
+\`${ayarlar.prefix}avatar\` Avatarınızı gösterir.
+\`${ayarlar.prefix}emoji-yazı\` Mesajınızı emojiye çevirir.
+\`${ayarlar.prefix}gifara\` Mesajınızla ilgili gifleri Giphy'da aratır.
+\`${ayarlar.prefix}havadurumu\` Havadurumu söyler.
+\`${ayarlar.prefix}herkeze-benden çay\` Herkeze Çay Verir.
+\`${ayarlar.prefix}hesapla\` Belirtilen işlemi yapar.
+\`${ayarlar.prefix}mesajdöndür\` Mesajınızı tersden yazar.
+\`${ayarlar.prefix}simit\` Simit Yer.
+\`${ayarlar.prefix}stresçarkı\` Sizin için bir stres çarkı çevirir.
+\`${ayarlar.prefix}yazıtura\` Yazı-Tura atar.
+\`${ayarlar.prefix}çekiç\` İstediğiniz Kişiye Çekiç Atarsınız.
+\`${ayarlar.prefix}şifre\` Rastgele bir şifre oluşturur.
+\`${ayarlar.prefix}yılbaşı\` Yılbaşına ne kadar kaldı öğrenirsin.
+Burada çok fazla komut olduğu için \`a!yardım-eğlence2\` yazarak komutların devamına bakabilirsiniz.`)
+message.channel.send(eğlence)
 };
 
 exports.conf = {
  enabled: true,
- guildOnly: false,
  aliases: ["yardım-fun"],
- permlevel: 0
+
 };
 
 exports.help = {

@@ -1,19 +1,32 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
-exports.run = (message) => {
-const embed = new Discord.MessageEmbed()
+exports.run = function(client, message, args) {
+let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon`)
-.setImage('https://cdn.discordapp.com/attachments/826412435321126953/833210593602437191/alvi.PNG')
-.setColor(`#add8e6`)
-.addField(`:hammer:・\`${ayarlar.prefix}ban\``,`Belirtilen kullanıcıyı sunucudan yasaklar.`,true)
-.addField(`:mute:・\`${ayarlar.prefix}mute\``,`Belirtilen kullanıcıyı sunucuda susturur.`,true)
-.addField(`:wrench:・\`${ayarlar.prefix}unban\``,`ID'si belirtilen kullanıcının yasağını kaldırır.`,true)
-.addField(`:tools:・\`${ayarlar.prefix}unmute\``,`ID'si belirtilen kullanıcının susturulmasını kaldırır.`,true)
-.addField(`:face_with_symbols_over_mouth:・\`${ayarlar.prefix}küfür-engel | aç - kapat\``,`Küfür engellemeyi açar,kapatır.`,true)
-.addField(`:recycle:・\`${ayarlar.prefix}otorol | otorol-ayarla | otorol-sıfırla\``,`Otorol ayarlar,sıfırlar.`,true)
-.addField(`:no_enrty:・\`${ayarlar.prefix}spam-engel | aç - kapat\``,`Spam engeli açar,kapatır.`,true)
-.setFooter("Burada çok fazla komut olduğu için ~~`a!moderasyon2`~~ **(YAKINDA!)** yazarak öbür komutlara bakabilirsiniz.")
+.setColor("RANDOM")
+.setDescription(`
+\`${ayarlar.prefix}ban\` Belirtilen kullanıcıyı sunucudan yasaklar.
+\`${ayarlar.prefix}mute\` Belirtilen kullanıcıyı sunucuda susturur.
+\`${ayarlar.prefix}unban\` ID'si belirtilen kullanıcının yasağını kaldırır.
+\`${ayarlar.prefix}unmute\` ID'si belirtilen kullanıcının susturulmasını kaldırır.
+\`${ayarlar.prefix}küfür-engel | aç - kapat\` Küfür engellemeyi açar,kapatır.
+\`${ayarlar.prefix}otorol | otorol-ayarla | otorol-sıfırla\` Otorol ayarlar,sıfırlar.
+\`${ayarlar.prefix}spam-engel | aç - kapat\` Spam engeli açar,kapatır.
+\`${ayarlar.prefix}sil | a!sil 100\` Belirtilen miktar kadar siler.
+\`${ayarlar.prefix}sayaç | sayaç-ayarla\` Sayaç ayarlar,sıfırlar.
+\`${ayarlar.prefix}kanal-koruma | aç - kapat\` Kanal korumayı açar,kapatır.
+\`${ayarlar.prefix}rol-koruma | aç - kapat\` Rol korumayı açar,kapatır.
+\`${ayarlar.prefix}emoji-koruma | aç - kapat (YAKINDA - PREMUIM)\` Emoji korumayı açar,kapatır.
+\`${ayarlar.prefix}sunucu-koruma | aç - kapat (YAKINDA - PREMUIM)\` Sunucu korumayı açar,kapatır.
+\`${ayarlar.prefix}kayıt-sistemi\` Kayıt komutlarını görürsünüz.
+\`${ayarlar.prefix}captcha-sistemi\` Captcha komutlarını görürsünüz.
+\`${ayarlar.prefix}görev-sistemi\` Görev komutlarını görürsünüz.
+~~\`${ayarlar.prefix}ticket-sistemi\`~~\`(YAKINDA - PREMUIM)\` ~~Ticket komutlarını görürsünüz.~~
+~~\`${ayarlar.prefix}jail\`~~\`(YAKINDA)\`~~Belirtilen üyeyi hapise atarsınız~~
+**kayıt-sistemi** komutu kullanılabilir ama bir çok hatası olduğundan dolayı önermiyoruz!
+**görev-sistemi** Komutu çalışır durumda ama içinde yazan komutları deneyemezsiniz çünkü onun üzerinde çalışıyor!
+Burada çok fazla komut olduğu için \`a!yardım-moderasyon2\` yazarak komutların devamına bakabilirsiniz.`)
 message.channel.send(embed)
 };
 
@@ -21,9 +34,9 @@ exports.conf = {
  enabled: true,
  guildOnly: false,
  aliases: ["yardım-mod"],
- permlevel: 0
-};
+ permLevel: 0
 
+};
 exports.help = {
     name: "yardım-moderasyon"
 };
