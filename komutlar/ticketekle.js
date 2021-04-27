@@ -1,12 +1,29 @@
 const Discord = require("discord.js");
 const data = require("quick.db");
-const db = require()
+const db = require("quic.db")
 
 exports.run = async (client, message, args) => {
-  const prefix = "a!";
-
-let premium = db.fetch()
+let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"
+if(premium !== db.fetch(`premium.${message.guild.id}`)) {
+let pre = new Discord.MessageEmbed()
+.setDescription(`Sunucunuz **Premium** olmadığı için kullanamazsınız.`)
+.setColor("RED")
+ return message.channel.send(embed).then(msg=>msg.delete(5000));
+}
   
+  
+  /*
+  
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD)  {
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
+    .setColor('BLUE')
+    return message.channel.send(embed).then(msg=>msg.delete(5000));
+    }
+  
+  */
+    const prefix = "a!";
   if (!args[0]) {
     message.delete();
     return message.channel
