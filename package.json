@@ -36,7 +36,9 @@
     "snekfetch": "^4.0.4",
     "dblapi.js": "^2.4.1",
     "hex-color-regex": "^1.1.0",
-    "discord-anti-spam-tr": "^0.7.4"
+    "discord-anti-spam-tr": "^0.7.4",
+    "dateformat": "^4.4.0",
+    "common-tags": "^1.8.0"
   },
   "engines": {
     "node": "12.x"

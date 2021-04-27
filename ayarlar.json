@@ -1,16 +1,16 @@
 {
     "prefix": "a!",
+    "prefx": "/",
     "ownerID": "739411430171738142",
     "ownerİD": "720236094792400987",
     "krştrh": "27.03.2021",
     "snştrh": "29.04.2021",
     "token": "ODI4MjY3NDc0MTkyNTY0MjQ1.YGnGMg.A5izgGZvZyfCbP7moyR-zIJlzUo",
-  
-  "oldu": "#",
-  "hata": "#",
-  "hata2":":x:",
-  "oldu2": ":white_check_mark:",
-  "bot": "Alvi - Kayıt",
- "embedFalse" : "#",
+    "oldu": "#",
+    "hata": "#",
+    "hata2":":x:",
+    "oldu2": ":white_check_mark:",
+    "bot": "Alvi - Kayıt",
+    "embedFalse" : "#",
     "embedTrue" : "#"
 }
