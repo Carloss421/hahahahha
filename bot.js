@@ -1,17 +1,18 @@
 const fs = require('fs');
 const moment = require('moment');
-const db = require('quick.db')
+const db = require('quick.db');
+const ayarlar = require('./ayarlar.json')
 const queue = new Map();
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 client.queue = new Map()
 require('./util/eventLoader')(client);
 require('moment-duration-format');
+
 var prefix = ayarlar.prefix;
 
 const log = message => {
-	@@ -86,12 +90,14 @@ client.unload = command => {
-  });
+ client.unload = command => {
 };
 
 
@@ -25,7 +26,7 @@ var oyun = [
 ]
 
 client.on("ready", () => {
-	@@ -119,3 +125,1126 @@ client.elevation = message => {
+ client.elevation = message => {
 };
 
 client.login(ayarlar.token);
