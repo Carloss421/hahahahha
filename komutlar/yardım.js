@@ -15,7 +15,6 @@ komutunu kullanarak hatayı bildirebilirsiniz eğer komutları kullanmayı bilmi
 **eğlence menüsü** \`${ayarlar.prefix}yardım-eğlence\` Canı sıkılanlar için yararlı bir menü.
 **moderasyon menüsü** \`${ayarlar.prefix}yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.
 **ekonomi menüsü** \`${ayarlar.prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.
-**slash komut menüsü** \`${ayarlar.prefix}yardım-slash\` Sunucunuzda slash komutları kullanmanıza yarar.
 **yapımcı menüsü** \`${ayarlar.prefix}yardım-yapımcı | ${ayarlar.prefix}yardım-owner\` Yapımcı'nın kullanabiliceği komutları açar.
 **güncelleme menüsü** \`${ayarlar.prefix}yardım-güncelleme | ${ayarlar.prefix}yardım-uptade\`Bot'a genel güncellemeleri gösterir
 **bot menüsü** \`${ayarlar.prefix}yardım-bot\` Bot'un davet linkini gibi şeyleri gösterir.
@@ -29,7 +28,6 @@ exports.conf = {
  aliases: ["help"],
  permlevel: 0
 };
-
 exports.help = {
     name: "yardım"
 }
