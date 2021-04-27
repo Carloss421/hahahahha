@@ -48,7 +48,7 @@ exports.run = async (Bastion, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ['gif', 'gifara'],
+  aliases: ['gif'],
   permLevel: 0
 };
 
