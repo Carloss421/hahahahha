@@ -22,7 +22,7 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}kayıt-sistemi\` Kayıt komutlarını görürsünüz.
 \`${ayarlar.prefix}captcha-sistemi\` Captcha komutlarını görürsünüz.
 \`${ayarlar.prefix}görev-sistemi\` Görev komutlarını görürsünüz.
-~~\`${ayarlar.prefix}ticket-sistemi\`~~\`(YAKINDA - PREMUIM)\` ~~Ticket komutlarını görürsünüz.~~
+\`${ayarlar.prefix}ticket-sistemi(PREMUIM)\` Ticket komutlarını görürsünüz.~~
 ~~\`${ayarlar.prefix}jail\`~~\`(YAKINDA)\`~~Belirtilen üyeyi hapise atarsınız~~
 
 **kayıt-sistemi** komutu kullanılabilir ama bir çok hatası olduğundan dolayı önermiyoruz!
