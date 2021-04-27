@@ -1,25 +1,19 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
-exports.run = function(client, message, args) {
-let embed = new Discord.MessageEmbed()
+exports.run = (message) => {
+const embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Yapımcı`)
+.setImage('https://media.discordapp.net/attachments/826412435321126953/833224001308459008/AliBerat_Logo.png')
 .setColor('RED')
-.setDescription(`
-
-Yapımcı Adı \`${ayarlar.ownerNAME}\`
-Yapımcı Discord \`${ayarlar.ownerDcname}\`
-Yapımcı Discord ID \`${ayarlar.ownerID}\`
-
-
-:keyboard: \`${ayarlar.prefix}eval\` Kod denemek için.
-:black_small_square: \`${ayarlar.prefix}karaliste\` Birisini karalisteye alır. Alınan kişi komutları kullanamaz.
-:gear: \`${ayarlar.prefix}bakım | aç - kapat | bilgi\` Bot'u bakıma almaya yarar.
-:bell: \`${ayarlar.prefix}güncelleme | ekle - sil\` Güncelleme eklemeye ve silmeye yarar.
-:gear: \`${ayarlar.prefix}komut-bakım | aç - kapat\` Belirtilen komutu bakıma almaya yarar.
-:arrows_counterclockwise: \`${ayarlar.prefix}reboot\` Bot'u yeniden başlatır.
-:low_brightness: \`${ayarlar.prefix}premium | ver - al\` ID'si belirtilen kullanıcıya premium verir.
-:high_brightness: \`${ayarlar.prefix}premium-sunucu | ver - al\` ID'si belirtilen sunucuya premium verir.`)
+.addField(`:keyboard:・\`${ayarlar.prefix}eval\``,`Kod denemek için.`,true)
+.addField(`:black_small_square:・\`${ayarlar.prefix}karaliste\``,`Birisini karalisteye alır. Alınan kişi komutları kullanamaz.`,true)
+.addField(`:gear:・\`${ayarlar.prefix}bakım | aç - kapat | bilgi\``,`Bot'u bakıma almaya yarar.`,true)
+.addField(`:bell:・\`${ayarlar.prefix}güncelleme | ekle - sil\``,`Güncelleme eklemeye ve silmeye yarar.`,true)
+.addField(`:keyboard::gear:・\`${ayarlar.prefix}komut-bakım | aç - kapat\``,`Belirtilen komutu bakıma almaya yarar.`,true)
+.addField(`:arrows_counterclockwise:・\`${ayarlar.prefix}reboot\``,`Bot'u yeniden başlatır.`,true)
+.addField(`:low_brightness:・\`${ayarlar.prefix}premium | ver - al\``,`ID'si belirtilen kullanıcıya premium verir.`,true)
+.addField(`:high_brightness:・\`${ayarlar.prefix}premium-sunucu | ver - al\``,`ID'si belirtilen sunucuya premium verir.`,true)
 message.channel.send(embed)
 };
 
@@ -31,5 +25,5 @@ exports.conf = {
 };
 
 exports.help = {
-    name: "yardım-yapımcı"
+    name: "yardımcı-yapımcı"
 };
