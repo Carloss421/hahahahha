@@ -26,12 +26,12 @@ let pre = new Discord.MessageEmbed()
       .get(kanalbelirle)
       .send(
         new Discord.MessageEmbed()
-          .setTitle(`**Alvi - Destek Sistemi**`)
+          .setTitle(`**Alvi - TicketSistemi**`)
           .setColor(`#ee7621`)
           .setDescription(
             `
-**Destek Talebi açarken lütfen Doğru ve Düzgün bir şekilde açınız, aksi taktirde açılan destek taleblerine Cevap verilmeyecektir ve kapatılcaktır.
-**Destek Talebi açmak için aşağıdaki Emojiye Basmanız Yeterli Olucaktır, ardından size Özel Kanal açılır ve sizinle özel olarak ilgileniriz.**`
+**Ticket açarken lütfen Doğru ve Düzgün bir şekilde açınız, aksi taktirde açılan destek taleblerine Cevap verilmeyecektir ve kapatılcaktır.
+**Ticket açmak için aşağıdaki Emojiye Basmanız Yeterli Olucaktır, ardından size Özel Kanal açılır ve sizinle özel olarak ilgileniriz.**`
             
           )
       )

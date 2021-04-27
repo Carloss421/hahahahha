@@ -7,8 +7,8 @@ exports.run = async (client, message, args) => {
   let sahip = ('739411430171738142') //Premium verebilicek / alabilecek kişiler
   let log = client.channels.cache.get('833215025262362625') // logların tutulcağı kanal
   ////--------------------------------------------\\\\     
-if(!args[0]) return message.channel.send(`Premium sisteminden yararlanmak için bot sahibinin sizin premiumunuzu aktif etmiş olması gerekiyor.
-\`${prefix}premium\` \`kontrol\``)
+if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`Premium sisteminden yararlanmak için bot sahibinin sizin premiumunuzu aktif etmiş olması gerekiyor.
+\`${prefix}premium\` \`kontrol\``))
 ////----------------------\\\\ PREMİUM KONTROL ////----------------------\\\\   
 if(message.author.id !== sahip) {
   if(args[0] === 'kontrol') {
@@ -38,7 +38,7 @@ if(message.author.id !== sahip) {
  
  ////----------------------\\\\ Sunucu sahibi mesaj ////----------------------\\\\     
   let owner = client.guilds.cache.get(id).owner;
-  owner.send(new Discord.MessageEmbed().setDescription(`**Merhaba** \`${owner.user.username}\`**a!** \`${message.author.tag}\` **isimli kişi** \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`))
+  owner.send(new Discord.MessageEmbed().setDescription(`**Merhaba** \`${owner.user.username}\` \`${message.author.tag}\` **isimli kişi** \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`))
    ////----------------------\\\\ Log kanal mesaj ////----------------------\\\\    
     log.send(new Discord.MessageEmbed().setDescription(`\`${message.author.tag}\` **İsimli Yetkili** \n \`${owner.user.username}\` **Adlı Kişinin Sahip Olduğu** \n \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`)) 
   }
@@ -68,7 +68,7 @@ if(message.author.id !== sahip) {
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ['servpre'],
+  aliases: ['servpre',"pre"],
   permLevel: 0
 }  
 exports.help = {

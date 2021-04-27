@@ -56,7 +56,7 @@ let pre = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: ["bilet-aç"],
+  aliases: ["bilet-aç","ticket aç"],
   permLevel: 0
 };
 
