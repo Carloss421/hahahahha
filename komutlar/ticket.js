@@ -19,9 +19,9 @@ let pre = new Discord.MessageEmbed()
   if (args[0] === "gönder") {
     const kanalbelirle = await data.fetch(`kanal.${message.guild.id}`);
     if (!kanalbelirle)
-      return message.channel.send(
+      return message.channel.send(new Discord.MessageEmbed().setDescription(
         `Mesajı göndereceğim kanalı ayarlamamışsın: ${prefix}ticket-kanal ayarla #kanal`
-      );
+      ));
     client.channels.cache
       .get(kanalbelirle)
       .send(
@@ -30,7 +30,7 @@ let pre = new Discord.MessageEmbed()
           .setColor(`#ee7621`)
           .setDescription(
             `
-**Ticket açarken lütfen Doğru ve Düzgün bir şekilde açınız, aksi taktirde açılan destek taleblerine Cevap verilmeyecektir ve kapatılcaktır.
+**Ticket açarken lütfen Doğru ve Düzgün bir şekilde açınız, aksi taktirde açılan destek taleblerine Cevap verilmeyecektir ve kapatılcaktır.**
 **Ticket açmak için aşağıdaki Emojiye Basmanız Yeterli Olucaktır, ardından size Özel Kanal açılır ve sizinle özel olarak ilgileniriz.**`
             
           )
