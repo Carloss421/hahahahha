@@ -32,18 +32,18 @@ exports.run = async (client, message, args) => {
     .send(
       "<@" +
         CEKişi.id +
-        "kişisi <@" +
+        " kişisi <@" +
         message.author.id +
-        "kişisi tarafından ``" +
+        " kişisi tarafından ``" +
         CESebep +
         "`` sebebi ile banlandı!"
     );
   return message.channel.send(
     "<@" +
       CEKişi.id +
-      "kişisi <@" +
+      " kişisi <@" +
       message.author.id +
-      "kişisi tarafından ``" +
+      " kişisi tarafından ``" +
       CESebep +
       "`` sebebi ile banlandı!"
   );

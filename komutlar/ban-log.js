@@ -5,7 +5,7 @@ let prefix = ayarlar.prefix;
 
 exports.run = async (client, message, args) => {
   let CEChannel = message.mentions.channels.first();
-  let CELog = db.fetch("cezalog." + message.guild.id) || "LOG";
+  let CELog = db.fetch("cezalog." + message.guild.id) || "Log kanalı ayarlı değil!";
   if (
     !message.guild.members.cache
       .get(message.author.id)
