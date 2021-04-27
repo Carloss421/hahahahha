@@ -16,16 +16,20 @@ Geliştirici ${araEmoji} **<@${ayarlar.ownerID}>**
 Bot ortağı ${araEmoji} **<@${ayarlar.ownerİD}>**
 Kuruluş tarihi ${araEmoji} **${ayarlar.krştrh}**
 Sunuluş tarihi ${araEmoji} **${ayarlar.snştrh}**
+
 Çalışma Süresi ${araEmoji} **${duration}**
 Bot Gecikmesi ${araEmoji} **${client.ws.ping}ms**
 Mesaj Gecikmesi ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
+
 Toplam kullanıcı ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}  [${message.client.users.cache.filter(m => m.bot).size} BOT]**
 Toplam sunucu ${araEmoji} **${client.guilds.cache.size}**
 Toplam kanal ${araEmoji} **${client.channels.cache.size}**
 Toplam komut ${araEmoji} **${client.commands.size}**
+
 Müzik Oynatılan sunucu ${araEmoji} **${client.voice.connections.size}**
 Discord.js sürümü ${araEmoji} **v${Discord.version}**
 Node.js sürümü ${araEmoji} **${process.version}**
+
 **Verileri alınan komutlar**
 \`Otorol - Sayaç - KayıtSistemi - Premium - CaptchaSistemi - kayıtlog - GörevSistemi\`
 **Veri depolaması fazla artarsa silineceketir!**
