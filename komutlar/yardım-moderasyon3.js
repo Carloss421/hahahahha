@@ -9,7 +9,7 @@ let embed = new Discord.MessageEmbed()
 ~~\`${ayarlar.prefix}botlist-sistemi\` Botlist komutlarını açar.~~
 \`${ayarlar.prefix}ban-sistemi\` Ban komutlarını açar.
 ~~\`${ayarlar.prefix}mute-sistemi\` Mute komutlarını açar.~~
-\`${ayarlar.prefix}ayarlar\` Sunucudaki ayarlanan herşeyi gösterir.
+~~\`${ayarlar.prefix}ayarlar\` Sunucudaki ayarlanan herşeyi gösterir.~~
 `)
 message.channel.send(embed)
 };
