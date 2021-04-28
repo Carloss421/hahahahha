@@ -7,7 +7,11 @@ exports.run = (client, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setAuthor('OYLAMA')
     .setColor(3447003)
-    .setDescription(`${mesaj} \n\n\ **Evet İçin: :thumbsup: -  Hayır İçin: :thumbsdown: `)
+    .setDescription(`${mesaj} \n\n\ **Evet İçin: :thumbsup: -  Hayır İçin: :thumbsdown: **`)
+    .then(m => {
+    m.react("👍");
+    m.react("👎");
+    })
     return message.channel.send(embed);
 };
 
