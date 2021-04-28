@@ -21,8 +21,11 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}caps-engel <aç/kapat>\` Caps mesaj engeller.
 \`${ayarlar.prefix}başvuru-sistemi\` Başvuruları gönderir.
 \`${ayarlar.prefix}abone-sistemi\` Abone komutlarını açar.
+
 **müzik-sistemi**'nin içindeki volume komutunu Normal Kullanıcılar: %59'a kadar - Premium Kullanıcıları: %100'yüze kadar arttırabiliyorlar.
 **şuan herkes %100'e kadar çekebilir.**
+
+Burada çok fazla komut olduğu için \`a!yardım-moderasyon3\` yazarak komutların devamına bakabilirsiniz.
 `)
 message.channel.send(embed)
 };

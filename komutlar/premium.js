@@ -36,27 +36,24 @@ if(message.author.id !== sahip) {
   data.set(`premium.${id}`, 'açık')
   message.channel.send(new Discord.MessageEmbed().setDescription(`${client.guilds.cache.get(id).name} isimli sunucu için **PREMİUM** aktif edildi!`).setTimestamp().setTitle(`✅ Başarılı !`).setColor(`GREEN`))
  
- ////----------------------\\\\ Sunucu sahibi mesaj ////----------------------\\\\     
+ ////----------------------\\\\ Sunucu sahibi mesaj ////----------------------\\\\
+  
   let owner = client.guilds.cache.get(id).owner;
   owner.send(new Discord.MessageEmbed().setDescription(`
-  **Merhaba** \`${owner.user.username}\` \`${message.author.tag}\` **bot sahibi** \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**
-
-**PREMUIM BILGELERI**
-
-1- **Süresi:** \`$8args[2]}\`
-2- ****
-`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`))
+  **Merhaba** \`${owner.user.username}\` \`${message.author.tag}\` **bot sahibi** \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`))
    ////----------------------\\\\ Log kanal mesaj ////----------------------\\\\    
     log.send(new Discord.MessageEmbed().setDescription(`\`${message.author.tag}\` **İsimli Yetkili** \n \`${owner.user.username}\` **Adlı Kişinin Sahip Olduğu** \n \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`)) 
   }
   ////----------------------\\\\ PREMİUM AL ////----------------------\\\\   
   if(args[0] === 'al') {
   if(message.author.id !== sahip) return;
+ /*
  ////--------------------------\\\\ Süre ayarlanmamış ise ////----------------------\\\\   
   if(args[2]) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir Süre belirtmedin.
 **y**yıl **m**ay **w**hafta **h**saat **m**dakika **s**saniyee`)).setTimestamp().setTitle(`❌ Hata !`).setColor(`RED`)
       let süre = args[2]
   if(isNaN(süre)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Süre girmelisin!`).setTitle(`❌ Hata !`).setColor(`RED`));
+*/
      ////----------------------\\\\ ID Boş ise ////----------------------\\\\    
   if(!args[1]) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir sunucunun ID'sini girmeyi dene.`).setTimestamp().setTitle(`❌ Hata !`).setColor(`RED`))
   let id = args[1]
