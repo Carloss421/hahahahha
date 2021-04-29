@@ -41,10 +41,13 @@ var actvs = [
       // IZLIYOR = WATCHING
      // OYNUYOR = PLAYING
     // YAYINDA = STREAMING
+      
+      
+      
    // AKTIF = ONLINE
   // RAHATSIZ ETMEYIN = DND
  // BOSTA = IDLE
-// CEVRIM DISI = OFFLINE
+// CEVRIMDISI = OFFLINE
     }, 15000);
 
 });

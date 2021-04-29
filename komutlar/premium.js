@@ -4,7 +4,7 @@ let ayarlar = require('../ayarlar.json');
 exports.run = async (client, message, args) => {
   ////--------------------------------------------\\\\       
   let prefix = ayarlar.prefix
-  let sahip = ('739411430171738142') //Premium verebilicek / alabilecek kişiler
+  let sahip = ('739411430171738142','720236094792400987') //Premium verebilicek / alabilecek kişiler
   let log = client.channels.cache.get('833215025262362625') // logların tutulcağı kanal
   ////--------------------------------------------\\\\     
 if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`Premium sisteminden yararlanmak için bot sahibinin sizin premiumunuzu aktif etmiş olması gerekiyor.
@@ -42,7 +42,8 @@ if(message.author.id !== sahip) {
   owner.send(new Discord.MessageEmbed().setDescription(`
   **Merhaba** \`${owner.user.username}\` \`${message.author.tag}\` **bot sahibi** \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`))
    ////----------------------\\\\ Log kanal mesaj ////----------------------\\\\    
-    log.send(new Discord.MessageEmbed().setDescription(`\`${message.author.tag}\` **İsimli Yetkili** \n \`${owner.user.username}\` **Adlı Kişinin Sahip Olduğu** \n \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`)) 
+    log.send(new Discord.MessageEmbed().setDescription(`
+\`${message.author.tag}\` **İsimli bot sahibi** \n \`${owner.user.username}\` **Adlı Kişinin Sahip Olduğu** \n \`${client.guilds.cache.get(id).name}\` **isimli sunucun için premium'u açtı.**`).setTimestamp().setTitle(`🔔 Bilgilendirme !`).setColor(`YELLOW`)) 
   }
   ////----------------------\\\\ PREMİUM AL ////----------------------\\\\   
   if(args[0] === 'al') {
