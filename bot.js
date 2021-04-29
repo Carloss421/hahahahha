@@ -125,79 +125,9 @@ client.unload = command => {
   });
 };
 
-/*//     [-----------------> Afk <------------------]  \\
-client.on("message" , async msg => {
-  if(msg.content.startsWith(ayarlar.prefix+"afk")) return;
+//     [-----------------> Afk <------------------]  \\
 
-  let afk = msg.mentions.users.first()
 
-  const kisi = db.fetch(`afkid_${msg.author.id}${msg.guild.id}`)
- if(afk){
-   const sebep = db.fetch(`afkSebep_${afk.id}_${msg.guild.id}`)
-   const kisi3 = db.fetch(`afkid_${afk.id}_${msg.guild.id}`)
-   if(msg.content.includes(kisi3)){
-msg.reply(`AFK`).then(msg=>msg.delete < (1000))
-msg.channel.send(new Discord.MessageEmbed().setDescription(`
-${msg.author.id}> **Etiketlediğiniz Kişi Afk
-Sebep:** ${sebep}`).setTitle("Alvi - AFK Sistemi").setColor("RANDOM"))
-}}
-  if(msg.author.id === kisi){
-  msg.reply(new Discord.MessageEmbed().setDescription(`**Afk modundan çıktınız.**`).setTitle("Alvi - AFK Sistemi").setColor("RANDOM"))
-  db.delete(`afkSebep_${msg.author.id}_${msg.guild.id}`)
-  db.delete(`afkid_${msg.author.id}_${msg.guild.id}`)
-}});/*
-client.on('message', async message => {
-let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix
-let kullanıcı = message.mentions.users.first() || message.author
-let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`)
-let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`)
-let sebep = afkkullanıcı
-if (message.author.bot) return;
-if (message.content.includes(`${prefix}afk`)) return;
-if (message.content.includes(`<@${kullanıcı.id}>`)) {
-if (afkdkullanıcı) {
-message.channel.send(new Discord.MessageEmbed().setDescription(`**${message.author.tag}** adlı kullanıcı artık AFK degil!`).setTitle("Alvi - Afk Sistemi"))
-db.delete(`afk_${message.author.id}`)
-if (afkdkullanıcı) return message.channel.send(new Discord.MessageEmbed().setDescription(`**${kullanıcı.tag}** şu anda AFK.\n Sebep : **${sebep}**`).setTitle("Alvi - Afk Sistemi"));
-}}
-if (!message.content.includes(`<@${kullanıcı.id}>`)) {
-if (afkdkullanıcı) {
-message.channel.send(new Discord.MessageEmbed().setDescription(`**${message.author.tag}** adlı kullanıcı artık AFK degil!`).setTitle("Alvi - Afk Sistemi"))
-db.delete(`afk_${message.author.id}`)
-}}});
-client.on("message", async (message, user) => {
-const süre = moment
-.duration(client.time)
-.format(" D [gün], H [saat], m [dakika], s [saniye]");
-let prefix = ayarlar.prefix;
-let kullanıcı = message.mentions.users.first() || message.author;
-let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
-let afkkullanıcı = await db.fetch(`afk_${user.id}`);
-let Kulcn = db.fetch(`afk_${user.id}`);
-let sebep = afkkullanıcı;
-if (message.author.bot) return;
-if (message.content.includes(`${prefix}afk`)) return;
-if (message.content.includes(`<@${kullanıcı.id}>`)) {
-if (afkdkullanıcı) {
-message.channel.send(new Discord.MessageEmbed().setDescription(`
-<@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi: \``+ süre +`\``).setColor("RANDOM"))
-db.delete(`afk_${message.author.id}`);
-}
-if (afkkullanıcı)
-return message.channel.send(new Discord.MessageEmbed().setDescription(`
-<@${message.author.id}> afk moduna girdi. Sebep: \`${sebep}\``).setColor("RANDOM")
-);
-  } 
-client.on('message', msg => {
-if (msg.content === `<@${Kulcn}>`) {
-msg.channel.send(new Discord.MessageEmbed().setDescription(`<@${message.author.id}>, <@${Kulcn}> adlı kullanıcı afk! Sebep: ${user.sebep}`).setTitle("Alvi - Afk Sistemi"));
-}});
-if (!message.content.includes(`<@${kullanıcı.id}>`)) {
-if (afkdkullanıcı) {
-message.channel.send(new Discord.MessageEmbed().setDescription(
-`<@${message.author.id}> **adlı kullanıcı afk modundan çıktı. Afk kalma süresi:\``+ süre +`\``).setColor("RANDOM"))
-db.delete(`afk_${message.author.id}`);
-    }}});*/
 //     [-----------------> Otorol <------------------]  \\
 
 
@@ -721,7 +651,7 @@ member.kick(member, `Bot koruması aktif!`)
 member.guild.owner.send(`Sunucunuza bir bot eklendi ve sunucudan otomatik olarak atıldı, sunucuya eklenmesini onaylıyor iseniz \`a!giriş-izni ${member.id}\``)
 })
 
-/*
+
 // ----------------> [Sa-AS] <--------------------- \\
 client.on("message", async (msg, member, guild) => {
   let i = await db.fetch(`ss_${msg.guild.id}`);
@@ -793,9 +723,9 @@ client.on("message", async (msg, member, guild) => {
       db.add(`slm_${msg.author.id}`, 1);
     } else if (msg.content.toLowerCase() === "aleyküm selam") {
       db.add(`slm_${msg.author.id}`, 1);
-    }}});*/
+    }}});
 // ------------> [Seviye-Sistemi] <----------- \\
-/*client.on("message", async msg => {
+client.on("message", async msg => {
   const request = require("node-superfetch");
   const db = require("quick.db");
   if (db.has(`lvl2_${msg.author.id}`) === true) {
@@ -872,8 +802,8 @@ client.on("message", async (msg, member, guild) => {
       }
     } else return;
   } else return;
-});*/
-/*// -----------------> [Caps-Engel] <-------------------- \\
+});
+// -----------------> [Caps-Engel] <-------------------- \\
    client.on("message", async msg => {
   if (msg.channel.type === "dm") return;
   if (msg.author.bot) return;
@@ -923,7 +853,7 @@ antispam(client, {
   rolİsimi: "spamMUTED"
 })};
 });
-/*
+
 // -------------------> [Kufur-Engel] <---------------- \\
 client.on("message", msg => {
   let kufurEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));
@@ -983,7 +913,7 @@ client.on("message", async (msg, message) => {
           if (!i) return;
           });
 
-*/
+
 // -------------------> [ROL-KORUMA] <------------------ \\
 client.on("roleCreate", async (rolee, member, guild) => {
   let rolkoruma = await db.fetch(`rolk_${rolee.guild.id}`);
