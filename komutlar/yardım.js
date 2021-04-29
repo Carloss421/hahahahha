@@ -8,7 +8,9 @@ let embed = new Discord.MessageEmbed()
 .setDescription(`
 Alvi'de bulduğunuz hata,çalışmama veya açıkları bildirmek için **${ayarlar.prefix}hata-bildir**
 komutunu kullanarak hatayı bildirebilirsiniz eğer komutları kullanmayı bilmiyorsanız [Destek Sunucumuza](https://discord.gg/NAzGC2cxXR) gelerekte bildirebilirsiniz.
+
 **PREMIUM özellikleri 3 ay kullanılabilir olucaktır!**
+
 **kullanıcı menüsü** \`${ayarlar.prefix}yardım-kullanıcı\` Kullanıcı menüsünü açar.
 **eğlence menüsü** \`${ayarlar.prefix}yardım-eğlence\` Canı sıkılanlar için yararlı bir menü.
 **moderasyon menüsü** \`${ayarlar.prefix}yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.
