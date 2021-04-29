@@ -125,13 +125,13 @@ client.unload = command => {
   });
 };
 
-//     [-----------------> Afk <------------------]  \\
+/*//     [-----------------> Afk <------------------]  \\
 client.on("message" , async msg => {
   if(msg.content.startsWith(ayarlar.prefix+"afk")) return;
 
   let afk = msg.mentions.users.first()
 
-  const kisi = db.fetch(`afkid_${msg.author.id}_${msg.guild.id}`)
+  const kisi = db.fetch(`afkid_${msg.author.id}${msg.guild.id}`)
  if(afk){
    const sebep = db.fetch(`afkSebep_${afk.id}_${msg.guild.id}`)
    const kisi3 = db.fetch(`afkid_${afk.id}_${msg.guild.id}`)
@@ -721,7 +721,7 @@ member.kick(member, `Bot koruması aktif!`)
 member.guild.owner.send(`Sunucunuza bir bot eklendi ve sunucudan otomatik olarak atıldı, sunucuya eklenmesini onaylıyor iseniz \`a!giriş-izni ${member.id}\``)
 })
 
-
+/*
 // ----------------> [Sa-AS] <--------------------- \\
 client.on("message", async (msg, member, guild) => {
   let i = await db.fetch(`ss_${msg.guild.id}`);
@@ -793,9 +793,9 @@ client.on("message", async (msg, member, guild) => {
       db.add(`slm_${msg.author.id}`, 1);
     } else if (msg.content.toLowerCase() === "aleyküm selam") {
       db.add(`slm_${msg.author.id}`, 1);
-    }}});
+    }}});*/
 // ------------> [Seviye-Sistemi] <----------- \\
-client.on("message", async msg => {
+/*client.on("message", async msg => {
   const request = require("node-superfetch");
   const db = require("quick.db");
   if (db.has(`lvl2_${msg.author.id}`) === true) {
@@ -872,8 +872,8 @@ client.on("message", async msg => {
       }
     } else return;
   } else return;
-});
-// -----------------> [Caps-Engel] <-------------------- \\
+});*/
+/*// -----------------> [Caps-Engel] <-------------------- \\
    client.on("message", async msg => {
   if (msg.channel.type === "dm") return;
   if (msg.author.bot) return;
@@ -923,6 +923,7 @@ antispam(client, {
   rolİsimi: "spamMUTED"
 })};
 });
+/*
 // -------------------> [Kufur-Engel] <---------------- \\
 client.on("message", msg => {
   let kufurEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));
@@ -955,11 +956,11 @@ const kufur = [
   "Hoop dur bakayım! Kendini akıllı zanneden ben **Alvi BOT**'um istediğini yap küfürlerini engellicem!").then(message => message.delete(3000)));
     }}}});
 // -------------------> [Reklam-Engel] <---------------- \\
-client.on("message", async msg => {
+client.on("message", async (msg, message) => {
     if(msg.author.bot) return;
     if(msg.channel.type === "dm") return;
 
-    let i = await db.fetch(`reklamFiltre_${msg.guild.id}`)  
+    let i = db.fetch(`reklamFiltre_${message.guild.id}`)  
           if (i == 'acik') {
               const reklam = ["discord.app", "discord.gg", "invite","discordapp","discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az",];
               if (reklam.some(word => msg.content.toLowerCase().includes(word))) {
@@ -982,33 +983,7 @@ client.on("message", async msg => {
           if (!i) return;
           });
 
-client.on("messageUptade", async msg => {
-    if(msg.author.bot) return;
-    if(msg.channel.type === "dm") return;
-
-    let i = await db.fetch(`reklamFiltre_${msg.guild.id}`)  
-          if (i == 'acik') {
-              const reklam = ["discord.app", "discord.gg", "invite","discordapp","discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az",];
-              if (reklam.some(word => msg.content.toLowerCase().includes(word))) {
-                try {
-                  if (!msg.member.hasPermission("MANAGE_MESSAGES")) {
-                    msg.delete();                    
-                    let embed = new Discord.MessageEmbed()
-                    .setColor(0xffa300)
-                    .setAuthor(msg.guild.owner.user.username, msg.guild.owner.user.avatarURL)
-                    .setDescription("Alvi - Reklam Sistemi" + `***${msg.guild.name}***` + " adlı sunucunuzda reklam yakaladım.")
-                    .addField('Reklamı yapan kişi', 'Kullanıcı: '+ msg.author.tag +'\nID: '+ msg.author.id, true)
-                    .setFooter('Kullanıcı Mesajını düzenledi!')
-                    .addField('Engellenen mesaj', msg.content, true)
-                    .setTimestamp()                   
-                    msg.guild.owner.user.send(embed)                       
-                    return msg.channel.send(`${msg.author.tag}, Reklam Yapmak Yasak Lanet Zenci!`).then(msg => msg.delete(25000));
-                  }              
-                } catch(err) {
-                  console.log(err);
-                }}}
-          if (!i) return;
-          });
+*/
 // -------------------> [ROL-KORUMA] <------------------ \\
 client.on("roleCreate", async (rolee, member, guild) => {
   let rolkoruma = await db.fetch(`rolk_${rolee.guild.id}`);
