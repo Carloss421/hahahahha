@@ -1,4 +1,37 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+
+exports.run = async (client, message, args) => {
+
+
+    let sebeb = args.join(" ");
+    if(sebeb.length < 1) {
+        return message.reply(new Discord.MessageEmbed().setDescription('AFK Sebebini Belirtmelisin.').setColor("RED")); //botun hata oldugunda verecegi mesaj
+    } else {  
+        message.delete()
+        const afk = new  Discord.MessageEmbed()
+        .setColor('GREY') //embed renk kodu degiştirmek isterseniz buraya ekleyin
+        .setTitle('AFK') //Başlık
+        .setDescription(`${message.author.username} \`${sebeb}\` sebebiyle Afk Oldun!`) //botun verdiği mesaj
+        .setTimestamp() // zaman 
+        message.channel.send(afk);
+     
+      }    
+  };
+
+  exports.conf = {
+      enabled: true, //komut kullanıma açık olup olmadıgı buradan ayarlanır
+      guildOnly: false, // komutun sadee servera özel olup olmadıgını burdan ayarnalır
+      aliases: ['afk', 'afkol'], // komut kullanım türleri
+      permlevel: 0, // permleve bu ne işe yarar derseniz bu discord sunucu yetkiler demektir buraya göre bot kişiye cevam verir yada vermez bu detaylar CodeMareFi de anlatılacak
+  };
+
+  exports.help = {
+      name: 'afkol', //komut ismi
+      description: 'afk notu burakır', // komut açıklaması 
+      usage: 'afkol' //komutun kullanım şekli {örnek ""$$afkol"}
+  };
+
+/*const Discord = require("discord.js");
 const db = require("quick.db");
 const ayarlar = require("../ayarlar.json");
 exports.run = async (client, message, args) => {
@@ -60,7 +93,7 @@ exports.help = {
   usage: "afk / afk <sebep>"
 };
 
-/*const Discord = require('discord.js');
+const Discord = require('discord.js');
 const db = require('quick.db')
 exports.run = async (client, message, args) => { 
 let user = message.author 
