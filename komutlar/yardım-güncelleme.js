@@ -6,7 +6,7 @@ let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Güncelleme")
 .setColor("RANDOM")
 .setDescription(`
-:one: **Version: 0.0.1**
+:one: **Version: 0.0.1 - Tarih: 30.04.2021 15:57**
 ╔════════════════════════════╗
 ║ \`Afk Sistemi\` | Sıfırdan yazıldı ve embed eklendi.
 ║ \`Ramazan Sistemi\` | Sıfırdan Yazılıyor....
