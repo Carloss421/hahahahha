@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
         const afk = new  Discord.MessageEmbed()
         .setColor('GREEN') //embed renk kodu degiştirmek isterseniz buraya ekleyin
         .setTitle('AFK') //Başlık
-        .setDescription(`${message.author.username} Başarıyla **${sebeb}** sebebiyle \`Afk\` Oldun!`) //botun verdiği mesaj
+        .setDescription(`<@${message.author.id}> Başarıyla **${sebeb}** sebebiyle \`Afk\` Oldun!`) //botun verdiği mesaj
         .setTimestamp() // zaman 
         message.channel.send(afk);
      

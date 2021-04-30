@@ -16,7 +16,7 @@ komutunu kullanarak hatayı bildirebilirsiniz eğer komutları kullanmayı bilmi
 **moderasyon menüsü** \`${ayarlar.prefix}yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.
 **ekonomi menüsü** \`${ayarlar.prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.
 **yapımcı menüsü** \`${ayarlar.prefix}yardım-yapımcı | ${ayarlar.prefix}yardım-owner\` Yapımcı'nın kullanabiliceği komutları açar.
-**güncelleme menüsü** \`${ayarlar.prefix}yardım-güncelleme | ${ayarlar.prefix}yardım-uptade\`Bot'a genel güncellemeleri gösterir
+**güncelleme menüsü** \`${ayarlar.prefix}güncellemeler | ${ayarlar.prefix}uptades\` Bot'a genel güncellemeleri gösterir.
 **bot menüsü** \`${ayarlar.prefix}yardım-bot\` Bot'un davet linkini gibi şeyleri gösterir.
 `)
 message.channel.send(embed)
