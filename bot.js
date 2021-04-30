@@ -41,9 +41,6 @@ var actvs = [
       // IZLIYOR = WATCHING
      // OYNUYOR = PLAYING
     // YAYINDA = STREAMING
-      
-      
-      
    // AKTIF = ONLINE
   // RAHATSIZ ETMEYIN = DND
  // BOSTA = IDLE

@@ -5,7 +5,7 @@ let prefix = ayarlar.prefix;
 
 exports.run = async (client, message, args) => {
   let CEChannel = message.mentions.channels.first();
-  let CELog = db.fetch("cezalog." + message.guild.id) || "Log kanalı ayarlı değil!";
+  let CELog = db.fetch("cezalog" + message.guild.id) || "Log kanalı ayarlı değil!";
   if (
     !message.guild.members.cache
       .get(message.author.id)
@@ -22,14 +22,15 @@ exports.run = async (client, message, args) => {
           `❗️ ❕ Daha BanLog Ayarlamadın \n✅ Doğru Ayarlamak İçin \`${prefix}ban-log #kanal\``
         )
     );
-  await db.set("ce-banlog." + message.guild.id, CEChannel.id);
-  return message.channel.send(
+  await db.set("cezalog" + message.guild.id, CEChannel.id);
+  return message.channel.send(new Discord.MessageEmbed()
+      .setDescription(
     "Daha önceden " +
       CELog +
       " olarak belirlenen log kanalını <#" +
       CEChannel.id +
       " kanalı ile değiştirdim!"
-  );
+  ));
 };
 exports.conf = {
   enabled: true,

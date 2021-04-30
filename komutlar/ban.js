@@ -9,8 +9,8 @@ exports.run = async (client, message, args) => {
   let CELog = db.fetch("cezalog." + message.guild.id);
   let CEYetkili = db.fetch("banyetkilisi." + message.guild.id);
 
-  if (!CEYetkili) return message.channel.send("Sistem ayarlanmamış!");
-  if (!CELog) return message.channel.send("Sistem ayarlanmamış!");
+  if (!CEYetkili) return message.channel.send(new Discord.MessageEmbed().setDescription("Sistem ayarlanmamış! Ayarlamak için `a!ban-sistemi`"));
+  if (!CELog) return message.channel.send(new Discord.MessageEmbed().setDescription("Sistem ayarlanmamış! Ayarlamak için `a!ban-sistemi`"));
 
   if (!message.member.roles.cache.has(CEYetkili))
     return message.channel.send(`<@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`);
