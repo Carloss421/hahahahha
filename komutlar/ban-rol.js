@@ -19,13 +19,13 @@ exports.run = async (client, message, args) => {
         .setDescription(
           `> <‼️ Daha Ban Yetkili Rölünü Ayarlamadın \n ‼️ Doğru Ayarlamak İçin \`${prefix}ban-yetkili @Rol\``
         ));
-  await db.set("ce-banyetkili." + message.guild.id, CERol.id);
+  await db.set("banyetkili." + message.guild.id, CERol.id);
   return message.channel.send(
     "Daha önceden " +
       CEYetkili +
       " olarak belirlenen rolü <@&" +
       CERol.id +
-      " rolü ile değiştirdim!"
+      "> rolü olarak değiştirdim!"
   );
 };
 exports.conf = {
