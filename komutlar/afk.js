@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
 
     let sebeb = args.join(" ");
     if(sebeb.length < 1) {
-        return message.reply(new Discord.MessageEmbed().setDescription('AFK Sebebini Belirtmelisin.').setColor("RED")); //botun hata oldugunda verecegi mesaj
+        return message.channel.send(new Discord.MessageEmbed().setDescription('AFK Sebebini Belirtmelisin.').setColor("RED")); //botun hata oldugunda verecegi mesaj
     } else {  
         message.delete()
         const afk = new  Discord.MessageEmbed()
