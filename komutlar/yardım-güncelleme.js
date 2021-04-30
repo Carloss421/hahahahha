@@ -5,9 +5,13 @@ exports.run = function(client, message, args) {
 let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Güncelleme")
 .setColor("RANDOM")
-.setDescription(`:warning: Güncelleme bulunmamaktadır!`)
+.setDescription(`
+:one: ──────────▕
+`)
 message.channel.send(embed)
 };
+
+// »»————-　★　————-««
 
 exports.conf = {
   enabled: true,
