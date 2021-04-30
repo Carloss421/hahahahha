@@ -887,7 +887,7 @@ const kufur = [
     if (!msg.member.hasPermission("ADMINISTRATOR")) {
       msg.delete()
        msg.reply(new Discord.MessageEmbed().setDescription(
-  "Hoop dur bakayım! Kendini akıllı zanneden ben **Alvi BOT**'um istediğini yap küfürlerini engellicem!").then(message => message.delete(3000)));
+  "Hoop dur bakayım! Kendini akıllımı zannediyorsun ben **Alvi BOT**'um istediğini yap küfürlerini engellicem!").then(message => message.delete(3000)));
     }}}});
 // -------------------> [Reklam-Engel] <---------------- \\
 client.on("message", async (msg, message) => {

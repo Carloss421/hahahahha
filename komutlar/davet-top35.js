@@ -2,10 +2,10 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message) => {
 
-  if (client.guilds.size < 20) return message.reply("Bot `20` tane sunucuda bulunmuyor!")
+  if (client.guilds.size < 35) return message.reply("Bot `35` tane sunucuda bulunmuyor!")
 
 const top = client.guilds.sort((a,b)=>a.memberCount-b.memberCount).array().reverse()
-const embed = new Discord.RichEmbed()
+const embed = new Discord.MessageEmbed()
 			.setDescription(`
   1. **${top[0].name}**: ${top[0].memberCount} Kişi Bulunuyor.
   2. **${top[1].name}**: ${top[1].memberCount} Kişi Bulunuyor.
