@@ -2,16 +2,15 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
 
-
     let sebeb = args.join(" ");
     if(sebeb.length < 1) {
         return message.reply(new Discord.MessageEmbed().setDescription('AFK Sebebini Belirtmelisin.').setColor("RED")); //botun hata oldugunda verecegi mesaj
     } else {  
         message.delete()
         const afk = new  Discord.MessageEmbed()
-        .setColor('GREY') //embed renk kodu degiştirmek isterseniz buraya ekleyin
+        .setColor('GREEN') //embed renk kodu degiştirmek isterseniz buraya ekleyin
         .setTitle('AFK') //Başlık
-        .setDescription(`${message.author.username} \`${sebeb}\` sebebiyle Afk Oldun!`) //botun verdiği mesaj
+        .setDescription(`${message.author.username} Başarıyla **${sebeb}** sebebiyle \`Afk\` Oldun!`) //botun verdiği mesaj
         .setTimestamp() // zaman 
         message.channel.send(afk);
      

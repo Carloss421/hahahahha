@@ -9,7 +9,7 @@ if(message.author.id !== ayarlar.ownerID)
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(3000));
     }
-    message.channel.send("Bot yeniden başlatılıyor..").then(msg => {
+    message.channel.send("Yeniden Başlıyorum!").then(msg => {
         console.log("Yeniden başlatılıyor...");
         process.exit(0);
     });
