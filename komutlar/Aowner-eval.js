@@ -53,8 +53,8 @@ if (args[0] === "ayarlar.token") code="Siktir Git"
         else embed.setDescription(`\`\`\`xl\n${evaled}\n\`\`\``)
          let giren_cıkan = new Discord.MessageEmbed()
      .setColor('RANDOM')
-         .addField('Giren', `\`\`\`javascript\n${code}\n\`\`\``)
-         .addField('Çıkan', `\`\`\`xl\n${evaled}\`\`\``)
+         .addField('Kod', `\`\`\`javascript\n${code}\n\`\`\``)
+         .addField('Sonuç', `\`\`\`xl\n${evaled}\`\`\``)
          message.channel.send(giren_cıkan);
     } catch (err) {
     embed.setColor('RANDOM')
