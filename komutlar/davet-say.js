@@ -1,6 +1,7 @@
+const Discord = require("discord.js")
 exports.run = async(client, message, args) => {
-  const Discord = require("discord.js")
-  message.channel.send(new Discord.RichEmbed().setTitle("Sunucu Sayısal İstatistikleri").setColor("#36393f").setDescription(`
+  
+  message.channel.send(new Discord.MessageEmbed().setTitle("Sunucu Sayısal İstatistikleri").setColor("#36393f").setDescription(`
   Sunucuda toplam **•** **${message.guild.memberCount}** Üye
   **${message.guild.members.filter(a => !a.bot).size}** Kullanıcı
   **${message.guild.members.filter(a => a.bot).size}** Bot
@@ -15,7 +16,7 @@ exports.run = async(client, message, args) => {
   .setTimestamp())
 };
 
-module.exports.conf = {
+exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
@@ -23,7 +24,7 @@ module.exports.conf = {
   kategori: "sunucu"
 };
 
-module.exports.help = {
+exports.help = {
   name: "say",
   description: "say",
   usage: "say"
