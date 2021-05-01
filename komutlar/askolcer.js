@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
 
-  //if(message.author.id !== "486817385051979786") return message.reply("Bu komut şuanda güncellenmektedir!")
 
   const db = require('quick.db');
 

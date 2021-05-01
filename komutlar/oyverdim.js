@@ -5,7 +5,7 @@ const dbl = new DBL('', client);
 exports.run = (client, message) => {
     dbl.hasVoted(message.author.id).then(voted => {
         if (!voted) {
-            message.reply("Bu komutu kullanabilmek için DBL üzerinden oy vermen gerekiyor. (Eğer oy verdiyseniz bi kaç dakika bekleyin .s) \nOy vermek için: https://discordbots.org/bot//vote") //botunuzun dbl vote linkini yazın
+            message.reply("Bu komutu kullanabilmek için DBL üzerinden oy vermen gerekiyor. (Eğer oy verdiyseniz bi kaç dakika bekleyin .s) \nOy vermek için: https://discordbots.org/bot/BOTID/vote") //botunuzun dbl vote linkini yazın
 
         } else {
             message.channel.send("Destekçi rolün verildi.");
