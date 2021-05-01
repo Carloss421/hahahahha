@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
 let embed = new Discord.MessageEmbed()
-.setTitle(`Alvi - Moderasyon2`)
+.setTitle(`Alvi - Ticket  `)
 .setColor("RANDOM")
 .setDescription(`
 \`${ayarlar.prefix}ticket aç\` Ticket açar. 
