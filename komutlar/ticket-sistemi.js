@@ -10,7 +10,7 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}ticket-kanal\` Ticket kanalı ayarlar. 
 \`${ayarlar.prefix}ticket kapat\` Ticket'ı kapatır. 
 \`${ayarlar.prefix}ticket-kaldır\` Ticket'ı kaldırır.
-\`${ayarlar.prefix}ticket\` Ticket mesajı gönderir.
+\`${ayarlar.prefix}ticket gönder\` Ticket mesajı gönderir.
 
 `)
 message.channel.send(embed)
