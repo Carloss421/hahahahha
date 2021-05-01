@@ -1,7 +1,16 @@
 const Discord = require('discord.js');
+const ayarlar = require('../ayarlar.json')
 
 exports.run = async (client, message, args) => {
-
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD)  {
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`**:x: Bu Komut Bakımdadır! **`)
+    .setColor('BLUE')
+    return message.channel.send(embed).then(msg=>msg.delete(3000));
+    }
+  
+  
     let sebeb = args.join(" ");
     if(sebeb.length < 1) {
         return message.channel.send(new Discord.MessageEmbed().setDescription('AFK Sebebini Belirtmelisin.').setColor("RED")); //botun hata oldugunda verecegi mesaj
