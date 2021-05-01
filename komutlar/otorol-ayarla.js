@@ -1,4 +1,43 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js');
+const db = require('quick.db')
+exports.run = async (client, message, args) => { 
+const crypto = require("../ayarlar.json");
+let prefix = "a!"  
+let rol = message.mentions.roles.first() 
+let kanal = message.mentions.channels.first()
+if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed()
+.setDescription(`**Bu komutu kullanabilmek için** \`Yönetici\` **yetkisine sahip olmalısın.**`).setColor("RED"));
+ 
+ if(!rol) return message.channel.send(new Discord.MessageEmbed().setDescription(`**Bir rol etiketlemelisin.**\nÖrnek kullanım: ${prefix}otorol-ayarla @rol #kanal`).setColor("RED"))
+ 
+ if(!kanal) return message.channel.send(new Discord.MessageEmbed().setDescription(`**Bir kanal etiketlemelisin.**\nÖrnek kullanım: ${prefix}otorol-ayarla @rol #kanal`).setColor("RED"))
+ 
+message.channel.send(new Discord.MessageEmbed()
+.setDescription(`
+**:white_check_mark: Otorol başarıyla aktif edildi.**
+**Otorol rolü** \`${rol}\` **olarak ayarlandı.** 
+**Otorol kanalı** \`${kanal}\` **olarak ayarlandı.**`).setColor("GREEN"))
+
+ 
+  db.set(`otoRL_${message.guild.id}`, rol.id)  
+  db.set(`otoRK_${message.guild.id}`, kanal.id) 
+
+      };
+
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ["otorolayarla","otorol-ayarla"],
+    permlevel: 0
+};
+
+exports.help = { 
+    name: 'otorolayarla', 
+    description: 'Resets server statics.',
+    usage: '[p]rstats [all/voice/messages]',
+};
+
+/*const Discord = require("discord.js");
 const db = require("quick.db");
 exports.run = (client, message, args) => {
   let rol = message.mentions.roles.first();
