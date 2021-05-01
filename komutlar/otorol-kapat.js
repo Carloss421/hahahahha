@@ -3,12 +3,14 @@ const db = require('quick.db')
 exports.run = (client, message, args) => { 
 
 if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`**Bu komutu kullanabilmek için** "\`Yönetici\`" **yetkisine sahip olmalısın.**`).setColo("RED"));
+.setDescription(`**Bu komutu kullanabilmek için** \`Yönetici\` **yetkisine sahip olmalısın.**`).setColor("RED"));
  const rol = db.fetch(`otoRL_${message.guild.id}`)  
- if(!rol) return message.reply(`Otorol sistemi zaten kapalı.`)
+ if(!rol) return message.reply(new Discord.MessageEmbed()
+.setDescription(`Otorol sistemi zaten kapalı.`).setColor("RED"))
  
  
-  message.channel.send(`Otorol sistemi başarıyla sıfırlandı.`)
+  message.channel.send(new Discord.MessageEmbed()
+.setDescription(`Otorol sistemi başarıyla sıfırlandı.`).setColor("GREEN"))
 
  
   db.delete(`otoRL_${message.guild.id}`)  
