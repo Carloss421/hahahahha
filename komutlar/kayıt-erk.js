@@ -42,16 +42,7 @@ if(!isim || !yaş) return message.channel.send(new Discord.MessageEmbed().setDes
   if(isNaN(yaş)) return message.channel.send(new Discord.MessageEmbed().setDescription('Bir Yaş Girmedin!').setColor(hata))
   if(message.channel.id !== kayıtlog) return message.channel.send(new Discord.MessageEmbed().setColor(hata).setDescription('Bu Kodu Sadece Kayıt Kanalında Kullanabilirsin'))
   if(!userca.roles.cache.has(agacim)) return message.channel.send({embed: {color : hata, description: `Kayıt Edeceğin Kullanıcı <@&${agacim}> Rolüne Sahip Olması Lazım`}})
-      userca.setNickname(`${isim} | ${yaş}`)
-    }
-      db.add(`say.erkek.${message.author.id}.${message.guild.id}`, 1)
-              db.add(`say.toplam.${message.author.id}.${message.guild.id}`, 1)
 
-  let guild = message.guild.name
-  if(kisim2) {
-    let kisim3 = kisim2.replace(`{isim}`, isim).replace(`{yaş}`, yaş)
-    userca.setNickname(kisim3)
-  }
 
 
   if(kayıteks) {
@@ -81,7 +72,16 @@ message.channel.send(embed)
  } else if(!embed){
 
    message.channel.send(msj)
+      userca.setNickname(`${isim} ${yaş}`)
+    }
+      db.add(`say.erkek.${message.author.id}.${message.guild.id}`, 1)
+              db.add(`say.toplam.${message.author.id}.${message.guild.id}`, 1)
 
+  let guild = message.guild.name
+  if(kisim2) {
+    let kisim3 = kisim2.replace(`{isim}`, isim).replace(`{yaş}`, yaş)
+    userca.setNickname(kisim3)
+  }
  }  
   } catch (e) {
     let embed1 = new Discord.MessageEmbed()

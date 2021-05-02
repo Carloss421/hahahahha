@@ -9,7 +9,8 @@ let embed = new Discord.MessageEmbed()
 :one: **Version: 0.0.1 - Tarih: 30.04.2021   15:57**
 ╔════════════════════════════╗
 ║ \`Afk Sistemi\` | Sıfırdan yazıldı ve embed eklendi.
-║ \`EMBED\` Yapabildiğimiz kadar e
+║ \`EMBED\` | bir çok komuta **EMBED** eklendi.
+║ \`kayıt Sistemi\` | isim değiştirme hatası düzeltildi.
 ╚════════════════════════════╝
 
 
