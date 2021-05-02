@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
       return message.channel.send("Anti-raid zaten açılmış.");
     }
     db.set(`antiraidK_${message.guild.id}`, "anti-raid-aç");
-    message.reply("Anti-raid sistemi başarıyla açıldı");
+    message.reply(new Discord.MessageEmbed().setDescription("Anti-raid sistemi başarıyla açıldı"));
   }
 
   if (args[0] == "kapat") {
@@ -16,12 +16,12 @@ exports.run = (client, message, args) => {
       );
     }
     db.delete(`antiraidK_${message.guild.id}`, "anti-raid-aç");
-    message.reply("Anti-raid sistemi başarıyla kapatıldı");
+    message.reply(new Discord.MessageEmbed().setDescription("Anti-raid sistemi başarıyla kapatıldı"));
   }
   if (!args[0])
-    return message.reply(
+    return message.reply(new Discord.MessageEmbed().setDescription(
       "Lütfen geçerli işlem girin. Örnek: **a!anti-raid aç/kapat**"
-    );
+    ));
 };
 exports.conf = {
   enabled: true,

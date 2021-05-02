@@ -2,17 +2,17 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 
 exports.run = async (client, message, args) => {
-if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanmak için yeterli izne sahip değilsin.`)
+if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanmak için yeterli izne sahip değilsin.`))
 
 let p = "a!"
 
 let arguman = args[0];
 
-if (!arguman) return message.channel.send(`:x: Lütfen bir bot id yazın.(Giriş izni iptal etmek için \`s!giriş-izni iptal <botid>\`**`)
+if (!arguman) return message.channel.send(new Discord.MessageEmbed().setDescription(`:x: Lütfen bir bot id yazın.(Giriş izni iptal etmek için \`s!giriş-izni iptal <botid>\`**`))
 
 if (arguman === "iptal") {
  db.delete(`botİzinli_${args[1]}`) 
-  message.channel.send(`\`${args[1]}\` IDsine sahip botun giriş izni iptal **edildi!**`)
+  message.channel.send(new Discord.MessageEmbed().setDescription(`\`${args[1]}\` IDsine sahip botun giriş izni iptal **edildi!**`))
 } else {
    const embed = new Discord.MessageEmbed() 
    .setTitle(`:warning: Uyarı!`)
@@ -25,7 +25,7 @@ if (arguman === "iptal") {
        if (collected.first().content === "onaylıyorum" || collected.first().content === "evet") {
 
 db.set(`botİzinli_${arguman}`, "İzinli")
-message.channel.send(`\`${arguman}\` IDsine sahip bot **doğrulandı!** Sunucuya **eklenebilir!**`)
+message.channel.send(new Discord.MessageEmbed().setDescription(`\`${arguman}\` IDsine sahip bot **doğrulandı!** Sunucuya **eklenebilir!**`))
        }})
        }
 }

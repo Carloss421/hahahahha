@@ -13,7 +13,8 @@ exports.run = async (client, message, args) => {
   if (!CELog) return message.channel.send(new Discord.MessageEmbed().setDescription("Sistem ayarlanmamış! Ayarlamak için `a!ban-sistemi`"));
 
   if (!message.member.roles.cache.has(CEYetkili))
-    return message.channel.send(new Discord.MessageEmbed().setDescription(`<@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`).setColor("RED"));
+    return message.channel.send(new Discord.MessageEmbed().setDescription(`
+  <@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`).setColor("RED"));
   if (!CEKişi)
     return message.channel.send(
       new Discord.MessageEmbed()
@@ -25,21 +26,16 @@ exports.run = async (client, message, args) => {
       .get(client.user.id)
       .hasPermission("BAN_MEMBERS")
   )
-    return message.channel.send(new Discord.MessageEmbed().setDescription(" Ban yetkim yok.").setColor("RED"));
+    return message.channel.send(new Discord.MessageEmbed().setDescription("Ban yetkim yok.").setColor("RED"));
   await message.guild.members.ban(CEKişi.id, { reason: CESebep });
   await message.guild.channels.cache
     .get(CELog)
-    .send(new Discord.MessageEmbed().setDescription("<@"+CEKişi.id +"> adlı kullanıcı <@" + message.author.id +" yetkili tarafından\n``````" +CESebep +"`````` sebebi ile banlandı!"
+    .send(new Discord.MessageEmbed().setDescription(
+"<@"+ CEKişi.id +" adlı kullanıcı <@"+ message.author.id +"> adlı yetkili tarafından\n```" +CESebep +"```,\nsebebi ile banlandı!"
     ));
-  return message.channel.send(
-"<@" +
-      CEKişi.id +
-      " kişisi <@" +
-      message.author.id +
-      " kişisi tarafından ``" +
-      CESebep +
-      "`` sebebi ile banlandı!"
-  );
+  return message.channel.send(new Discord.MessageEmbed().setDescription(
+"<@"+ CEKişi.id +" adlı kullanıcı <@"+ message.author.id +"> adlı yetkili tarafından\n```" +CESebep +"```,\nsebebi ile banlandı!"
+  ));
 };
 exports.conf = {
   enabled: true,

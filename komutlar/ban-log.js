@@ -11,9 +11,9 @@ exports.run = async (client, message, args) => {
       .get(message.author.id)
       .hasPermission("BAN_MEMBERS")
   )
-    return message.channel.send(
+    return message.channel.send(new Discord.MessageEmbed().setDescription(
       `> <@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`
-    );
+    ).setColo("RED"));
   if (!CEChannel)
     return message.channel.send(
       new Discord.MessageEmbed()

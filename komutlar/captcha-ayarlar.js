@@ -2,19 +2,19 @@ const Discord = require('discord.js');
 const db = require('quick.db')
 exports.run = async(client, message, args) => { 
 
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Yönetici yetkisine sahip olmalısınız!");
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDesciption("Yönetici yetkisine sahip olmalısınız!"));
 
 
 let zorluk = await db.fetch(`captchazorluk.${message.guild.id}`) 
 let rol = await db.fetch(`captcharol.${message.guild.id}`)  
 let kanal = await db.fetch(`captchaKanal.${message.guild.id}`)   
 
-if(!zorluk) return message.reply('Sistem devre dışı! Lütfen Ayarlayınız!')
+if(!zorluk) return message.reply(new Discord.MessageEmbed().setDesciption('Sistem devre dışı! Lütfen Ayarlayınız!'))
 
 
    let adım3 = new Discord.MessageEmbed()
 .setTitle('Alvi - Captcha Ayarları')
-.addField('Sistem', 'Rol **»** <@&'+rol+'> \n\n Zorluk Seviyesi *kanal*»** `'+zorluk+'` \n\n Log Kanalı **»** `'+kanal+'')
+.addField('Sistem', '**Rol** <@&'+rol+'> \n\n Zorluk Seviyesi `'+zorluk+'` \n\n **Log Kanalı** `'+kanal+'')
 .setTimestamp()
 .setURL('https://discord.gg/NAzGC2cxXR')
 .setColor('BLUE')      

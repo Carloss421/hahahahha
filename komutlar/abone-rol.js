@@ -1,5 +1,6 @@
 let database = require("quick.db");
 const ayarlar = require('../ayarlar.json');
+const Discord = require('discord.js')
 exports.run = async (client, message) => {
   if (!message.member.hasPermission(`ADMINISTRATOR`))
     return message.channel.send(
@@ -13,9 +14,9 @@ exports.run = async (client, message) => {
     );
 
   database.set(`abonerol.${message.guild.id}`, rol.id);
-  message.channel.send(
-    `✔️ **Abone rolü başarıyla "${rol}" olarak ayarlandı.**`
-  );
+  message.channel.send(new Discord.MessageEmbed().setDescription(
+    `✔️ **Abone rolü başarıyla <@${rol.id}> olarak ayarlandı.**`
+  ));
 };
 
 exports.conf = {
