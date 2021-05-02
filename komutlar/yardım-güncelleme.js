@@ -11,6 +11,7 @@ let embed = new Discord.MessageEmbed()
 ║ \`Afk Sistemi\` | Sıfırdan yazıldı ve embed eklendi.
 ║ \`EMBED\` | bir çok komuta **EMBED** eklendi.
 ║ \`kayıt Sistemi\` | isim değiştirme hatası düzeltildi.
+║ \`Anket\` | Sıfırdan yazıldı ve eklendi.
 ╚════════════════════════════╝
 
 

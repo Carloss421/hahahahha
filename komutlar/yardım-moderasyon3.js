@@ -6,10 +6,11 @@ let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon3`)
 .setColor("RANDOM")
 .setDescription(`
-~~\`${ayarlar.prefix}botlist-sistemi\` Botlist komutlarını açar.~~
+\`${ayarlar.prefix}anket\` Anket başlatır.
 \`${ayarlar.prefix}ban-sistemi\` Ban komutlarını açar.
 ~~\`${ayarlar.prefix}mute-sistemi\` Mute komutlarını açar.~~
 ~~\`${ayarlar.prefix}ayarlar\` Sunucudaki ayarlanan herşeyi gösterir.~~
+~~\`${ayarlar.prefix}botlist-sistemi\` Botlist komutlarını açar.~~
 `)
 message.channel.send(embed)
 };
