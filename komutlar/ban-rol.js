@@ -11,22 +11,18 @@ exports.run = async (client, message, args) => {
       .get(message.author.id)
       .hasPermission("BAN_MEMBERS")
   )
-    return message.channel.send(
-      `> <@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`
-    );
+    return message.channel.send(new Discord.MessageEmbed().setDescription(
+      `<@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`
+    ).setColor("RED"));
   if (!CERol) return message.channel.send( new Discord.MessageEmbed()
         .setColor("#00ff00")
         .setDescription(
-          `> <‼️ Daha Ban Yetkili Rölünü Ayarlamadın \n ‼️ Doğru Ayarlamak İçin \`${prefix}ban-yetkili @Rol\``
+          `<‼️ Daha Ban Yetkili Rölünü Ayarlamadın \n ‼️ Doğru Ayarlamak İçin \`${prefix}ban-yetkili @Rol\``
         ));
   await db.set("banyetkili." + message.guild.id, CERol.id);
-  return message.channel.send(
-    "Daha önceden " +
-      CEYetkili +
-      " olarak belirlenen rolü <@&" +
-      CERol.id +
-      "> rolü olarak değiştirdim!"
-  );
+  return message.channel.send(new Discord.MessageEmbed().setDescription(
+    "Daha önceden <@%"+ CEYetkili.id +"> olarak belirlenen rolü <@&"+ CERol.id +"> rolü olarak değiştirdim!"
+  ).setColor("RED"));
 };
 exports.conf = {
   enabled: true,
