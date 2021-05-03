@@ -1,4 +1,13 @@
-let Discord = require("discord.js");
+const Discord = require('discord.js')
+const ayarlar = require('../ayarlar.json')
+const db = require('quick.db')
+
+exports.run = function(client, message, msg, args) {
+
+
+}
+
+/*let Discord = require("discord.js");
 let db = require("quick.db")
 let { hata, oldu } = require("../ayarlar.json")
 module.exports.run = async (client, message, args) => {
@@ -105,9 +114,11 @@ module.exports.help = {
   name: 'erk'
 };
 
+           
+    --------------------------------------------------------------------------
 
 
-/*const discord = require('discord.js')
+const discord = require('discord.js')
 const db = require('quick.db')
 exports.run = async(client, message, args) => {
   

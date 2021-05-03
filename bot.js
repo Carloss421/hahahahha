@@ -138,29 +138,15 @@ if (message.content.includes(`${prefix}afk`)) return;
 if (message.content.includes(`<@${kullanıcı.id}>`)) { 
 if (afkdkullanıcı) {
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-AFK modundan ayrıldın <@${kullanıcı.id}>. Afk kaldığın süre: **${atılma}**`)) 
+AFK modundan ayrıldın <@${kullanıcı.id}>.`)) 
 db.delete(`afk_${message.author.id}`)
 } 
 if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``) 
 } 
-  /*
-  
-  const duration = moment
-    .duration(client.uptime)
-    .format(" D [gün], H [saat], m [dakika], s [saniye]");
-  
-  */
-let atılmast = moment(Date.now() && +-1000000000000000 && -+1000000000000000 && -+-1000000000000000).format("HH [saat]")
-let atılmadk = moment(Date.now() && +-1000000000000000 && -+1000000000000000 && -+-1000000000000000).format("mm [dakika]")
-let atılmasn = moment(Date.now() && +-1000000000000000 && -+1000000000000000 && -+-1000000000000000).format("ss [saniye]")
-    //moment.duration(client.duration).format("H [saat], m [dakika], s [saniye]")
-//let atılmasaat = moment(Date.now()).format("H[saat] m[dakika] ss[saniye]")
-let atılma = `${atılmast}, ${atılmadk}, ${atılmasn}`
-  
 if (!message.content.includes(`<@${kullanıcı.id}>`)) { 
 if (afkdkullanıcı) { 
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-AFK modundan ayrıldın <@${kullanıcı.id}>. Afk kaldığın süre: **${atılma}**`)) 
+AFK modundan ayrıldın <@${kullanıcı.id}>.`)) 
 db.delete(`afk_${message.author.id}`)
 }}});
 
