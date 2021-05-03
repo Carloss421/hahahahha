@@ -21,7 +21,7 @@ let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
   if(args[0] == 'kapat'){
         if(!db.has(`kayıte.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Kapalı!`).setColor(hata))
 
-      db.delete(`kayıte.${message.guild.id}`)
+      db.delete(`kayıte: ${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt erkek rolü başarıyla kapatıldı`).setColor(oldu))
     return
   }
@@ -29,7 +29,7 @@ let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
   let type = message.mentions.roles.first()
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Bir rol etiketlemelisin!`).setColor(hata))
 
-      if(db.has(`kayıte.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Açık!`).setColor(hata))
+      if(db.has(`kayıte: ${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Açık!`).setColor(hata))
 
   db.set(`kayıte.${message.guild.id}`, type.id)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt erkek rolü başarıyla ${type} olarak ayarlandı!`).setColor(oldu))

@@ -3,9 +3,21 @@ const ayarlar = require('../ayarlar.json')
 const db = require('quick.db')
 
 exports.run = function(client, message, msg, args) {
+let prefix = ayarlar.prefix
+let erkek = db.fetch(`kayıterk: ${message.guild.id}`)
+let yetkili = db.fetch(`kayıty: ${message.guild.id}`)
+let log = db.fetch(`kayıtlog: ${message.guild.id}`)
+};
 
-
-}
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["e", "erkek-kayıt"],
+  permlevel: 0
+};
+exports.help = {
+  name: "erkek"
+};
 
 /*let Discord = require("discord.js");
 let db = require("quick.db")

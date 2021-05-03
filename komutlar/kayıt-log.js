@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
         let prefix = ayarlar.prefix
 
-let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
+let kayıty = await db.fetch(`kayıty: ${message.guild.id}`)
 
   if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor(hata))
     if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`
@@ -20,16 +20,16 @@ let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
 
 
   if(args[0] == 'kapat'){
-    if(!db.has(`logkayıt.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Kapalı!`).setColor(hata))
-    db.delete(`logkayıt.${message.guild.id}`)
+    if(!db.has(`kayıtlog: ${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Kapalı!`).setColor(hata))
+    db.delete(`kayıtlog:${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt logu başarıyla kapatıldı!`).setColor(oldu))
     return
   }
     let type = message.mentions.channels.first()
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir kanal etiketlemelisin!`).setColor(hata))
 
-   if(db.has(`logkayıt.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Açık!`).setColor(hata))
-  db.set(`logkayıt.${message.guild.id}`, type.id)
+   if(db.has(`kayıtlog: ${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Açık!`).setColor(hata))
+  db.set(`kayıtlog: ${message.guild.id}`, type.id)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt logu başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
 
