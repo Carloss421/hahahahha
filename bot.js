@@ -126,6 +126,35 @@ client.unload = command => {
 };
 
 //     [-----------------> Afk <------------------]  \\
+
+client.on('message', async message => {
+let prefix = ayarlar.prefix 
+let kullanıcı = message.mentions.users.first() || message.author 
+let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`) 
+let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`) 
+let sebep = afkkullanıcı 
+if (message.author.bot) return; 
+if (message.content.includes(`${prefix}afk`)) return; 
+if (message.content.includes(`<@${kullanıcı.id}>`)) { 
+if (afkdkullanıcı) {
+message.channel.send(`\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`) 
+db.delete(`afk_${message.author.id}`)
+} 
+if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``) 
+} 
+let atılmaay = moment(Date.now()+10800000).format("MM")
+let atılmagün = moment(Date.now()+10800000).format("DD")
+let atılmasaat = moment(Date.now()+10800000).format("HH:mm:ss")
+let atılma = `
+\`${atılmagün} ${atılmaay.replace(/01/, 'Ocak').replace(/02/, 'Şubat').replace(/03/, 'Mart').replace(/04/, 'Nisan').replace(/05/, 'Mayıs').replace(/06/, 'Haziran').replace(/07/, 'Temmuz').replace(/08/, 'Ağustos').replace(/09/, 'Eylül').replace(/10/, 'Ekim').replace(/11/, 'Kasım').replace(/12/, 'Aralık')} ${atılmasaat}\``  
+  
+if (!message.content.includes(`<@${kullanıcı.id}>`)) { 
+if (afkdkullanıcı) { 
+message.channel.send(new Discord.MessageEmbed().setDescription(`
+AFK modundan ayrıldın <@${kullanıcı.id}>. Afk kaldığın süre: **${atılma}**`)) 
+db.delete(`afk_${message.author.id}`)
+}}});
+
 /*
 client.on('message', async (message, args) => {
 if(message.content.length > 2) {
