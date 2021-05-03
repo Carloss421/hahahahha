@@ -126,6 +126,7 @@ client.unload = command => {
 };
 
 //     [-----------------> Afk <------------------]  \\
+/*
 client.on('message', async (message, args) => {
 if(message.content.length > 2) {
 let atılmaay = moment(Date.now()+10800000).format("MM")
@@ -166,7 +167,7 @@ message.channel.send(new Discord.MessageEmbed().setDescription(`
 <@${kullanıcı.id}> afk modundan ayrıldınız. **Afk kalma süren:** \`${atılma}\``).setColor("GREEN"))
 db.delete(`afksebeb_${message.author.id}`, sebep)
 db.delete(`afkkullanıcı_${message.author.id}`)
-}})
+}})*/
 
 //     [-----------------> Otorol <------------------]  \\
 
