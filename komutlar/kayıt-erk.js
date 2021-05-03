@@ -32,7 +32,7 @@ let yaş = args[2]
 
 
 if(!userca) return message.channel.send(new Discord.MessageEmbed().setDescription(`
-Erkek Kayıtı Yapabilmek İçin Bir Kullanıcı Etiketlemen Lazım! Örnekler Aşşağıda:
+Erkek Kayıtı Yapabilmek İçin Bir Kullanıcı Etiketlemen Lazım! Örnekler Aşağıda:
 \`${prefix}erkek @etiket\`
 \`${prefix}erkek @etiket Aliberat 15\` `).setColor(hata))
     if(kisim) {
