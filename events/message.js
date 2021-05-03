@@ -20,7 +20,8 @@ module.exports = message => {
   }};
 */
 const ayarlar = require('../ayarlar.json');
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const ms = require('parse-ms');
 const db = require('quick.db');
 let talkedRecently = new Set();
 module.exports = async message => {
@@ -53,11 +54,17 @@ if(message.author.bot) return
   if(message.author.id !== ayarlar.ownerİD){
 
     if(bakım){
+  let bakımTIME = new Date("2021-05-04:03:00")
+  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
   <@${message.author.id}>
-  **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.
-  ❓Bakım Sebebi: \`${bakım}\`
-  :arrows_counterclockwise: Lütfen Daha Sonra Tekrar Deneyin.**`).setColor("RANDOM"))
+  **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.**
+  ❓**Bakım Sebebi:** \`${bakım}\`
+
+
+  :stopwatch: **Bakım Süresi(Tahmin):** \`${time.hours} saat, ${time.minutes} dakika, ${time.seconds} saniye\`
+  :arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
+  `).setColor("RANDOM"))
                               }}
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);

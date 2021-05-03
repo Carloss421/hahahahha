@@ -9,7 +9,7 @@ let yetkili = db.fetch(`kayıty_${message.guild.id}`)
 let log = db.fetch(`kayıtlog_${message.guild.id}`)
 let alınacak = db.fetch(`kayıtalınacakrol_${message.guild.id}`)
 
-// -------------------------->  [HATALAR] <---------------------------------------- \\
+// ---------------------------------------->  [HATALAR] <---------------------------------------- \\
 if(!yetkili) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt yetkilisi ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
 if(!erkek) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt erkek rolü ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
 if(!log) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt logu ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
@@ -26,17 +26,18 @@ if(!yaş) return message.channel.send(new Discord.MessageEmbed().setDescription(
 const c = message.guild.member(member)
 c.addRole(erkek)
 c.removeRole(alınacak)
+// ----------------------------------------> [KOMUT] <---------------------------------------- \\
 const başarılı = new Discord.MessageEmbed()
 .setTitle("Alvi - KayıtSistemi")
 .setDescription(`
-**Bir kayıt yapıldı!**
+**Bir ERKEK kaydı yapıldı!**
 
 **Kayıt edilen:** ${c.user.tag}
 **Kaydı eden:** ${message.author}
 
 **Kayıt edilenin yeni ismi:** ${isim} ${yaş} - ${c.user}
 
-bu mesajın gönderim süresi:`)
+bu mesajın gönderim süresi:`).setTimestamp()
 log.send(başarılı)
 };
 

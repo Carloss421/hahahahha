@@ -22,15 +22,15 @@ if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(n
 
        if(!db.has(`kayıty.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Yetkili Rolü Zaten Kapalı!`).setColor(hata))
 
-    db.delete(`kayıty: ${message.guild.id}`)
+    db.delete(`kayıty_${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt yetkili rolü başarıyla kapatıldı!`).setColor(oldu))
     return
   }
   let type = args[0]
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir rol etiketlemelisin!`).setColor(hata))
 
-   if(db.has(`kayıty: ${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Yetkili Rolü Zaten Açık!`).setColor(hata))
-  db.set(`kayıty: ${message.guild.id}`)
+   if(db.has(`kayıty_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Yetkili Rolü Zaten Açık!`).setColor(hata))
+  db.set(`kayıty:_${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt yetkili rolü başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
 

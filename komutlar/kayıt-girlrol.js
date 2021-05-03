@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
     let ayarlar = require("../ayarlar.json")
 
         let prefix = ayarlar.prefix
-  let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
+  let kayıty = await db.fetch(`kayıty_${message.guild.id}`)
 
   if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor(hata))
 
@@ -22,20 +22,20 @@ module.exports.run = async (client, message, args) => {
 
 
   if(args[0] == 'kapat'){
-        if(!db.has(`kayıtkadın.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Kapalı!`).setColor(hata))
+        if(!db.has(`kayıtkız_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Kapalı!`).setColor(hata))
 
-      db.delete(`kayıtkadın.${message.guild.id}`)
-  message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt kadın rolü başarıyla kapatıldı`).setColor(oldu))
+      db.delete(`kayıtkız_${message.guild.id}`)
+  message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt kız rolü başarıyla kapatıldı`).setColor(oldu))
     return
   }
 
-    let type = message.mentions.roles.first()
+    let type = args[1]
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Bir rol etiketlemelisin!`).setColor(hata))
 
-      if(db.has(`kayıtkadın.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Açık!`).setColor(hata))
+      if(db.has(`kayıtkız_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Açık!`).setColor(hata))
 
-  db.set(`kayıtkadın.${message.guild.id}`, type.id)
-  message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt kadın rolü başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
+  db.set(`kayıtkız_${message.guild.id}`)
+  message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt kız rolü başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
 
 }
