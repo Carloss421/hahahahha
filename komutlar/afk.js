@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
 <:hayir0:838855037161570375> \`AFK\` moduna girmek için bir sebep yazmalısın.`).setColor("RED"))
   db.set(`afk_${user.id}`, sebep) 
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-<:evet1:838854924875726898> Başarıyla **${sebep}** \`AFK\` moduna geçildi.`).setColor("GREEN")) 
+<:evet1:838854924875726898> Başarıyla **${sebep}** sebebiyle \`AFK\` moduna geçildi.`).setColor("GREEN")) 
 }; 
 exports.conf = { 
   enabled: true,

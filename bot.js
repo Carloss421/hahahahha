@@ -143,11 +143,18 @@ db.delete(`afk_${message.author.id}`)
 } 
 if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``) 
 } 
-let atılmaay = moment(Date.now()+10800000).format("MM")
-let atılmagün = moment(Date.now()+10800000).format("DD")
-let atılmasaat = moment(Date.now()+10800000).format("HH:mm:ss")
-let atılma = `
-\`${atılmagün} ${atılmaay.replace(/01/, 'Ocak').replace(/02/, 'Şubat').replace(/03/, 'Mart').replace(/04/, 'Nisan').replace(/05/, 'Mayıs').replace(/06/, 'Haziran').replace(/07/, 'Temmuz').replace(/08/, 'Ağustos').replace(/09/, 'Eylül').replace(/10/, 'Ekim').replace(/11/, 'Kasım').replace(/12/, 'Aralık')} ${atılmasaat}\``  
+  /*
+  
+  const duration = moment
+    .duration(client.uptime)
+    .format(" D [gün], H [saat], m [dakika], s [saniye]");
+  
+  */
+let atılmasaat = moment
+.duration(Date.now())
+.format("D[gün], H [saat], m [dakika], s [saniye]")
+//let atılmasaat = moment(Date.now()).format("H[saat] m[dakika] ss[saniye]")
+let atılma = `${atılmasaat}`
   
 if (!message.content.includes(`<@${kullanıcı.id}>`)) { 
 if (afkdkullanıcı) { 
