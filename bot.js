@@ -126,8 +126,31 @@ client.unload = command => {
 };
 
 //     [-----------------> Afk <------------------]  \\
-
-
+client.on('message', async message => {
+if(message.content.length > 2) {
+let atılmaay = moment(Date.now()+10800000).format("MM")
+let atılmagün = moment(Date.now()+10800000).format("DD")
+let atılmasaat = moment(Date.now()+10800000).format("HH:mm:ss")
+let atılma = `
+\`${atılmagün} ${atılmaay
+.replace(/01/, 'Ocak')
+.replace(/02/, 'Şubat')
+.replace(/03/, 'Mart')
+.replace(/04/, 'Nisan')
+.replace(/05/, 'Mayıs')
+.replace(/06/, 'Haziran')
+.replace(/07/, 'Temmuz')
+.replace(/08/, 'Ağustos')
+.replace(/09/, 'Eylül')
+.replace(/10/, 'Ekim')
+.replace(/11/, 'Kasım')
+.replace(/12/, 'Aralık')} ${atılmasaat}\``
+    const sebeb = db.fetch(`afksebep_${message.author.id}`, sebep)
+    const kullanıcı = db.fetch(`afkkullanıcı_${message.author.id}`)
+message.channel.send(new Discord.MessageEmbed().setDescription(`
+<@${message.author.id}> aflıktan
+`).setColor("GREEN"))
+}})
 
 //     [-----------------> Otorol <------------------]  \\
 
