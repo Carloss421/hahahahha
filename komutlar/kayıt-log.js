@@ -20,16 +20,16 @@ let kayıty = await db.fetch(`kayıty: ${message.guild.id}`)
 
 
   if(args[0] == 'kapat'){
-    if(!db.has(`kayıtlog: ${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Kapalı!`).setColor(hata))
-    db.delete(`kayıtlog:${message.guild.id}`)
+    if(!db.has(`kayıtlog_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Kapalı!`).setColor(hata))
+    db.delete(`kayıtlog_${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt logu başarıyla kapatıldı!`).setColor(oldu))
     return
   }
-    let type = message.mentions.channels.first()
+  let type = args[0]
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir kanal etiketlemelisin!`).setColor(hata))
 
-   if(db.has(`kayıtlog: ${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Açık!`).setColor(hata))
-  db.set(`kayıtlog: ${message.guild.id}`, type.id)
+   if(db.has(`kayıtlog_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Açık!`).setColor(hata))
+  db.set(`kayıtlog_${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt logu başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
 

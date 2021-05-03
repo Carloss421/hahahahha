@@ -4,9 +4,23 @@ const db = require('quick.db')
 
 exports.run = function(client, message, msg, args) {
 let prefix = ayarlar.prefix
-let erkek = db.fetch(`kayıterk: ${message.guild.id}`)
-let yetkili = db.fetch(`kayıty: ${message.guild.id}`)
-let log = db.fetch(`kayıtlog: ${message.guild.id}`)
+let erkek = db.fetch(`kayıterk_${message.guild.id}`)
+let yetkili = db.fetch(`kayıty_${message.guild.id}`)
+let log = db.fetch(`kayıtlog_${message.guild.id}`)
+let alınacak = db.fetch(`kayıtalınacakrol_${message.guild.id}`)
+
+// -------------------------->  [HATALAR] <---------------------------------------- \\
+if(!yetkili) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt yetkilisi ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
+if(!erkek) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt erkek rolü ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
+if(!log) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt logu ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
+if(!alınacak) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt alınacak rol ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
+let kanal = client.channels.cache.get(log)
+if(!message.member.roles.cache.has(yetkili)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${yetkili}>  Rolüne sahip olman gerekmekte`).setColor("RED"))  
+  
+let isim = args[1]
+let yaş = args[2]
+let userca = message.mentions.members.first() || message.mentions.users.first()  
+  
 };
 
 exports.conf = {
