@@ -31,7 +31,7 @@ if(args[1] < 0) return message.channel.send(new Discord.MessageEmbed()
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ ${user} kullanıcısının cüzdanından **${money}TL** silindi!`))
+.setDescription(`<:ekle0:838855131495268414> ${user} kullanıcısının cüzdanından **${money}TL** silindi!`))
 db.add(`para_${user.id}`,- money)  
 }
 

@@ -25,7 +25,7 @@ db.add(`para_${message.author.id}`, bankapara)
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`✅ Başarılı, bankadan **${bankapara}TL** çektin!`))
+.setDescription(`<:ekle0:838855131495268414> Başarılı, bankadan **${bankapara}TL** çektin!`))
 } else {
     if(isNaN(miktar)) return message.channel.send(new Discord.MessageEmbed()
 .setColor("RED")
@@ -49,7 +49,7 @@ if(args[0] === 'all' || args[0] === 'hepsi') {
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`:white_check_mark: Başarılı, bankadan **${miktar}TL** çektin!`))
+.setDescription(`<:ekle0:838855131495268414> Başarılı, bankadan **${miktar}TL** çektin!`))
 db.add(`para_${message.author.id}`, miktar)
 db.add(`bankapara_${message.author.id}`, -miktar) 
   }

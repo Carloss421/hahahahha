@@ -4,11 +4,11 @@ exports.run = async (client, message, args) => {
   let user = message.author
   let sebep = args.join(" ") 
   let member = message.mentions.members.first() 
-  let isim = args.slice(1).join(" ") 
-  if (!sebep) return message.channel.send(`Bir sebep yazmalısın.`)
-  db.set(`afkd_${user.id}`, sebep) 
+  if (!sebep) return message.channel.send(new Discord.MessageEmbed().setDescription(`
+<:hayir0:838855037161570375> \`AFK\` moduna girmek için bir sebep yazmalısın.`).setColor("RED"))
+  db.set(`afk_${user.id}`, sebep) 
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-<:evet~1:838853383082868928> Başarıyla **${sebep}** \`AFK\` moduna geçildi.`).setColor("GREEN")) 
+<:evet1:838854924875726898> Başarıyla **${sebep}** \`AFK\` moduna geçildi.`).setColor("GREEN")) 
 }; 
 exports.conf = { 
   enabled: true,

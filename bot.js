@@ -137,7 +137,8 @@ if (message.author.bot) return;
 if (message.content.includes(`${prefix}afk`)) return; 
 if (message.content.includes(`<@${kullanıcı.id}>`)) { 
 if (afkdkullanıcı) {
-message.channel.send(`\`${message.author.tag}\` adlı kullanıcı artık AFK değil.`) 
+message.channel.send(new Discord.MessageEmbed().setDescription(`
+AFK modundan ayrıldın <@${kullanıcı.id}>. Afk kaldığın süre: **${atılma}**`)) 
 db.delete(`afk_${message.author.id}`)
 } 
 if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``) 
