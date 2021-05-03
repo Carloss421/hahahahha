@@ -1,4 +1,59 @@
-let Discord = require("discord.js");
+const discord = require('discord.js')
+const db = require('quick.db')
+
+exports.run = async(client, message, args) => {
+
+let kayıty = await db.fetch(`kayıty_${message.guild.id}`)
+
+  if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}> Rolüne sahip olman gerekmekte`).setColor("RED"))
+
+if(args[0] === "sıfırla") {
+const sıfırlandı = new discord.MessageEmbed()
+.setAuthor(client.user.username, client.user.avatarURL)  
+.setTitle(`${client.user.username} - Erkek Rol Sıfırla `)
+.setColor('BLACK')
+.setDescription(`Sunucu İçin Ayarladığınız Erkek Rol Başarıyla Sıfırlandı ! `)
+.setThumbnail(client.user.avatarURL)
+.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
+message.channel.send(sıfırlandı)
+db.delete(`kayıtkız_${message.guild.id}`)
+return;
+}
+
+let rol = message.mentions.roles.first();   
+if (!rol) {
+  const ayarlanmadı = new discord.MessageEmbed()
+.setAuthor(client.user.username, client.user.avatarURL)  
+.setTitle(`${client.user.username} - Kız Rol Ayarla `)
+.setColor('BLACK')
+.setDescription(`Ayarlayacağınız Kız Rolü Belirtiniz ! `)
+.setThumbnail(client.user.avatarURL)
+.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
+message.channel.send(ayarlanmadı)
+}
+db.set(`kayıtkız_${message.guild.id}`, rol.id)
+const ayarlandı = new discord.MessageEmbed()
+.setAuthor(client.user.username, client.user.avatarURL)  
+.setTitle(`${client.user.username} - Kız Rol Ayarlandı `)
+.setColor('BLACK')
+.setDescription(`Kayıt Kız Rol Başarıyla ${rol} Olarak Ayarlandı ! `)
+.setThumbnail(client.user.avatarURL)
+.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
+message.channel.send(ayarlandı)
+  
+}
+exports.conf = {
+  enabled: true,
+  guildonly: false,
+  aliases: ["k-kadın-rol", "kayıtkadınrol","kız-rol"],
+  permLevel: 0
+};
+
+module.exports.help = {
+  name: 'kayıt-kadın-rol'
+};
+
+/*let Discord = require("discord.js");
 let db = require("quick.db")
 let { hata, oldu } = require("../ayarlar.json")
 module.exports.run = async (client, message, args) => {
@@ -53,7 +108,7 @@ module.exports.help = {
 
 
 
-/*const discord = require('discord.js')
+const discord = require('discord.js')
 const db = require('quick.db')
 exports.run = async(client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RANDOM"));
