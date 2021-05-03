@@ -148,8 +148,19 @@ let atılma = `
 
 const user = message.mentions.users.first()
 const sebep = args.join(" ")
-const sebeb = db.fetch(`afksebep_${message.guild.id}`, sebep)
+const sebeb = db.fetch(`afksebep_${message.guild.id}_${user.id}`, sebep)
 const kullanıcı = db.fetch(`afkkullanıcı_${user.id}`)
+
+if(message.content.includes === kullanıcı){
+let etiket = new Discord.MessageEmbed()
+.setColor("GREEN")
+.setDescription(`
+<@${message.author.id}> hooop etiketlediğin kullanıcı afk sabırlı ol!
+<@$${kullanıcı.id}> **ADLI KULLANICI'NIN AFK BILGILERI;**
+**etiketlenenin afk sebebi:** \`${sebeb}\`
+**Afk süresi:** \`${atılma}\``)
+message.channel.send(etiket)
+}
 
 message.channel.send(new Discord.MessageEmbed().setDescription(`
 <@${kullanıcı.id}> afk modundan ayrıldınız. **Afk kalma süren:** \`${atılma}\``).setColor("GREEN"))

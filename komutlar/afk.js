@@ -1,4 +1,27 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js'); 
+const db = require('quick.db') 
+exports.run = async (client, message, args) => { 
+  let user = message.author
+  let sebep = args.join(" ") 
+  let member = message.mentions.members.first() 
+  let isim = args.slice(1).join(" ") 
+  if (!sebep) return message.channel.send(`Bir sebep yazmalısın.`)
+  db.set(`afkda_${user.id}`, sebep) 
+message.channel.send(new Discord.MessageEmbed().setDescription(`Başarıyla **${sebep}** \`AFK\` moduna geçildi.`).setColor("GREEN")) 
+}; 
+exports.conf = { 
+  enabled: true,
+  guildOnly: true, 
+  aliases: ["afkol"],
+  permLevel: 0 
+} 
+exports.help = { 
+  name: 'afk',
+  description: "AFK olmanızı sağlar.", 
+  usage: 'afk <sebep>'
+}
+
+/*const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json')
 const db = require('quick.db')
 exports.run = async (client, message, args) => {
@@ -11,7 +34,7 @@ exports.run = async (client, message, args) => {
     }
     const user = message.mentions.users.first()
     const sebep = args.join(" ")
-    const sebeb = db.fetch(`afksebep_${message.guild.id}`, sebep)
+    const sebeb = db.fetch(`afksebep_${message.guild.id}_${user.id}`, sebep)
     const kullanıcı = db.fetch(`afkkullanıcı_${user.id}`)
     if(sebeb.length < 1) {
         return message.channel.send(new Discord.MessageEmbed().setDescription('AFK Sebebini Belirtmelisin.').setColor("RED")); //botun hata oldugunda verecegi mesaj
@@ -23,6 +46,8 @@ exports.run = async (client, message, args) => {
         .setDescription(`<@${message.author.id}> Başarıyla **${sebeb}** sebebiyle \`Afk\` Oldun!`) //botun verdiği mesaj
         .setTimestamp() // zaman 
         message.channel.send(afk);
+        db.add(`afkkullanıcı_${user.id}`)
+        db.add(`afksebep_${message.guild.id}_${user.id}`, sebep)
      
       }    
   };
@@ -40,7 +65,10 @@ exports.run = async (client, message, args) => {
       usage: 'afkol' //komutun kullanım şekli {örnek ""$$afkol"}
   };
 
-/*const Discord = require("discord.js");
+
+    -------------------------------------------------------------------------------------------
+
+const Discord = require("discord.js");
 const db = require("quick.db");
 const ayarlar = require("../ayarlar.json");
 exports.run = async (client, message, args) => {
