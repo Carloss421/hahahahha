@@ -47,7 +47,8 @@ if(miktar > para) return message.channel.send(new Discord.MessageEmbed()
     let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
       .setColor("GREEN")
-      .setDescription(`<:ekle0:838855131495268414> Bahisi kazandın ve cüzdanına **${kazandın}TL** eklendi!`)
+      .setTitle("KAZANDIN!")
+      .setDescription(`<:ekle0:838855131495268414> cüzdanına **${kazandın}TL** eklendi!`)
       message.channel.send(embed)     
     await db.set(`bahisoynama_${message.author.id}`, Date.now());   
     await db.add(`para_${message.author.id}`, kazandın);

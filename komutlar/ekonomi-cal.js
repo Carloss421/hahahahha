@@ -65,7 +65,8 @@ db.add(`para_${message.author.id}`, -lostmoney)
 
   let embed = new Discord.MessageEmbed()
    .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))  
-   .setDescription(`<:ekle0:838855131495268414> Soygun Başarılı, ${user}'ı soydun ve **${gotmoney}TL** kazandın`)
+   .setTitle("BAŞARILI!")
+   .setDescription(`<:ekle0:838855131495268414> ${user}'ı soydun ve cüzdanına **${gotmoney}TL** eklendi!`)
    .setColor("GREEN")
 
    message.channel.send(embed)

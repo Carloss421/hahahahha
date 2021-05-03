@@ -32,7 +32,8 @@ db.add(`para_${message.author.id}`, -para)
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`<:ekle0:838855131495268414> Başarılı, ${etiket}'a **${para}TL** gönderdin!`))
+.setTitle("BAŞARILI!")
+.setDescription(`<:ekle0:838855131495268414> ${etiket} **${para}TL** eklendi!\nEkleyen: ${message.author}`))
 
  } else {
   if(isNaN(miktar)) return message.channel.send(new Discord.MessageEmbed()
@@ -54,8 +55,9 @@ if(miktar === 'all' || miktar === 'hepsi') {
 }  else { 
   message.channel.send(new Discord.MessageEmbed()
                 .setColor("GREEN")
-                .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))  
-                .setDescription(`<:ekle0:838855131495268414> Başarılı,${etiket}'a **${miktar}TL** gönderdin!`))
+                .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))   
+                .setTitle("BAŞARILI!")
+                .setDescription(`<:ekle0:838855131495268414> ${etiket} hesabına **${miktar}TL** eklendi!\nEkleyen: <@${message.author.id}>`))
   db.add(`para_${etiket.id}`, miktar)
   db.add(`para_${message.author.id}`, -miktar)
 

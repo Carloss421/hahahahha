@@ -49,7 +49,8 @@ if(args[0] === 'all' || args[0] === 'hepsi') {
 message.channel.send(new Discord.MessageEmbed()
 .setColor("GREEN")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
-.setDescription(`<:ekle0:838855131495268414> Başarılı, bankadan **${miktar}TL** çektin!`))
+.setTitle("BAŞARILI!")
+.setDescription(`<:ekle0:838855131495268414> cüzdanına **${miktar}TL** eklendi!`))
 db.add(`para_${message.author.id}`, miktar)
 db.add(`bankapara_${message.author.id}`, -miktar) 
   }
