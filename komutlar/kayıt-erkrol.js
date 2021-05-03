@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args) => {
     let ayarlar = require("../ayarlar.json")
 
         let prefix = ayarlar.prefix
-let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
+let kayıty = await db.fetch(`kayıty_${message.guild.id}`)
 
   if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor(hata))
 
@@ -19,9 +19,9 @@ let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
 
 
   if(args[0] == 'kapat'){
-        if(!db.has(`kayıte.${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Kapalı!`).setColor(hata))
+        if(!db.has(`kayıterk_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Kapalı!`).setColor(hata))
 
-      db.delete(`kayıte: ${message.guild.id}`)
+      db.delete(`kayıterk_${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt erkek rolü başarıyla kapatıldı`).setColor(oldu))
     return
   }
@@ -29,9 +29,9 @@ let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
   let type = message.mentions.roles.first()
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Bir rol etiketlemelisin!`).setColor(hata))
 
-      if(db.has(`kayıte: ${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Açık!`).setColor(hata))
+      if(db.has(`kayıte_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Açık!`).setColor(hata))
 
-  db.set(`kayıte.${message.guild.id}`, type.id)
+  db.set(`kayıte_${message.guild.id}`, type.id)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt erkek rolü başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
 

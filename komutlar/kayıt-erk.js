@@ -26,6 +26,7 @@ if(!yaş) return message.channel.send(new Discord.MessageEmbed().setDescription(
 const c = message.guild.member(member)
 c.addRole(erkek)
 c.removeRole(alınacak)
+c.setNickname(`${isim} ${yaş}`)
 // ----------------------------------------> [KOMUT] <---------------------------------------- \\
 const başarılı = new Discord.MessageEmbed()
 .setTitle("Alvi - KayıtSistemi")
