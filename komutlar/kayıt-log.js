@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 
         let prefix = ayarlar.prefix
 
-let kayıty = await db.fetch(`kayıty: ${message.guild.id}`)
+let kayıty = await db.fetch(`kayıty_${message.guild.id}`)
 
   if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor(hata))
     if(!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`
@@ -25,11 +25,11 @@ let kayıty = await db.fetch(`kayıty: ${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt logu başarıyla kapatıldı!`).setColor(oldu))
     return
   }
-  let type = args[0]
+  let type = message.mentions.channels.first()
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir kanal etiketlemelisin!`).setColor(hata))
 
    if(db.has(`kayıtlog_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Açık!`).setColor(hata))
-  db.set(`kayıtlog_${message.guild.id}`)
+  db.set(`kayıtlog_${message.guild.id}`, type.id)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt logu başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
 

@@ -17,7 +17,7 @@ if(!alınacak) return message.channel.send(new Discord.MessageEmbed().setDescrip
 let kanal = client.channels.cache.get(log)
 if(!message.member.roles.cache.has(yetkili)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${yetkili}>  Rolüne sahip olman gerekmekte`).setColor("RED"))  
   
-let member = message.mentions.users.first() || client.users.get(args.join(' '))
+let member = message.mentions.users.first()
 if(!member) return message.channel.send(new Discord.MessageEmbed().setDescription("Lütfen Bir kullanıcı etiketleyin.")) 
 let isim = args[1]
 if(!isim) return message.channel.send(new Discord.MessageEmbed().setDescription("Bir isim giriniz."))

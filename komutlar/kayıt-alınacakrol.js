@@ -21,12 +21,12 @@ let kayıty = await db.fetch(`kayıty_${message.guild.id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt alınacak rolü başarıyla kapatıldı!`).setColor(oldu))
     return
   }
-  let type = args[0]
+  let type = message.mentions.roles.first()
   if(!type) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Bir rol etiketlemelisin!`).setColor(hata))
 
     if(db.has(`kayıtalınacakrol_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Sistem Zaten Açık!`).setColor(hata))
 
-  db.set(`kayıtalınacakrol_${message.guild.id}`)
+  db.set(`kayıtalınacakrol_${message.guild.id}`, type.id)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt alınacak rolü başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
 }
