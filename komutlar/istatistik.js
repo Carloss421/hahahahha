@@ -12,8 +12,8 @@ let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - İstatistik")
 .setColor("RANDOM")
 .setDescription(`
-Geliştirici ${araEmoji} **<@${ayarlar.ownerID}>**
-Bot ortağı ${araEmoji} **<@${ayarlar.ownerİD}>**
+Geliştirici ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
+Bot ortağı ${araEmoji} **<@${ayarlar.ownerİD}> - Ali/RestVevo**
 Kuruluş tarihi ${araEmoji} **${ayarlar.krştrh}**
 Sunuluş tarihi ${araEmoji} **${ayarlar.snştrh}**
 
