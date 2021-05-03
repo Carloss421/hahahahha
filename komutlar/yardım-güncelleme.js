@@ -6,14 +6,19 @@ let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Güncelleme")
 .setColor("RANDOM")
 .setDescription(`
-:one: **Version: 0.0.1 - Tarih: 30.04.2021   15:57**
+:one: **Version: 0.0.1 - Tarih: 30.04.2021 - 15:57**\`(BAKIM)\`
 ╔════════════════════════════╗
 ║ \`Afk Sistemi\` | Sıfırdan yazıldı ve embed eklendi.
 ║ \`EMBED\` | bir çok komuta **EMBED** eklendi.
 ║ \`kayıt Sistemi\` | isim değiştirme hatası düzeltildi.
 ╚════════════════════════════╝
 
-
+:two: **Version: 0.0.2 - Tarih: 4.05.2021 - 23:13**\`(BAKIM)\`
+╔════════════════════════════╗
+║ \`kayıt Sistemi\` | Sıfırdan yazıldı ama hataları var düzeltilecek!
+║ \`afk Sistemi\` | Sıfırdan yazıldı ve güncellendi.
+║ \`EMOJIS\` | Komutlara yeni emojiler ve yazılar güncellendi.
+╚════════════════════════════╝
 
 :information_source: **Güncellemeler 2 ayda bir yapılacaktır!**`)
 message.channel.send(embed)

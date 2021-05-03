@@ -14,15 +14,15 @@ if(!yetkili) return message.channel.send(new Discord.MessageEmbed().setDescripti
 if(!erkek) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt erkek rolü ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
 if(!log) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt logu ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
 if(!alınacak) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt alınacak rol ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
-let kanal = client.channels.cache.get(log)
+let kanal = client.channels.cache.get(log) 
 if(!message.member.roles.cache.has(yetkili)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${yetkili}>  Rolüne sahip olman gerekmekte`).setColor("RED"))  
-  
+
 let member = message.mentions.users.first()
 if(!member) return message.channel.send(new Discord.MessageEmbed().setDescription("Lütfen Bir kullanıcı etiketleyin.")) 
-let isim = args[1]
-let yaş = args[2]
-if(!isim) return message.channel.send(new Discord.MessageEmbed().setDescription("İsim belirtiniz. Örnek: `a!e @Kullanıcı Berat`"))
-if(!yaş) return message.channel.send(new Discord.MessageEmbed().setDescription("Yaş belirtiniz. Örnel: `a!e @Kullanıcı Berat 15`"))
+let isim = args[1];
+let yaş = args[2];
+if(!isim) return message.channel.send(new Discord.MessageEmbed().setDescription("İsim belirtiniz. Örnek: `a!e @Kullanıcı Berat`"));
+if(!yaş) return message.channel.send(new Discord.MessageEmbed().setDescription("Yaş belirtiniz. Örnel: `a!e @Kullanıcı Berat 15`"));
 const c = message.guild.member(member)
 c.addRole(erkek)
 c.removeRole(alınacak)
