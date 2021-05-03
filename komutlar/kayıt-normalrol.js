@@ -2,7 +2,7 @@ const discord = require('discord.js')
 const db = require('quick.db')
 
 exports.run = async(client, message, args) => {
-let kayıty = await db.fetch(`kayıty.${message.guild.id}`)
+let kayıty = await db.fetch(`kayıty_${message.guild.id}`)
 
   if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor("RED"))
 
@@ -15,7 +15,7 @@ const darkcodeee = new discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
 message.channel.send(darkcodeee)
-db.delete(`norml_${message.guild.id}`)
+db.delete(`kayıtnorml_${message.guild.id}`)
 return;
 }
 
@@ -30,7 +30,7 @@ if (!rol) {
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
 message.channel.send(darkcodee)
 }
-db.set(`norml_${message.guild.id}`, rol.id)
+db.set(`kayıtnorml_${message.guild.id}`)
 const darkcode = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
 .setTitle(`${client.user.username} - Normal Üye Rol Ayarlandı `)

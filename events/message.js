@@ -61,8 +61,7 @@ if(message.author.bot) return
   **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.**
   ❓**Bakım Sebebi:** \`${bakım}\`
 
-
-  :stopwatch: **Bakım Süresi(Tahmin):** \`${time.hours} saat, ${time.minutes} dakika, ${time.seconds} saniye\`
+  :stopwatch: **Bakım Süresi(Tahmin):** \`3 saat, ${time.minutes} dakika, ${time.seconds} saniye\`
   :arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
   `).setColor("RANDOM"))
                               }}

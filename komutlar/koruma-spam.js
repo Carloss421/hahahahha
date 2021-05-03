@@ -4,8 +4,7 @@ exports.run = (client, message, args) => {
 
 
 
-message.channel.send(`Sunucunuzu Korumamam İçin YÖNETİCİ Yetkisi Olmalı Ve Sonrasında Kendiliğinden Saldırıları Önlerim.
-`) 
+message.channel.send(`Sunucunuzu Korumamam İçin YÖNETİCİ Yetkisi Olmalı Ve Sonrasında Kendiliğinden Saldırıları Önlerim.`) 
   };
 exports.conf = {
   enabled: true,  

@@ -4,14 +4,14 @@ const db = require('quick.db')
 
 exports.run = function(client, message, msg, args) {
 let prefix = ayarlar.prefix
-let erkek = db.fetch(`kayıterk_${message.guild.id}`)
+let kız = db.fetch(`kayıtkız_${message.guild.id}`)
 let yetkili = db.fetch(`kayıty_${message.guild.id}`)
 let log = db.fetch(`kayıtlog_${message.guild.id}`)
 let alınacak = db.fetch(`kayıtalınacakrol_${message.guild.id}`)
 
 // ---------------------------------------->  [HATALAR] <---------------------------------------- \\
 if(!yetkili) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt yetkilisi ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
-if(!erkek) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt erkek rolü ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
+if(!kız) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt kız rolü ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
 if(!log) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt logu ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
 if(!alınacak) return message.channel.send(new Discord.MessageEmbed().setDescription(`Kayıt alınacak rol ayarlanmadan bu işlem gerçekleştirilemez!`).setColor("RED"))
 let kanal = client.channels.cache.get(log)
@@ -24,7 +24,7 @@ if(!isim) return message.channel.send(new Discord.MessageEmbed().setDescription(
 let yaş = args[2]
 if(!yaş) return message.channel.send(new Discord.MessageEmbed().setDescription("Bir yaş giriniz."))
 const c = message.guild.member(member)
-c.addRole(erkek)
+c.addRole(kız)
 c.removeRole(alınacak)
 // ----------------------------------------> [KOMUT] <---------------------------------------- \\
 const başarılı = new Discord.MessageEmbed()
