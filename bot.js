@@ -126,7 +126,7 @@ client.unload = command => {
 };
 
 //     [-----------------> Afk <------------------]  \\
-client.on('message', async message => {
+client.on('message', async (message, args) => {
 if(message.content.length > 2) {
 let atılmaay = moment(Date.now()+10800000).format("MM")
 let atılmagün = moment(Date.now()+10800000).format("DD")
@@ -145,11 +145,16 @@ let atılma = `
 .replace(/10/, 'Ekim')
 .replace(/11/, 'Kasım')
 .replace(/12/, 'Aralık')} ${atılmasaat}\``
-    const sebeb = db.fetch(`afksebep_${message.author.id}`, sebep)
-    const kullanıcı = db.fetch(`afkkullanıcı_${message.author.id}`)
+
+const user = message.mentions.users.first()
+const sebep = args.join(" ")
+const sebeb = db.fetch(`afksebep_${message.guild.id}`, sebep)
+const kullanıcı = db.fetch(`afkkullanıcı_${user.id}`)
+
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-<@${message.author.id}> aflıktan
-`).setColor("GREEN"))
+<@${kullanıcı.id}> afk modundan ayrıldınız. **Afk kalma süren:** \`${atılma}\``).setColor("GREEN"))
+db.delete(`afksebeb_${message.author.id}`, sebep)
+db.delete(`afkkullanıcı_${message.author.id}`)
 }})
 
 //     [-----------------> Otorol <------------------]  \\

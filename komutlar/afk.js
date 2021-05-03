@@ -9,10 +9,10 @@ exports.run = async (client, message, args) => {
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(3000));
     }
-  
+    const user = message.mentions.users.first()
     const sebep = args.join(" ")
-    const sebeb = db.fetch(`afksebep_${message.author.id}`, sebep)
-    const kullanıcı = db.fetch(`afkkullanıcı_${message.author.id}`)
+    const sebeb = db.fetch(`afksebep_${message.guild.id}`, sebep)
+    const kullanıcı = db.fetch(`afkkullanıcı_${user.id}`)
     if(sebeb.length < 1) {
         return message.channel.send(new Discord.MessageEmbed().setDescription('AFK Sebebini Belirtmelisin.').setColor("RED")); //botun hata oldugunda verecegi mesaj
     } else {  
