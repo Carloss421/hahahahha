@@ -20,13 +20,13 @@ if(!message.member.roles.cache.has(yetkili)) return message.channel.send(new Dis
 let member = message.mentions.users.first()
 if(!member) return message.channel.send(new Discord.MessageEmbed().setDescription("Lütfen Bir kullanıcı etiketleyin.")) 
 let isim = args[1]
-if(!isim) return message.channel.send(new Discord.MessageEmbed().setDescription("Bir isim giriniz."))
 let yaş = args[2]
-if(!yaş) return message.channel.send(new Discord.MessageEmbed().setDescription("Bir yaş giriniz."))
+if(!isim) return message.channel.send(new Discord.MessageEmbed().setDescription("İsim belirtiniz. Örnek: `a!e @Kullanıcı Berat`"))
+if(!yaş) return message.channel.send(new Discord.MessageEmbed().setDescription("Yaş belirtiniz. Örnel: `a!e @Kullanıcı Berat 15`"))
 const c = message.guild.member(member)
 c.addRole(erkek)
 c.removeRole(alınacak)
-c.setNickname(`${isim} ${yaş}`)
+c.setNickname(`${isim}`)
 // ----------------------------------------> [KOMUT] <---------------------------------------- \\
 const başarılı = new Discord.MessageEmbed()
 .setTitle("Alvi - KayıtSistemi")
@@ -36,7 +36,7 @@ const başarılı = new Discord.MessageEmbed()
 **Kayıt edilen:** ${c.user.tag}
 **Kaydı eden:** ${message.author}
 
-**Kayıt edilenin yeni ismi:** ${isim} ${yaş} - ${c.user}
+**Kayıt edilenin yeni ismi:** ${isim} - ${c.user}
 
 bu mesajın gönderim süresi:`).setTimestamp()
 log.send(başarılı)
