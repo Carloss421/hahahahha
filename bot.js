@@ -150,10 +150,12 @@ if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıc�
     .format(" D [gün], H [saat], m [dakika], s [saniye]");
   
   */
-let atılmasaat = moment(Date.now()-0,+0).format("H [saat], m [dakika], s [saniye]")
+let atılmast = moment(Date.now() && -10000000).format("HH [saat]")
+let atılmadk = moment(Date.now() && -10000000).format("mm [dakika]")
+let atılmasn = moment(Date.now() && -10000000).format("ss [saniye]")
     //moment.duration(client.duration).format("H [saat], m [dakika], s [saniye]")
 //let atılmasaat = moment(Date.now()).format("H[saat] m[dakika] ss[saniye]")
-let atılma = atılmasaat
+let atılma = `${atılmast}, ${atılmadk}, ${atılmasn}`
   
 if (!message.content.includes(`<@${kullanıcı.id}>`)) { 
 if (afkdkullanıcı) { 
