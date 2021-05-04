@@ -16,9 +16,7 @@ let embed = new Discord.MessageEmbed()
 \`${ayarlar.prefix}istatistik\` Botun bilgilerini gösterir.
 \`${ayarlar.prefix}afk\` Afk olursunuz.
 \`${ayarlar.prefix}hızlı-destek(PREMUIM)\` Çok çabuk destek alabilirsiniz.
-\`${ayarlar.prefix}pre-yardım - ${ayarlar.prefix}yardım-premium\` premium özeliklerini fln görürsünüz.
-\`${ayarlar.prefix}uptime-sistemi | a!yardım-uptime\` Bot'unuzu 7/24 yapmak için.
-`)
+\`${ayarlar.prefix}pre-yardım - ${ayarlar.prefix}yardım-premium\` premium özeliklerini fln görürsünüz.`)
 message.channel.send(embed)
 };
 

@@ -2,53 +2,52 @@ const discord = require('discord.js')
 const db = require('quick.db')
 
 exports.run = async(client, message, args) => {
-let kayıty = await db.fetch(`kayıty_${message.guild.id}`)
 
-  if(!message.member.roles.cache.has(kayıty)) return message.channel.send(new discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için <@&${kayıty}>  Rolüne sahip olman gerekmekte`).setColor("RED"))
+ if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RED"));
 
 if(args[0] === "sıfırla") {
-const darkcodeee = new discord.MessageEmbed()
+const sıfırlandı = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
 .setTitle(`${client.user.username} - Normal Üye Rol Sıfırla `)
 .setColor('BLACK')
-.setDescription(`Sunucu İçin Ayarladığınız Normal Üye Rolü Başarıyla Sıfırlandı !`)
+.setDescription(`Sunucu için ayarladığınız Normal Üye rolü başarıyla sıfırlandı!`)
 .setThumbnail(client.user.avatarURL)
-.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-message.channel.send(darkcodeee)
-db.delete(`kayıtnorml_${message.guild.id}`)
+.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı!`)
+message.channel.send(sıfırlandı)
+db.delete(`kkızrol_${message.guild.id}`)
 return;
 }
 
 let rol = message.mentions.roles.first();   
 if (!rol) {
-  const darkcodee = new discord.MessageEmbed()
+  const ayarlanmadı = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
 .setTitle(`${client.user.username} - Normal Üye Rol Ayarla `)
 .setColor('BLACK')
-.setDescription(`Ayarlayacağınız Normal Üye Rolünü Belirtiniz ! `)
+.setDescription(`Ayarlayacağınız Normal Üye rolünü belirtiniz!`)
 .setThumbnail(client.user.avatarURL)
-.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-message.channel.send(darkcodee)
+.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı!`)
+message.channel.send(ayarlanmadı)
 }
-db.set(`kayıtnorml_${message.guild.id}`)
-const darkcode = new discord.MessageEmbed()
+db.set(`knormalrol_${message.guild.id}`, rol.id)
+const ayarlandı = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
-.setTitle(`${client.user.username} - Normal Üye Rol Ayarlandı `)
+.setTitle(`${client.user.username} - Normal Üye rolü ayarlandı`)
 .setColor('BLACK')
-.setDescription(`Normal Üye Rolü Başarıyla ${rol} Olarak Ayarlandı ! `)
+.setDescription(`Normal Üye rolü başarıyla ${rol} olarak ayarlandı!`)
 .setThumbnail(client.user.avatarURL)
-.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-message.channel.send(darkcode)
-
+.setFooter(`Komut ${message.author.tag} Tarafından Kullanıld !`)
+message.channel.send(ayarlandı)
+  
 }
 exports.conf = {
   enabled: true,
   guildonly: false,
-  aliases: ['normal-rolN'],
+  aliases: ['kızrol', 'krol', 'k-rol'],
   permlevel: 0
 }
 exports.help = {
-  name: 'normal-rol',
-  description: 'erkek rolünü ayarlar',
-  usage: '!erkek-rol @rol'
-} 
+  name: 'kız-rol',
+  description: 'kız rolünü ayarlar',
+  usage: '!kız-rol @rol'
+}
