@@ -3,7 +3,7 @@ const db = require('quick.db')
 
 exports.run = async(client, message, args) => {
 
- if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RED"));
+ if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RED"));
 
 if(args[0] === "sıfırla") {
 const sıfırlandı = new discord.MessageEmbed()
@@ -24,7 +24,7 @@ if (!rol) {
 .setAuthor(client.user.username, client.user.avatarURL)  
 .setTitle(`${client.user.username} - Normal Üye Rol Ayarla `)
 .setColor('BLACK')
-.setDescription(`Ayarlayacağınız Normal Üye rolünü belirtiniz!`)
+.setDescription(`<:hayir0:838855037161570375> Ayarlayacağınız Normal Üye rolünü belirtiniz!`)
 .setThumbnail(client.user.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı!`)
 message.channel.send(ayarlanmadı)

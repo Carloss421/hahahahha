@@ -14,7 +14,7 @@ if(message.channel.id !== kanal) return message.channel.send(`Bu Komudu Sadece <
 if (!kızrol) return message.channel.send(`Sunucuda Kız Rolü Ayarlanmadığı İçin Komut Kullanılamaz ! `)
 
 let member = message.mentions.members.first();
-if (!member) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Erkek Olarak Kayıt Edeceğin Kullanıcıyı Belirtmelisin!`))
+if (!member) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Kız Olarak Kayıt Edeceğin Kullanıcıyı Belirtmelisin!`))
 let isim = args[1]
 if (!isim) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> İsim Belirtmelisin!`))
 let yaş = args[2]
@@ -25,13 +25,13 @@ member.roles.add(kızrol)
 
 const başarılı = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
-.setTitle(`${client.user.username} - Erkek `)
+.setTitle(`${client.user.username} - Kız `)
 .setColor('BLACK')
 .setDescription(`Kız Olarak Kayıt Edilen Kullanıcı: ${member} \n Kız Olarak Kayıt Eden Yetkili: <@!${message.author.id}> \n Kız Olarak Kayıt Eden Kullanıcının Kayıt Sayısı: **${kayıtsayı ? `**${kayıtsayı}**` : "0"}**`)
 .addField(`Kullanıcının ismi;`, `${isim}`, true)
 .addField(`Kullanıcının Yaşı;`, `${yaş}`, true)
 .setThumbnail(member.avatarURL)
-.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
+.setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı!`)
 message.channel.send(başarılı)
 db.add(`kkayıtsayı_${message.author.id}`, 1)
 }
