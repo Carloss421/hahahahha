@@ -32,7 +32,7 @@ let kayıty = await db.fetch(`kkayıtçırol_${message.guild.id}`)
 
    if(db.has(`kkayıtlog_${message.guild.id}`)) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata2} | Kayıt Log Zaten Açık!`).setColor(hata))
   db.set(`kkayıtlog_${message.guild.id}`, type.id)
-  message.channel.send(new Discord.MessageEmbed().setDescription(`<:evet1:838854924875726898> ${ayarlar.oldu2} | Kayıt logu başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
+  message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu2} | Kayıt logu başarıyla ${type} olarak ayarlandı!`).setColor(oldu))
   return
 
 }

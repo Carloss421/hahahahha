@@ -2,6 +2,9 @@ const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
 const db = require('quick.db')
 exports.run = function(client, message, args) {
+let kayıtçı = db.fetch(`kkayıtçırol_${message.guild.id}`)
+
+if(!message.member.roles.cache.has(kayıtçı)) return message.channel.send(new Discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Bu Komudu Kullanabilmen İçin <@&${kayıtçı}> Adlı Role Sahip olman Lazım!`).setColor("RED"))
   
 let sıfırlandı = new Discord.MessageEmbed()
 .setDescription("Kayıt sistemi sıfırlandı! Baştan ayarlanabilir.")
