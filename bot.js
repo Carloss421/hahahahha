@@ -72,7 +72,7 @@ fs.readdir("./komutlar/", (err, files) => {
     log(`Yüklenen komut: ${props.help.name}.`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
-      client.aliases.set(alias, props.help.name);
+      client.aliases.set(alias, props.help.name);  
     });
   });
 });
@@ -1212,4 +1212,4 @@ client.on("guildMemberAdd", async member => {
   });
 });
 
-client.login(ayarlar.token)
+client.login(process.env.token)
