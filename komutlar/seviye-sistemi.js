@@ -8,7 +8,7 @@ let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Seviye Sistemi")
 .setColor("RANDOM")
 .setDescription(`
-\`${ayarlar.prefix}seviye\` **AÇIKLAMA BULUNAMADI!**
+\`${ayarlar.prefix}seviye aç\` **AÇIKLAMA BULUNAMADI!**
 \`${ayarlar.prefix}seviye-ayarlar\` Seviye ayarlarını yaparsınız.
 \`${ayarlar.prefix}seviye-kanal\` Birisi level atladına logların düşeceği kanal.`)
 message.channel.send(embed)

@@ -3,12 +3,12 @@ const db = require('quick.db')
 const ayarlar = require('../ayarlar.json')
 exports.run = async(client, message, args) => { 
   
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`${ayarlar.oldu} Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`));
   
  
   let hm = await db.fetch(`seviyeacik_${message.guild.id}`)
   
-  if(hm) return message.reply('Bu tuhaf! Anlaşılan seviye sistemi zaten aktif edilmiş.. \n Bunu mu arıyorsun? `!seviye-kapat`')
+  if(hm) return message.reply('Bu tuhaf! Anlaşılan seviye sistemi zaten aktif edilmiş.. \n Bunu mu arıyorsun? `a!seviye-kapat`')
   
   
   
@@ -16,11 +16,10 @@ exports.run = async(client, message, args) => {
   
   
   let kontrol;
-  if(kanal == null) kontrol = 'Sunucuda Ayarlanmış Bir Logs Bulunamadı!'
+  if(kanal == null) kontrol = 'Sunucuda Ayarlanmış Bir Log Bulunamadı!'
   else kontrol = kanal
   
-  
-  
+
   
   let seviyn = new Discord.MessageEmbed()
   .setTitle('Aktif Edildi!')
@@ -43,7 +42,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'seviye-aç',
+  name: 'seviye aç',
   description: 'taslak', 
   usage: 'seviye-aç'
 };
