@@ -54,7 +54,7 @@ if(message.author.bot) return
   if(message.author.id !== ayarlar.ownerİD){
 
     if(bakım){
-  let bakımTIME = new Date("2021-05-04:03:00")
+  let bakımTIME = new Date("2021-05-04:20:00")
   let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
   <@${message.author.id}>
