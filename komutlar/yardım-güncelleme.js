@@ -13,11 +13,11 @@ let embed = new Discord.MessageEmbed()
 ║ \`kayıt Sistemi\` | isim değiştirme hatası düzeltildi.
 ╚════════════════════════════╝
 
-:two: **Version: 0.0.2 - Tarih: 4.05.2021 - ~~23:13~~17:37**\`(BAKIM)\`
+:two: **Version: 0.0.2 - Tarih: 4.05.2021 - ~~23:13~~   17:37**\`(BAKIM)\`
 ╔════════════════════════════╗
 ║ \`kayıt Sistemi\` | Sıfırdan yazıldı ama hataları var düzeltildi!
-║ \`kayıt Sistemi log\` | Log'a gönderme hatası var düzeltilecek!
 ║ \`afk Sistemi\` | Sıfırdan yazıldı ve güncellendi.
+║ \`kayıt Sistemi log\` | Log'a gönderme hatası var düzeltilecek! 
 ║ \`EMOJIS\` | Komutlara yeni emojiler ve yazılar güncellendi.
 ╚════════════════════════════╝
 
