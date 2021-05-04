@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
 let embed = new Discord.MessageEmbed()
-.setTitle(`Alvi - BanSistemi`)
+.setTitle(`Alvi - AboneSistemi`)
 .setColor("RANDOM")
 .setDescription(`
 \`${ayarlar.prefix}abone-rol\` Abone rolünü ayarlar.
