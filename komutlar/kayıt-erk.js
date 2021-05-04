@@ -33,7 +33,7 @@ const alviKAYIT = new discord.MessageEmbed()
 .addField(`Kayıt edilenin yaşı;`, `${yaş}`, true)
 .setThumbnail(member.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-log.send(alviKAYIT)
+message.channel.send(alviKAYIT)
 db.add(`kayıtsayı_${message.author.id}`, 1)
 }
 exports.conf = {
