@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
       .hasPermission("BAN_MEMBERS")
   )
     return message.channel.send(new Discord.MessageEmbed().setDescription(
-      `> <@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`
+      ` <@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`
     ).setColo("RED"));
   if (!CEChannel)
     return message.channel.send(
@@ -25,7 +25,7 @@ exports.run = async (client, message, args) => {
   await db.set("cezalog: " + message.guild.id, CEChannel.id);
   return message.channel.send(new Discord.MessageEmbed()
       .setDescription(
-    "Daha önceden "+CELog +" olarak belirlenen ban log kanalını <#" +CEChannel.id+"> olarak ayarladım!"
+    "Daha önceden <#"+CELog +"> olarak belirlenen ban log kanalını <#" +CEChannel.id+"> olarak ayarladım!"
   ));
 };
 exports.conf = {

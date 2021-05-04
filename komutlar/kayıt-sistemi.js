@@ -18,8 +18,8 @@ let embed = new Discord.MessageEmbed()
 📋 \`${ayarlar.prefix}kayıt-yetkili\` Kayıt yapacak rolü ayarlar.
 📋 \`${ayarlar.prefix}kayıt-log\` Kayıt logunu ayarlar.
 📋 \`${ayarlar.prefix}kayıt-kanal\` Kayıt kanalını ayarlar.
-📋 \`${ayarlar.prefix}kayıt-sistemi sıfırla\` Bütün ayarlanan kayıt komutlarını sıfırlar.
-📋 \`${ayarlar.prefix}kayıt-sistemi geri getir\` Sıfırlanan kayıt komutlarını geri getirir.
+📋 \`${ayarlar.prefix}kayıt-sistemini sıfırla\` Bütün ayarlanan kayıt komutlarını sıfırlar.
+📋 \`${ayarlar.prefix}kayıt-sistemini geri getir\` Sıfırlanan kayıt komutlarını geri getirir.
 
 👤 \`${ayarlar.prefix}normal | ${ayarlar.prefix}normal-kayıt | ${ayarlar.prefix}nk\` Üye kaydı yapar.
 👤 \`${ayarlar.prefix}normal-rol\` Üye kaydı yapıldığında verilecek rol.

@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
         ));
   await db.set("banyetkili." + message.guild.id, CERol.id);
   return message.channel.send(new Discord.MessageEmbed().setDescription(
-    "Daha önceden <@%"+ CEYetkili.id +"> olarak belirlenen rolü <@&"+ CERol.id +"> rolü olarak değiştirdim!"
+    "Daha önceden <@&"+ CEYetkili +"> olarak belirlenen rolü <@&"+ CERol.id +"> rolü olarak değiştirdim!"
   ).setColor("RED"));
 };
 exports.conf = {
