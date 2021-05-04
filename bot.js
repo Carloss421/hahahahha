@@ -125,6 +125,110 @@ client.unload = command => {
   });
 };
 
+//      [----------------------------> UPTIME <-----------------------------]     \\
+
+setInterval(() => {
+const Linkler = db.get('Linkler')
+if(!Linkler) return;
+const De = Linkler.map(Revenge => Revenge.url)
+De.forEach(Link => {
+try {
+fetch(Link)
+} catch(e) {
+console.error(e)
+}
+})
+console.log(`${client.user.username} | ${db.get('Proje') || 1} Proje Hostandı`)
+}, 60000)
+
+client.on('ready', () => {
+console.log(`${client.user.username} Aktif!`)
+if(!Array.isArray(db.get('Linkler'))) {
+db.set('Linkler', [])
+}
+})
+client.on('message', async message => {
+  if(message.author.bot) return;
+  var Split = message.content.split(' ')
+
+  if(Split[0] == prefix+'ekle') {
+  var Link = Split[1]
+  fetch(Link).then(() => {
+    const Revenge = new Discord.MessageEmbed()
+    .setColor('RED')
+    .setDescription(`
+    
+    **Link Sistemde Zaten Bulunuyor. ❌** 
+
+    `)
+    .setTimestamp()
+    .setThumbnail(message.author.avatarURL)
+    if(db.get('PROJELER').map(Revenge => Revenge.url).includes(Link)) return message.channel.send(Revenge)
+    const success = new Discord.MessageEmbed()
+    .setColor('GREEN')
+    .setThumbnail(message.author.avatarURL)
+    .setDescription(`**Proje Başarıyla Eklendi.**`)
+    .addField('`a!projelerim` Komutunu kullanarak eklediğin projeler erişebilirsin')//PARADOX-DEVELOPMENT
+    .setTimestamp()//PARADOX-DEVELOPMENT
+    message.channel.send(success)
+    db.push('PROJELER', { url: Link, owner: message.author.id, owner2: message.author.tag})//PARADOX-DEVELOPMENT
+    db.add(`Sahiplik_${message.author.id}`,1)//PARADOX-DEVELOPMENT
+    db.push(`Projesi_${message.author.id}`,Link)//PARADOX-DEVELOPMENT
+    db.add(`Proje`,1)
+  }).catch(Hata => {
+  const dijitaluptime = new Discord.MessageEmbed()
+  .setColor('RED')
+  .setDescription(`
+
+  **Lütfen Bir URL Girin**`)
+  .setFooter("yapmayı bilmiyorsan: `a!uptime-nasıl-eklerim`")
+  .setThumbnail(message.author.avatarURL)//PARADOX-DEVELOPMENT
+  message.channel.send(dijitaluptime)//PARADOX-DEVELOPMENT
+  })
+  }
+
+  
+  if(Split[0] == 'a!say') {
+  const say = new Discord.MessageEmbed()//PARADOX-DEVELOPMENT
+  .setColor('#20aaba')
+  .setThumbnail(message.author.avatarURL)//PARADOX-DEVELOPMENT
+  .setDescription(`
+  
+**Şuanda toplam \`${db.get('Proje')}\` tane proje uptime ediliyor**
+
+**Bunlardan sadece \`${db.fetch(`Sahiplik_${message.author.id}`) || null}\` tanesi senin**`)
+  message.channel.send(say)
+  }
+
+  if(Split[0] == 'a!yardım-uptime','a!uptime-sistemi') {//PARADOX-DEVELOPMENT
+  const menun = new Discord.MessageEmbed()
+  .setColor('RANDOM')//PARADOX-DEVELOPMENT
+  .setThumbnail(message.author.avatarURL)
+  .setTimestamp()//PARADOX-DEVELOPMENT
+  .setAuthor(client.user.username,client.user.avatarURL)
+  .setDescription(`
+
+
+`)
+  .addField(`
+\`a!ekle\` Botunuzu Uptime Eder.
+\`a!linkler\` Uptime ettiğiniz link sayısını gösterir.
+\`a!say\` Tüm Uptime edilmiş link sayısını gösterir.`)
+message.channel.send(menun)
+  }
+//PARADOX-DEVELOPMENT
+    if(Split[0] == prefix+'linkler') {
+    const Linkleri = db.fetch(`Projesi_${message.author.id}`)
+    if (!db.get('Linkler').map(Revenge => Revenge.owner).includes(message.author.id)) return message.channel.send(new Discord.MessageEmbed().setColor('#20aaba').setDescription(`**Hiç link eklememişsin. Link Eklemek İçin \`${prefix}ekle\` yazman yeterli**`))
+    message.channel.send(new Discord.MessageEmbed().setColor('#20aaba').setDescription(`**Uptime ettiğiniz botlarınızın linklerini güvenlik amaçlı DM yoluyla gönderdik ${message.author}**`).setThumbnail(message.author.avatarURL))
+    message.author.send(new Discord.MessageEmbed().setColor('#20aaba').setDescription(`**» Normal Linklerin:** \n\n\``+Linkleri.join('\n')+`\``).setThumbnail(message.author.avatarURL))
+    }
+
+
+   //PARADOX-DEVELOPMENT
+})
+
+
 //     [-----------------> Afk <------------------]  \\
 
 client.on('message', async message => {
