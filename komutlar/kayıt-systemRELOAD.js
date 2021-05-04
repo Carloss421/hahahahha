@@ -4,7 +4,7 @@ const db = require('quick.db')
 exports.run = function(client, message, args) {
   
 let sıfırlandı = new Discord.MessageEmbed()
-.setDescription("Kayıt sistemi sıfırlandı eğer geri getirmek istiyorsan `a!kayıt-sistemini geri getir` Baştan ayarlanabilir.")
+.setDescription("Kayıt sistemi sıfırlandı! Baştan ayarlanabilir.")
 message.channel.send(sıfırlandı)
 db.delete(`knormalrol_${message.guild.id}`)
 db.delete(`kerkekrol_${message.guild.id}`)

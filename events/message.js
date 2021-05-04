@@ -54,14 +54,14 @@ if(message.author.bot) return
   if(message.author.id !== ayarlar.ownerİD){
 
     if(bakım){
-  let bakımTIME = new Date("2021-05-04:20:00")
+  let bakımTIME = new Date("2021-05-04:20:45")
   let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
   <@${message.author.id}>
   **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.**
   ❓**Bakım Sebebi:** \`${bakım}\`
 
-  :stopwatch: **Bakım Süresi(Tahmin):** \`1 saat, ${time.minutes} dakika, ${time.seconds} saniye\`
+  :stopwatch: **Bakım Süresi(Tahmin):** \`${time.minutes} dakika, ${time.seconds} saniye, ${time.milliseconds} milisaniye\`
   :arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
   `).setColor("RANDOM"))
                               }}

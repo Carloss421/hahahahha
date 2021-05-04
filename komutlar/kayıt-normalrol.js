@@ -43,11 +43,11 @@ message.channel.send(ayarlandı)
 exports.conf = {
   enabled: true,
   guildonly: false,
-  aliases: ['kızrol', 'krol', 'k-rol'],
+  aliases: ['normalrol', 'nrol', 'nk'],
   permlevel: 0
 }
 exports.help = {
-  name: 'kız-rol',
+  name: 'normal-rol',
   description: 'kız rolünü ayarlar',
   usage: '!kız-rol @rol'
 }

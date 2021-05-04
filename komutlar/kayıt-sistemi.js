@@ -14,12 +14,15 @@ let embed = new Discord.MessageEmbed()
 🧑 \`${ayarlar.prefix}erkek-rol\` Erkek kaydı yapıldığında verilecek rol.
 🧑 \`${ayarlar.prefix}erkek-rol sıfırla\` Erkek kaydı yapıldığında verilecek rolünü sıfırlar.
 
-📋 \`${ayarlar.prefix}alınacak-rol\` Bir kayıt yapıldığında **@Kayıtsız, @Misafir** rollerini almasını sağlar.
+📋 \`${ayarlar.prefix}alınacak-rol\` Bir kayıt yapıldığında **@Misafir** rolünü almasını sağlar.
+📋 \`${ayarlar.prefix}alınacak-rol sıfırla\` Bir kayıt yapıldığında verilecek rolü sıfırlar.
 📋 \`${ayarlar.prefix}kayıt-yetkili\` Kayıt yapacak rolü ayarlar.
+📋 \`${ayarlar.prefix}kayıt-yetkili sıfırla\` Kayıt yapacak rolünü sıfırlar.
 📋 \`${ayarlar.prefix}kayıt-log\` Kayıt logunu ayarlar.
+📋 \`${ayarlar.prefix}kayıt-log sıfırla\` Kayıt logunu sıfırlar.
 📋 \`${ayarlar.prefix}kayıt-kanal\` Kayıt kanalını ayarlar.
+📋 \`${ayarlar.prefix}kayıt-kanal sıfırla\` Kayıt kanalını sıfırlar.
 📋 \`${ayarlar.prefix}kayıt-sistemini sıfırla\` Bütün ayarlanan kayıt komutlarını sıfırlar.
-📋 \`${ayarlar.prefix}kayıt-sistemini geri getir\` Sıfırlanan kayıt komutlarını geri getirir.
 
 👤 \`${ayarlar.prefix}normal | ${ayarlar.prefix}normal-kayıt | ${ayarlar.prefix}nk\` Üye kaydı yapar.
 👤 \`${ayarlar.prefix}normal-rol\` Üye kaydı yapıldığında verilecek rol.
