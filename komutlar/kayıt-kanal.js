@@ -3,51 +3,53 @@ const db = require('quick.db')
 
 exports.run = async(client, message, args) => {
 
+    
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new discord.MessageEmbed().setDescription(` Bu komutu kullanabilmek için \`yönetici\` yetkisine sahip olmalısın`).setColor("RED"));
 
+
 if(args[0] === "sıfırla") {
-const sıfırlandı = new discord.MessageEmbed()
+const Darkcode = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
-.setTitle(`${client.user.username} - Kız Rol Sıfırla `)
+.setTitle(`${client.user.username} - Kayıt Kanal Sıfırla `)
 .setColor('BLACK')
-.setDescription(`<:evet1:838854924875726898> Sunucu İçin Ayarladığınız Kız Rolü Başarıyla Sıfırlandı !`)
+.setDescription(`<:evet1:838854924875726898> Kayıt Olunacak Kanal Başarıyla Sıfırlandı ! `)
 .setThumbnail(client.user.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-message.channel.send(sıfırlandı)
-db.delete(`kkızrol_${message.guild.id}`)
+message.channel.send(Darkcode)
+db.delete(`kayıtkanal_${message.guild.id}`)
 return;
 }
 
-let rol = message.mentions.roles.first();   
-if (!rol) {
-  const ayarlanmadı = new discord.MessageEmbed()
+let kanal = message.mentions.channels.first();   
+if (!kanal) {
+  const kayıtK = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
-.setTitle(`${client.user.username} - Kız Rol Ayarla `)
+.setTitle(`${client.user.username} - Kayıt Kanal Ayarla `)
 .setColor('BLACK')
-.setDescription(`<:hayir0:838855037161570375> Ayarlayacağınız Kız Rolünü Belirtiniz ! `)
+.setDescription(`<:hayir0:838855037161570375> Kayıt Olunacak Kanalı Belirtiniz!`)
 .setThumbnail(client.user.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-message.channel.send(ayarlanmadı)
+message.channel.send(kayıtK)
 }
-db.set(`kkızrol_${message.guild.id}`, rol.id)
-const ayarlandı = new discord.MessageEmbed()
+db.set(`kkayıtkanal_${message.guild.id}`, kanal.id)
+const kanalK = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  
-.setTitle(`${client.user.username} - Kız Rol Ayarlandı `)
+.setTitle(`${client.user.username} - Kayıt Kanal Ayarlandı `)
 .setColor('BLACK')
-.setDescription(`<:evet1:838854924875726898> Kız Rolü Başarıyla ${rol} Olarak Ayarlandı ! `)
+.setDescription(`<:evet1:838854924875726898> Kayıt Olunacak Kanal ${kanal} Olarak Ayarlandı ! `)
 .setThumbnail(client.user.avatarURL)
 .setFooter(`Komut ${message.author.tag} Tarafından Kullanıldı ! `)
-message.channel.send(ayarlandı)
+message.channel.send(kanalK)
   
 }
 exports.conf = {
   enabled: true,
   guildonly: false,
-  aliases: ['kızrol', 'krol', 'k-rol'],
+  aliases: ['kayıtkanal', 'kkanal', 'k-kanal'],
   permlevel: 0
 }
 exports.help = {
-  name: 'kız-rol',
-  description: 'kız rolünü ayarlar',
-  usage: '!kız-rol @rol'
+  name: 'kayıt-kanal',
+  description: 'Kayıt Olunacak Kanalı Ayarlar',
+  usage: '!kayıt-kanal #kanal'
 }

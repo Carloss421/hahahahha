@@ -9,16 +9,16 @@ let erkekrol = db.fetch(`kerkekrol_${message.guild.id}`)
 let kayıtçı = db.fetch(`kkayıtçırol_${message.guild.id}`)
 let kayıtsayı = db.fetch(`kkayıtsayı_${message.author.id}`)
   
-if(!message.member.roles.cache.has(kayıtçı)) return message.channel.send(`Bu Komudu Kullanabilmen İçin <@&${kayıtçı}> Adlı Role Sahip olman Lazım ! `)
-if(message.channel.id !== kanal) return message.channel.send(`Bu Komudu Sadece <#${kanal}> Adlı Kanalda Kullanabilirsin ! `)
-if (!erkekrol) return message.channel.send(`Sunucuda Erkek Rolü Ayarlanmadığı İçin Komut Kullanılamaz ! `)
+if(!message.member.roles.cache.has(kayıtçı)) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Bu Komudu Kullanabilmen İçin <@&${kayıtçı}> Adlı Role Sahip olman Lazım!`).setColor("RED"))
+if(message.channel.id !== kanal) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Bu Komudu Sadece <#${kanal}> Adlı Kanalda Kullanabilirsin!`))
+if (!erkekrol) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Sunucuda Erkek Rolü Ayarlanmadığı İçin Komut Kullanılamaz!`))
 
 let member = message.mentions.members.first();
-if (!member) return message.channel.send(`Erkek Olarak Kayıt Edeceğin Kullanıcıyı Belirtmelisin ! `)
+if (!member) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Erkek Olarak Kayıt Edeceğin Kullanıcıyı Belirtmelisin!`))
 let isim = args[1]
-if (!isim) return message.channel.send(`İsmini Belirtmelisin ! `)
+if (!isim) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> İsim Belirtmelisin!`))
 let yaş = args[2]
-if (!yaş) return message.channel.send(`Yaşını Belirtmelisin ! `)
+if (!yaş) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Yaş Belirtmelisin!`))
 member.setNickname(`${isim} ${yaş}`)
 member.roles.remove(alınacakrol)
 member.roles.add(erkekrol)
