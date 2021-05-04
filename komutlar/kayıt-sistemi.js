@@ -8,15 +8,36 @@ let embed = new Discord.MessageEmbed()
 .setDescription(`
 👩 \`${ayarlar.prefix}kız | ${ayarlar.prefix}kız-kayıt | ${ayarlar.prefix}k\` Kız kaydı yapar.
 👩 \`${ayarlar.prefix}kız-rol\` Kız kaydı yapıldığında verilecek rol.
+👩 \`${ayarlar.prefix}kız-rol sıfırla\` Kız kaydı yapıldığında verilecek rolünü sıfırlar.
+
 🧑 \`${ayarlar.prefix}erkek | ${ayarlar.prefix}erkek-kayıt | ${ayarlar.prefix}e\` Erkek kaydı yapar.
 🧑 \`${ayarlar.prefix}erkek-rol\` Erkek kaydı yapıldığında verilecek rol.
+🧑 \`${ayarlar.prefix}erkek-rol sıfırla\` Erkek kaydı yapıldığında verilecek rolünü sıfırlar.
+
 📋 \`${ayarlar.prefix}alınacak-rol\` Bir kayıt yapıldığında **@Kayıtsız , @Misafir** rollerini almasını sağlar.
 📋 \`${ayarlar.prefix}kayıt-yetkili\` Kayıt yapacak rolü ayarlar.
 📋 \`${ayarlar.prefix}kayıt-log\` Kayıt logunu ayarlar.
-📋 \`${ayarlar.prefix}kayıt-kontrol\` Kontrollerinizi sağlayabilirsiniz.
+📋 \`${ayarlar.prefix}kayıt-kanal\` Kayıt kanalını ayarlar.
+
 👤 \`${ayarlar.prefix}normal | ${ayarlar.prefix}normal-kayıt | ${ayarlar.prefix}nk\` Üye kaydı yapar.
 👤 \`${ayarlar.prefix}normal-rol\` Üye kaydı yapıldığında verilecek rol.
+👤 \`${ayarlar.prefix}normal-rol sıfırla\` Üye kaydı yapıldığında verilecek rolü sıfırlar.
+
+╔════════════════════════════════════════════════╗
+║**NOT:** \`kayıt-kanal\` ayarlanmazsa hiçbir kayıt komutu çalışmaz.İşe yaradığı birtek 
+║o kanalda kayıt yapılabilmesi.
+║**NOT:** \`kayıt-yetkili\`'si ayarlanmazsa hiçbir kayıt komutu çalışmaz.
+╚════════════════════════════════════════════════╝
 `)
+/*
+
+╔════════════════════════════╗
+║
+╚════════════════════════════╝
+
+
+*/
+
 message.channel.send(embed)
 };
 

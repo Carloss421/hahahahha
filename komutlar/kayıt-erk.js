@@ -38,7 +38,7 @@ db.add(`kayıtsayı_${message.author.id}`, 1)
 exports.conf = {
   enabled: true,
   guildonly: false,
-  aliases: ['e'],
+  aliases: ['e','erkek-kayıt'],
   permlevel: 0
 }
 exports.help = {
