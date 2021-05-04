@@ -192,13 +192,34 @@ client.on('message', async message => {
   message.channel.send(say)
   }
 
-  if(Split[0] == 'a!yardım-uptime','a!uptime-sistemi') {
+  if(Split[0] == 'a!yardım-uptime') {
   const menun = new Discord.MessageEmbed()
   .setColor('RANDOM')
   .setThumbnail(message.author.avatarURL)
   .setTimestamp()
   .setAuthor(client.user.username,client.user.avatarURL)
-  .addField(`\`a!ekle\` Botunuzu Uptime Eder.\n\`a!linkler\` Uptime ettiğiniz link sayısını gösterir.\n\`a!say\` Tüm Uptime edilmiş link sayısını gösterir.`)
+  .setDescription(`\`a!ekle\` Botunuzu Uptime Eder.\n\`a!linkler\` Uptime ettiğiniz link sayısını gösterir.\n\`a!say\` Tüm Uptime edilmiş link sayısını gösterir.`)
+message.channel.send(menun)
+  }
+  
+  if(Split[0] == 'a!proje-nasıl-eklerim') {
+   const nasıl = new Discord.MessageEmbed()
+   let yapım = ""
+   .setDescription(`
+   **Proje eklemek için** \`a!proje-ekle [glitch_showLINK]\`
+   
+   [Yapmayı Bilmiyorsan Tıkla](${yapım})
+   
+   **eğer** \`1000\` **saat sınırınız varsa** \`a!proje-1000\` **yazarak method'a ulaşabilirsiniz.**`)
+  }
+  
+  if(Split[0] == 'a!uptime-sistemi') {
+  const menun = new Discord.MessageEmbed()
+  .setColor('RANDOM')
+  .setThumbnail(message.author.avatarURL)
+  .setTimestamp()
+  .setAuthor(client.user.username,client.user.avatarURL)
+    .setDescription(`\`a!ekle\` Botunuzu Uptime Eder.\n\`a!projeler\` Uptime ettiğiniz link sayısını gösterir.\n\`a!say\` Tüm Uptime edilmiş link sayısını gösterir.\n\`a!projelerim\` projelerinizi gösterir`)
 message.channel.send(menun)
   }
   
@@ -213,13 +234,14 @@ message.channel.send(menun)
    **eğer** \`1000\` **saat sınırınız varsa** \`a!proje-1000\` **yazarak method'a ulaşabilirsiniz.**`)
   }
 
-  if(Split[0] == 'a!proje-1000','a!proje-bin') {
+
+  if(Split[0] == 'a!proje-1000') {
     const method = new Discord.MessageEmbed()
    .setDescription(
      "`1000` **saat sınırınmı var çözüm bizde hadi gel anlatalım;**\n`1` Glitch hesabınızın olmaması gerekir.\n`2` Proje gizli olması gerekir.\n`3` Sonra projeni ekleyebilirsin")  
     }
 
-    if(Split[0] == 'a!projeler') {
+    if(Split[0] == 'a!projelerim') {
     const projeleri = db.fetch(`Projesi_${message.author.id}`)
     if (!db.get('PROJELER').map(Revenge => Revenge.owner).includes(message.author.id)) return message.channel.send(new Discord.MessageEmbed().setColor('#20aaba').setDescription(`**Hiç link eklememişsin. Link Eklemek İçin \`${prefix}ekle\` yazman yeterli**`))
     message.channel.send(new Discord.MessageEmbed().setColor('#20aaba').setDescription(`**Uptime ettiğiniz botlarınızın linklerini güvenlik amaçlı DM yoluyla gönderdik ${message.author}**`).setThumbnail(message.author.avatarURL))
