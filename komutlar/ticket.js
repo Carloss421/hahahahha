@@ -3,7 +3,7 @@ const data = require("quick.db");
 
 
 exports.run = async (client, message, args) => {
-  const db = require("quick.db")
+const db = require("quick.db")
 let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"
 if(premium !== db.fetch(`premium.${message.guild.id}`)) {
 if (premium == "Premium Aktif Değil!") {
