@@ -6,7 +6,7 @@ require("moment-duration-format");
 exports.run = function(client, message, args) {
 const duration = moment
     .duration(client.uptime)
-    .format(" D [gün], H [saat], m [dakika], s [saniye]");
+    .format("D [gün], H [saat], m [dakika], s [saniye]");
 let araEmoji =  "**⇢**"
 let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - İstatistik")
