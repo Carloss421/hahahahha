@@ -22,7 +22,7 @@ client.queue = new Map();
 require("./util/eventLoader")(client);
 require("moment-duration-format");
 
-var prefix = ayarlar.prefix;
+var prefix = aw ayarlar.prefix;
 
 const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
@@ -133,9 +133,18 @@ client.on("message", async msg => {
   const bt =
     (await db.fetch(`prefix_${msg.guild.id}`)) || client.ayarlar.prefix;
   if (message.isMentioned(client.user.id)) {
-    msg.react(client.emojis.get(client.emojiler.mutlu));
+    msg.react(":thumbsup:");
   }
 });
+//     [-----------------> BOT ETIKET <---------------] \\
+client.on('message', msg => {
+  if (msg.content === '<@828267474192564245>') {
+    msg.channel.send(new Discord.MessageEmbed()
+.setDesription(`Sunucu'daki prefix: ${prefix}`));
+  }
+});
+
+
 //     [-----------------> Afk <------------------]  \\
 
 client.on("message", async message => {
