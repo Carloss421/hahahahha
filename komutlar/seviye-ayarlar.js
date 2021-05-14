@@ -10,16 +10,17 @@ exports.run = async (client, message) => {
   const db = require('quick.db');
 
 
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
+  const ayarlar = require('../ayarlar.json')
+let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   let args = message.content.split(' ').slice(1);
   const secenekler = args.slice(0).join(' ');
 
   if(secenekler.length < 1) return message.reply(`**${prefix}seviye-ayarlar aç** veya **${prefix}seviye-ayarlar kapat** yazınz `);
   //if(secenekler === "aç" || "kapat") return message.channel.send(errembed);
 
-  if (secenekler !== "aç" && secenekler !== "kapat" && secenekler !== "on" && secenekler !== "off") return message.reply(`**${prefix}seviye-ayarlar aç** veya **${prefix}seviye-ayarlar kapat** yazınz `)
+  if (secenekler !== "aç" && secenekler !== "kapat") return message.reply(`**${prefix}seviye-ayarlar aç** veya **${prefix}seviye-ayarlar kapat** yazınz `)
 
-  if (secenekler === "aç" || secenekler === "on") {
+  if (secenekler === "aç") {
 
     var i = db.set(`lvll_${message.guild.id}`, "acik")
 
@@ -27,39 +28,18 @@ exports.run = async (client, message) => {
     .setColor('RED')
     .setDescription(`Seviye Sistem Başarıyla açıldı\nSeviye sistemini kapatmak isterseniz **${prefix}seviye-ayarlar kapat** yazmanız yeterlidir.`)
     message.channel.send(embed)
-    /*let kufurEngel = JSON.parse(fs.readFileSync("././jsonlar/kufurEngelle.json", "utf8"));
- if(!kufurEngel[message.guild.id]){
-    kufurEngel[message.guild.id] = {
-      kufurEngel: "acik"
-      };
-  };
-      fs.writeFile("././jsonlar/kufurEngelle.json", JSON.stringify(kufurEngel), (x) => {
-        if (x) console.error(x)
-      })*/
+
 
   };
 
-  if (secenekler === "kapat" || secenekler === "off") {
+  if (secenekler === "kapat") {
 
-    //var i = db.set(`küfürE_${message.guild.id}`, "kapali")
+
 
     db.delete(`lvll_${message.guild.id}`)
 
     message.channel.send('Seviye sistemi kapatıldı.')
-  /*let kufurEngel = JSON.parse(fs.readFileSync("././jsonlar/kufurEngelle.json", "utf8"));
-  if(!kufurEngel[message.guild.id]){
-    kufurEngel[message.guild.id] = {
-      kufurEngel: "kapali"
-      };
-  };
-    fs.writeFile("././jsonlar/kufurEngelle.json", JSON.stringify(kufurEngel), (x) => {
-        if (x) console.error(x)
-      })
-    
-    if (kufurEngel[message.guild.id]) {
-    delete kufurEngel[message.guild.id]
-    delete kufurEngel[message.guild.id].kufurEngel
-    }*/
+
 
   };
 }

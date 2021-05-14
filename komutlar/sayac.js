@@ -1,13 +1,14 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
 exports.run = (client, message, args) => { 
-
+const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 const embed = new Discord.MessageEmbed()  
 .setTitle("Alvi - Sayaç HATA")
 .setColor('BLUE')
 .setDescription(`
-**a!sayaç-ayarla** Sayacı Ayarlar.
-Örnek: \`a!sayaç-ayarla  Hedef #logkanal\``)
+**${prefix}sayaç-ayarla** Sayacı Ayarlar.
+Örnek: \`${prefix}sayaç-ayarla  Hedef #logkanal\``)
 .setTimestamp()
  message.channel.send(embed) 
   };

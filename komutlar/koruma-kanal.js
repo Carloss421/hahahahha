@@ -2,7 +2,8 @@ const db = require("quick.db");
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  let prefix = 'a!'
+  const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
 
   if (!args[0]) {
@@ -10,7 +11,7 @@ exports.run = async (client, message, args) => {
       .setColor("BLACK")
       .setTitle("Kanal Koruma sistemi!")
       .setDescription(
-        "Hatalı kullanım! örnek: a!kanal-koruma aç/kapat"
+        "Hatalı kullanım! örnek: "+ prefix +"kanal-koruma aç/kapat"
       );
 
     message.channel.send(embed);

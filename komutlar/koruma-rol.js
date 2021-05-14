@@ -3,14 +3,15 @@ const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
-  let prefix = "a!";
+
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
   if (!args[0]) {
     const embed = new Discord.MessageEmbed()
       .setColor("GOLD")
       .setTitle("Rol Koruma sistemi!")
       .setDescription(
-        "**Hatalı kullanım! örnek: a!rol-koruma aç/kapat**"
+        "**Hatalı kullanım! örnek: "+ prefix +"rol-koruma aç/kapat**"
       );
 
     message.channel.send(embed);

@@ -1,10 +1,11 @@
 const emran = require("discord.js");
 const ayarlar = require("../ayarlar.json");
-let prefix = ayarlar.prefix;
-
-exports.run = async (client, msg, args) => {
 
 
+
+exports.run = async (client, msg, message, args) => {
+const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   let role =
     msg.mentions.roles.first() ||
     msg.guild.roles.cache.get(args[0]) ||

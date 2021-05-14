@@ -6,14 +6,16 @@ module.exports.run = async (bot, message, args) => {
     message.reply(`Kullanım: a!unmute [user]`);
     return;
   }
-
+  const ayarlar = require('../ayarlar.json')
+  const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
   let xdemb = new Discord.MessageEmbed()
 let logEMD = new Discord.MessageEmbed()
     .setColor("#00ff00")
     .setTitle(`Alvi - Unmute HATA`) 
     .addField("Açıklama:", "`Üyenin susturulmasını kaldır`" + "\n")
-    .addField("Kullanım", "`a!unmute <@kullanıcı>`" + "\n")
+    .addField("Kullanım", "`"+ prefix +"unmute <@kullanıcı>`" + "\n")
     .addField("Örnek", "`c!unmute @Ali deneme`");
 message.channel.send(logEMD)
 let embed = new Discord.MessageEmbed()

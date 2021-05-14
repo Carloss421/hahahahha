@@ -7,21 +7,25 @@ exports.run = async (client, message, args) => {
   const sayacsayi = await db.fetch(`sayac_${message.guild.id}`);
   const sayackanal = message.mentions.channels.first()
 
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
+  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed()
+.setDescription(`Bu komutu kullanabilmek için \`Yönetici\` yetkisine sahip olmalısın.`));
 
   if(!args[0]) {
-    message.channel.send(`Bir sayı yazmalısın.`)
+    message.channel.send(new Discord.MessageEmbed()
+.setDescription(`Bir sayı yazmalısın.`))
     return
   }
 
   if(!sayackanal) {
-   message.channel.send(`Sayaç kanalını etiketlemelisin.`)
+   message.channel.send(new Discord.MessageEmbed()
+.setDescription(`Sayaç kanalını etiketlemelisin.`))
   }
 
 
   if(args[0] === "sıfırla") {
     if(!sayacsayi) {
-      message.channel.send(`Ayarlanmayan şeyi sıfırlayamazsın.`)
+      message.channel.send(new Discord.MessageEmbed()
+.setDescription(`Ayarlanmayan şeyi sıfırlayamazsın.`))
       return
     }
 
@@ -37,14 +41,15 @@ exports.run = async (client, message, args) => {
   }
 
         if(args[0] <= message.guild.members.size) {
-                message.channel.send(`Sunucudaki kullanıcı sayısından (${message.guild.members.size}) daha yüksek bir değer girmelisin.`)
+                message.channel.send(new Discord.MessageEmbed()
+.setDescription(`Sunucudaki kullanıcı sayısından (${message.guild.members.size}) daha yüksek bir değer girmelisin.`))
                 return
         }
 
   db.set(`sayac_${message.guild.id}`, args[0])
   db.set(`sayacK_${message.guild.id}`, sayackanal.name)
 
-  message.channel.send(`Sayaç **${args[0]}**, sayaç kanalı **${sayackanal}** olarak ayarlandı.`)
+  message.channel.send(new Discord.MessageEmbed().setDescription(`Sayaç **${args[0]}**, sayaç kanalı **${sayackanal}** olarak ayarlandı.`))
 }
 
 exports.conf = {

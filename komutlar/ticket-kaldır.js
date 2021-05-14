@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const data = require("quick.db");
-
+const ayarlar = require("../ayarlar.json")
 exports.run = async (client, message, args) => {
    const db = require("quick.db")
 let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"

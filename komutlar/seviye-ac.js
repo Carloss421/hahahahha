@@ -8,12 +8,13 @@ exports.run = async(client, message, args) => {
  
   let hm = await db.fetch(`seviyeacik_${message.guild.id}`)
   
-  if(hm) return message.reply('Bu tuhaf! Anlaşılan seviye sistemi zaten aktif edilmiş.. \n Bunu mu arıyorsun? `a!seviye-kapat`')
+  if(hm) return message.reply('Bu tuhaf! Anlaşılan seviye sistemi zaten aktif edilmiş.. \n Bunu mu arıyorsun? `'+ prefix +'seviye-kapat`')
   
   
   
   let kanal = await db.fetch(`svlog_${message.guild.id}`)
-  
+
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   
   let kontrol;
   if(kanal == null) kontrol = 'Sunucuda Ayarlanmış Bir Log Bulunamadı!'

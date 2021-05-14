@@ -11,7 +11,8 @@ exports.run = async (client, message) => {
   const db = require('quick.db');
   
 
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
+  const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 	let args = message.content.split(' ').slice(1);
 	const secenekler = args.slice(0).join(' ');
 

@@ -7,9 +7,8 @@ exports.run = async (client, message) => {
 .setDescription(`Bu komutu kullanabilmek için **Yönetici** iznine sahip olmalısın!`));
 
   const db = require('quick.db');
-  
-
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
+ const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 	let args = message.content.split(' ').slice(1);
 	const secenekler = args.slice(0).join(' ');
 
@@ -18,7 +17,7 @@ exports.run = async (client, message) => {
   if (secenekler !== "aç" && secenekler !== "kapat") return message.reply(new Discord.MessageEmbed()
 .setDescription(`**${prefix}reklam-engelle aç** veya **${prefix}reklam-engelle kapat** yazınz.`))
 
-	if (secenekler === "aç" || secenekler === "on") {
+	if (secenekler === "aç") {
 		
     var i = db.set(`reklamE_${message.guild.id}`, "acik")
     

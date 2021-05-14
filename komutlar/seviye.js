@@ -11,13 +11,15 @@ module.exports.run = async (client, message, args) => {
   let herkes = client.db.all().filter(i => i.ID.startsWith("exp_")).sort((a, b) => b.data - a.data);
   let seviye = herkes.map(x => x.ID).indexOf(`exp_${user.id}`) + 1;
 
-
+const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
    let log = await db.fetch(`svlog_${message.guild.id}`)
   
-if(!log) return message.channel.send(new MessageAttachment.MessageEmbed().setDescription('Seviye log kanalı tanımlanmamış!\n Bunu mu arıyorsun? `a!seviye-log #log-kanalı`'))
+if(!log) return message.channel.send(new MessageAttachment.MessageEmbed()
+.setDescription('Seviye log kanalı tanımlanmamış!\n Bunu mu arıyorsun? `'+ prefix +'seviye-log #log-kanalı`'))
    
   let dogumabati = db.fetch(`seviyeacik_${message.guild.id}`)
-  if(!dogumabati) return message.channel.send('Seviye sistemi açılmamış!\n Bunu mu arıyorsun? `a!seviye-aç`')
+  if(!dogumabati) return message.channel.send('Seviye sistemi açılmamış!\n Bunu mu arıyorsun? `'+ prefix +'seviye-aç`')
   
   const card = new canvacord.Rank()          //burdan sonrasını canvacordun docsuna bakarak güzelleştirebilirsiniz.
     .setUsername(user.username)

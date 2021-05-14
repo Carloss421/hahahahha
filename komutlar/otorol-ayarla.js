@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
 exports.run = async (client, message, args) => { 
-const crypto = require("../ayarlar.json");
-let prefix = "a!"  
+const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let rol = message.mentions.roles.first() 
 let kanal = message.mentions.channels.first()
 if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed()

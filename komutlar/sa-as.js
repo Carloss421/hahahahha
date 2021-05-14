@@ -2,8 +2,9 @@ const db = require('quick.db')
 const Discord = require('discord.js')
 
 exports.run = async (bot, message, args) => {
-
-  if (!args[0]) return message.channel.send('<:ak:617145990742278144> Sa-as yazısını açmak için; `!!sa-as aç veya kapat`')
+const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  if (!args[0]) return message.channel.send('Sa-as yazısını açmak için; `'+ prefix +'sa-as aç veya kapat`')
 
   if (args[0] == 'aç') {
     db.set(`ss_${message.guild.id}`, 'açık')
