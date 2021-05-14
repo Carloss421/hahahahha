@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 const ayarlar = require("../ayarlar.json");
-let prefix = ayarlar.prefix;
+
 
 exports.run = async (client, message, args) => {
+  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   let CERol = message.mentions.roles.first();
   let CEYetkili = db.fetch("banyetkili." + message.guild.id) || "Ban yetkili rolü yok";
   if (

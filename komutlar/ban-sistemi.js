@@ -8,7 +8,7 @@ let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - BanSistemi`)
 .setColor("RANDOM")
 .setDescription(`
-\`${prefix}bansay | ${prefi` Banlananları sayar. 
+\`${prefix}bansay | ${prefix}say\` Banlananları sayar.
 \`${prefix}ban-yetkili @Yetkili\` Banlayacak rolü ayarlar. 
 \`${prefix}ban-log\` Banlananların logunu tutar.`)
 message.channel.send(embed)

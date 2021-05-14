@@ -2,6 +2,7 @@ let database = require("quick.db");
 const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js')
 exports.run = async (client, message) => {
+  let prefix = database.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (!message.member.hasPermission(`ADMINISTRATOR`))
     return message.channel.send(
       `Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin.`
@@ -10,7 +11,7 @@ exports.run = async (client, message) => {
   let rol = message.mentions.roles.first();
   if (!rol)
     return message.channel.send(
-      `💲 **Bir Rol Etiketlemen Gerekmekte \nÖrnek: __${ayarlar.prefix}abonerol @rol__**`
+      `💲 **Bir Rol Etiketlemen Gerekmekte \nÖrnek: __${prefix}abonerol @rol__**`
     );
 
   database.set(`abonerol.${message.guild.id}`, rol.id);
