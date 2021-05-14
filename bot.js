@@ -841,7 +841,7 @@ client.on("message", msg => {
   }
 });
 
-client.on("guildCreate", guild => {
+client.on("guildCreate", (guild, message) => {
 let alındı = ":white_check_mark:"
 let alınıyor = "<a:yükleniyor:839266395308687421>"
   const emmmmbed = new Discord.MessageEmbed()
@@ -854,7 +854,9 @@ i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor.`)
 i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor...`)
 i.edit(`${alındı} Sunucunuzun istatistikleri başarıyla alındı!`)
 }).then(me=>me.delete(3001));
-
+db.set(`sunucu_${message.guild.id}`).then(svr=>svr.time()) 
+db.delete(`sunucu_${message.guild.id}`))
+   
   
   let defaultChannel = "";
   guild.channels.cache.forEach(channel => {
