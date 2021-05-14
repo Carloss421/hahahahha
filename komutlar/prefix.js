@@ -24,7 +24,7 @@ exports.run = (client, message, args, func) => {
 .setDescription(` 
 Prefix başarıyla \`${args[0]}\` olarak ayarlandı.
 Prefixi unutursanız <@828267474192564245>'yi etiketleminiz yeterli!`))
-  
+   
 };
 
 exports.conf = {
