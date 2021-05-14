@@ -1,42 +1,55 @@
 const Discord = require('discord.js');
-const db = require('quick.db');
+const fs = require('fs');
 
-exports.run = async(client, message, args) => {
+exports.run = async (client, message) => {
+  
+	if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed()
+.setDescription(`Bu komutu kullanabilmek için **Yönetici** iznine sahip olmalısın!`));
 
-  if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(` Bu komudu kullanabilmek için **Mesajları Yönet** yetkisine sahip olman gerek.`)
-  if (!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`:no_entry: Reklam Filtresini Ayarlamak İçin \`a!reklam aç\` | Kapatmak İstiyorsanız \`a!reklam kapat\` Yazabilirsiniz`))
-  if (args[0] !== 'aç' && args[0] !== 'kapat') return message.channel.send(new Discord.MessageEmbed().setDescription(`:no_entry: Reklam Filtresini Ayarlamak İçin \`a!reklam aç\` | Kapatmak İstiyorsanız \`a!reklam kapat\` Yazabilirsiniz`))
+  const db = require('quick.db');
+  
 
-    if (args[0] == 'aç') {
-    db.set(`reklamFiltre_${message.guild.id}`, 'acik')
-    let i = await db.fetch(`reklamFiltre_${message.guild.id}`)
-  message.channel.send(`Reklam Filtresi başarıyla ayarlandı.`)    
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
+	let args = message.content.split(' ').slice(1);
+	const secenekler = args.slice(0).join(' ');
 
-  } 
+	if(secenekler.length < 1) return message.reply(`**${prefix}reklam-engelle aç** veya **${prefix}reklam-engelle kapat** yazınz.`);
 
-  if (args[0] == 'kapat') {
+  if (secenekler !== "aç" && secenekler !== "kapat") return message.reply(new Discord.MessageEmbed()
+.setDescription(`**${prefix}reklam-engelle aç** veya **${prefix}reklam-engelle kapat** yazınz.`))
 
-    let üye = await db.fetch(`reklamFiltre_${message.guild.id}`)
-    if (!üye) return message.channel.send(new Discord.MessageEmbed().setDescription(`Reklam filtresini açtığına emin misin?.`))
+	if (secenekler === "aç" || secenekler === "on") {
+		
+    var i = db.set(`reklamE_${message.guild.id}`, "acik")
+    
+		  const embed = new Discord.MessageEmbed()
+    .setColor('RED')
+    .setDescription(`Reklam Engeli Başarıyla açıldı\Reklam engelini kapatmak isterseniz **${prefix}reklam-engel kapat** yazmanız yeterlidir.`)
+    message.channel.send(embed)
+ 
+	};
 
+	if (secenekler === "kapat") {
+    
+    db.delete(`reklamE_${message.guild.id}`)
+    
+		message.channel.send(new Discord.MessageEmbed().setDescription('Reklam engelleme sistemi kapatıldı'))
+    
+	};
+}
 
-    db.delete(`reklamFiltre_${message.guild.id}`)
-
-    message.channel.send(new Discord.MessageEmbed().setDescription(`Reklam Filtresini Kapattım.`))
-  }
-
-};
-
-
-exports.conf = {
- enabled: true,
- guildOnly: false,
-  aliases: ['reklam', 'reklam-filtresi', 'reklamfiltresi', 'reklam-filtre', 'reklamfiltre','reklam-engel','reklamengel'],
- permLevel: 0
-};
-
-exports.help = {
- name: 'reklam-engelleme',
- description: 'reklamm',
- usage: 's$$kanal'
-};
+	exports.conf = {
+		enabled: true,
+		guildOnly: false,
+		aliases: ['link-engel','link-engelleme','reklam-engel'],
+		permLevel: 4,
+    kategori: "ayarlar",
+   
+	  };
+	  
+	exports.help = {
+		name: 'reklam-engelle',
+		description: 'Lİnk engelleme sistemini açıp kapatmanızı sağlar.',
+		usage: 'link-engelle <aç/kapat>',
+   
+	};

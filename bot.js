@@ -126,7 +126,16 @@ client.unload = command => {
     }
   });
 };
+//     [-----------------> PREFIX <---------------]  \\
+client.on("message", async msg => {
+  let message = msg;
 
+  const bt =
+    (await db.fetch(`prefix_${msg.guild.id}`)) || client.ayarlar.prefix;
+  if (message.isMentioned(client.user.id)) {
+    msg.react(client.emojis.get(client.emojiler.mutlu));
+  }
+});
 //     [-----------------> Afk <------------------]  \\
 
 client.on("message", async message => {
