@@ -1135,14 +1135,42 @@ if (db.has(`küfürE_${message.guild.id}`) === true) {
 const küfür = [
 "sikik","oç","orospu","orospu çocuğu","öröspü çöcüğü","Oç","oÇ","OÇ","sikerim","kafasız","porno","pörnö","pornocu","31","31.",
 "31 çeken","am","amcık","am çorbası","amcık çorbası","tam sikmelik","sikiş","sikmek","sik çorbası","sik suyu","am suyu","amcık suyu","yarrak",
-"yarrak kafalı","soğan sikli","siki başı sik","yarrağı kara","kara sikli","kara yarraklı","tam oç","tam öç","tem oç","tem öç"
-]  
-}
-});
+"yarrak kafalı","soğan sikli","siki başı sik","yarrağı kara","kara sikli","kara yarraklı","tam oç","tam öç","tem oç","tem öç","öç","yarrak kokusu",
+"sik kokusu","ananı sikim","ananı sikiyim","anneni sikim","anneni sikiyim","ablanı sikim","ablanı sikiyim","gacını sikiyim","karını sikiyim",
+"babanı sikiyim","aileni sikime oturturayım","muz istermisin","yarrağım","sikim","sik","nah","taşşak","taşak","yarak","yalak","kafasını siktiğim",
+"kafası sikik","bira","içki","turbo","amk"]
+ if (küfür.some(word => message.content.toLowerCase().includes(word))) {
+      if (!message.member.hasPermission("ADMINISTRATOR")) {
+        message.delete();
+        var ke = new Discord.MessageEmbed()
+          .setColor("RED")
+          .setAuthor("Küfür Engel (SISTEM)")
+          .setDescription(`
+Hey <@${message.author.id}>, Bu sunucuda küfürler **<@${client.user.id}>** tarafından engellenmektedir! Küfür etmene izin vermeyeceğim!`);        
+        db.add(`küfürEwarn_${message.author.id}`, 1);
+        message.channel.send(ke).then(message => message.delete(5000));
+}}}});
 
-client.on("messageUptade", msg => {
-  
-});
+client.on("messageUptade", message => {
+if (db.has(`küfürE_${message.guild.id}`) === true) {
+const küfür = [
+"sikik","oç","orospu","orospu çocuğu","öröspü çöcüğü","Oç","oÇ","OÇ","sikerim","kafasız","porno","pörnö","pornocu","31","31.",
+"31 çeken","am","amcık","am çorbası","amcık çorbası","tam sikmelik","sikiş","sikmek","sik çorbası","sik suyu","am suyu","amcık suyu","yarrak",
+"yarrak kafalı","soğan sikli","siki başı sik","yarrağı kara","kara sikli","kara yarraklı","tam oç","tam öç","tem oç","tem öç","öç","yarrak kokusu",
+"sik kokusu","ananı sikim","ananı sikiyim","anneni sikim","anneni sikiyim","ablanı sikim","ablanı sikiyim","gacını sikiyim","karını sikiyim",
+"babanı sikiyim","aileni sikime oturturayım","muz istermisin","yarrağım","sikim","sik","nah","taşşak","taşak","yarak","yalak","kafasını siktiğim",
+"kafası sikik","bira","içki","turbo","amk"]
+if (küfür.some(word => message.content.toLowerCase().includes(word))) {
+if (!message.member.hasPermssion("ADMINISTRATOR")) {
+message.delete();
+var ke = new Discord.MessageEmbed()
+.setColor("RED")
+.setAuthor("Küfür Engel (SISTEM)")
+.setDescription(`
+Sen kendini akıllımı sanıyorsun ${message.author}
+Bu sunucuda küfürler **<@${client.user.id}>**
+`)
+}}}});
 // -------------------> [Reklam-Engel] <---------------- \\
 client.on("message", message => {
   if (db.has(`reklamE_${message.guild.id}`) === true) {
