@@ -22,7 +22,6 @@ client.queue = new Map();
 require("./util/eventLoader")(client);
 require("moment-duration-format");
 
-var prefix = aw ayarlar.prefix;
 
 const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
@@ -126,23 +125,28 @@ client.unload = command => {
     }
   });
 };
+
+var prefix = ayarlar.prefix;
+
 //     [-----------------> PREFIX <---------------]  \\
 client.on("message", async msg => {
   let message = msg;
 
   const bt =
-    (await db.fetch(`prefix_${msg.guild.id}`)) || client.ayarlar.prefix;
+    (await db.fetch(`prefix_${msg.guild.id}`)) || ayarlar.prefix;
   if (message.isMentioned(client.user.id)) {
     msg.react(":thumbsup:");
   }
 });
 //     [-----------------> BOT ETIKET <---------------] \\
-client.on('message', msg => {
-  if (msg.content === '<@828267474192564245>') {
-    msg.channel.send(new Discord.MessageEmbed()
-.setDesription(`Sunucu'daki prefix: ${prefix}`));
-  }
-});
+client.on('message', message => {
+const prefixD = db.fetch(`prefix_${message.guild.id}`)
+  if (message.content === '<@828267474192564245>') {
+    message.channel.send(new Discord.MessageEmbed()
+.setDesription(`
+Sunucu'daki prefix: ${prefixD}
+Bot'un ana prefixi: ${ayarlar.prefix}`));
+}});
 
 
 //     [-----------------> Afk <------------------]  \\
@@ -1234,72 +1238,91 @@ client.on("messageUptade", msg => {
   }
 });
 // -------------------> [Reklam-Engel] <---------------- \\
-client.on("message", async (msg, message) => {
-  if (msg.author.bot) return;
-  if (msg.channel.type === "dm") return;
-
-  let i = db.fetch(`reklamFiltre_${message.guild.id}`);
-  if (i == "acik") {
-    const reklam = [
-      "discord.app",
-      "discord.gg",
-      "invite",
-      "discordapp",
-      "discordgg",
-      ".com",
-      ".net",
-      ".xyz",
-      ".tk",
-      ".pw",
-      ".io",
-      ".me",
-      ".gg",
-      "www.",
-      "https",
-      "http",
-      ".gl",
-      ".org",
-      ".com.tr",
-      ".biz",
-      ".party",
-      ".rf.gd",
-      ".az"
-    ];
-    if (reklam.some(word => msg.content.toLowerCase().includes(word))) {
-      try {
-        if (!msg.member.hasPermission("MANAGE_MESSAGES")) {
-          msg.delete();
-          let embed = new Discord.MessageEmbed()
-            .setColor(0xffa300)
-            .setAuthor(
-              msg.guild.owner.user.username,
-              msg.guild.owner.user.avatarURL
-            )
-            .setDescription(
-              "Alvi - Reklam Sistemi" +
-                `***${msg.guild.name}***` +
-                " adlı sunucunuzda reklam yakaladım."
-            )
-            .addField(
-              "Reklamı yapan kişi",
-              "Kullanıcı: " + msg.author.tag + "\nID: " + msg.author.id,
-              true
-            )
-            .addField("Engellenen mesaj", msg.content, true)
-            .setTimestamp();
-          msg.guild.owner.user.send(embed);
-          return msg.channel
-            .send(`${msg.author.tag}, Reklam Yapmak Yasak Lanet Zenci!`)
-            .then(msg => msg.delete(25000));
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }
-  if (!i) return;
-});
-
+client.on("message", message => {
+  if (db.has(`reklamE_${message.guild.id}`) === true) {
+      const reklam = [
+    ".ml",
+    "discord.gg",
+    "invite",
+    "discordapp",
+    "discordgg",
+    ".com",
+    ".net",
+    ".xyz",
+    ".tk",
+    ".pw",
+    ".io",
+    ".me",
+    ".gg",
+    "www.",
+    "https",
+    "http",
+    ".gl",
+    ".org",
+    ".com.tr",
+    ".biz",
+    ".party",
+    ".rf.gd",
+    ".az",
+    "glitch.me",
+    "glitch.com"
+  ];
+    if (reklam.some(word => message.content.toLowerCase().includes(word))) {
+      if (!message.member.hasPermission("ADMINISTRATOR")) {
+        message.delete();
+        var ke = new Discord.MessageEmbed()
+          .setColor("RANDOM")
+          .setAuthor("Reklam Engel (SISTEM)")
+          .setDescription(
+            `Hey <@${message.author.id}>, Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`
+          );
+        
+        db.add(`reklamEwarn_${message.author.id}`, 1);
+        message.channel.send(ke).then(message => message.delete(5000));
+      }}}});
+client.on("messageUptade", message => {
+    if (db.has(`reklamE_${message.guild.id}`) === true) {
+      const reklam = [
+    ".ml",
+    "discord.gg",
+    "invite",
+    "discordapp",
+    "discordgg",
+    ".com",
+    ".net",
+    ".xyz",
+    ".tk",
+    ".pw",
+    ".io",
+    ".me",
+    ".gg",
+    "www.",
+    "https",
+    "http",
+    ".gl",
+    ".org",
+    ".com.tr",
+    ".biz",
+    ".party",
+    ".rf.gd",
+    ".az",
+    "glitch.me",
+    "glitch.com"
+  ];
+    if (reklam.some(word => message.content.toLowerCase().includes(word))) {
+      if (!message.member.hasPermission("ADMINISTRATOR")) {
+        message.delete();
+        var ke = new Discord.MessageEmbed()
+          .setColor("RANDOM")
+          .setAuthor("Reklam Engel (SISTEM)")
+          .setDescription(`
+            Sen kendini akıllımı sanıyorsun!
+            <@${message.author.id}>, Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`
+          );
+        
+        db.add(`reklamEwarn_${message.author.id}`, 1);
+        message.channel.send(ke).then(message => message.delete(5000));
+      }}}});
 // -------------------> [ROL-KORUMA] <------------------ \\
 client.on("roleCreate", async (rolee, member, guild) => {
   let rolkoruma = await db.fetch(`rolk_${rolee.guild.id}`);
