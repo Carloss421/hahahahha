@@ -10,8 +10,8 @@ let ohow = await db.fetch(`prefix_${message.guild.id}`)
 .setDescription("Bu komutu kullanabilmek için `YONETICI` iznine sahip olmalısın!"));
   
 let warnMessage = new Discord.MessageEmbed()
-
-message.channels
+.setDescription(`${ayarlar.hata} Lütfen **ayarla** veya **sıfırla** yaz.`)
+message.channel.send(warnMessage)
   
 /*
 if(args[0] === 'ayarla') {

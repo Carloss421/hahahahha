@@ -26,7 +26,7 @@ var prefix = ayarlar.prefix
 
 const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
-};
+};/*
 client.on("ready", () => {
   var actvs = [
     `🎀 Yardım almak için | a!yardım`,
@@ -51,12 +51,12 @@ client.on("ready", () => {
     // BOSTA = IDLE
     // CEVRIMDISI = OFFLINE
   }, 15000);
-});
+});*/
 
 client.elevation = message => {
   if (!message.guild) {
     return;
-  }
+  } 
   let permlvl = 0;
   if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
