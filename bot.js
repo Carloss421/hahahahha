@@ -22,6 +22,7 @@ client.queue = new Map();
 require("./util/eventLoader")(client);
 require("moment-duration-format");
 
+var prefix = ayarlar.prefix
 
 const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
@@ -557,7 +558,7 @@ Self botlara karşı önlem olarak kullanılabilir.
 const youtube = new YouTube("API");
 
 client.on("message", async (msg, message) => {
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  let prefix = ayarlar.prefix;
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
