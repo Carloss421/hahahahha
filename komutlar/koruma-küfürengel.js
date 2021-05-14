@@ -1,56 +1,59 @@
 const Discord = require('discord.js');
 const fs = require('fs');
-let küfürEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));
 
-var ayarlar = require('../ayarlar.json');
+//var ayarlar = require('../ayarlar.json');
 
-exports.run = (client, message) => {
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(new Discord.MessageEmbed().setDescription(`Bu komutu kullanabilmek için **Mesajları Yönet** iznine sahip olmalısın!`));
-            if(message.channel.type == "dm")  return;
-  if(message.channel.type !== "text") return;
+exports.run = async (client, message) => {
+  
+	if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed()
+.setDescription(`Bu komutu kullanabilmek için **Yönetici** iznine sahip olmalısın!`));
 
- let args = message.content.split(' ').slice(1);
- const secenekler = args.slice(0).join(' ');
+  const db = require('quick.db');
+  
 
- var errembed = new Discord.MessageEmbed()
- .setColor("RANDOM")
- .setDescription(`Yanlış Kullanım!`)
- .addField(`Doğru Kullanım:`, `${ayarlar.prefix}küfür-engelle aç veya kapat`)
- //if(secenekler === "aç" || "kapat") return message.channel.send(errembed);
-   if(secenekler.length < 1) return message.reply(new Discord.MessageEmbed().setDescription("Küfür Engelleme Açmak İçin `a!küfür-engelle aç` kapatmak için `a!küfür-engelle kapat`")).then(m => m.delete(10000));
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
+	let args = message.content.split(' ').slice(1);
+	const secenekler = args.slice(0).join(' ');
 
-    message.delete();
+	if(secenekler.length < 1) return message.channel.send(new Discord.MessageEmbed()
+.setDescription(`**${prefix}küfür-engelle aç** veya **${prefix}küfür-engelle kapat** yazınz `));
 
-   if (secenekler === "aç") {
-  message.channel.send(new Discord.MessageEmbed().setDescription(`Küfür Engelleme Sistemi: **açık**!`))
-  küfürEngel[message.guild.id] = {
-   küfürEngel: "acik"
-    };
 
-    fs.writeFile("./jsonlar/kufurEngelle.json", JSON.stringify(küfürEngel), (err) => {
-   if (err) console.log(err)
-    });
- };
+  if (secenekler !== "aç" && secenekler !== "kapat") return message.reply(`**${prefix}küfür-engelle aç** veya **${prefix}küfür-engelle kapat** yazınz `)
+  
+	if (secenekler === "aç") {
+    
+    var i = db.set(`küfürE_${message.guild.id}`, "acik")
+    
+		  const embed = new Discord.MessageEmbed()
+    .setColor('RED')
+    .setDescription(`Küfür Engel Başarıyla açıldı\nKüfür engel kapatmak isterseniz **${prefix}küfür-engel kapat** yazmanız yeterlidir.`)
+    message.channel.send(embed)
 
- if (secenekler === "kapat") {
-  message.channel.send(new Discord.MessageEmbed().setDescription(`Küfür Engelleme Sistemi: **kapalı**!`))
-   küfürEngel: "kapali"
-    };
+	};
 
-  fs.writeFile("./jsonlar/kufurEngelle.json", JSON.stringify(küfürEngel), (err) => {
-   if (err) console.log(err)
-    });
- };
+	if (secenekler === "kapat") {
+    
+    db.delete(`küfürE_${message.guild.id}`)
+    
+		message.channel.send(new Discord.MessageEmbed()
+.setDescription('Küfür engel kapatıldı'))
 
- exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ['küfürengel','küfür-engelle','küfür-engel'],
-  permLevel: 3
-   };
+    
+	};
+}
 
-   exports.help = {
-  name: 'küfürengelle',
-  description: 'Küfür engelleme sistemini açıp kapatmanızı sağlar.',
-  usage: 's$küfür-engelle aç veya kapat'
-   };
+	exports.conf = {
+		enabled: true,
+		guildOnly: false,
+		aliases: ['küfür-engel'],
+		permLevel: 4,
+    kategori: "ayarlar",
+	};
+	  
+	exports.help = {
+		name: 'küfür-engelle',
+		description: 'Küfür engelleme sistemini açıp kapatmanızı sağlar.',
+		usage: 'küfür-engelle <aç/kapat>',
+    
+	};

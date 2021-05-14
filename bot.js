@@ -1130,112 +1130,18 @@ client.on("message", msg => {
 });
 
 // -------------------> [Kufur-Engel] <---------------- \\
-client.on("message", msg => {
-  let kufurEngel = JSON.parse(
-    fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8")
-  );
-  if (!msg.guild) return;
-  if (!kufurEngel[msg.guild.id]) return;
-  if (kufurEngel[msg.guild.id].kufurEngel === "kapali") return;
-  if (kufurEngel[msg.guild.id].kufurEngel === "acik") {
-    const kufur = [
-      "mk",
-      "amk",
-      "aq",
-      "orospu",
-      "oruspu",
-      "oç",
-      "sikerim",
-      "yarrak",
-      "piç",
-      "amq",
-      "sik",
-      "amcık",
-      "çocu",
-      "sex",
-      "seks",
-      "amına",
-      "orospu çocuğu",
-      "sg",
-      "siktir git",
-      "am çorbası",
-      "am oşafı",
-      "annanı sikim",
-      "anneni pandikleyim",
-      "OÇ",
-      "taşşak",
-      "piç",
-      "sikiş",
-      "porno",
-      "porn"
-    ];
-    if (kufur.some(word => msg.content.toLowerCase().includes(word))) {
-      if (!msg.member.hasPermission("ADMINISTRATOR")) {
-        msg.delete();
-        msg.reply(
-          new Discord.MessageEmbed()
-            .setDescription(
-              "Bu sunucuda küfürler **Alvi Bot** tarafından engellenmektedir! Küfür etmene izin vermeyeceğim!"
-            )
-            .then(message => message.delete(3000))
-        );
-      }
-    }
-  }
+client.on("message", message => {
+if (db.has(`küfürE_${message.guild.id}`) === true) {
+const küfür = [
+"sikik","oç","orospu","orospu çocuğu","öröspü çöcüğü","Oç","oÇ","OÇ","sikerim","kafasız","porno","pörnö","pornocu","31","31.",
+"31 çeken","am","amcık","am çorbası","amcık çorbası","tam sikmelik","sikiş","sikmek","sik çorbası","sik suyu","am suyu","amcık suyu","yarrak",
+"yarrak kafalı","soğan sikli","siki başı sik","yarrağı kara","kara sikli","kara yarraklı","tam oç","tam öç","tem oç","tem öç"
+]  
+}
 });
 
 client.on("messageUptade", msg => {
-  let kufurEngel = JSON.parse(
-    fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8")
-  );
-  if (!msg.guild) return;
-  if (!kufurEngel[msg.guild.id]) return;
-  if (kufurEngel[msg.guild.id].kufurEngel === "kapali") return;
-  if (kufurEngel[msg.guild.id].kufurEngel === "acik") {
-    const kufur = [
-      "mk",
-      "amk",
-      "aq",
-      "orospu",
-      "oruspu",
-      "oç",
-      "sikerim",
-      "yarrak",
-      "piç",
-      "amq",
-      "sik",
-      "amcık",
-      "çocu",
-      "sex",
-      "seks",
-      "amına",
-      "orospu çocuğu",
-      "sg",
-      "siktir git",
-      "am çorbası",
-      "am oşafı",
-      "annanı sikim",
-      "anneni pandikleyim",
-      "OÇ",
-      "taşşak",
-      "piç",
-      "sikiş",
-      "porno",
-      "porn"
-    ];
-    if (kufur.some(word => msg.content.toLowerCase().includes(word))) {
-      if (!msg.member.hasPermission("ADMINISTRATOR")) {
-        msg.delete();
-        msg.reply(
-          new Discord.MessageEmbed()
-            .setDescription(
-              "Hoop dur bakayım! Kendini akıllımı zannediyorsun ben **Alvi BOT**'um istediğini yap küfürlerini engellicem!"
-            )
-            .then(message => message.delete(3000))
-        );
-      }
-    }
-  }
+  
 });
 // -------------------> [Reklam-Engel] <---------------- \\
 client.on("message", message => {
@@ -1316,8 +1222,8 @@ client.on("messageUptade", message => {
           .setColor("RANDOM")
           .setAuthor("Reklam Engel (SISTEM)")
           .setDescription(`
-            Sen kendini akıllımı sanıyorsun!
-            <@${message.author.id}>, Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`
+            Sen kendini akıllımı sanıyorsun <@${message.author.id}>
+           Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`
           );
         
         db.add(`reklamEwarn_${message.author.id}`, 1);
