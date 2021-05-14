@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
-const db = require('quick.db')
+
 exports.run = function(client, message, args) {
-  
-let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;  
+const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   
 let embed = new Discord.MessageEmbed()
 .setTitle('Alvi - Yardım')

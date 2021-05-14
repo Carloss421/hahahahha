@@ -2,15 +2,17 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
+  const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Ticket  `)
 .setColor("RANDOM")
 .setDescription(`
-\`${ayarlar.prefix}ticket aç\` Ticket açar. 
-\`${ayarlar.prefix}ticket-kanal\` Ticket kanalı ayarlar. 
-\`${ayarlar.prefix}ticket kapat\` Ticket'ı kapatır. 
-\`${ayarlar.prefix}ticket-kaldır\` Ticket'ı kaldırır.
-\`${ayarlar.prefix}ticket gönder\` Ticket mesajı gönderir.
+\`${prefix}ticket aç\` Ticket açar. 
+\`${prefix}ticket-kanal\` Ticket kanalı ayarlar. 
+\`${prefix}ticket kapat\` Ticket'ı kapatır. 
+\`${prefix}ticket-kaldır\` Ticket'ı kaldırır.
+\`${prefix}ticket gönder\` Ticket mesajı gönderir.
 
 `)
 message.channel.send(embed)

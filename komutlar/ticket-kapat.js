@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const data = require("quick.db");
-
+const ayarlar = require("../ayarlar.json")
 exports.run = async (client, message, args) => {
    const db = require("quick.db")
 let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"
@@ -12,7 +12,7 @@ let pre = new Discord.MessageEmbed()
  return message.channel.send(pre).then(msg=>msg.delete(5000));
 }};
   if (premium == "Premium Aktif") {
-  const prefix = "a!"
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   const ad = await data.fetch(`numara.${message.channel.id}`);
   if (!ad) {
     ad = "0";

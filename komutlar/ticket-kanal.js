@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const data = require("quick.db");
-const ayarlar = require("../ayarlar");
+const ayarlar = require("../ayarlar.json");
 exports.run = async (client, message, args) => {
   const db = require("quick.db")
 let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"
@@ -12,7 +12,7 @@ let pre = new Discord.MessageEmbed()
  return message.channel.send(pre).then(msg=>msg.delete(5000));
 }}; 
   if (premium == "Premium Aktif") {
-  const prefix = ayarlar.prefix;
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (!message.member.hasPermission("ADMINISTRATOR"))
     return message.channel.send("Bu komutu kullanmak için yetkin yok.");
 

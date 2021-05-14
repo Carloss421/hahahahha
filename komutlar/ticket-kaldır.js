@@ -13,7 +13,8 @@ let pre = new Discord.MessageEmbed()
 }};
   
   if (premium == "Premium Aktif") {
-  const prefix = "a!"
+
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
   if (!args[0]) {
     message.delete();

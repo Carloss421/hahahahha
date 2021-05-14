@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const data = require("quick.db");
-
+const ayarlar = require("../ayarlar.json")
 
 exports.run = async (client, message, args) => {
 const db = require("quick.db")
@@ -14,7 +14,8 @@ let pre = new Discord.MessageEmbed()
 }}; 
   
   if (premium == "Premium Aktif") {
-  const prefix = "a!";
+
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
   if (args[0] === "gönder") {
     const kanalbelirle = await data.fetch(`kanal.${message.guild.id}`);

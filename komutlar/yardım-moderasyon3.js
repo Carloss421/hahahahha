@@ -2,14 +2,16 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
+const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon3`)
 .setColor("RANDOM")
 .setDescription(`
-\`${ayarlar.prefix}ban-sistemi\` Ban komutlarını açar.
-~~\`${ayarlar.prefix}mute-sistemi\` Mute komutlarını açar.~~
-~~\`${ayarlar.prefix}ayarlar\` Sunucudaki ayarlanan herşeyi gösterir.~~
-~~\`${ayarlar.prefix}botlist-sistemi\` Botlist komutlarını açar.~~
+\`${prefix}ban-sistemi\` Ban komutlarını açar.
+~~\`${prefix}mute-sistemi\` Mute komutlarını açar.~~
+~~\`${prefix}ayarlar\` Sunucudaki ayarlanan herşeyi gösterir.~~
+~~\`${prefix}botlist-sistemi\` Botlist komutlarını açar.~~
 `)
 message.channel.send(embed)
 };

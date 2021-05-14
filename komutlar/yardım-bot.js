@@ -4,6 +4,8 @@ const moment = require('moment')
 require("moment-duration-format")
 
 exports.run = function(client, message, args) {
+  const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   const duration = moment
     .duration(client.uptime)
     .format(" D [gün], H [saat], m [dakika], s [saniye]");
@@ -17,7 +19,7 @@ let embed = new Discord.MessageEmbed()
 :warning: **captcha-sistemi** HATALI!
 :warning: **görev-sistemi** Üzerinde Çalışılıyor!
 
-**Hata gördüyseniz** \`a!hata-bildir\`
+**Hata gördüyseniz** \`${prefix}hata-bildir\`
 **Yardım almak için Aşağıda bulunana DESTEK SUNUCUSU'na tıklaman yeterli.**
 
 [Davet Et](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - OyVer **(YAKINDA!)**
