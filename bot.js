@@ -1403,36 +1403,29 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
 client.on("guildMemberAdd", (member, message) => {
   let kanal = db.fetch(`logkayıt_${message.guild.id}`);
   let kayıtçı = db.fetch(`kayıty_${message.guild.id}`);
-  const strigadiyorumlogdiyorum = `${kanal}`;
+  const logkanal = `${kanal}`;
   const register = `${kayıtçı}`;
   let user = client.users.get(member.id);
   require("moment-duration-format");
   const kurulus = new Date().getTime() - user.createdAt.getTime();
 
   var kontrol;
-  if (kurulus < 1296000000)
+  if (kurulus < 2592000000)
     kontrol = "<a:kapali:827620346491830272> **__Bu Hesap Güvenilir Değil__**";
-  if (kurulus > 1296000000)
-    kontrol =
-      "<a:acik:827618729193242634> **__Bu Hesap Güvenilir Gözüküyor__**";
+  if (kurulus > 2592000000)
+    kontrol = "<a:acik:827618729193242634> **__Bu Hesap Güvenilir Gözüküyor__**";
   moment.locale("tr");
-  let strigalog = client.channels.get(strigadiyorumlogdiyorum);
+  let log = client.channels.get(logkanal);
   const embed = new Discord.MessageEmbed()
-    .setColor("0xd8d8d8")
-    .setTitle(`**Alvi - Kayıt Sistemi**`).setDescription(`
-**:wave: Hoşgeldin!** ${member}  **Seninle \`${
-    member.guild.memberCount
-  }\` Kişiyiz.**  
+.setColor("0xd8d8d8")
+.setTitle(`**Alvi - Kayıt Sistemi**`)
+.setDescription(`
+**:wave: Hoşgeldin!** ${member}  **Seninle \`${member.guild.memberCount}\` Kişiyiz.**  
 **Müsait olduğunda Ses Teyit Odalarından Birine Geçip Kaydını Yaptırabilirsin.** 
 👤 <@&${register}> seninle ilgilenicektir.
-📖 Hesabın Oluşturulma Tarihi: ${moment(member.user.createdAt).format(
-    "** YYYY __DD MMMM dddd__**"
-  )} ${kontrol}`);
-  strigalog.send(embed);
-  strigalog
-    .send(register)
-    .setDescription(`@everyone`)
-    .then(message => message.delete < 1000);
+📖 Hesabın Oluşturulma Tarihi: ${moment(member.user.createdAt).format("** YYYY __DD MMMM dddd__**")} ${kontrol}`);
+  log.send(embed);
+  log.send(register).setDescription(`@everyone`).then(message => message.delete < 1000);
 });
 // -----------------------> [Davet-Sistemi] <------------------------------ \\
 client.on("guildMemberRemove", async member => {
@@ -1449,18 +1442,10 @@ client.on("guildMemberRemove", async member => {
   db.add(`davet_${d}_${member.guild.id}`, -1);
 
   if (!d) {
-    client.channels
-      .get(kanal)
-      .send(
-        `<:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ **BULUNAMADI**]`
-      );
+    client.channels.get(kanal).send(`<:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ **BULUNAMADI**]`);
     return;
   } else {
-    client.channels
-      .get(kanal)
-      .send(
-        `:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ <@${sa.id}> ]`
-      );
+    client.channels.get(kanal).send(`:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ <@${sa.id}> ]`);
 
     if (!veri) return;
 
@@ -1508,11 +1493,7 @@ client.on("guildMemberAdd", async member => {
       sayı2 = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
     }
 
-    client.channels
-      .get(kanal)
-      .send(
-        `:inbox_tray:  <@${member.user.id}> Sunucuya Katıldı.! Davet Eden Kişi: <@${davetçi.id}> [**${sayı2}**]`
-      );
+    client.channels.get(kanal).send(`:inbox_tray:  <@${member.user.id}> Sunucuya Katıldı.! Davet Eden Kişi: <@${davetçi.id}> [**${sayı2}**]`);
     if (!veri) return;
 
     if (!sasad.roles.has(veri)) {
