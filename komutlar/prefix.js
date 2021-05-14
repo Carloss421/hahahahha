@@ -21,8 +21,9 @@ exports.run = (client, message, args, func) => {
     return message.channel.send(`Bir prefix girmelisin.`)
   db.set(`prefix_${message.guild.id}`, args[0])
     message.channel.send(new Discord.MessageEmbed()
-.setDescription(`Prefix başarıyla \`${args[0]}\` olarak ayarlandı.`))
-.setFooter("Prefixi unutursanız <@828267474192564245>'yi etiketleminiz yeterli!")
+.setDescription(` 
+Prefix başarıyla \`${args[0]}\` olarak ayarlandı.
+Prefixi unutursanız <@828267474192564245>'yi etiketleminiz yeterli!`))
   
 };
 
