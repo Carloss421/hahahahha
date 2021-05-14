@@ -126,18 +126,6 @@ client.unload = command => {
   });
 };
 
-var prefix = ayarlar.prefix;
-
-//     [-----------------> PREFIX <---------------]  \\
-client.on("message", async msg => {
-  let message = msg;
-
-  const bt =
-    (await db.fetch(`prefix_${msg.guild.id}`)) || ayarlar.prefix;
-  if (message.isMentioned(client.user.id)) {
-    msg.react(":thumbsup:");
-  }
-});
 //     [-----------------> BOT ETIKET <---------------] \\
 client.on('message', message => {
 const prefixD = db.fetch(`prefix_${message.guild.id}`)
@@ -568,7 +556,8 @@ Self botlara karşı önlem olarak kullanılabilir.
 
 const youtube = new YouTube("API");
 
-client.on("message", async msg => {
+client.on("message", async (msg, message) => {
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
@@ -1080,9 +1069,9 @@ client.on("message", async msg => {
           if (!msg.mentions.users.first()) {
             msg.delete();
             return msg.channel
-              .send(`<@${msg.author.id}>Lütfen CAPS kapat!`)
+              .send(`<@${msg.author.id}> Lütfen CAPS kapat!`)
               .edit(
-                `Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor.Bu yüzden mesajını sildim!`
+                `Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor. Bu yüzden mesajını sildim!`
               )
               .then(m => m.delete(5000));
           }
@@ -1168,8 +1157,9 @@ var ke = new Discord.MessageEmbed()
 .setAuthor("Küfür Engel (SISTEM)")
 .setDescription(`
 Sen kendini akıllımı sanıyorsun ${message.author}
-Bu sunucuda küfürler **<@${client.user.id}>**
-`)
+Bu sunucuda küfürler **<@${client.user.id}>** tarafından engellenmektedir! Küfür etmene izin vermeyeceğim!`);
+db.add(`küfürEwarn_${message.author.id}`, 1);
+message.channel.send(ke).then(message => message.delete(5000));
 }}}});
 // -------------------> [Reklam-Engel] <---------------- \\
 client.on("message", message => {
