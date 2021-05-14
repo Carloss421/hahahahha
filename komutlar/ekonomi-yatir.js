@@ -4,13 +4,14 @@ module.exports.run = async (client, message, args) => {
 
   let param = db.fetch(`para_${message.author.id}`)
     let miktar = args[0]
-
+  const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
     if(!miktar) return message.channel.send(new Discord.MessageEmbed()
 .setColor("RED")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
 .setDescription(`⛔ Bankaya yatırılacak para miktarını girmelisin!
-\`a!yatır <miktar || hepsi>\``))
+\`${prefix}yatır <miktar || hepsi>\``))
 
  if(miktar === 'hepsi' || miktar === 'all') {
    if(param === 0) return message.channel.send(new Discord.MessageEmbed()

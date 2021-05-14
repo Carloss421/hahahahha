@@ -2,7 +2,8 @@ const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
 
 exports.run = function(client, message, args) {
-      let p = ayarlar.prefix;
+  const db = require('quick.db')
+let p = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
 
 const onerisiz = new Discord.MessageEmbed()

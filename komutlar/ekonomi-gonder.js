@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const db = require('quick.db')
 module.exports.run = async (client, message, args) => {
-
+  const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   let para = db.fetch(`para_${message.author.id}`)
 
   let etiket = message.mentions.users.first()
@@ -17,7 +18,7 @@ module.exports.run = async (client, message, args) => {
                       .setColor("RED")
                       .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
                       .setDescription(`Göndermek istediğin para miktarını girmelisin!
-                     \`a!gönder <miktar || hepsi>\``))
+                     \`${prefix}gönder <miktar || hepsi>\``))
   if(miktar < 0 ||  miktar.startsWith('0') ) return message.channel.send(new Discord.MessageEmbed()
 .setColor("RED")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))

@@ -4,7 +4,8 @@ const db = require("quick.db");
 
 module.exports.run = async (bot, message, args, params, client) => {
 
-let prefix = "a!"
+  const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
     if(message.channel.type == "dm")  return;
   if(message.channel.type !== "text") return;
   var channel = message.guild.channels.find('id', '833215162047135744')
@@ -12,7 +13,7 @@ let prefix = "a!"
   message.delete();
   const embed = new Discord.MessageEmbed()
     .setAuthor(`${client.user.username}`, client.user.avatarURL)
-  .setTitle("»  Bot | Canlı Destek")
+  .setTitle("Alvi | Canlı Destek")
   .setDescription("**<a:acik:827618729193242634> Canlı Desteği kullandığın için teşekkür ederiz, Seninle ekibim ilgilenicektir lütfen bekle!**")
   .setDescription("30 Saniye İinde Geri Dönülmezse Lütfen İletişime Geçin \nCanlı Destek Ekibimiz <@739411430171738142>`-`<@720236094792400987>")
   .setColor("#31ff00")

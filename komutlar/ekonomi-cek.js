@@ -3,7 +3,8 @@ const db = require('quick.db')
 module.exports.run = async (client, message, args) => {
 
 
-
+  const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   let bankapara = db.fetch(`bankapara_${message.author.id}`)
     let miktar = args[0]
 
@@ -12,7 +13,7 @@ module.exports.run = async (client, message, args) => {
 .setColor("RED")
 .setAuthor(message.author.tag, message.author.avatarURL({dynamic: true}))
 .setDescription(`⛔ Bankadan çekmek istediğin para miktarını girmelisin!
-\`c!çek <miktar || hepsi>\``))
+\`${prefix}çek <miktar || hepsi>\``))
 
 
  if(miktar === 'all' || args[0] === 'hepsi') {

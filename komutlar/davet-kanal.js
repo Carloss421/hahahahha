@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 const ayarlar = require('../ayarlar.json')
 module.exports.run = async (bot, message, args) => {
-  let prefix = ayarlar.prefix
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (!message.member.hasPermission("ADMINISTRATOR")) {
     const embed = new Discord.MessageEmbed()
       .setDescription("```Ne yazık ki bu komutu kullanmaya yetkin yok.```")

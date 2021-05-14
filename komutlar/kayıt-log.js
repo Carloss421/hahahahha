@@ -4,7 +4,7 @@ let { hata, oldu, bot } = require("../ayarlar.json")
 module.exports.run = async (client, message, args) => {
     let ayarlar = require("../ayarlar.json")
 
-        let prefix = ayarlar.prefix
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
 let kayıty = await db.fetch(`kkayıtçırol_${message.guild.id}`)
 

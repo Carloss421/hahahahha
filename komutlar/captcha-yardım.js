@@ -1,10 +1,11 @@
 const Discord = require('discord.js');
 const db = require('quick.db')
 exports.run = (client, message, args) => { 
-
+  const ayarlar = require('../ayarlar.json')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
      let help = new Discord.MessageEmbed()
   .setTitle('Alvi - Captcha ')
-  .addField('__KOMUTLAR__', "`a!captcha` - Captcha sistemi bu komut ile aktifleştirebilirsiniz. \n\n`a!captcha-kapat` - Captcha sistemi bu komut ile devre dışı bırakabilirsiniz. \n\n`a!captcha-ayarlar` - Bot sunucunuzdaki aktif captcha ayarlarını gösterir.")
+  .addField('__KOMUTLAR__', "`"+ prefix +"captcha` - Captcha sistemi bu komut ile aktifleştirebilirsiniz. \n\n`"+ prefix +"captcha-kapat` - Captcha sistemi bu komut ile devre dışı bırakabilirsiniz. \n\n`a!captcha-ayarlar` - Bot sunucunuzdaki aktif captcha ayarlarını gösterir.")
   .setTimestamp()
   .setColor('RANDOM')        
 message.channel.send(help)

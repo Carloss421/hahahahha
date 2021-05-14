@@ -1,9 +1,11 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 const ayarlar = require("../ayarlar.json");
-let prefix = ayarlar.prefix;
+
+
 
 exports.run = async (client, message, args) => {
+  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   let CEKişi = message.mentions.users.first();
   let CESebep = args.slice(1).join(" ") || "Belirtilmemiş";
   let CELog = db.fetch("cezalog." + message.guild.id);

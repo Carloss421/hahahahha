@@ -4,7 +4,8 @@ const db = require('quick.db');
 exports.run = async (client, message, args) => {
 if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komutu kullanmak için yeterli izne sahip değilsin.`))
 
-let p = "a!"
+  const ayarlar = require('../ayarlar.json')
+let p = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
 let arguman = args[0];
 
