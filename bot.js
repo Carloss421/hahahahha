@@ -832,8 +832,7 @@ function play(guild, song) {
       .setColor("BLACK")
   );
 }
-client.on("message", (msg, message) => {
-  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+client.on("message", (msg, message, guild) => {
   if (msg.content.toLowerCase() === prefix +"invite") {
     const eris = new Discord.MessageEmbed().setDescription(
       `[Destek Sunucum](https://discord.gg/NAzGC2cxXR)`
