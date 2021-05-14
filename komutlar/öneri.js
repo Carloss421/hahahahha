@@ -5,13 +5,13 @@ const ayarlar = require("../ayarlar.json");
 
 
 exports.run = function(client, message, args) {
-    let 
+    let hata = args.join(" ")
     let şikayetlog = "833884749180960779"
     let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
     let type = args.slice(0).join(' ');
     if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`
 \`__Hatalı Kullanım...__\`
-${message.channel.message}
+${hata}
 \`__Doğru Kullanım__\`
 \`${prefix}öneri <öneririniz>\`**`));
 
