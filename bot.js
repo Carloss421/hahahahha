@@ -844,11 +844,15 @@ client.on("message", msg => {
 client.on("guildCreate", guild => {
   const emmmmbed = new Discord.MessageEmbed()
     .setColor("RAINBOW")
-    .setDescription(
-      `**Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli.**`
-    )
-    .setTimestamp();
-
+    .setDescription(`
+  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli.**`).then(msg=>msg.delete(2500))
+.setDescription(`Sunucunuzun istatistikleri alınıyor...`).then(i => {
+i.edit(`Sunucunuzun istatistikleri alınıyor..`)
+i.edit(`Sunucunuzun istatistikleri alınıyor.`)
+i.edit(`Sunucunuzun istatistikleri alınıyor...`)
+i.edit(``)
+})
+  
   let defaultChannel = "";
   guild.channels.cache.forEach(channel => {
     if (channel.type == "text" && defaultChannel == "") {
