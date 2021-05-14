@@ -832,8 +832,9 @@ function play(guild, song) {
       .setColor("BLACK")
   );
 }
-client.on("message", msg => {
-  if (msg.content.toLowerCase() === "a!invite") {
+client.on("message", (msg, message) => {
+  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  if (msg.content.toLowerCase() === prefix +"invite") {
     const eris = new Discord.MessageEmbed().setDescription(
       `[Destek Sunucum](https://discord.gg/NAzGC2cxXR)`
     );
@@ -842,20 +843,20 @@ client.on("message", msg => {
 });
 
 client.on("guildCreate", (guild, message) => {
-let alındı = ":white_check_mark:"
+let alındı = `${ayarlar.oldu2}`
 let alınıyor = "<a:yükleniyor:839266395308687421>"
   const emmmmbed = new Discord.MessageEmbed()
     .setColor("RAINBOW")
     .setDescription(`
-  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli.**`).then(msg=>msg.delete(1881))
+  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli.**`).then(msg=>msg.delete(1002))
 .setDescription(`${alınıyor} sunucunuzun istatistikleri alınıyor...`).then(i => {
 i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor..`)
 i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor.`)
 i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor...`)
 i.edit(`${alındı} Sunucunuzun istatistikleri başarıyla alındı!`)
 }).then(me=>me.delete(3001));
-db.set(`sunucu_${message.guild.id}`).then(svr=>svr.time()) 
-db.delete(`sunucu_${message.guild.id}`))
+
+
    
   
   let defaultChannel = "";
