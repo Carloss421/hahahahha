@@ -5,11 +5,15 @@ const ayarlar = require("../ayarlar.json");
 
 
 exports.run = function(client, message, args) {
-
+    let 
     let şikayetlog = "833884749180960779"
-    let prefix = ayarlar.prefix
+    let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
     let type = args.slice(0).join(' ');
-    if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`> **__Hatalı Kullanım...__**\n\n > **__Doğru Kullanım__** \n **\`${prefix}öneri <öneririniz>\`**`));
+    if (type.length < 1) return message.channel.send(new Discord.MessageEmbed().setDescription(`
+\`__Hatalı Kullanım...__\`
+${message.channel.message}
+\`__Doğru Kullanım__\`
+\`${prefix}öneri <öneririniz>\`**`));
 
 const ace = new Discord.MessageEmbed()
 .setDescription(`<@${message.author.id}>\n\n Öneriniz Bildirildi! En Kısa Sürede Geri Dönüş Yapılıcakatır.\n\n Anlayışınız İçin Teşekkürler`)
