@@ -842,16 +842,19 @@ client.on("message", msg => {
 });
 
 client.on("guildCreate", guild => {
+let alındı = ":white_check_mark:"
+let alınıyor = "<a:yükleniyor:839266395308687421>"
   const emmmmbed = new Discord.MessageEmbed()
     .setColor("RAINBOW")
     .setDescription(`
-  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli.**`).then(msg=>msg.delete(2500))
-.setDescription(`Sunucunuzun istatistikleri alınıyor...`).then(i => {
-i.edit(`Sunucunuzun istatistikleri alınıyor..`)
-i.edit(`Sunucunuzun istatistikleri alınıyor.`)
-i.edit(`Sunucunuzun istatistikleri alınıyor...`)
-i.edit(``)
-})
+  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli.**`).then(msg=>msg.delete(1881))
+.setDescription(`${alınıyor} sunucunuzun istatistikleri alınıyor...`).then(i => {
+i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor..`)
+i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor.`)
+i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor...`)
+i.edit(`${alındı} Sunucunuzun istatistikleri başarıyla alındı!`)
+}).then(me=>me.delete(3001));
+
   
   let defaultChannel = "";
   guild.channels.cache.forEach(channel => {
