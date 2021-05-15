@@ -4,21 +4,21 @@ exports.run = (client, message, args) => {
     const ayarlar = require('../ayarlar.json')
 let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (args[0] == "aç") {
-    if (db.has(`antiraidK_${message.guild.id}`) === true) {
-      return message.channel.send("Anti-raid zaten açılmış.");
+    if (db.has(`botK_${message.guild.id}`) === true) {
+      return message.channel.send("Bot koruma zaten açılmış.");
     }
-    db.set(`antiraidK_${message.guild.id}`, "acik");
-    message.reply(new Discord.MessageEmbed().setDescription("Anti-raid sistemi başarıyla açıldı"));
+    db.set(`botK_${message.guild.id}`, "acik");
+    message.reply(new Discord.MessageEmbed().setDescription("Bot koruma sistemi başarıyla açıldı"));
   }
 
   if (args[0] == "kapat") {
-    if (db.has(`antiraidK_${message.guild.id}`) === false) {
+    if (db.has(`botK_${message.guild.id}`) === false) {
       return message.channel.send(
-        "Anti-raid açılmamış. Açmak için **"+ prefix +"bot-koruma aç**"
+        "Bot koruma açılmamış. Açmak için **"+ prefix +"bot-koruma aç**"
       );
     }
-    db.delete(`antiraidK_${message.guild.id}`, "acik");
-    message.reply(new Discord.MessageEmbed().setDescription("Anti-raid sistemi başarıyla kapatıldı"));
+    db.delete(`botK_${message.guild.id}`, "acik");
+    message.reply(new Discord.MessageEmbed().setDescription("Bot koruma sistemi başarıyla kapatıldı"));
   }
   if (!args[0])
     return message.reply(new Discord.MessageEmbed().setDescription(

@@ -9,7 +9,7 @@ let p = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
 let arguman = args[0];
 
-if (!arguman) return message.channel.send(new Discord.MessageEmbed().setDescription(`:x: Lütfen bir bot id yazın.(Giriş izni iptal etmek için \`s!giriş-izni iptal <botid>\`**`))
+if (!arguman) return message.channel.send(new Discord.MessageEmbed().setDescription(`:x: Lütfen bir bot id yazın.(Giriş izni iptal etmek için \`${p}giriş-izni iptal <botid>\`**`))
 
 if (arguman === "iptal") {
  db.delete(`botİzinli_${args[1]}`) 

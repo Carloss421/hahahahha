@@ -14,7 +14,10 @@ let ayarlarS = new Discord.MessageEmbed()
 
 Küfür Engel: ${db.has(`küfürE_${message.guild.id}`) ? `**${açık} Açık**` : `**${kapalı} Kapalı**`}
 Reklam Engel: ${db.has(`reklamE_${message.guild.id}`) ? `**${açık} Açık**` : `**${kapalı} Kapalı**`}
-Otorol: ${db.has(`o`)}
+Otorol: ${db.has(`otoRL_${message.guild.id}`) ? `**${açık} Açık` : `**${kapalı} Kapalı**`}
+Bot Koruma: ${db.has(`botK_${message.guild.id}`) ? `**${açık} Açık` : `**${kapalı} Kapalı**`}
+Rol Koruma: ${db.has(`rolk_${message.guild.id}` ? `**${açık} Açık` : `**${kapalı} Kapalı**`)}
+Emoji Koruma: ${db.has(`emojikoruma_${message.guild.id}`) ? `**${açık} Açık` : `**${kapalı} Kapalı**`}
 `)
 message.channel.send(ayarlarS)
 };
