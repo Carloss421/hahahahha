@@ -18,7 +18,7 @@ message.channel.send(new Discord.MessageEmbed().setDescription(`
 ${ayarlar.oldu2} Prefix Başarıyla **`+ args[1] + `** olarak ayarlandı.`))
 };
 */
-if(args[0] === 'sıfırla') {
+
       if(!ohow) {
        return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`Bir prefix ayarlanmadan sıfırlanamaz!`));
@@ -26,7 +26,7 @@ if(args[0] === 'sıfırla') {
     db.delete(`prefix_${message.guild.id}`)       
    return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`${ayarlar.oldu2} Prefix Başarıyla Sıfırlandı. Prefix: **${ayarlar.prefix}**`));
-}
+
 
   
 };
