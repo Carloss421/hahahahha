@@ -9,10 +9,10 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   
    let kanal = message.mentions.channels.first() || args[0]
    if(!kanal) return message.channel.send(new Discord.MessageEmbed().setDescription(`
-   ${ayarlar.hata} Güvenlik `,'mesajlarının gideceği kanalı etiketlemedin :x:'))
+   ${ayarlar.hata} Güvenlik mesajlarının gideceği kanalı etiketlemedin`))
    else {
     db.set(`güvenlik.${message.guild.id}`, kanal.id)
-    return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Güvenlik kanalı `,'<#'+kanal+'> olarak ayarlandı'))
+    return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Güvenlik kanalı ${kanal} olarak ayarlandı`))
    }
    if(args[0] === 'sıfırla') {
     db.delete(`güvenlik.${message.guild.id}`)

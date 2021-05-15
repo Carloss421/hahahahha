@@ -940,7 +940,7 @@ client.on("guildMemberAdd", async member => {
 });
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
-if (db.has(`hoşgeldin_${message.guild.id}`) === true) {
+if (db.has(`hoşgeldinK_${message.guild.id}`) === true) {
 let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("GREEN")
@@ -951,6 +951,20 @@ var hoşglend = new Discord.MessageEmbed()
 .addField(`Üye Adı`, `${member}`, true)
 client.channels.get(hoşgeldinK).send(hoşglend) 
 }});
+
+client.on("guildMemberRemove", async(member, message) => {
+if (db.has(`hoşgeldinK_${message.guil.id}`) === true) {
+  let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
+var hoşglend = new Discord.MessageEmbed()
+.setColor("RED")
+.setTitle(":inbox_tray: Sunucu'dan bir üye ayrıldı!")
+.setThumbnail(member.user.avatarURL)
+.setDescription("Oof be kanka, "+ member +" sunucu'dan ayrıldı, senin çıkmanla beraber "+ member.guild.memberCount+" kişi kaldık.")
+.addField(`Üye ID:`, `${member.id}`, true)
+.addField(`Üye Adı`, `${member}`, true)
+client.channels.get(hoşgeldinK).send(hoşglend) 
+} 
+}) 
 // ----------------> [Güvenlik] <------------------ \\
 client.on('guildMemberAdd', member => {
      let kanal = db.fetch(`güvenlik.${member.guild.id}`)
