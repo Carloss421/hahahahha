@@ -131,14 +131,17 @@ client.unload = command => {
 
 
 //     [-----------------> BOT ETIKET <---------------] \\
-client.on('message', async (msg, message) => {
-const prefixD = db.fetch(`prefix_${message.guild.id}`)
-const embed = new Discord.MessageEmbed()
-.setTitle('Selam')
-.setDescription(`
-${message.author}, bu sunucuda ayarlanmış olan prefix **${prefixD}**
+client.on('message', async(msg, message) => {
+//const prefixD = await db.fetch(`prefix_${message.guild.id}`)
+let usk = message.author
+  const embed = new Discord.MessageEmbed()
 
-Yardım menüsü için **${prefixD}yardım** yazman gerekli olacaktır :)
+.setDescription(`
+${usk}, bu sunucuda ayarlanmış olan prefix **${ayarlar.prefix}**
+
+Yardım menüsü için **${ayarlar.prefix}yardım** yazman gerekli olacaktır :)
+
+Beni şuana kadar **${client.guilds.cache}** tane sunucuna eklemişsin, beni birdaha eklemeye ne dersin?
 `)
 .setColor('RANDOM')
   if(msg.content == `<@!828267474192564245>`) return msg.channel.send(embed);
