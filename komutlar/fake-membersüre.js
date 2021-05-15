@@ -19,10 +19,10 @@ exports.run = (client, message, args) => {
 
   if(!['d', 'w', 's', 'h', 'm', 'y'].includes(args[0].split('')[1])) return embedCreate('RED', 'Başarısız!', 'Yanlış bir tanım kullandın.\nKullanabileceğin tanımlar: '+['d', 'w', 's', 'h', 'm', 'y', 'i'].join(', '));
   if(args[0].split('')[0] === '0') {
-    database.delete(`fake-time.${message.guild.id}`);
+    database.delete(`fakeS_${message.guild.id}`);
     return embedCreate('GREEN', 'Başarılı!', 'Fake üye süresi başarıyla kapatıldı.');
   } else {
-    database.set(`fake-time.${message.guild.id}`, args[0]);
+    database.set(`fakeS_${message.guild.id}`, args[0]);
     return embedCreate('GREEN', 'Başarılı!', 'Fake üye süresi **'+args[0]+'** olarak ayarlandı.');
   };
 

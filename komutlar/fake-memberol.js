@@ -12,9 +12,9 @@ exports.run = (client, message, args) => {
   };
 
   if(!message.member.hasPermission('ADMINISTRATOR')) return embedCreate('RED', 'Başarısız!', 'Bu komutu kullanmak için yeterli yetkin bulunmuyor.');
-  if(!args[0] && !database.fetch(`fakerol_${message.guild.id}`)) return embedCreate('RED', 'Başarısız!', 'Bir rol etiketlemeli, yada IDsini girmelisin.');
-  if(args[0] && database.fetch(`fakerol_${message.guild.id}`)) {
-    database.delete(`fakerole_${message.guild.id}`);
+  if(!args[0] && !database.fetch(`fakeR_${message.guild.id}`)) return embedCreate('RED', 'Başarısız!', 'Bir rol etiketlemeli, yada IDsini girmelisin.');
+  if(args[0] && database.fetch(`fakeR_${message.guild.id}`)) {
+    database.delete(`fakeR_${message.guild.id}`);
     return embedCreate('GREEN', 'Başarılı!', 'Fake üyelere verilecek rol sıfırlandı.');
   };
 
@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
 
   if(!role) return embedCreate('RED', 'Başarısız!', 'Belirttiğin rolü bu sunucuda bulamıyorum.');
 
-  database.set(`fake-ole.${message.guild.id}`, role.id);
+  database.set(`fakeR_${message.guild.id}`, role.id);
   return embedCreate('GREEN', 'Başarılı!', `Fake üye rolü **${role.name}** olarak ayarlandı.`);
 
 };

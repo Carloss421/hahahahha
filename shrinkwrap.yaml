@@ -1,5 +1,6 @@
 dependencies:
   canvacord: 5.2.0
+  captcha-plus: 2.5.2
   chalk: 4.1.1
   chance: 1.1.7
   common-tags: 1.8.0
@@ -680,6 +681,15 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-pzCxtkHb+5su5MQjTtepMDlIOtaXo277x0C0u3nMOxtkhTyQ+h2yNKhlROAaDllWgRyePAUitC08sXw26Eb6aw==
+  /captcha-plus/2.5.2:
+    dependencies:
+      canvas: 2.7.0
+      fs: 0.0.2
+    dev: false
+    engines:
+      node: 12.x
+    resolution:
+      integrity: sha512-eZIkA3uBnmjmjADnikXLrIwvr5RCIoo1VIl6A/UlUQZw9HnAXN4ZPu5Rpg43D0OqnI4tziMAshwT8gRovCvuqQ==
   /caseless/0.12.0:
     dev: false
     resolution:
@@ -2645,6 +2655,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   canvacord: ^5.2.0
+  captcha-plus: ^2.5.2
   chalk: ^4.1.1
   chance: ^1.1.7
   common-tags: ^1.8.0
