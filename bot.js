@@ -298,13 +298,50 @@ client.on("guildMemberRemove", async member => {
       .setTitle("Alvi - Sayaç")
   );
 });
-//                        OYUNLAR                           \\
 
+// ------------------> [Tag Alana Rol Ver] <------------------- \\
+client.on('presenceUpdate', (oldPresence,newPresence) => {
+let sunucu = "" //sunucu id
+let rol = "" //rol id
+let beklenen = "Merhaba" // statusuna ne yazılınca rol verilmesini istiyorsan onu yaz
+if (newPresence.activities[0].state === beklenen) { 
+ return client.guilds.cache.get(sunucu).members.cache.get(newPresence.userID).roles.add(rol) 
+} else {
+  if(client.guilds.cache.get(sunucu).members.cache.get(newPresence.userID).roles.cache.has(rol)) {
+  client.guilds.cache.get(sunucu).members.cache.get(newPresence.userID).roles.remove(rol) 
+}}
+})
+
+//                        OYUNLAR                           \\
+//              Sayı SAYMACA        \\
+client.on("message", async(message) => {
+if(message.author.bot) return;
+let chn = message.mentions.channels.first();
+let kanall = db.fetch(`sayısaymaca_${message.guild.id}_${chn.id}`)
+let kanal = client.channels.cache.get(kanall)
+if(message.channel.id !== kanal.id) return;
+
+kanal.messages.fetch({ limit: 2 }).then(messages => {
+let ilksay = parseInt(messages.map(a => a.content)[1])
+let sayi = Math.floor(ilksay + 1)
+let sonsay = parseInt(message.content)
+
+if(isNaN(sonsay)) return  message.channel.send('sayı yazmalısın..').then(msg => {
+                msg.delete({ timeout: 5000})
+                message.delete()
+            })
+
+if(sonsay !== sayi) return  message.channel.send('sayı düzenini bozmasan mı ne').then(msg => {
+                msg.delete({ timeout: 5000})
+                message.delete()
+            })
+                  })
+})
 //              Kelime TAHMIN               \\
 client.on('message', async(message) => {
 if(message.author.bot) return;
 let chn = message.mentions.channels.first();
-let kanal = db.fetch(`kelimtahminkanal_${message.guild.id}_${chn.id}`)
+let kanal = db.fetch(`kelimetahminkanal_${message.guild.id}_${chn.id}`)
   if(message.channel.id !== kanal) return;
 if(message.content.startsWith('.')) return;
 if(message.content.split(" ").length > 1) return message.channel.send('kelime ya bruh').then(msg => {
