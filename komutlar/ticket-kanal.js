@@ -9,7 +9,7 @@ if (premium == "Premium Aktif Değil!") {
 let pre = new Discord.MessageEmbed()
 .setDescription(`Sunucunuz **Premium** olmadığı için kullanamazsınız.`)
 .setColor("RED")
- return message.channel.send(pre).then(msg=>msg.delete(5000));
+ return message.channel.send(pre)
 }}; 
   if (premium == "Premium Aktif") {
 let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
