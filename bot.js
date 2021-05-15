@@ -1259,8 +1259,8 @@ client.on("messageUptade", message => {
         message.channel.send(ke).then(message => message.delete(5000));
       }}}});
 // -------------------> [ROL-KORUMA] <------------------ \\
-client.on("roleCreate", async (rolee, member, guild) => {
-  let rolkoruma = await db.fetch(`rolk_${rolee.guild.id}`);
+client.on("roleCreate", async (rolee, member, guild, message) => {
+  let rolkoruma = await db.fetch(`rolk_${message.guild.id}`);
   if (rolkoruma == "acik") {
     rolee.delete();
     const embed = new Discord.MessageEmbed()
@@ -1274,8 +1274,8 @@ client.on("roleCreate", async (rolee, member, guild) => {
     return;
   }
 });
-client.on("roleDelete", async (rol, member, guild) => {
-  let rolkoruma = await db.fetch(`rolk_${rol.guild.id}`);
+client.on("roleDelete", async (rol, member, guild, message) => {
+  let rolkoruma = await db.fetch(`rolk_${message.guild.id}`);
   if (rolkoruma == "acik") {
     rol.clone();
     const embed = new Discord.MessageEmbed()
@@ -1289,8 +1289,8 @@ client.on("roleDelete", async (rol, member, guild) => {
     return;
   }
 });
-client.on("roleUptade", async (roll, member, guild) => {
-  let rolkoruma = await db.fetch(`rolk_${roll.guild.id}`);
+client.on("roleUptade", async (roll, member, guild, message) => {
+  let rolkoruma = await db.fetch(`rolk_${message.guild.id}`);
   if (rolkoruma == "acik") {
     roll.old();
     const embed = new Discord.MessageEmbed()
