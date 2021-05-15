@@ -8,7 +8,7 @@ let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon3`)
 .setColor("RANDOM")
 .setDescription(`
-\`${prefix}prefix-ayarla/sıfırla\` Botun prefixini ayarlar,sıfırlar.
+\`${prefix}prefix ayarla/sıfırla\` Botun prefixini ayarlar,sıfırlar.
 \`${prefix}ban-sistemi\` Ban komutlarını açar.
 \`${prefix}ayarlar\` Sunucudaki ayarlanan herşeyi gösterir.
 ~~\`${prefix}mute-sistemi\` Mute komutlarını açar.~~
