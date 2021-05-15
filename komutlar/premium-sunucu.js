@@ -1,12 +1,13 @@
 
 const Discord = require('discord.js');
 const data = require('quick.db')
-
-exports.run = async (client, message, args) => {//chimp ꏢ#0009
+const db = require('quick.db')
+const ayarlar = require('../ayarlar.json')
+exports.run = async (client, message, args) => {
   
-  let prefix = '!'// botun prefixi
-  let sahip = '613700645173592086'// senin idn
-  
+  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  let sahip = '739411430171738142'
+  let log = '833215025262362625'
 if(!args[0]) return message.channel.send(`Premium sisteminden yararlanmak için bot sahibinin sizin premiumunuzu aktif etmiş olması gerekiyor.
 \`${prefix}premium\` \`kontrol\``)
 
@@ -15,11 +16,10 @@ if(message.author.id !== sahip) {
   if(args[0] === 'kontrol') {
 
   let açıkmı = await data.fetch(`premium.${message.guild.id}`)
-  message.channel.send(new Discord.DiscordEmbed()
+  message.channel.send(new Discord.MessageEmbed()
                       .setColor('GREEN')
                       .setAuthor(message.guild.name, message.guild.iconURL)
                       .setDescription(`Bu sunucu için **Premium** sistemi **${açıkmı ? 'aktif' : 'kapalı'}!`)
-                      .setFooter(`Codare`)
                       .setTimestamp())
     } 
 
@@ -29,37 +29,42 @@ if(message.author.id !== sahip) {
   if(args[0] === 'ver') {
   if(message.author.id !== sahip) return;
     
-  if(!args[1]) return message.channel.send(`Bir sunucunun ID (kimlik) numarasını girmeyi dene.`)
+  if(!args[1]) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir sunucunun ID (kimlik) numarasını girmeyi dene.`))
   let id = args[1]
-  if(isNaN(id)) return message.channel.send(`Sadece sayı girebilirsin.`)
+  if(isNaN(id)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Sadece sayı girebilirsin.`))
   
-  if(id < 15) return message.channel.send(`Girdiğin rakam bir sunucunun ID (kimlik) numarası olmak için çok küçük.`)
+  if(id < 15) return message.channel.send(new Discord.MessageEmbed().setDescription(`Girdiğin rakam bir sunucunun ID (kimlik) numarası olmak için çok küçük.`))
   
-  if(!client.guilds.get(id)) return message.channel.send(`**${id}** sunucusunu bulamıyorum.`)
+ // if(!client.guilds.get(id)) return message.channel.send(new Discord.MessageEmbed().setDescription(`**${id}** sunucusunu bulamıyorum.`))
   let açıkmı = await data.fetch(`premium.${id}`)
-  if(açıkmı) return message.channel.send(`**${id}** sunucusu için zaten premium aktif.`)
+  if(açıkmı) return message.channel.send(new Discord.MessageEmbed().setDescription(`**${id}** sunucusu için zaten premium aktif.`))
     
   data.set(`premium.${id}`, 'açık')
-  message.channel.send(`${client.guilds.get(id).name} isimli sunucu için **PREMİUM** aktif edildi!`)
+//  message.channel.send(new Discord.MessageEmbed().setDescription(`${client.guilds.get(id).name} isimli sunucu için **PREMİUM** aktif edildi!`))
     
   let owner = client.guilds.get(id).owner;
-  owner.send(`Merhaba **${owner.user.username}**! ${message.author.tag} isimli kişi **${client.guilds.get(id).name}** isimli sunucun için premium'u aktif etti.
-Doya doya kullan!`)
+  owner.send(new Discord.MessageEmbed().setDescription(`
+**${owner.user.username}**! ${message.author.tag} isimli bot sahibi **${client.guilds.get(id).name}** isimli sunucun için premium'u aktif etti!`))
     
+
+log.send(new Discord.MessageEmbed().setDescription(`
+\`${message.author.tag}\` **İsimli bot sahibi**
+\`${owner.tag}\` **isimli sunucu sahibi**
+\`${client.guilds.get(id).name}\` **sunucusu için premium açtı.**`).setTitle(":bell: Bilgilendirme!"))
   }
   
   if(args[0] === 'al') {
   if(message.author.id !== sahip) return;
     
-  if(!args[1]) return message.channel.send(`Bir sunucunun ID (kimlik) numarasını girmeyi dene.`)
+  if(!args[1]) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bir sunucunun ID (kimlik) numarasını girmeyi dene.`))
   let id = args[1]
-  if(isNaN(id)) return message.channel.send(`Sadece sayı girebilirsin.`)
+  if(isNaN(id)) return message.channel.send(new Discord.MessageEmbed().setDescription(`Sadece sayı girebilirsin.`))
   
-  if(id < 15) return message.channel.send(`Girdiğin rakam bir sunucunun ID (kimlik) numarası olmak için çok küçük.`)
+  if(id < 15) return message.channel.send(new Discord.MessageEmbed().setDescription(`Girdiğin rakam bir sunucunun ID (kimlik) numarası olmak için çok küçük.`))
     
-  if(!client.guilds.get(id)) return message.channel.send(`**${id}** sunucusunu bulamıyorum.`)
+  if(!client.guilds.get(id)) return message.channel.send(new Discord.MessageEmbed().setDescription(`**${id}** sunucusunu bulamıyorum.`))
   let açıkmı = await data.fetch(`premium.${id}`)
-  if(!açıkmı) return message.channel.send(new Discord.MessageEmbed().setDescription(`**${id}** sunucusu için zaten premium aktif değil.`)
+  if(!açıkmı) return message.channel.send(new Discord.MessageEmbed().setDescription(`**${id}** sunucusu için zaten premium aktif değil.`))
     
   data.delete(`premium.${id}`)
   message.channel.send(new Discord.MessageEmbed().setDescription(`${client.guilds.get(id).name} isimli sunucu için **PREMİUM** aktif edildi!`))
@@ -67,6 +72,10 @@ Doya doya kullan!`)
   let owner = client.guilds.get(id).owner;
   owner.send(`Merhaba **${owner.user.username}**! ${message.author.tag} isimli ki��i **${client.guilds.get(id).name}** isimli sunucun için premium'u kapattı.`)
     
+log.send(new Discord.MessageEmbed().setDescription(`
+\`${message.author.tag}\` **İsimli bot sahibi**
+\`${owner.tag}\` **isimli sunucu sahibi**
+\`${client.guilds.get(id).name}\` **sunucusunun premium'unu kapattı.**`).setTitle(":bell: Bilgilendirme!"))
   }
 
   
@@ -77,7 +86,7 @@ Doya doya kullan!`)
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
+  aliases: ["servpre","pre"],
   permLevel: 0
 }
 
