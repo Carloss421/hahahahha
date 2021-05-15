@@ -47,14 +47,14 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 	exports.conf = {
 		enabled: true,
 		guildOnly: false,
-		aliases: ['küfür-engel'],
+		aliases: ['küfür'],
 		permLevel: 4,
     kategori: "ayarlar",
 	};
 	  
 	exports.help = {
-		name: 'küfür-engelle',
+		name: 'küfür-engel',
 		description: 'Küfür engelleme sistemini açıp kapatmanızı sağlar.',
-		usage: 'küfür-engelle <aç/kapat>',
+		usage: 'küfür-engel <aç/kapat>',
     
 	};

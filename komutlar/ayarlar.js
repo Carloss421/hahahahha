@@ -7,7 +7,7 @@ exports.run = async(client, message, args) => {
 const açık = client.emojiler.açık;
 const kapalı = client.emojiler.kapalı;
 let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
-
+ 
 let ayarlarS = new Discord.MessageEmbed()
 .setDescription(`
 **${message.guild.name} Sunucusun Ayarları**
