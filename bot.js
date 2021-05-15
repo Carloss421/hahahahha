@@ -938,6 +938,19 @@ client.on("guildMemberAdd", async member => {
     `Sunucunuza bir bot eklendi ve sunucudan otomatik olarak atıldı, sunucuya eklenmesini onaylıyor iseniz \`a!giriş-izni ${member.id}\``
   );
 });
+// ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
+client.on("guildMemberAdd", async(member, message) => {
+if (db.has(`hoşgeldin_${message.guild.id}`) === true) {
+let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
+var hoşglend = new Discord.MessageEmbed()
+.setColor("GREEN")
+.setTitle(":inbox_tray: Sunucuya yeni bir üye katıldı!")
+.setThumbnail(member.user.avatarURL)
+.setDescription("Ooo kimleri görüyorum, "+ member +" sunucuya hoşgeldin, seninle beraber "+ member.guild.memberCount+" kişiye ulaştık.")
+.addField(`Üye ID:`, `${member.id}`, true)
+.addField(`Üye Adı`, `${member}`, true)
+client.channels.get(hoşgeldinK).send(hoşglend) 
+}});
 // ----------------> [Güvenlik] <------------------ \\
 client.on('guildMemberAdd', member => {
      let kanal = db.fetch(`güvenlik.${member.guild.id}`)

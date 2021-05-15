@@ -9,14 +9,14 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   
    let kanal = message.mentions.channels.first() || args[0]
    if(!kanal) return message.channel.send(new Discord.MessageEmbed().setDescription(`
-   ${ayarlar.hata} Güvenlik `,'mesajlarının gideceği kanalı etiketlemedin :x:'))
+   ${ayarlar.hata} Hoşgeldin `,'mesajlarının gideceği kanalı etiketlemedin :x:'))
    else {
     db.set(`güvenlik.${message.guild.id}`, kanal.id)
-    return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Güvenlik kanalı `,'<#'+kanal+'> olarak ayarlandı'))
+    return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Hoşgeldin kanalı `,'<#'+kanal+'> olarak ayarlandı'))
    }
    if(args[0] === 'sıfırla') {
     db.delete(`güvenlik.${message.guild.id}`)
-    message.channel.send(new Discord.MessageEmbed().setDescription('Güvenlik kanalı sıfırlandı.'))
+    message.channel.send(new Discord.MessageEmbed().setDescription('Hoşgeldin kanalı sıfırlandı.'))
    }
 }
 
@@ -28,7 +28,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: "güvenlik",
-  description: 'Güvenlik kanalını ayarlarsınız.',
-  usage: 'güvenlik #kanal'
+  name: "hoşgeldin",
+  description: 'Hoşgeldin kanalını ayarlarsınız.',
+  usage: 'hoşgeldin #kanal'
 }
