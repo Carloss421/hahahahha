@@ -15,8 +15,6 @@ if(!isim) return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`${ayarlar.hata} Hesap oluşturmak için bir isim girmelisin!`))
 if(!yaş) return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`${ayarlar.hata} Hesap oluşturmak için bir yaş girmelisin!`))
-if(!cinsiyet) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`${ayarlar.hata} Hesap oluşturmak için bir cinsiyet belirlemelisin!\nCinsiyetler: **erkek - kız/kadın - özel/gizli**`))
 if(!açıklama) return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`${ayarlar.hata} Hesap oluşturmak için kendi açıklamanı girmelisin!\nÖrnek: **Ben bir bot kodlayıcısıyım.**`))
   
@@ -34,30 +32,9 @@ let bşrl = new Discord.MessageEmbed()
 db.set(`ekonomihesapyaş_${message.author.id}`, args[1])
 message.channel.send(bşrl)
 };
-if(args[2] === "erkek") {
- let bşrl = new Discord.MessageEmbed()
-.setTitle("3. Adım")
-.setDescription(`${ayarlar.oldu} Cinsiyet \`erkek\` olarak ayarlandı.`)
-message.channel.send(bşrl)
-db.set(`ekonomihesapcinsiyetE_${message.author.id}`, args[2])
-};
-if(args[2] === "kız" && "kadın") {
-let bşrl = new Discord.MessageEmbed()
-.setTitle("3. Adım")
-.setDescription(`${ayarlar.oldu} Cinsiyet \`kız\` olarak ayarlandı.`)
-message.channel.send(bşrl)
-db.set(`ekonomoihesapcinsiyetK_${message.author.id}`, args[2])
-};
-if(args[2] === "özel" && "gizli") {
- let bşrl = new Discord.MessageEmbed()
-.setTitle("3. Adım")
-.setDescription(`${ayarlar.oldu} Cinsiyet \`özel/gizli\` olarak ayarlandı.`)
-message.channel.send(bşrl)
-db.set(`ekonomihesapcinsiyetÖ_${message.author.id}`, args[2])
-};
 if(args[3] === `${açıklama}`) {
 let bşrl = new Discord.MessageEmbed()
-.setTitle("4. Adım")
+.setTitle("3. Adım")
 .setDescription(`${ayarlar.oldu} Açıklama \`${açıklama}\` olarak ayarlandı.`)
 message.channel.send(bşrl)
 db.set(`ekonomihesapaçıklama_${message.author.id}`, args[3])
