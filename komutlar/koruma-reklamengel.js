@@ -4,7 +4,7 @@ const ayarlar = require('../ayarlar.json')
 exports.run = async(client, message, args) => {
 let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   
-  if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komudu kullanabilmek için **Sunucuyu Yönet** yetkisine sahip olman gerek.`))
+  if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komudu kullanabilmek için **Yönetici** yetkisine sahip olman gerek.`))
   
   if (!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Reklam Engel Ayarlamak İçin \`${prefix}reklam aç\` | Kapatmak İstiyorsanız \`${prefix}reklam kapat\` Yazabilirsiniz`))
   
@@ -13,14 +13,14 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
     if (args[0] == 'aç') {
     db.set(`reklamE_${message.guild.id}`, 'acik')
     let i = await db.fetch(`reklamE_${message.guild.id}`)
-  message.channel.send(new Discord.MessageEmbed().setDescription(`Reklam Engel başarıyla ayarlandı.`))
+  message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Reklam Engel başarıyla ayarlandı.`))
      
   } 
 
   if (args[0] == 'kapat') {
     
     let üye = await db.fetch(`reklamE_${message.guild.id}`)
-    if (!üye) return message.channel.send(new Discord.MessageEmbed().setDescription(`${}Reklam filtresini açtığına emin misin?.`))
+    if (!üye) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Reklam filtresini açtığına emin misin?.`))
     
     
     db.delete(`reklamE_${message.guild.id}`)

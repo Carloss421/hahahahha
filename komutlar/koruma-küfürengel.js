@@ -1,60 +1,45 @@
 const Discord = require('discord.js');
-const fs = require('fs');
-
-//var ayarlar = require('../ayarlar.json');
-
-exports.run = async (client, message) => {
+const db = require('quick.db');
+const ayarlar = require('../ayarlar.json')
+exports.run = async(client, message, args) => {
+let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   
-	if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`Bu komutu kullanabilmek için **Yönetici** iznine sahip olmalısın!`));
-
-  const db = require('quick.db');
+  if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komudu kullanabilmek için **Yönetici** yetkisine sahip olman gerek.`))
   
-
-  const ayarlar = require('../ayarlar.json')
-let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
-	let args = message.content.split(' ').slice(1);
-	const secenekler = args.slice(0).join(' ');
-
-	if(secenekler.length < 1) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`**${prefix}küfür-engelle aç** veya **${prefix}küfür-engelle kapat** yazınz `));
-
-
-  if (secenekler !== "aç" && secenekler !== "kapat") return message.reply(`**${prefix}küfür-engelle aç** veya **${prefix}küfür-engelle kapat** yazınz `)
+  if (!args[0]) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Küfür Engel Ayarlamak İçin \`${prefix}Küfür aç\` | Kapatmak İstiyorsanız \`${prefix}Küfür kapat\` Yazabilirsiniz`))
   
-	if (secenekler === "aç") {
+  if (args[0] !== 'aç' && args[0] !== 'kapat') return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Küfür Engel Ayarlamak İçin \`${prefix}Küfür aç\` | Kapatmak İstiyorsanız \`${prefix}Küfür kapat\` Yazabilirsiniz`))
+
+    if (args[0] == 'aç') {
+    db.set(`küfürE_${message.guild.id}`, 'acik')
+    let i = await db.fetch(`küfürE_${message.guild.id}`)
+  message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Küfür Engel başarıyla ayarlandı.`))
+     
+  } 
+
+  if (args[0] == 'kapat') {
     
-    var i = db.set(`küfürE_${message.guild.id}`, "acik")
+    let üye = await db.fetch(`küfürE_${message.guild.id}`)
+    if (!üye) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Küfür filtresini açtığına emin misin?.`))
     
-		  const embed = new Discord.MessageEmbed()
-    .setColor('RED')
-    .setDescription(`Küfür Engel Başarıyla açıldı\nKüfür engel kapatmak isterseniz **${prefix}küfür-engel kapat** yazmanız yeterlidir.`)
-    message.channel.send(embed)
-
-	};
-
-	if (secenekler === "kapat") {
     
     db.delete(`küfürE_${message.guild.id}`)
     
-		message.channel.send(new Discord.MessageEmbed()
-.setDescription('Küfür engel kapatıldı'))
+    message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Küfür Engel Başarıyla Kapatıldı.`))
+  }
+ 
+};
 
-    
-	};
-}
 
-	exports.conf = {
-		enabled: true,
-		guildOnly: false,
-		aliases: ['küfür'],
-		permLevel: 4,
-    kategori: "ayarlar",
-	};
-	  
-	exports.help = {
-		name: 'küfür-engel',
-		description: 'Küfür engelleme sistemini açıp kapatmanızı sağlar.',
-		usage: 'küfür-engel <aç/kapat>',
-    
-	};
+exports.conf = {
+ enabled: true,
+ guildOnly: false,
+  aliases: ['küfür', 'küfür-filtresi', 'küfür-engel', 'küfürfiltresi', 'küfür-filtre', 'küfürfiltre'],
+ permLevel: 0
+};
+
+exports.help = {
+ name: 'küfür-engelleme',
+ description: 'Küfür',
+ usage: 'kanal'
+};

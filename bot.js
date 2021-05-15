@@ -128,10 +128,6 @@ client.unload = command => {
   });
 };
 
-client.emojiler = {
-açık: "<:acik:842931863379378197>",
-kapalı: "<:kapali:831811077339217961>"
-}
 
 
 //     [-----------------> BOT ETIKET <---------------] \\
@@ -1144,7 +1140,7 @@ const küfür = [
 "yarrak kafalı","soğan sikli","siki başı sik","yarrağı kara","kara sikli","kara yarraklı","tam oç","tam öç","tem oç","tem öç","öç","yarrak kokusu",
 "sik kokusu","ananı sikim","ananı sikiyim","anneni sikim","anneni sikiyim","ablanı sikim","ablanı sikiyim","gacını sikiyim","karını sikiyim",
 "babanı sikiyim","aileni sikime oturturayım","muz istermisin","yarrağım","sikim","sik","nah","taşşak","taşak","yarak","yalak","kafasını siktiğim",
-"kafası sikik","bira","içki","turbo","amk"]
+"kafası sikik","bira","içki","turbo","amk","sik","Sik","Sİk","SİK"]
  if (küfür.some(word => message.content.toLowerCase().includes(word))) {
       if (!message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
