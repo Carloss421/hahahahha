@@ -60,8 +60,9 @@ if(args[3] === `${açıklama}`) {
 let bşrl = new Discord.MessageEmbed()
 .setTitle("3. Adım")
 .setDescription(`${ayarlar.oldu} Açıklama \`${açıklama}\` olarak ayarlandı.`)
+message.channel.send(bşrl)
 db.set(`ekonomihesapaçıklama_${message.author.id}`, args[3])
-}
+} 
 };
 
 exports.conf = {

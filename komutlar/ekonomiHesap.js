@@ -1,10 +1,13 @@
-const Discord = require('discord.js')
+
+
+/*const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
 const db = require('quick.db')
 
-exports.run = async(client, message, args) => {
+exports.run = (client, message, args) => {
 let isim = db.fetch(`ekonomihesapisim_${message.author.id}`)
-let yaş = db.fetch(`ekonomihesapyaş_${message.author.id}`) 
+let yaş = db.fetch(`ekonomihesapyaş_${message.author.id}`)
+let açk = db.fetch(`ekonomihesapaçıklama_${message.author.id}`)
 let cinsiyet = {
 cinsiyet: db.fetch(`ekonomihesapcinsiyetE_${message.author.id}`),
 cinsiyet: db.fetch(`ekonomihesapcinsiyetÖ_${message.author.id}`),
@@ -14,19 +17,11 @@ let embed = new Discord.MessageEmbed()
 .setDescription(`
 ${message.author}**'nın Hesabı**
 
-İsim: ${db.has(`ekonomihesapisim_${message.author.id}`) ? `${isim}` : `**İsim Ayarlamamış**`}
-Yaş: ${db.has(`ekonomihesapyaş_${message.author.id}`) ? `${yaş}` : `**Yaş Ayarlamamış**`}
-Cinsiyet: ${db.has(`ekonomihesapcinsiyet_${}`)}
-`)
+İsim: ${db.has(`ekonomihesapisim_${message.author.id}`) ? `**${isim}**` : `**İsim Ayarlamamış**`}
+Yaş: ${db.has(`ekonomihesapyaş_${message.author.id}`) ? `**${yaş}**` : `**Yaş Ayarlamamış**`}
+Cinsiyet: ${db.has(`ekonomihesapcinsiyet_${message.author.id}`) ? `**${cinsiyet}**` : `**Cinsiyet Ayarlamamış**`}
+Açıklama: ${db.has(`ekonomihesapaçıklama_${message.author.id}`) ? `**${açk}**` : `**Açıklama Ayarlamamış**`}`)
 
-  /*
-ekonomoihesapcinsiyetK_${message.author.id}
-ekonomihesapcinsiyetÖ_${message.author.id}
-ekonomihesapcinsiyetE_${message.author.id}
-ekonomihesapyaş_${message.author.id}
-ekonomihesapisim_${message.author.id}
-ekonomihesapaçıklama_${message.author.id}
-  */
 };
 
 exports.conf = {
@@ -38,4 +33,4 @@ exports.conf = {
 
 exports.help = {
   name: "hesap"
-}
+}*/
