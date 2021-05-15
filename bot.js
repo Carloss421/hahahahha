@@ -26,12 +26,13 @@ var prefix = ayarlar.prefix
 
 const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
-};/*
+};
+
 client.on("ready", () => {
   var actvs = [
-    `🎀 Yardım almak için | a!yardım`,
-    `🔔 Yeni Özellikler İçin | a!yardım-güncelleme`,
-    `🤖 Botu eklemek için | a!yardım-bot`
+    `🎀 Yardım almak için a!yardım`,
+    `🔔 Yeni Özellikler İçin a!yardım-güncelleme`,
+    `🤖 Botu eklemek için a!yardım-bot`
   ];
 
   client.user.setActivity(
@@ -51,7 +52,7 @@ client.on("ready", () => {
     // BOSTA = IDLE
     // CEVRIMDISI = OFFLINE
   }, 15000);
-});*/
+});
 
 client.elevation = message => {
   if (!message.guild) {
