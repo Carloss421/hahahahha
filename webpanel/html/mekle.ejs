@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<%- include('başlık.ejs', {bot, user, path}) %>
+
 <head>
 <% if (bot.ayar.has(`karalist_${user.id}`)) return "Botun komutlarını kullanabilme ve siteyi görme hakkınız bulunmamaktadır!";  { %>
  <% } %>
@@ -18,60 +18,68 @@
 <title>
   Merhaba, <%=user.username%>
   </title>
-   <link href="/css/site.css" rel="stylesheet" />
-    <link href="/css/demo.css" rel="stylesheet" />
+  
+       <link href="/css/site.css" rel="stylesheet" />
   <link rel='icon' href='<%=bot.avatarURL%>'>
-
+  <link href="./css/demo.css" rel="stylesheet" />
 
 </head>
 
 <body class="dark-edition">
   <div class="wrapper ">
-    <div class="sidebar" data-color="azure" data-background-color="black" data-image="./css/olsana.png">
-    
-     <div class="logo"><a href="https://dash.alvibot.org/anasayfa" class="simple-text logo-normal">
-          Alvi Anasayfa
+    <div class="sidebar" data-color="white" data-background-color="black" data-image="./css/olsana.png">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+     <div class="logo"><a href="http://panel.alvibot.xyz/anasayfa" class="simple-text logo-normal">
+          Vortex Anasayfa
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
+      
         
-
          
            <li class="nav-item ">
-              <a class="nav-link" href="https://dash.alvibot.org/anasayfa">
+              <a class="nav-link" href="http://panel.alvibot.xyz/anasayfa">
               <i class="material-icons">announcement</i>
               <p>Bilgilendirme</p>
             </a>
           </li>
-           <li class="nav-item ">
-         <a class="nav-link" href="https://dash.alvibot.org/panel">
+            <li class="nav-item ">
+           <a class="nav-link" href="http://panel.alvibot.xyz/panel">
               <i class="material-icons">dashboard</i>
               <p>Yönetim Paneli</p>
             </a>
           </li>
              <li class="nav-item ">
-               <a class="nav-link" href="https://dash.alvibot.org/kullanici/<%=user.id%>/yonet">
+               <a class="nav-link" href="http://panel.alvibot.xyz/kullanici/<%=user.id%>/yonet">
               <i class="material-icons">photo</i>
               <p>Seviye Kartı</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="https://dash.alvibot.org/kullanici/<%=user.id%>">
+            <a class="nav-link" href="http://panel.alvibot.xyz/kullanici/<%=user.id%>">
               <i class="material-icons">person</i>
               <p>Kullanıcı Bilgi</p>
             </a>
           </li>
-            <li class="nav-item active  ">
-
-            <a class="nav-link" href="https://dash.alvibot.org/komutlar">
+           <li class="nav-item ">
+            <a class="nav-link" href="http://panel.alvibot.xyz/komutlar">
               <i class="material-icons">dvr</i>
               <p>Komutlar</p>
             </a>
           </li>
           
-           
-              <li class="nav-item ">
-            <a class="nav-link" href="https://dash.alvibot.org/botuekle">
+           <li class="nav-item ">
+            <a class="nav-link" href="http://panel.alvibot.xyz/sunucular">
+              <i class="material-icons">thumb_up</i>
+              <p>Vortex'i Kullanan Sunucular</p>
+              </a>
+          </li>
+               <li class="nav-item active  ">
+              <a class="nav-link" href="http://panel.alvibot.xyz/botuekle">
               <i class="material-icons">
 add</i>
               <p>Botu Sunucuna Ekle</p>
@@ -88,7 +96,7 @@ add</i>
       </div>
     </div>
     <div class="main-panel">
-   
+      <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
@@ -120,109 +128,62 @@ add</i>
      
           
       </nav>
-         <%
-  let tema = '222'
-  let yazıTema = 'fff'
-  let t
-  let array = []
- let a
-  if (bot.ayar.has(`panel_tema`) === true) {
-  for (var i = 0; i < bot.ayar.fetch('panel_tema').length; i++) { a = i }
-    tema = 'e5e5e5'
-    yazıTema = '000'
-    t = 'fff'
-  }
-  %>
-       
-        
-           <% const help = {};
-bot.commands.forEach((command) => {
-  const cat = command.conf.kategori;
-  if (!help.hasOwnProperty(cat)) help[cat] = [];
-  help[cat].push(command);
-});
-%>
-      
-<div class="container">
-
-  
-	<% for (const category in help) { %>
-		<br>
-    
-		<div class="row justify-content-md-center">
-        <% var k = category
-      .replace("eğlence", "Eğlence Komutları")
-      .replace("kullanıcı", "Kullanıcı Komutları")
-      .replace("sunucu", "Sunucu Komutları")
-      .replace("undefined", "Tanımlanmamış")
-      .replace("profil", "Profil Sistemi")
-      .replace("davet", "Gelişmiş Davet Sistemi")
-      .replace("moderasyon", "Moderasyon Komutları")
-      .replace("bot", "Bot Komutları")
-      .replace("müzik", "Müzik Komutları")
-      .replace("iletisim", "Bot İletişim - Destek Komutları")
-      .replace("sohbet", "Sohbet Komutları")
-      .replace("çekiliş", "Çekiliş Komutları")
-      .replace("efekt", "Çerçeve Ve Efekt Komutları")
-      .replace("premium", "Premium Komutlar (Ücretli)")
-      .replace("yapımcı", "Bot Yapımcısı Komutları")
-      .replace("ayarlar", "Ayarlar")
-       %>
-			<h3 style="color:#<%=yazıTema%>;"><%= k.charAt(0).toUpperCase() + k.slice(1) %></h3>
-		</div>
-		<br>
-		<div class="card-columns" style="padding: 20px; border-radius: 40px;">
-			<% for (const command of help[category]) { %>
-				<div class="card" style="background-color:#<%=t%>; margin: 3px; border-radius: 40px;">
-					<h3 class="card-header" style="color: #383838;"><center><a href="#" data-toggle="modal" data-target="#<%= `${command.help.name}` %>Modal" style="text-decoration: none; color:#fffff;"><%= command.help.name %> Komutu</a></center></h3>
-					<div style="color:cyan" class="card-block">
-						<p class="card-text" style="color:<%=yazıTema%>"><center><%= command.help.description %></center></p>
-						<h6 class="card-subtitle text-muted" align="right"><center>Gereken Yetki: <%= command.conf.permLevel.toString().replace('0', 'Kullanıcı').replace('1', 'Mesajları Yönet').replace('2', 'Üyeleri At').replace('3', 'Üyeleri Yasakla').replace('4', 'Yönetici').replace("ozel", "Sunucu Sahibi").replace('5', 'Bot Sahibi') %></center><br /></h6>
-					</div>
           
-				</div>
+           
       
-        <div id="<%= `${command.help.name}` %>Modal" class="modal fade" role="dialog">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header btn-info disabled" style="background-color:#<%=tema%>; border: 0px;">
-								<h4 class="modal-title" style="color:#<%=yazıTema%>"><%= command.help.name %></h4>
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-							</div>
-              <div class="modal-body" style="background-color:#<%=tema%>; border: 0px;">
-               <% let x;
-                if (command.conf.enabled === true) {
-                  x = "Evet! Gerekli yetkiye sahip herkes kullanabilir."
-                }
-                if (command.conf.enabled === false) {
-                  x = "Hayır! Bu komut henüz yapım aşamasında."
-                }
-                %>
-                  <p style="color:#<%=yazıTema%>"><b>Örnek Kullanım:</b> <%= bot.ayarlar.prefix+command.help.usage || command.help.name %></p>
-                  <p style="color:#<%=yazıTema%>"><b>Gerekli Yetki:</b> <%= command.conf.permLevel.toString().replace('0', 'Yetki gerekmiyor').replace('1', 'Mesajları Yönet').replace('2', 'Üyeleri At').replace('3', 'Üyeleri Yasakla').replace('4', 'Yönetici').replace("ozel", "Sunucu Sahibi").replace('5', 'Bot Sahibi') %></p>
-                  <p style="color:#<%=yazıTema%>"><b>Komutun Diğer Adları:</b> <%= `${command.conf.aliases.join(', ') || 'Bulunmuyor'}` %></p>
-                  <p style="color:#<%=yazıTema%>"><b>Komut Kullanılabilir Durumda Mı?</b> <%= x %></p>
-              </div>
-              <div class="modal-footer" style="background-color: #222; border: 0px;"><button type="button" class="btn btn-outline-danger" data-dismiss="modal">Kapat</button></div>
-						</div>
-          </div>
-        </div>
-      
-      <% } %>
-      
-    </div>
-    
-  <% } %>
           
          
         
-  
+      <!-- End Navbar -->
       <div class="content">
-    
+        <div class="container">
+ 
+  <div class="jumbotron" style="background-color:#f">
+    <div align="center">
+      
+      <h3>Sunucu Seçimi</h3>
+      <h5>Eklemek istediğiniz sunucuya tıklayın</h5>
+      
+      <% user.guilds.forEach((sunucu) => {
+        const permsOnGuild = new perms(sunucu.permissions);
+        if(!permsOnGuild.has("MANAGE_GUILD")) return;
+      %>
+      <%
+      let link, eklenmemis;
+      if (bot.guilds.has(sunucu.id) === true) {
+        link = `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8&guild_id=`+sunucu.id+``
+      } else {
+        
+        link = `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8&guild_id=`+sunucu.id+``
+        
+        eklenmemis = true
+      }
+      %>
+           <% if (sunucu.icon) { %>
+      <a href="<%=link%>" target="<%if(eklenmemis === true) {%>_blank<%} else {  }%>"><img title="<%=sunucu.name%>" class="rounded-circle" src="<%= `https://cdn.discordapp.com/icons/${sunucu.id}/${sunucu.icon}.png?size=128` %>" style="width: 80px;"></a>
+		  <% } else { %>
+      
+      <a href="<%=link%>"><canvas title="<%=sunucu.name%>" style="width: 80px;background-color:#363940;" class="rounded-circle"  id="<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>" width="80px" height="80px" ></canvas></a>
+		  <script>
+        function draw() {
+        const ctx = document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").getContext('2d');
+			  ctx.font = '20px Arial';
+			  ctx.textAlign = "center";
+			  ctx.fillStyle = "white";
+			  ctx.fillText("<%= sunucu.name.split(' ').map(v => v[0]).join('') %>", 40, 48);
+        document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").style.marginBottom = "-35px";
+        };
+        draw();
+		  </script>
+		<% } %>
+    <% }); %> 
+      <br><br>
+         <a href="anasayfa" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"> <i aria-hidden="true"></i> Geri Dön</button> </a>    </div>
+  
     </div>
   </div>
   
-<script src="/css/js/jquery.min.js"></script>
+  <script src="/css/js/jquery.min.js"></script>
   <script src="/css/js/popper.min.js"></script>
   <script src="/css/js/bootstrap-material-design.min.js"></script>
   <script src="https://unpkg.com/default-passive-events"></script>
@@ -415,5 +376,4 @@ bot.commands.forEach((command) => {
 </body>
 
 </html>
-
 <%- include('footer.ejs', {bot, user, path}) %>
