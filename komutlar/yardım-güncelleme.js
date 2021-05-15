@@ -21,6 +21,7 @@ let embed = new Discord.MessageEmbed()
 ║ \`fake-üye-sistemi\` | Fake üye sistemi eklendi!
 ║ \`captcha\` | Captcha güncellendi!
 ║ \`ayarlar\` | Ayarlar**(BETA)** eklendi!
+║ \`mute-sistemi\` | Mute sistemi eklendi!
 ╚════════════════════════════════╝
 
 

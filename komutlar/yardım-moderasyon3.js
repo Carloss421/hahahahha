@@ -11,7 +11,8 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}prefix ayarla/sıfırla\` Botun prefixini ayarlar,sıfırlar.
 \`${prefix}ban-sistemi\` Ban komutlarını açar.
 \`${prefix}ayarlar\` Sunucudaki ayarlanan herşeyi gösterir.
-~~\`${prefix}mute-sistemi\` Mute komutlarını açar.~~
+\`${prefix}mute-sistemi\` Mute komutlarını açar.
+\`${prefix}reklam-engel aç/kapat\` Reklam engel açar,kapatır.
 ~~\`${prefix}botlist-sistemi\` Botlist komutlarını açar.~~
 
 `)

@@ -35,7 +35,7 @@ if(message.author.id !== sahip) {
   ////----------------------\\\\ veritabanı ////----------------------\\\\     
   data.set(`premium.${id}`, 'açık')
   message.channel.send(new Discord.MessageEmbed().setDescription(`${client.guilds.cache.get(id).name} isimli sunucu için **PREMİUM** aktif edildi!`).setTimestamp().setTitle(`✅ Başarılı !`).setColor(`GREEN`))
- 
+  
  ////----------------------\\\\ Sunucu sahibi mesaj ////----------------------\\\\
   
   let owner = client.guilds.cache.get(id).owner;

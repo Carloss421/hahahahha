@@ -19,7 +19,7 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}sayaç | sayaç-ayarla\` Sayaç ayarlar,sıfırlar.
 \`${prefix}kanal-koruma | aç - kapat\` Kanal korumayı açar,kapatır.
 \`${prefix}rol-koruma | aç - kapat\` Rol korumayı açar,kapatır.
-\`${prefix}emoji-koruma | aç - kapat (YAKINDA - PREMUIM)\` Emoji korumayı açar,kapatır.
+\`${prefix}emoji-koruma | aç - kapat (PREMUIM)\` Emoji korumayı açar,kapatır.
 \`${prefix}sunucu-koruma | aç - kapat (YAKINDA - PREMUIM)\` Sunucu korumayı açar,kapatır.
 \`${prefix}kayıt-sistemi\` Kayıt komutlarını görürsünüz.
 \`${prefix}captcha-sistemi\` Captcha komutlarını görürsünüz.
