@@ -6,20 +6,23 @@ let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Güncelleme")
 .setColor("RANDOM")
 .setDescription(`
-:one: **Version: 0.0.1 - Tarih: 30.04.2021 - 15:57**\`(BAKIM)\`
-╔════════════════════════════╗
-║ \`Afk Sistemi\` | Sıfırdan yazıldı ve embed eklendi.
-║ \`EMBED\` | bir çok komuta **EMBED** eklendi.
-║ \`kayıt Sistemi\` | isim değiştirme hatası düzeltildi.
-╚════════════════════════════╝
+:three: **Version: 0.0.3**
+**Başlangıç: 15.05.2021 - 19:09 Bitiş: 16:05:2021 - 00:39 **\`(GUNCELLEME)\`
+╔════════════════════════════════╗
+║ \`afk-sistemi\` | Afk sistemi güncellendi!
+║ \`kelime-tahmin\` | Kelime Tahmin**(BETA)** oyunu eklendi!
+║ \`güvenlik\` | Güvenlik sistemi eklendi!
+║ \`resimli-giriş-çıkış\` | Resimli giriş çıkış eklendi!
+║ \`hoşgeldin-hoşçakal\` | Hoşgeldin-hoşçakal eklendi!
+║ \`emoji-koruma\` | Emoji koruma eklendi!
+║ \`prefix-sistemi\` | Prefix ayarlama eklendi!
+║ \`sayaç/otorol\` | sayaç ve otorol güncellendi!
+║ \`HATA\` | Hatalar giderildi!
+║ \`fake-üye-sistemi\` | Fake üye sistemi eklendi!
+║ \`captcha\` | Captcha güncellendi!
+║ \`ayarlar\` | Ayarlar**(BETA)** eklendi!
+╚════════════════════════════════╝
 
-:two: **Version: 0.0.2 - Tarih: 4.05.2021 - ~~23:13~~   17:37**\`(BAKIM)\`
-╔════════════════════════════╗
-║ \`kayıt Sistemi\` | Sıfırdan yazıldı ama hataları var düzeltildi!
-║ \`afk Sistemi\` | Sıfırdan yazıldı ve güncellendi.
-║ \`kayıt Sistemi log\` | Log'a gönderme hatası var düzeltilecek! 
-║ \`EMOJIS\` | Komutlara yeni emojiler ve yazılar güncellendi.
-╚════════════════════════════╝
 
 :information_source: **Güncellemeler 2 ayda bir yapılacaktır!**`)
 message.channel.send(embed)
