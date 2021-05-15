@@ -1400,7 +1400,7 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
           members.removeRole(role.id);
 
           emoji.guild.owner.send(
-            `** <@${yetkili.id}> İsimili Yetkili <@${user.id}>** Adlı Kişiyi Susturuldu Ve Yetkilerini Aldı`
+            `** <@${yetkili.id}> İsimli Yetkili <@${user.id}>** Adlı Kişiyi Susturuldu Ve Yetkilerini Aldı`
           );
         }
       });

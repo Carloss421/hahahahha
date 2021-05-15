@@ -3,10 +3,10 @@ const db = require('quick.db')
 const ayarlar = require('../ayarlar.json')
 
 exports.run = async(client, message, args) => {
-// Emojiler \\
+// KULLANIM \\
 let açık = "<:acik:842931863379378197>"
 let kapalı = "<:kapali:831811077339217961>"
-// Emojiler \\
+let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
 let ayarlarS = new Discord.MessageEmbed()
 .setDescription(`
@@ -18,6 +18,8 @@ Otorol: ${db.has(`otoRL_${message.guild.id}`) ? `**${açık} Açık` : `**${kapa
 Bot Koruma: ${db.has(`botK_${message.guild.id}`) ? `**${açık} Açık` : `**${kapalı} Kapalı**`}
 Rol Koruma: ${db.has(`rolk_${message.guild.id}` ? `**${açık} Açık` : `**${kapalı} Kapalı**`)}
 Emoji Koruma: ${db.has(`emojikoruma_${message.guild.id}`) ? `**${açık} Açık` : `**${kapalı} Kapalı**`}
+Prefix: ${db.has(`prefix_${message.guild.id}`) ? `**${prefix}**` : `**${ayarlar.prefix}**`}
+Sayaç: ${db.has(`sayac_${message.guild.id}`) ? `**${açık} Açık**` : `**${kapalı} Kapalı**`}
 `)
 message.channel.send(ayarlarS)
 };
