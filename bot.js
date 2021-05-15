@@ -235,7 +235,29 @@ db.delete(`afkkullanıcı_${message.author.id}`)
 }})*/
 
 //     [-----------------> Otorol <------------------]  \\
+//     [-----------------> Fake <------------------]  \\
+client.on('guildMemberAdd', async member => {
 
+  const database = require('quick.db');
+  if(member.user.bot) return;
+  
+  const kanal = member.guild.channels.cache.get(await database.fetch(`fakekanal_${member.guild.id}`) || 0);
+  const zaman = await database.fetch(`fake-time.${member.guild.id}`);
+  const rol = member.guild.roles.cache.get(await database.fetch(`fakerol_${member.guild.id}`) || 0);
+  if(!kanal || !zaman || !rol) return;
+
+  if(member.user.createdAt.getTime() < require('ms')(zaman)) {
+
+    member.roles.add(rol.id);
+    const embed = new Discord.MessageEmbed()
+    .setColor('BLUE')
+    .setTitle('Fake Tetikleyici')
+    .setDescription(`**${member.user.tag}** Fake sistemine takıldı!`);
+    return kanal.send(embed);
+
+  } else return;
+
+});
 //     [-----------------> Sayaç <------------------]  \\
 
 client.on("guildMemberAdd", async member => {
