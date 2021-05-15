@@ -13,6 +13,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ disableMentions: "everyone" });
 const ayarlar = require("./ayarlar.json");
 const fs = require("fs");
+const ms = require("parse-ms")
 const moment = require("moment");
 const db = require("quick.db");
 const queue = new Map();
@@ -158,6 +159,7 @@ Bot'un ana prefixi: ${ayarlar.prefix}`));
 //     [-----------------> Afk <------------------]  \\
 
 client.on("message", async message => {
+  
   let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
   let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
