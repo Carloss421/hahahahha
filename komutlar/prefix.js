@@ -19,7 +19,8 @@ ${ayarlar.hata} Lütfen **${prefix}prefix ayarla** veya **${prefix}prefix sıfı
 if(args[0] === 'ayarla') {
 db.set(`prefix_${message.guild.id}`, args[1])
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-${ayarlar.oldu2} Prefix Başarıyla **`+ args[1] + `** olarak ayarlandı.`).setColor("#29f713"))
+${ayarlar.oldu2} Prefix Başarıyla **`+ args[1] + `** olarak ayarlandı.`).setFooter(`
+NOT: Prefixi unutursan Alvi'yi etiketlemeyi unutma`).setColor("#29f713"))
 };
   
 if(args[0] === 'sıfırla') {
@@ -29,7 +30,9 @@ if(args[0] === 'sıfırla') {
     }
     db.delete(`prefix_${message.guild.id}`)       
    return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`${ayarlar.oldu2} Prefix Başarıyla Sıfırlandı. Prefix: **${ayarlar.prefix}**`).setColor("#29f713"));
+.setDescription(`
+${ayarlar.oldu2} Prefix Başarıyla Sıfırlandı. Prefix: **${ayarlar.prefix}**
+`).setColor("#29f713"));
 }
 
   
