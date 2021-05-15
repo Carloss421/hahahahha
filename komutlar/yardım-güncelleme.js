@@ -10,7 +10,6 @@ let embed = new Discord.MessageEmbed()
 **Başlangıç: 15.05.2021 - 19:09 Bitiş: 16:05:2021 - 00:39 **\`(GUNCELLEME)\`
 ╔════════════════════════════════╗
 ║ \`afk-sistemi\` | Afk sistemi güncellendi!
-║ \`kelime-tahmin\` | Kelime Tahmin**(BETA)** oyunu eklendi!
 ║ \`güvenlik\` | Güvenlik sistemi eklendi!
 ║ \`resimli-giriş-çıkış\` | Resimli giriş çıkış eklendi!
 ║ \`hoşgeldin-hoşçakal\` | Hoşgeldin-hoşçakal eklendi!
