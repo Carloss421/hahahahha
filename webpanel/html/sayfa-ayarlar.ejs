@@ -1,11 +1,97 @@
+
+
+
+
+      <style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+        
+        
+         {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.buttons {
+    margin: 10%;
+    text-align: center;
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+
+.btn-hover.color-6 {
+    background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+        
+
+
+</style>
+
+  
+      
+
+
+      
+
 <!doctype html>
 <html lang="en">
 
 <head>
 <% if (bot.ayar.has(`karalist_${user.id}`)) return "Botun komutlarını kullanabilme ve siteyi görme hakkınız bulunmamaktadır!";  { %>
  <% } %>
- 
- 
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -14,23 +100,20 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
-
-<title>
-  Merhaba, <%=user.username%>
-  </title>
-  
    <link href="/css/site.css" rel="stylesheet" />
   <link rel='icon' href='<%=bot.avatarURL%>'>
   <link href="./css/demo.css" rel="stylesheet" />
-
+<title>
+  Merhaba, <%=user.username%>
+  </title>
 </head>
 
 <body class="dark-edition">
   <div class="wrapper ">
     <div class="sidebar" data-color="green" data-background-color="black" data-image="./css/olsana.png">
-    
+   
      <div class="logo"><a href="https://dash.alvibot.org/anasayfa" class="simple-text logo-normal">
-          Vortex Anasayfa
+          Alvi Anasayfa
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -67,7 +150,7 @@
             </a>
           </li>
           
-           
+          
              <li class="nav-item ">
             <a class="nav-link" href="https://dash.alvibot.org/botuekle">
               <i class="material-icons">
@@ -86,7 +169,7 @@ add</i>
       </div>
     </div>
     <div class="main-panel">
-
+   
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
@@ -124,56 +207,109 @@ add</i>
           
          
         
-    
+      
       <div class="content">
-        <div class="container">
+         <div class="col">
+            <div class="container">
+       
+        <center>
+          <font color="#f0e6e8">
+           <h3>
+<%=sunucu.name%>
+           </h3>
+        </font>
+           </center>
  
-  <div class="jumbotron" style="background-color:#f">
-    <div align="center">
-    
-		 
-      <h3>Sunucu Seçimi</h3>
-      <h5>Yönetmek istediğiniz sunucuya tıklayın</h5>
-      
-      <% user.guilds.forEach((sunucu) => {
-        const permsOnGuild = new perms(sunucu.permissions);
-        if(!permsOnGuild.has("MANAGE_GUILD")) return;
-        
-      %>
-      <%
-      
-      let link, eklenmemis;
-      
-      if (bot.guilds.has(sunucu.id) === true) {
-        link = `/panel/${sunucu.id}/yonet`
-      } else {
-        
-        link = `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8&guild_id=`+sunucu.id+``
-        
-        eklenmemis = true
-      }
-      %>
-      <% if (sunucu.icon) { %>
-      <a href="<%=link%>" target="<%if(eklenmemis === true) {%>_blank<%} else {  }%>"><img title="<%=sunucu.name%>" class="rounded-circle" src="<%= `https://cdn.discordapp.com/icons/${sunucu.id}/${sunucu.icon}.png?size=128` %>" style="width: 80px;"></a>
-		  <% } else { %>
-      
-      <a href="<%=link%>"><canvas title="<%=sunucu.name%>" style="width: 80px;background-color:#363940;" class="rounded-circle"  id="<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>" width="80px" height="80px" ></canvas></a>
-		  <script>
-        function draw() {
-        const ctx = document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").getContext('2d');
-			  ctx.font = '20px Arial';
-			  ctx.textAlign = "center";
-			  ctx.fillStyle = "white";
-			  ctx.fillText("<%= sunucu.name.split(' ').map(v => v[0]).join('') %>", 40, 48);
-        document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").style.marginBottom = "-35px";
-        };
-        draw();
-		  </script>
-		<% } %>
-    <% }); %> 
-      <br><br>
-         <a href="anasayfa" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"> <i aria-hidden="true"></i> Geri Dön</button> </a>    </div>
+<div class="card-columns" style="padding: 20px; border-radius: 40px;">
+
+  <div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/ozelkomutlar" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Özel Komutlar</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/ozelkomutlar">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/ozelkomutlar" style="color:#fff"><center>Sunucunuza özel istediğiniz kadar komut ekleyebileceğiniz bir sistem.</center></p>
+					</div>
+				</div>
+<div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/genel" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Genel Ayarlar</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/genel">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/genel" style="color:#fff"><center>Botun sunucudaki ön-eki/prefixi ayarlanabilir. <br>Susturma rolü ayarlanabilir.</center></p>
+					</div>
+				</div>
+<div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/giriscikis" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Giriş Çıkış</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/giriscikis">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/giriscikis" style="color:#fff"><center>Sunucuya birisi katıldığında ve sunucudan birisi ayrıldığında atılacak mesajlar.<br>Kanal ve mesajlar ayarlanabilir.</center></p>
+					</div>
+				</div>
+<div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/otorol" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Otomatik Rol</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/otorol">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/otorol" style="color:#fff"><center>Sunucuya birisi katılınca katılan kişiye verilecek rol.<br>Rol ve otomatik rol kayıtları kanalı ayarlanabilir.</center></p>
+					</div>
+				</div>
+  <div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/komutkanal" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Komut-Kanal</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/komutkanal">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/komutkanal" style="color:#fff"><center>Sunucuda kullanıcıların kullanacağı kanalı ayarlayabileceğiniz sistem.<br>Sıfırlarsanız bütün kanallarda kullanabilirler.</center></p>
+					</div>
+				</div>
+<div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/ototag" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Tag</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/ototag">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/ototag" style="color:#fff"><center>Sunucuya birisi katılınca katılan kişinin isminin başına eklenecek tag.<br>Tag ve tag kayıtları kanalı ayarlanabilir.</center></p>
+					</div>
+				</div>
+<div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/sayac" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Sayaç</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/sayac">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/sayac" style="color:#fff"><center>Sunucuya birisi katılınca ve sunucudan birisi ayrılınca ayarlanan hedefe kaç kişi kaldığını sayar.<br>Sayaç ve kanal ayarlanabilir.</center></p>
+					</div>
+				</div>
+<div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/filtre" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Filtreler</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/filtre">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/filtre" style="color:#fff"><center>Küfür engelleme, Sunucu Koruma, Büyük harf ve link engelleme sistemleri.</center></p>
+					</div>
+				</div>
+<div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/desteksistemi" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Destek Sistemi</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/desteksistemi">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/desteksistemi" style="color:#fff"><center>Geliştirilmiş sunucu içi destek sistemi.<br>Destek kanalı, rolü ve mesajı ayarlanabilir.</center></p>
+					</div>
+				</div>
+   <div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/guvenlik3" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Güvenlik Sistemi</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/guvenlik3">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/guvenli3" style="color:#fff"><center>Sunucuya biri katıldığı zaman onu doğrular ve seçtiğiniz kanala güvenlimi değilmi diye resim atar.<br>Güvenlik kanalı ayarlanabilir.</center></p>
+					</div>
+				</div>
+     <div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/gresim" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Resimli Hoşgeldin-Güle Güle Sistemi</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/gresim">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/gresim" style="color:#fff"><center>Sunucuya gelen üyeleri belirttiğiniz kanala resimli bir şekilde karşılar.</center></p>
+					</div>
+				</div>
+<div class="card" style="background-color:#; margin: 3px; border-radius: 30px;">
+					<h3 class="card-header" style="color: #383838;"><center><a href="/panel/<%=sunucu.id%>/modlog" style="font-size: 25px; text-decoration: none; color:#78C2AD;">Modlog Sistemi</a></center></h3>
+					<div style="color:white" class="card-block" href="/panel/<%=sunucu.id%>/modlog">
+						<p class="card-text" href="/panel/<%=sunucu.id%>/modlog" style="color:#fff"><center>Sunucuda olan olayları seçtiğiniz kanala yazar.<br>Modlog kanalı ayarlanabilir.</center></p>
+					</div>
+				</div>
   
+</div>
+         <center>
+    <a href="https://panel.alvibot.xyz/panel" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"> <i aria-hidden="true"></i>Geri Dön</button> </a>    </div>
+              
+   </center>   
+        
+  
+        
+        
+      </form>
+    </div>  
+  </div>
+</div> 
+      
+           
     </div>
   </div>
   
@@ -186,15 +322,14 @@ add</i>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <script src="/css/js/chartist.min.js"></script>
- 
+
   <script src="/css/js/bootstrap-notify.js"></script>
- 
+
   <script src="/css/js/material-dashboard.js?v=2.1.0"></script>
     
 
   <script src="/css/js/demo.js"></script>
 
- 
   
   <script>
     $(document).ready(function() {

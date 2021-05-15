@@ -1,11 +1,12 @@
 <!doctype html>
+ <%- include('başlık.ejs', {bot, user, path}) %>
 <html lang="en">
 
 <head>
 <% if (bot.ayar.has(`karalist_${user.id}`)) return "Botun komutlarını kullanabilme ve siteyi görme hakkınız bulunmamaktadır!";  { %>
  <% } %>
- 
- 
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -14,23 +15,20 @@
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
-
+<link href="/css/site.css" rel="stylesheet" />
+  <link rel='icon' href='<%=bot.avatarURL%>'>
+  <link href="./css/demo.css" rel="stylesheet" />
 <title>
   Merhaba, <%=user.username%>
   </title>
-  
-   <link href="/css/site.css" rel="stylesheet" />
-  <link rel='icon' href='<%=bot.avatarURL%>'>
-  <link href="./css/demo.css" rel="stylesheet" />
-
 </head>
 
 <body class="dark-edition">
   <div class="wrapper ">
     <div class="sidebar" data-color="green" data-background-color="black" data-image="./css/olsana.png">
-    
+     
      <div class="logo"><a href="https://dash.alvibot.org/anasayfa" class="simple-text logo-normal">
-          Vortex Anasayfa
+          Alvi Anasayfa
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -66,8 +64,7 @@
               <p>Komutlar</p>
             </a>
           </li>
-          
-           
+     
              <li class="nav-item ">
             <a class="nav-link" href="https://dash.alvibot.org/botuekle">
               <i class="material-icons">
@@ -86,13 +83,13 @@ add</i>
       </div>
     </div>
     <div class="main-panel">
-
+    
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
           </div>
-       <%if(user) {%>
+          <%if(user) {%>
                <%  if(bot.ayar.has(`üyelikk_${user.id}`) === true)  { %>
             <div data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
               <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=32" width="31" height="31" class="d-inline-block align-middle rounded-circle" style="border-style:solid;border-width: 1px;border-color: #eef60e ">
@@ -118,83 +115,110 @@ add</i>
      
           
       </nav>
-          
-           
-      
-          
-         
-        
-    
-      <div class="content">
-        <div class="container">
- 
-  <div class="jumbotron" style="background-color:#f">
-    <div align="center">
-    
-		 
-      <h3>Sunucu Seçimi</h3>
-      <h5>Yönetmek istediğiniz sunucuya tıklayın</h5>
-      
-      <% user.guilds.forEach((sunucu) => {
-        const permsOnGuild = new perms(sunucu.permissions);
-        if(!permsOnGuild.has("MANAGE_GUILD")) return;
-        
-      %>
-      <%
-      
-      let link, eklenmemis;
-      
-      if (bot.guilds.has(sunucu.id) === true) {
-        link = `/panel/${sunucu.id}/yonet`
-      } else {
-        
-        link = `https://discordapp.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8&guild_id=`+sunucu.id+``
-        
-        eklenmemis = true
-      }
-      %>
-      <% if (sunucu.icon) { %>
-      <a href="<%=link%>" target="<%if(eklenmemis === true) {%>_blank<%} else {  }%>"><img title="<%=sunucu.name%>" class="rounded-circle" src="<%= `https://cdn.discordapp.com/icons/${sunucu.id}/${sunucu.icon}.png?size=128` %>" style="width: 80px;"></a>
-		  <% } else { %>
-      
-      <a href="<%=link%>"><canvas title="<%=sunucu.name%>" style="width: 80px;background-color:#363940;" class="rounded-circle"  id="<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>" width="80px" height="80px" ></canvas></a>
-		  <script>
-        function draw() {
-        const ctx = document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").getContext('2d');
-			  ctx.font = '20px Arial';
-			  ctx.textAlign = "center";
-			  ctx.fillStyle = "white";
-			  ctx.fillText("<%= sunucu.name.split(' ').map(v => v[0]).join('') %>", 40, 48);
-        document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").style.marginBottom = "-35px";
-        };
-        draw();
-		  </script>
-		<% } %>
-    <% }); %> 
-      <br><br>
-         <a href="anasayfa" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"> <i aria-hidden="true"></i> Geri Dön</button> </a>    </div>
+<div class="container">
+
+	<div class="row justify-content-md-center">
+	
+  </div>
+	
+
   
+	<div class="row">
+    
+<div class="col">
+    <div class="container">
+      <br>
+      <br>
+      <div align="center"><h2 style="color: #fff;"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i> Gelişmiş Destek Sistemi</h2></div>
+      <form method="post">
+        <ul class="list-group list-group-flush">
+          
+       <div class="row">
+        <div class="col-25">
+          <label for="destekK">Destek kanalı</label>
+        </div>
+        <div class="col-75">
+          <% if (bot.ayar.has(`destekK_${guild.id}`) === false) { %>
+          <select style="text-align: left; width:87%;" name="destekK" id="destekK">
+            <option disabled selected>Lütfen bir kanal seçiniz.</option>
+            <% guild.channels.filter(c => c.type === "text").forEach(c => { %>
+            <option value="<%=c.id%>">#<%=c.name%></option>
+            <% }); %>
+          </select>
+          <a href="/panel/<%=guild.id%>/destekk/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`destekK_${guild.id}`) === true) { %>
+          <select style="text-align: left; width:87%;" name="destekK" id="destekK">
+            <option value="<%=bot.ayar.fetch(`destekK_${guild.id}`)%>"><%=guild.channels.get(bot.ayar.fetch(`destekK_${guild.id}`)).name%></option>
+					 <% guild.channels.filter(c => c.type === "text").filter(c => c.id !== bot.ayar.fetch(`destekK_${guild.id}`)).forEach(c => { %>
+            <option value="<%=c.id%>">#<%=c.name%></option>
+          <% }); %>
+          </select>
+          <a href="/panel/<%=guild.id%>/destekk/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+        </div>
+      </div>
+        
+
+    <div class="row">
+        <div class="col-25">
+          <label for="destekR">Destek Rolü</label>
+        </div>
+        <div class="col-75">
+          <% if (bot.ayar.has(`destekR_${guild.id}`) === false) { %>
+          <select style="text-align: left; width:87%;" name="destekR" id="destekR">
+            <option disabled selected>Lütfen bir rol seçiniz.</option>
+            <% guild.roles.filter(r => r.name !== "@everyone").forEach(r => { %>
+            <option value="<%=r.id%>" style="color:<%=r.hexColor%>"><%=r.name%></option>
+            <% }); %>
+          </select>
+          <a href="/panel/<%=guild.id%>/destekr/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+					<% if(bot.ayar.has(`destekR_${guild.id}`) === true) { %>
+          <select style="color:<%=guild.roles.get(bot.ayar.fetch(`destekR_${guild.id}`)).hexColor%>; text-align: left; width:87%;" name="destekR" id="destekR">
+             <option disabled selected>Lütfen bir rol seçiniz.</option>
+            <option value="<%=bot.ayar.fetch(`destekR_${guild.id}`)%>" style="color:<%=guild.roles.get(bot.ayar.fetch(`destekR_${guild.id}`)).hexColor%>" selected><%=guild.roles.get(bot.ayar.fetch(`destekR_${guild.id}`)).name%></option>
+					 <% guild.roles.filter(r => r.name !== "@everyone").filter(r => r.id !== bot.ayar.fetch(`destekR_${guild.id}`)).forEach(r => { %>
+            <option value="<%=r.id%>" style="color:<%=r.hexColor%>"><%=r.name%></option>
+          <% }); %>
+          </select>
+          <a href="/panel/<%=guild.id%>/destekr/sifirla" class="reset-btn" role="button">Sıfırla</a>
+          <% } %>
+        </div>
+      </div>
+    <div style="width: 100%; text-align: right; margin-top: 15px;">
+      <button style="background-color:blue; color:#fff" type="sumbit" id="formbtn" class="btn btn-default" ><i class="fa fa-fw fa-save" aria-hidden="true"></i> Kaydet</button>
+      <a href="yonet" button style="background-color:orange; color:#fff" type="sumbit" id="formbtn" class="btn btn-default"><i class="fa fa-mail-reply" aria-hidden="true"></i> Geri Dön</button> </a>    </div>
+        
+        </div>
+      </form>
     </div>
   </div>
-  
+    
+</div>
+
+    
+</div>
+        
+      
+      
   <script src="/css/js/jquery.min.js"></script>
   <script src="/css/js/popper.min.js"></script>
   <script src="/css/js/bootstrap-material-design.min.js"></script>
   <script src="https://unpkg.com/default-passive-events"></script>
   <script src="/css/js/perfect-scrollbar.jquery.min.js"></script>
-
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-
+ 
   <script src="/css/js/chartist.min.js"></script>
- 
+
   <script src="/css/js/bootstrap-notify.js"></script>
- 
+
   <script src="/css/js/material-dashboard.js?v=2.1.0"></script>
     
 
   <script src="/css/js/demo.js"></script>
 
- 
+
   
   <script>
     $(document).ready(function() {
@@ -368,4 +392,4 @@ add</i>
 </body>
 
 </html>
-<%- include('footer.ejs', {bot, user, path}) %>
+<%- include('footer.ejs', {bot, user, path}) %><
