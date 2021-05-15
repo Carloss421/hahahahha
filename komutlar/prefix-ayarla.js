@@ -10,7 +10,7 @@ let ohow = await db.fetch(`prefix_${message.guild.id}`)
 .setDescription("Bu komutu kullanabilmek için `YONETICI` iznine sahip olmalısın!"));
 
 
-return message.channel.send(new Discord.MessageEmbed().setDescription(`
+if(args[0] !== 'ayarla' && args[0] !== 'sıfırla') return message.channel.send(new Discord.MessageEmbed().setDescription(`
 ${ayarlar.hata} Lütfen **${prefix}prefix ayarla** veya **${prefix}prefix sıfırla** yaz.`))
 /*
  if (args[0] !== 'aç' && args[0] !== 'kapat') return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Küfür Engel Ayarlamak İçin \`${prefix}Küfür aç\` | Kapatmak İstiyorsanız \`${prefix}Küfür kapat\` Yazabilirsiniz`))
