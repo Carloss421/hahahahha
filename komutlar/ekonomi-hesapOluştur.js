@@ -18,7 +18,18 @@ if(!yaş) return message.channel.send(new Discord.MessageEmbed()
 if(!cinsiyet) return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`${ayarlar.hata} Hesap oluşturmak için bir cinsiyet belirlemelisin!\nCinsiyetler: **Erkek Kız/Kadın Özel**`))
 if(!açıklama) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`${ayarlar.hata} Hesap oluşturmak için kendi!`))
+.setDescription(`${ayarlar.hata} Hesap oluşturmak için kendi açıklamanı girmelisin!\nÖrnek: **Ben bir bot kodlayıcısıyım.**`))
+  
+if(args[0] === `${isim}`) {
+let bşrl = new Discord.MessageEmbed()
+.setTitle("1. Adım")
+.setDescription(`${ayarlar.oldu} İsmin \`${isim}\` olarak ayarlandı.`)
+message.channel.send(bşrl)
+};
+
+if(args[1] === `${yaş}`) {
+  
+}
 };
 
 exports.conf = {
