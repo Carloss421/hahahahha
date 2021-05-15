@@ -1,4 +1,31 @@
-const Discord = require('discord.js'); 
+const Discord = require('discord.js');
+const db = require('quick.db')
+
+exports.run = async (client, message, args) => {
+  let user = message.author
+  let sebep = args.join(" ") 
+  let member = message.mentions.members.first() 
+  if (!sebep) return message.channel.send(new Discord.MessageEmbed().setDescription(`
+<:hayir0:838855037161570375> \`AFK\` moduna girmek için bir sebep yazmalısın.`).setColor("RED"))
+  db.set(`afk_${user.id}`, sebep)
+message.channel.send(new Discord.MessageEmbed().setDescription(`
+<:evet1:838854924875726898> Başarıyla **${sebep}** sebebiyle \`AFK\` moduna geçildi.`).setColor("GREEN")) 
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: 0
+}
+
+exports.help = {
+  name: 'afk',
+  description: "AFK olmanızı sağlar.",
+  usage: 'afk <sebep>'
+}
+
+/*const Discord = require('discord.js'); 
 const db = require('quick.db') 
 exports.run = async (client, message, args) => { 
   let user = message.author
@@ -22,7 +49,8 @@ exports.help = {
   usage: 'afk <sebep>'
 }
 
-/*const Discord = require('discord.js');
+/*
+st Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json')
 const db = require('quick.db')
 exports.run = async (client, message, args) => {
