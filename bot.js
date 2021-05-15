@@ -128,6 +128,12 @@ client.unload = command => {
   });
 };
 
+client.emojiler = {
+açık: "<:acik:842931863379378197>",
+kapalı: "<:kapali:831811077339217961>"
+}
+
+
 //     [-----------------> BOT ETIKET <---------------] \\
 client.on('message', message => {
 const prefixD = db.fetch(`prefix_${message.guild.id}`)
@@ -1260,7 +1266,7 @@ client.on("messageUptade", message => {
       }}}});
 // -------------------> [ROL-KORUMA] <------------------ \\
 client.on("roleCreate", async (rolee, member, guild, message) => {
-  let rolkoruma = await db.fetch(`rolk_${message.guild.id}`);
+  let rolkoruma = await db.fetch(`rolK_${message.guild.id}`);
   if (rolkoruma == "acik") {
     rolee.delete();
     const embed = new Discord.MessageEmbed()
@@ -1275,7 +1281,7 @@ client.on("roleCreate", async (rolee, member, guild, message) => {
   }
 });
 client.on("roleDelete", async (rol, member, guild, message) => {
-  let rolkoruma = await db.fetch(`rolk_${message.guild.id}`);
+  let rolkoruma = await db.fetch(`rolK_${message.guild.id}`);
   if (rolkoruma == "acik") {
     rol.clone();
     const embed = new Discord.MessageEmbed()
@@ -1290,7 +1296,7 @@ client.on("roleDelete", async (rol, member, guild, message) => {
   }
 });
 client.on("roleUptade", async (roll, member, guild, message) => {
-  let rolkoruma = await db.fetch(`rolk_${message.guild.id}`);
+  let rolkoruma = await db.fetch(`rolK_${message.guild.id}`);
   if (rolkoruma == "acik") {
     roll.old();
     const embed = new Discord.MessageEmbed()

@@ -4,22 +4,22 @@ const ayarlar = require('../ayarlar.json')
 
 exports.run = async(client, message, args) => {
 // KULLANIM \\
-let açık = "<:acik:842931863379378197>"
-let kapalı = "<:kapali:831811077339217961>"
+const açık = client.emojiler.açık;
+const kapalı = client.emojiler.kapalı;
 let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
 let ayarlarS = new Discord.MessageEmbed()
 .setDescription(`
 **${message.guild.name} Sunucusun Ayarları**
 
-Küfür Engel: ${db.has(`küfürE_${message.guild.id}`) ? `**${açık} Açık**` : `**${kapalı} Kapalı**`}
-Reklam Engel: ${db.has(`reklamE_${message.guild.id}`) ? `**${açık} Açık**` : `**${kapalı} Kapalı**`}
-Otorol: ${db.has(`otoRL_${message.guild.id}`) ? `**${açık} Açık` : `**${kapalı} Kapalı**`}
-Bot Koruma: ${db.has(`botK_${message.guild.id}`) ? `**${açık} Açık` : `**${kapalı} Kapalı**`}
-Rol Koruma: ${db.has(`rolk_${message.guild.id}` ? `**${açık} Açık` : `**${kapalı} Kapalı**`)}
-Emoji Koruma: ${db.has(`emojikoruma_${message.guild.id}`) ? `**${açık} Açık` : `**${kapalı} Kapalı**`}
+Küfür Engel: ${db.has(`küfürE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Reklam Engel: ${db.has(`reklamE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Otorol: ${db.has(`otoRL_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Bot Koruma: ${db.has(`botK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Rol Koruma: ${db.has(`rolK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Emoji Koruma: ${db.has(`emojikoruma_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
 Prefix: ${db.has(`prefix_${message.guild.id}`) ? `**${prefix}**` : `**${ayarlar.prefix}**`}
-Sayaç: ${db.has(`sayac_${message.guild.id}`) ? `**${açık} Açık**` : `**${kapalı} Kapalı**`}
+Sayaç: ${db.has(`sayac_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
 `)
 message.channel.send(ayarlarS)
 };

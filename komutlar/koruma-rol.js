@@ -17,7 +17,7 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
     message.channel.send(embed);
     return;
   }
-  let rol = await db.fetch(`rolk_${message.guild.id}`);
+  let rol = await db.fetch(`rolK_${message.guild.id}`);
   if (args[0] == "aç") {
     if (rol) {
       const embed = new Discord.MessageEmbed()
@@ -28,7 +28,7 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
       message.channel.send(embed);
       return;
     } else {
-      db.set(`rolk_${message.guild.id}`, "acik");
+      db.set(`rolK_${message.guild.id}`, "acik");
       const embed = new Discord.MessageEmbed()
         .setColor("BLACK")
         .setTitle(" Rol Koruma sistemi!")
@@ -37,7 +37,7 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
       message.channel.send(embed);
     }
   } else if (args[0] == "kapat") {
-    db.delete(`rolk_${message.guild.id}`);
+    db.delete(`rolK_${message.guild.id}`);
     const embed = new Discord.MessageEmbed()
       .setColor("BLACK")
       .setTitle("Rol Koruma sistemi!")
