@@ -24,6 +24,7 @@ if(args[0] === `${isim}`) {
 let bşrl = new Discord.MessageEmbed()
 .setTitle("1. Adım")
 .setDescription(`${ayarlar.oldu} İsmin \`${isim}\` olarak ayarlandı.`)
+db.set(`ekonomihesapisim_${message.author.id}`, args[0])
 message.channel.send(bşrl)
 };
 
@@ -31,13 +32,14 @@ if(args[1] === `${yaş}`) {
 let bşrl = new Discord.MessageEmbed()
 .setTitle("2. Adım")
 .setDescription(`${ayarlar.oldu} Yaşın \`${yaş}\` olarak ayarlandı.`)
+db.set(`ekonomihesapyaş_${message.author.id}`, args[1])
 message.channel.send(bşrl)
 }
 if(args[2] === "erkek") {
  let bşrl = new Discord.MessageEmbed()
 .setTitle("3. Adım")
 .setDescription(`${ayarlar.oldu} Cinsiyet \`erkek\` olarak ayarlandı.`)
-db.set()
+db.set(`ekonomihesapcinsiyetE_${message.author.id}`, args[2])
 message.channel.send(bşrl)
 }
 if(args[2] === "kız" && "kadın") {
@@ -53,6 +55,12 @@ if(args[2] === "özel" && "gizli") {
 .setDescription(`${ayarlar.oldu} Cinsiyet \`özel/gizli\` olarak ayarlandı.`)
 db.set(`ekonomihesapcinsiyetÖ_${message.author.id}`, args[2])
 message.channel.send(bşrl)
+}
+if(args[3] === `${açıklama}`) {
+let bşrl = new Discord.MessageEmbed()
+.setTitle("3. Adım")
+.setDescription(`${ayarlar.oldu} Açıklama \`${açıklama}\` olarak ayarlandı.`)
+db.set(`ekonomihesapaçıklama_${message.author.id}`, args[3])
 }
 };
 
