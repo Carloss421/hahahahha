@@ -16,7 +16,7 @@ if(!isim) return message.channel.send(new Discord.MessageEmbed()
 if(!yaş) return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`${ayarlar.hata} Hesap oluşturmak için bir yaş girmelisin!`))
 if(!cinsiyet) return message.channel.send(new Discord.MessageEmbed()
-.setDescription(`${ayarlar.hata} Hesap oluşturmak için bir cinsiyet belirlemelisin!\nCinsiyetler: **Erkek Kız/Kadın Özel**`))
+.setDescription(`${ayarlar.hata} Hesap oluşturmak için bir cinsiyet belirlemelisin!\nCinsiyetler: **erkek - kız/kadın - özel/gizli**`))
 if(!açıklama) return message.channel.send(new Discord.MessageEmbed()
 .setDescription(`${ayarlar.hata} Hesap oluşturmak için kendi açıklamanı girmelisin!\nÖrnek: **Ben bir bot kodlayıcısıyım.**`))
   
@@ -27,42 +27,43 @@ let bşrl = new Discord.MessageEmbed()
 db.set(`ekonomihesapisim_${message.author.id}`, args[0])
 message.channel.send(bşrl)
 };
-
 if(args[1] === `${yaş}`) {
 let bşrl = new Discord.MessageEmbed()
 .setTitle("2. Adım")
 .setDescription(`${ayarlar.oldu} Yaşın \`${yaş}\` olarak ayarlandı.`)
 db.set(`ekonomihesapyaş_${message.author.id}`, args[1])
 message.channel.send(bşrl)
-}
+};
 if(args[2] === "erkek") {
  let bşrl = new Discord.MessageEmbed()
 .setTitle("3. Adım")
 .setDescription(`${ayarlar.oldu} Cinsiyet \`erkek\` olarak ayarlandı.`)
-db.set(`ekonomihesapcinsiyetE_${message.author.id}`, args[2])
 message.channel.send(bşrl)
-}
+db.set(`ekonomihesapcinsiyetE_${message.author.id}`, args[2])
+};
 if(args[2] === "kız" && "kadın") {
 let bşrl = new Discord.MessageEmbed()
 .setTitle("3. Adım")
 .setDescription(`${ayarlar.oldu} Cinsiyet \`kız\` olarak ayarlandı.`)
-db.set(`ekonomoihesapcinsiyetK_${message.author.id}`, args[2])
 message.channel.send(bşrl)
-}
+db.set(`ekonomoihesapcinsiyetK_${message.author.id}`, args[2])
+};
 if(args[2] === "özel" && "gizli") {
  let bşrl = new Discord.MessageEmbed()
 .setTitle("3. Adım")
 .setDescription(`${ayarlar.oldu} Cinsiyet \`özel/gizli\` olarak ayarlandı.`)
-db.set(`ekonomihesapcinsiyetÖ_${message.author.id}`, args[2])
 message.channel.send(bşrl)
-}
+db.set(`ekonomihesapcinsiyetÖ_${message.author.id}`, args[2])
+};
 if(args[3] === `${açıklama}`) {
 let bşrl = new Discord.MessageEmbed()
-.setTitle("3. Adım")
+.setTitle("4. Adım")
 .setDescription(`${ayarlar.oldu} Açıklama \`${açıklama}\` olarak ayarlandı.`)
 message.channel.send(bşrl)
 db.set(`ekonomihesapaçıklama_${message.author.id}`, args[3])
-} 
+};
+
+
 };
 
 exports.conf = {
