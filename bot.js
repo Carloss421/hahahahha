@@ -141,7 +141,7 @@ Bu sunucuda ayarlanmış olan prefix **${prefixÖ}**
 
 Yardım menüsü için **${prefixÖ}yardım** yazman gerekli olacaktır :)
 
-Beni şuana kadar **${client.guilds.cache.size}** tane sunucuna eklemişsin, beni birdaha eklemeye ne dersin?
+Beni şuana kadar **** tane sunucuna eklemişsin, beni birdaha eklemeye ne dersin?
 `)
 .setColor('RANDOM')
   if(message.content == `<@!828267474192564245>`) return message.channel.send(embed);
