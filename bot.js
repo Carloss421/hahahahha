@@ -131,7 +131,21 @@ client.unload = command => {
 
 
 //     [-----------------> BOT ETIKET <---------------] \\
-client.on('message', message => {
+client.on('message', async (msg, message) => {
+const prefixD = db.fetch(`prefix_${message.guild.id}`)
+const embed = new Discord.MessageEmbed()
+.setTitle('Selam')
+.setDescription(`
+${message.author}, bu sunucuda ayarlanmış olan prefix **${prefixD}**
+
+Yardım menüsü için **${prefixD}yardım** yazman gerekli olacaktır :)
+`)
+.setColor('RANDOM')
+  if(msg.content == `<@!828267474192564245>`) return msg.channel.send(embed);
+});
+
+
+/*client.on('message', message => {
 const prefixD = db.fetch(`prefix_${message.guild.id}`)
   if (message.content === '<@828267474192564245>') {
     message.channel.send(new Discord.MessageEmbed()
@@ -139,7 +153,7 @@ const prefixD = db.fetch(`prefix_${message.guild.id}`)
 Sunucu'daki prefix: ${prefixD}
 Bot'un ana prefixi: ${ayarlar.prefix}`));
 }});
-
+*/
 
 //     [-----------------> Afk <------------------]  \\
 
