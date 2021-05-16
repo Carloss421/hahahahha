@@ -9,7 +9,7 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 \`${prefix}ban-sistemi\` Ban komutlarını açar.
-\`${prefix}mute\` Belirtilen kullanıcıyı sunucuda susturur.
+\`${prefix}mute-sistemi\` Mute komutlarını açar.
 \`${prefix}unban\` ID'si belirtilen kullanıcının yasağını kaldırır.
 \`${prefix}unmute\` ID'si belirtilen kullanıcının susturulmasını kaldırır.
 \`${prefix}küfür-engel | aç - kapat\` Küfür engellemeyi açar,kapatır.
