@@ -16,7 +16,7 @@ message.channel.send(new Discord.MessageEmbed().setColor('#000001').setTitle('Al
 .addField('ᅠ', 'ᅠ')// xd
 .addField('Jail den çıkarmak isterseniz', `\`${prefix}k-erkek\`, \`${prefix}k-kadın\`\n**Komutları aktif etmek için:** \`${prefix}erkek-role [@roleEtiket]\` **-** \`${prefix}kadın-role [@roleEtiket]\``)
 .setThumbnail(message.author.avatarURL() ? message.author.avatarURL({dynamic: true}) : 'https://cdn.glitch.com/8e70d198-9ddc-40aa-b0c6-ccb4573f14a4%2F6499d2f1c46b106eed1e25892568aa55.png'));
- 
+  
 };  
 exports.conf = {
   enabled: true,
