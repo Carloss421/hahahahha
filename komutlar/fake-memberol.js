@@ -1,43 +1,24 @@
 const Discord = require('discord.js');
-const database = require('quick.db');
+const data = require('quick.db');
 
-exports.run = (client, message, args) => {
-
-  function embedCreate(color, title, description) {
-    const embed = new Discord.MessageEmbed()
-    .setColor(color)
-    .setTitle(title)
-    .setDescription(description)
-    return message.channel.send(embed);
-  };
-
-  if(!message.member.hasPermission('ADMINISTRATOR')) return embedCreate('RED', 'Başarısız!', 'Bu komutu kullanmak için yeterli yetkin bulunmuyor.');
-  if(!args[0] && !database.fetch(`fakeR_${message.guild.id}`)) return embedCreate('RED', 'Başarısız!', 'Bir rol etiketlemeli, yada IDsini girmelisin.');
-  if(args[0] && database.fetch(`fakeR_${message.guild.id}`)) {
-    database.delete(`fakeR_${message.guild.id}`);
-    return embedCreate('GREEN', 'Başarılı!', 'Fake üyelere verilecek rol sıfırlandı.');
-  };
-
-  let role = message.guild.roles.cache.get(args[0]);
-  if(!role) {
-    if(message.mentions.roles.first()) {
-      role = message.mentions.roles.first();
-    };
-  };
-
-  if(!role) return embedCreate('RED', 'Başarısız!', 'Belirttiğin rolü bu sunucuda bulamıyorum.');
-
-  database.set(`fakeR_${message.guild.id}`, role.id);
-  return embedCreate('GREEN', 'Başarılı!', `Fake üye rolü **${role.name}** olarak ayarlandı.`);
+exports.run = async (client, message, args) => {
+const ayarlar = require('../ayarlar.json')
+const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  if(!message.member.permissions.has('ADMINISTRATOR')) return message.channel.send(new Discord.MessageEmbed().setThumbnail(message.author.avatarURL() ? message.author.avatarURL({dynamic: true}) : 'https://cdn.glitch.com/8e70d198-9ddc-40aa-b0c6-ccb4573f14a4%2F6499d2f1c46b106eed1e25892568aa55.png').setImage('https://cdn.glitch.com/0c8ef551-5187-48a8-9daf-f2cc35630f21%2Fyoneticigif.gif').setTitle('Bir hata oldu!').setDescription(`• \`${prefix}fake-cezalı-role\` **kullanmak için,** \`Yönetici\` **yetkisine sahip olman gerekiyor.**`));
+  if(!message.mentions.roles.first()) return message.channel.send(new Discord.MessageEmbed().setColor('#00001').setTitle('Bir hata oldu!').setDescription('Bir rol etiketlemeyi unuttunuz.'));
+  let mentionRole = message.mentions.roles.first();
+  data.set(`fake.role.${message.guild.id}`, mentionRole.id);
+  message.channel.send(new Discord.MessageEmbed().setTitle('İşte bu kadar!').setDescription(`Fake cezalı da kullanılacak: ${mentionRole} rolü olarak seçtiniz.`));
 
 };
 exports.conf = {
   enabled: true,
-  guildOnly: false,
-  aliases: ['fake-member-role','fake-üye-rol'],
+  guildOnly: true,
+  aliases: [],
   permLevel: 0
-};
- 
+}
+
 exports.help = {
-  name: 'fakememberrole'
+  name: 'fake-cezalı-rol'
 };
