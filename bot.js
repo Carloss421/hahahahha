@@ -129,11 +129,6 @@ client.unload = command => {
   });
 };
 
-client.premium = {
-alvidestek: "833185818629111838",
-starphdestek: "803949105122508800"
-}
-
 
 //     [-----------------> BOT ETIKET <---------------] \\
 client.on('message', async message => {

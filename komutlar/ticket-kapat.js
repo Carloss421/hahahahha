@@ -3,15 +3,7 @@ const data = require("quick.db");
 const ayarlar = require("../ayarlar.json")
 exports.run = async (client, message, args) => {
    const db = require("quick.db")
-let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"
-if(premium !== db.fetch(`premium.${message.guild.id}`)) {
-if (premium == "Premium Aktif Değil!") {
-let pre = new Discord.MessageEmbed()
-.setDescription(`Sunucunuz **Premium** olmadığı için kullanamazsınız.`)
-.setColor("RED")
- return message.channel.send(pre).then(msg=>msg.delete(5000));
-}};
-  if (premium == "Premium Aktif") {
+
 let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   const ad = await data.fetch(`numara.${message.channel.id}`);
   if (!ad) {
@@ -85,7 +77,7 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
       });
   } else {
     return message.channel.send(`Bu komutu bir bilet kanalında kullanın.`);
-  }}
+  }
 };
 exports.conf = {
   enabled: true,

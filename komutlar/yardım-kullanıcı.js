@@ -16,9 +16,7 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}hata-bildir\` Hatayı, açığı bildirebilirsiniz.
 \`${prefix}öneri\` Bot için öneri'de bulunursunuz.
 \`${prefix}istatistik\` Botun bilgilerini gösterir.
-\`${prefix}afk\` Afk olursunuz.
-\`${prefix}hızlı-destek(PREMUIM)\` Çok çabuk destek alabilirsiniz.
-\`${prefix}pre-yardım - ${prefix}yardım-premium\` premium özeliklerini fln görürsünüz.`)
+\`${prefix}afk\` Afk olursunuz.`)
 message.channel.send(embed)
 };
 

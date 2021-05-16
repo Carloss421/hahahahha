@@ -1,9 +1,16 @@
 const Discord = require("discord.js");
 const captcha = require("captcha-plus");
 const db = require("quick.db");
-
+const ayarlar = require("../ayarlar.json")
 exports.run = async (client, message, args) => {
-     if(message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription("Üzgünüm Yetkin Yok!"))
+   
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`**${ayarlar.hata} Bu Komut Bakımdadır!**`)
+    .setColor('#ff0000')
+   message.channel.send(embed).then(msg=>msg.delete(5000));
+    
+ /* 
+  
      let ch = message.mentions.channels.first();
      if(!ch) return message.channel.send("Kanal Etiketle!");
      let rol = message.mentions.roles.first();
@@ -12,7 +19,7 @@ exports.run = async (client, message, args) => {
      db.set(`captcha.${message.guild.id}`,ch.id);
      db.set(`captcharol.${message.guild.id}`,rol.id)
      message.channel.send("Ayarlandı!")
-
+*/
 };
 
 exports.conf = {

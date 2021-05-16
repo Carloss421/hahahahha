@@ -22,7 +22,8 @@ let embed = new Discord.MessageEmbed()
 ║ \`ayarlar\` | **(BETA)** eklendi!
 ║ \`mute-sistemi\` |  eklendi!
 ║ \`jail-sistemi\` | eklendi!
-║ \`seviye-sistemi\` | kaldırıldı! 
+║ \`seviye-sistemi\` | kaldırıldı!
+║ \`premium-sistemi\` | kaldırıldı!(Herşey Bedava)
 ╚═══════════════════╝
 
 

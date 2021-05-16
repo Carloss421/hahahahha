@@ -3,19 +3,12 @@ const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
 
 exports.run = async (client, message, args) => {
-let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"
-if(premium !== db.fetch(`premium.${message.guild.id}`)) {
-if (premium == "Premium Aktif Değil!") {
-let pre = new Discord.MessageEmbed()
-.setDescription(`Sunucunuz **Premium** olmadığı için kullanamazsınız.`)
-.setColor("RED")
- return message.channel.send(pre).then(msg=>msg.delete(5000));
-}};
+
   
   
 let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
-if(premium == "Premium Aktif") {
+
   if (!args[0]) {
     const embed = new Discord.MessageEmbed()
       .setColor("GOLD")
@@ -54,7 +47,7 @@ if(premium == "Premium Aktif") {
       .setDescription("**Emoji Koruma Sistemi Kapatıldı !**");
 
     message.channel.send(embed);
-  }}
+  }
 };
 exports.conf = {
   enabled: true,

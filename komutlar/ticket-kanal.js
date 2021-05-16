@@ -3,15 +3,7 @@ const data = require("quick.db");
 const ayarlar = require("../ayarlar.json");
 exports.run = async (client, message, args) => {
   const db = require("quick.db")
-let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"
-if(premium !== db.fetch(`premium.${message.guild.id}`)) {
-if (premium == "Premium Aktif Değil!") {
-let pre = new Discord.MessageEmbed()
-.setDescription(`Sunucunuz **Premium** olmadığı için kullanamazsınız.`)
-.setColor("RED")
- return message.channel.send(pre)
-}}; 
-  if (premium == "Premium Aktif") {
+
 let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (!message.member.hasPermission("ADMINISTRATOR"))
     return message.channel.send("Bu komutu kullanmak için yetkin yok.");
@@ -74,7 +66,7 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
         .setColor(`#ee7621`)
         .setDescription("Sadece `ayarla` veya `sıfırla` kullanın.")
     );
-  }}
+  }
 };
 exports.conf = {
   enabled: true,
