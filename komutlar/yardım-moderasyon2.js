@@ -17,7 +17,6 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}gif-sistemi\` Gif komutlarını açar.
 \`${prefix}kanal-aç\` Kanala yazma izninini açar.
 \`${prefix}kanal-kilitle\` Kanal yazma iznini kapatır.
-\`${prefix}seviye-sistemi\` Seviye komutlarını açar.
 \`${prefix}snipe\` Son silinen mesajı atar.
 \`${prefix}yavaşmod\` Bütün kanallara girdiğiniz miktar kadar yavaş mod ayarlar.
 \`${prefix}caps-engel <aç/kapat>\` Caps mesaj engeller.

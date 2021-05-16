@@ -960,47 +960,6 @@ client.on("message", async (msg, member, guild) => {
     }
   }
 });
-// ------------> [Seviye-Sistemi] <----------- \\
-client.on("message",function(message) {
-  const xpfile = require("./xp.json");
-  let kanal = db.fetch(`seviyekanal_${message.guild.id}`)
-  let mesaj = db.fetch(`seviyemsj_${message.guild.id}`)
-  if(message.author.bot) return;
-  var addXP = Math.floor(Math.random() * 8) + 3
-  
-  if(!xpfile[message.author.id])
-      xpfile[message.author.id] = {
-        xp: 0,
-        level: 1,
-        reqxp: 100
-      }
-  
-       fs.writeFile("./xp.json",JSON.stringify(xpfile), function(err){
-         if(err) console.log(err)
-       })
-   
-      xpfile[message.author.id].xp += addXP
-    if(xpfile[message.author.id].xp > xpfile[message.author.id].reqxp) {
-      xpfile[message.author.id].xp -= xpfile[message.author.id].reqxp
-      xpfile[message.author.id].reqxp *= 1.25
-      xpfile[message.author.id].reqxp = Math.floor(xpfile[message.author.id].reqxp)
-      xpfile[message.author.id].level += 1
-     if(!mesaj) {
-      message.reply("Hey Level Atladın** "+xpfile[message.author.id].level+" **!")
-     } 
-       if (mesaj) {
-    const msg = mesaj.replace("-member-", `<@${message.author.id}>`).replace("-server-", `${message.guild.name}`).replace("-seviye-", `${xpfile[message.author.id].level}`).replace("-seviyexp-", `${xpfile[message.author.id].xp}`).replace("-totalxp-", `${xpfile[message.author.id].reqxp}`)
-    return client.channels.cache.get(kanal).send(msg);
-  
-       fs.writeFile("./xp.json",JSON.stringify(xpfile), function(err){
-         if(err) console.log(err)
-       })
-        
-         }
-    }
-    
-  
-   })
 
 // -----------------> [Caps-Engel] <-------------------- \\
 client.on("message", async msg => {
