@@ -7,8 +7,8 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 :three: **Version: 0.0.3**
-**Başlangıç: 15.05.2021 - 19:09 Bitiş: 16:05:2021 - 00:39 **\`(GUNCELLEME)\`
-╔════════════════════════════════╗
+**Başlangıç: 15.05.2021 - 19:09 Bitiş: 17:05:2021 - 20:30 **\`(GUNCELLEME)\`
+╔═══════════════════╗
 ║ \`afk-sistemi\` | güncellendi!
 ║ \`güvenlik\` | eklendi!
 ║ \`resimli-giriş-çıkış\` | eklendi!
@@ -23,7 +23,7 @@ let embed = new Discord.MessageEmbed()
 ║ \`mute-sistemi\` |  eklendi!
 ║ \`jail-sistemi\` | eklendi!
 ║ \`seviye-sistemi\` | kaldırıldı! 
-╚════════════════════════════════╝
+╚═══════════════════╝
 
 
 :information_source: **Güncellemeler 2 ayda bir yapılacaktır!**`)

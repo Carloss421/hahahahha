@@ -4,16 +4,16 @@ const ayarlar = require("../ayarlar.json")
 
 exports.run = async (client, message, args) => {
 const db = require("quick.db")
-let premium = db.has(`premium.${message.guild.id}`) ? "Premium Aktif" : "Premium Aktif Değil!"
+const premium = client.premium
 if(premium !== db.fetch(`premium.${message.guild.id}`)) {
-if (premium == "Premium Aktif Değil!") {
+if (premium == "Aktif Değil!") {
 let pre = new Discord.MessageEmbed()
 .setDescription(`Sunucunuz **Premium** olmadığı için kullanamazsınız.`)
 .setColor("RED")
  return message.channel.send(pre).then(msg=>msg.delete(5000));
 }}; 
   
-  if (premium == "Premium Aktif") {
+  if (premium == `${client.premium}`) {
 
 let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
