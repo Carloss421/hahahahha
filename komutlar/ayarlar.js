@@ -9,7 +9,7 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
  
 let ayarlarS = new Discord.MessageEmbed()
 .setDescription(`
-**${message.guild.name} Sunucusun Ayarları**
+**${message.guild.name} | Sunucusu'nun Ayarları**
 
 Prefix: ${db.has(`prefix_${message.guild.id}`) ? `**${prefix}**` : `**${ayarlar.prefix}**`}
 İsim: **${client.user.username}**
