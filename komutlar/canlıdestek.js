@@ -1,40 +1,39 @@
 const Discord = require('discord.js');
+const client = new Discord.Client();
+var ayarlar = require('../ayarlar.json');
 
-const db = require("quick.db");
+exports.run = async (client, message, args) => {
+  const codare = args.slice(0).join(' ');
+  if (codare.length < 1) return message.channel.send('`Talep Açma Sebebinizi Belirtiniz.`')
+    message.channel.send('`Destek Talebi Başarıyla Gönderildi,Yetkililerin Size Ulaşmasını BekLeyiniz.`');
 
-module.exports.run = async (bot, message, args, params, client) => {
 
-  const ayarlar = require('../ayarlar.json')
-let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
-    if(message.channel.type == "dm")  return;
-  if(message.channel.type !== "text") return;
-  var channel = message.guild.channels.find('id', '833215162047135744')
-    const asdf = await message.guild.channels.get(message.channel.id).createInvite()
-  message.delete();
-  const embed = new Discord.MessageEmbed()
-    .setAuthor(`${client.user.username}`, client.user.avatarURL)
-  .setTitle("Alvi | Canlı Destek")
-  .setDescription("**<a:acik:827618729193242634> Canlı Desteği kullandığın için teşekkür ederiz, Seninle ekibim ilgilenicektir lütfen bekle!**")
-  .setDescription("30 Saniye İinde Geri Dönülmezse Lütfen İletişime Geçin \nCanlı Destek Ekibimiz <@739411430171738142>`-`<@720236094792400987>")
-  .setColor("#31ff00")
- message.channel.send(embed)
-      const invite = new Discord.MessageEmbed()
-  .setAuthor("Canlı Destek | Talep")
-  .addField('**Kullanıcı: **', message.author.username + '#' + message.author.discriminator)
-  .addField('**Sunucu Adı: **', message.guild.name)
-  .setDescription(asdf.url)
-      channel.send(invite)
+    var Hook = new Discord.WebhookClient("ID", "WEBHOOK TOKEN")
+
+    let embed = new Discord.MessageEmbed()
+    .setColor("GREEN")
+    .setThumbnail(message.author.avatarURL())
+    .setTitle(`Destek Talebi!`)
+    .setDescription(`
+      **Talep Eden: **`+message.author.tag+`
+      **Talep Sebebi: **\``+codare+`\`
+      `)
+    .setFooter(`Destek`)
+    .setTimestamp()
+    Hook.send(embed)
+
 };
 
-  exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ['canlıdestek'],
-  permLevel: 1
-};
-
-exports.help = {
-  name: 'canlı-destek',
-  description: 'Canlı Destek Tablebi Oluşturur.',
-  usage: 'c!canlı-destek'
-};
+exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: ['canlıdestek'],
+    permLevel: 0,  
+  };
+  
+  exports.help = {
+    name: 'canlı-estek',
+    description: 'Talebinizi belirterek destek alabilirsiniz.',
+    usage: 'destek-al ',
+   
+  };

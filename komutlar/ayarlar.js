@@ -8,7 +8,7 @@ exports.run = async(client, message, args) => {
 let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
  
 let ayarlarS = new Discord.MessageEmbed()
-.setDescription(`
+.setDescription(` 
 **${message.guild.name} | Sunucusu'nun Ayarları**
 
 Prefix: ${db.has(`prefix_${message.guild.id}`) ? `**${prefix}**` : `**${ayarlar.prefix}**`}
