@@ -15,10 +15,10 @@ message.channel.send(new Discord.MessageEmbed().setTitle('Alvi Fake Hesap Sistem
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
+  aliases: ["fake-üye-sistemi"],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'fake-hesap-sistem'
+  name: 'fake-hesap-sistemi'
 };
