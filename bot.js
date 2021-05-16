@@ -135,9 +135,9 @@ client.on('message', async message => {
 const prefixÖ = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
   const embed = new Discord.MessageEmbed()
-
+.setThumbnail(client.user.avatarURL())
 .setDescription(`
-Bu sunucuda ayarlanmış olan prefix **${prefixÖ}**
+<@${message.author.id}>, bu sunucuda ayarlanmış olan prefix **${prefixÖ}**
 
 Yardım menüsü için **${prefixÖ}yardım** yazman gerekli olacaktır :)`)
 .setColor('RANDOM')
