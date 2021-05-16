@@ -9,18 +9,19 @@ let embed = new Discord.MessageEmbed()
 :three: **Version: 0.0.3**
 **Başlangıç: 15.05.2021 - 19:09 Bitiş: 16:05:2021 - 00:39 **\`(GUNCELLEME)\`
 ╔════════════════════════════════╗
-║ \`afk-sistemi\` | Afk sistemi güncellendi!
-║ \`güvenlik\` | Güvenlik sistemi eklendi!
-║ \`resimli-giriş-çıkış\` | Resimli giriş çıkış eklendi!
-║ \`hoşgeldin-hoşçakal\` | Hoşgeldin-hoşçakal eklendi!
-║ \`emoji-koruma\` | Emoji koruma eklendi!
-║ \`prefix-sistemi\` | Prefix ayarlama eklendi!
-║ \`sayaç/otorol\` | sayaç ve otorol güncellendi!
+║ \`afk-sistemi\` | güncellendi!
+║ \`güvenlik\` | eklendi!
+║ \`resimli-giriş-çıkış\` | eklendi!
+║ \`hoşgeldin-hoşçakal\` | eklendi!
+║ \`emoji-koruma\` | eklendi!
+║ \`prefix-sistemi\` | eklendi!
+║ \`sayaç/otorol\` | güncellendi!
 ║ \`HATA\` | Hatalar giderildi!
-║ \`fake-üye-sistemi\` | Fake üye sistemi eklendi!
-║ \`captcha\` | Captcha güncellendi!
-║ \`ayarlar\` | Ayarlar**(BETA)** eklendi!
-║ \`mute-sistemi\` | Mute sistemi eklendi!
+║ \`fake-üye-sistemi\` | eklendi!
+║ \`captcha\` | güncellendi!
+║ \`ayarlar\` | **(BETA)** eklendi!
+║ \`mute-sistemi\` |  eklendi!
+║ \`jail-sistemi\` | Eklendi!
 ╚════════════════════════════════╝
 
 

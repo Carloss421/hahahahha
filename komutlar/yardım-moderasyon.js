@@ -25,7 +25,7 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}captcha-sistemi\` Captcha komutlarını görürsünüz.
 \`${prefix}görev-sistemi\` Görev komutlarını görürsünüz.
 \`${prefix}ticket-sistemi(PREMUIM)\` Ticket komutlarını görürsünüz.
-~~\`${prefix}jail-sistemi(YAKINDA)\` Belirtilen üyeyi hapise atarsınız~~
+\`${prefix}jail-sistemi\` Belirtilen üyeyi hapise atarsınız
 
 **kayıt-sistemi** komutu kullanılabilir ama bir çok hatası olduğundan dolayı önermiyoruz!
 **görev-sistemi** Komutu çalışır durumda ama içinde yazan komutları deneyemezsiniz çünkü onun üzerinde çalışıyor!

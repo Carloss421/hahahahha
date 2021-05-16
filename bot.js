@@ -961,82 +961,46 @@ client.on("message", async (msg, member, guild) => {
   }
 });
 // ------------> [Seviye-Sistemi] <----------- \\
-client.on("message", async msg => {
-  const request = require("node-superfetch");
-  const db = require("quick.db");
-  if (db.has(`lvl2_${msg.author.id}`) === true) {
-    if (db.has(`lvll_${msg.guild.id}`) === true) {
-      let memberChannel = await db.fetch(`sk_${msg.guild.id}`);
+client.on("message",function(message) {
+  let kanal = db.fetch(`seviyekanal_${message.guild.id}`)
+  let mesaj = db.fetch(`seviyemsj_${message.guild.id}`)
+  if(message.author.bot) return;
+  var addXP = Math.floor(Math.random() * 8) + 3
+  
+  if(!xpfile[message.author.id])
+      xpfile[message.author.id] = {
+        xp: 0,
+        level: 1,
+        reqxp: 100
+      }
+  
+       fs.writeFile("./xp.json",JSON.stringify(xpfile), function(err){
+         if(err) console.log(err)
+       })
+   
+      xpfile[message.author.id].xp += addXP
+    if(xpfile[message.author.id].xp > xpfile[message.author.id].reqxp) {
+      xpfile[message.author.id].xp -= xpfile[message.author.id].reqxp
+      xpfile[message.author.id].reqxp *= 1.25
+      xpfile[message.author.id].reqxp = Math.floor(xpfile[message.author.id].reqxp)
+      xpfile[message.author.id].level += 1
+     if(!mesaj) {
+      message.reply("Hey Level Atladın** "+xpfile[message.author.id].level+" **!")
+     } 
+       if (mesaj) {
+    const msg = mesaj.replace("-member-", `<@${message.author.id}>`).replace("-server-", `${message.guild.name}`).replace("-seviye-", `${xpfile[message.author.id].level}`).replace("-seviyexp-", `${xpfile[message.author.id].xp}`).replace("-totalxp-", `${xpfile[message.author.id].reqxp}`)
+    return client.channels.cache.get(kanal).send(msg);
+  
+       fs.writeFile("./xp.json",JSON.stringify(xpfile), function(err){
+         if(err) console.log(err)
+       })
+        
+         }
+    }
+    
+  
+   })
 
-      if (msg.channel.type === "dm") return;
-      if (msg.author.bot) return;
-
-      if (msg.content.length > 40) {
-        db.add(`puancik_${msg.author.id + msg.guild.id}`, 4);
-      }
-      if (msg.content.length > 35) {
-        db.add(`puancik_${msg.author.id + msg.guild.id}`, 4);
-      }
-      if (msg.content.length > 30) {
-        db.add(`puancik_${msg.author.id + msg.guild.id}`, 3);
-      }
-      if (msg.content.length > 25) {
-        db.add(`puancik_${msg.author.id + msg.guild.id}`, 3);
-      }
-      if (msg.content.length > 20) {
-        db.add(`puancik_${msg.author.id + msg.guild.id}`, 2);
-      }
-      if (msg.content.length > 15) {
-        db.add(`puancik_${msg.author.id + msg.guild.id}`, 2);
-      }
-      if (msg.content.length > 10) {
-        db.add(`puancik_${msg.author.id + msg.guild.id}`, 1);
-      }
-      if (msg.content.length < 5) {
-        db.add(`puancik_${msg.author.id + msg.guild.id}`, 1);
-      }
-
-      if (db.fetch(`puancik_${msg.author.id + msg.guild.id}`) > 250) {
-        db.add(`seviye_${msg.author.id + msg.guild.id}`, 1);
-        if (memberChannel) {
-          if (db.has(`üyelikk_${msg.author.id}`)) {
-            msg.guild.channels
-              .get(memberChannel)
-              .send(
-                `:crow: Kral <@${
-                  msg.author.id
-                }>, Seviye atladın ve \`${db.fetch(
-                  `seviye_${msg.author.id + msg.guild.id}`
-                )}\` seviye oldun :tada:`
-              );
-          } else
-            msg.guild.channels
-              .get(memberChannel)
-              .send(
-                `Tebrik ederim <@${
-                  msg.author.id
-                }>! Seviye atladın ve \`${db.fetch(
-                  `seviye_${msg.author.id + msg.guild.id}`
-                )}\` seviye oldun!`
-              );
-        } else if (db.has(`üyelikk_${msg.author.id}`)) {
-          msg.channel.send(
-            `:crowng: Kral <@${msg.author.id}>, Seviye atladın ve \`${db.fetch(
-              `seviye_${msg.author.id + msg.guild.id}`
-            )}\` seviye oldun :tada:`
-          );
-        } else
-          msg.channel.send(
-            `Tebrik ederim <@${msg.author.id}>! Seviye atladın ve \`${db.fetch(
-              `seviye_${msg.author.id + msg.guild.id}`
-            )}\` seviye oldun!`
-          );
-
-        db.delete(`puancik_${msg.author.id + msg.guild.id}`);
-      }
-    } else return;
-  } else return;
-});
 // -----------------> [Caps-Engel] <-------------------- \\
 client.on("message", async msg => {
   if (msg.channel.type === "dm") return;
