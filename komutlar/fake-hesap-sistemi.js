@@ -5,8 +5,7 @@ exports.run = async (client, message, args) => {
 
 const db = require('quick.db')
 let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
-message.channel.send(new Discord.MessageEmbed().setTitle('Alvi Fake Hesap Sistem').setDescription(`
-
+message.channel.send(new Discord.MessageEmbed().setTitle('Alvi Fake Hesap Sistemi').setDescription(`
 \`${prefix}yeni-üye-rol [@rolEtiket]\` **Sunucunuza giren kullanıcılara verilen rolü etiketle**
 \`${prefix}fake-cezalı-rol [@rolEtiket]\` **Sunucunuz içerisinde ki cezalı rolünü etiketle**
 \`${prefix}yeni-üye-role-kapat\` **Ayarlı olan kayıtsız rol kapatır**

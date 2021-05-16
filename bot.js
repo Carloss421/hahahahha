@@ -130,7 +130,6 @@ client.unload = command => {
 };
 
 
-
 //     [-----------------> BOT ETIKET <---------------] \\
 client.on('message', async message => {
 const prefixÖ = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
