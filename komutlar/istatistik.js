@@ -31,7 +31,7 @@ Discord.js sürümü ${araEmoji} **v${Discord.version}**
 Node.js sürümü ${araEmoji} **${process.version}**
 
 **Verileri alınan komutlar**
-\`Otorol - Sayaç - KayıtSistemi - Premium - CaptchaSistemi - kayıtlog - GörevSistemi\`
+\`Otorol - Sayaç - KayıtSistemi - CaptchaSistemi - Prefix - GörevSistemi\`
 **Veri depolaması fazla artarsa silineceketir!**
 [Destek Sunucusu](https://discord.gg/NAzGC2cxXR) - [Davet Et(Perm 8)](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot) - [Davet Et(Perm 0)](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot) - Oyver **YAKINDA!**
 `)//client.guild.member.cache.filter(m => m.user.bot).size
