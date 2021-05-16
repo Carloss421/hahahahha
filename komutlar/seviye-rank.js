@@ -46,7 +46,7 @@ ctx.textAlign = "left";
 ctx.fillText(message.author.tag, 300, 120);
 ctx.font = "50px Arial";
 ctx.fillText("Level:", 300, 180);  
-ctx.fillText(level, 450, 180);// level, 470 olacak 
+ctx.fillText(level, 470, 180);// level, 470 olacak 
   
 ctx.arc(170, 160, 120, 0, Math.PI * 2, true);
 ctx.lineWidth = 6;
@@ -55,8 +55,7 @@ ctx.stroke();
 ctx.closePath();
 ctx.clip();
   
-const avatar = await loadImage(message.author.displayAvatarURL({ format: "jpg"}))  
-ctx.drawImage(avatar, 40, 40, 250, 250);
+
   
 const embed = new MessageEmbed()
 .setColor('GREEN')
@@ -65,10 +64,11 @@ const embed = new MessageEmbed()
 Level: \`${level}\`
 XP: \`${xp}\`
 Total XP: \`${totalxp}\``)
-message.channel.send(embed)
+const avatar = await loadImage(message.author.displayAvatarURL({ format: "jpg"}))  
+ctx.drawImage(avatar, 40, 40, 250, 250);
 const final = new MessageAttachment(canvas.toBuffer(), "rank.png")  
 message.channel.send(final)
-  
+message.channel.send(embed)
 }
 exports.conf = {
   enabled: true, 

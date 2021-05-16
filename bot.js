@@ -962,6 +962,7 @@ client.on("message", async (msg, member, guild) => {
 });
 // ------------> [Seviye-Sistemi] <----------- \\
 client.on("message",function(message) {
+  const xpfile = require("./xp.json");
   let kanal = db.fetch(`seviyekanal_${message.guild.id}`)
   let mesaj = db.fetch(`seviyemsj_${message.guild.id}`)
   if(message.author.bot) return;
