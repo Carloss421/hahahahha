@@ -23,9 +23,6 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}başvuru-sistemi\` Başvuruları gönderir.
 \`${prefix}abone-sistemi\` Abone komutlarını açar.
 
-**müzik-sistemi**'nin içindeki volume komutunu Normal Kullanıcılar: %59'a kadar - Premium Kullanıcıları: %100'yüze kadar arttırabiliyorlar.
-**şuan herkes %100'e kadar çekebilir.**
-
 Burada çok fazla komut olduğu için \`${prefix}yardım-moderasyon3\` yazarak komutların devamına bakabilirsiniz.
 `)
 message.channel.send(embed)
