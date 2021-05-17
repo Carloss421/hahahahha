@@ -6,7 +6,7 @@ let talkedRecently = new Set();
 module.exports = (message, args, user) => {
   if (talkedRecently.has(message.author.id)) {
     return;
-  }
+  } 
 module.exports = message => {
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
@@ -77,6 +77,14 @@ if(message.author.bot) return
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
   }
+  
+    if (db.has(`karalist_${message.author.id}`) === true) {
+    let embed = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription("Komutlarımı kullanamazsın çünkü karalistedesin!")
+    message.channel.send({embed: embed})
+    return
+  };
 
   if (cmd) {
   let bakım = await db.fetch('bakım');
