@@ -12,7 +12,7 @@ let ayarlarS = new Discord.MessageEmbed()
 **${message.guild.name} | Sunucusu'nun Ayarları**
 
 Prefix: ${db.has(`prefix_${message.guild.id}`) ? `**${prefix}**` : `**${ayarlar.prefix}**`}
-İsim: **${client.user.username}**
+İsim: **<@${client.user.id}>**
 
 Küfür Engel: ${db.has(`küfürE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
 Reklam Engel: ${db.has(`reklamE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
