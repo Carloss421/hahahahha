@@ -27,7 +27,7 @@ Burada çok fazla komut olduğu için \`${prefix}yardım-moderasyon3\` yazarak k
 `)
 message.channel.send(embed)
 };
-
+ 
 exports.conf = {
  enabled: true,
  guildOnly: false,
