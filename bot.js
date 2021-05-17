@@ -825,7 +825,7 @@ var hoşglend = new Discord.MessageEmbed()
 .addField(`Üye Adı`, `${member}`, true)
 client.channels.get(hoşgeldinK).send(hoşglend) 
 }});
-
+ 
 client.on("guildMemberRemove", async(member, message) => {
 if (db.has(`hoşgeldinK_${message.guild.id}`) === true) {
   let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
