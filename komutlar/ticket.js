@@ -5,7 +5,7 @@ const ayarlar = require("../ayarlar.json")
 exports.run = async (client, message, args) => {
 
 
-
+const db = require('quick.db')
 let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
   if (args[0] === "gönder") {

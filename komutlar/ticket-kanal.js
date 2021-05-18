@@ -59,7 +59,7 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
         )
     );
   }
-
+/*
   if (!message.includes === "sıfırla" || "ayarla") {
     return message.channel.send(
       new Discord.MessageEmbed()
@@ -67,6 +67,11 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
         .setDescription("Sadece `ayarla` veya `sıfırla` kullanın.")
     );
   }
+  
+  */
+  
+if(args[0] !== 'ayarla' && args[0] !== 'sıfırla') return message.channel.send(new Discord.MessageEmbed().setDescription(`
+${ayarlar.hata} Sadece \`ayarla\` veya \`sıfırla\` kullanın!`))
 };
 exports.conf = {
   enabled: true,
