@@ -16,9 +16,7 @@ Yapımcı Discord ID \`${ayarlar.ownerID}\`
 \`${prefix}bakım | aç - kapat | bilgi\` Bot'u bakıma almaya yarar.
 \`${prefix}güncelleme | ekle - sil\` Güncelleme eklemeye ve silmeye yarar.
 \`${prefix}komut-bakım | aç - kapat\` Belirtilen komutu bakıma almaya yarar.
-\`${prefix}reboot\` Bot'u yeniden başlatır.
-\`${prefix}premium-üye | ver - al\` ID'si belirtilen kullanıcıya premium verir.
-\`${prefix}premium-sunucu | ver - al\` ID'si belirtilen sunucuya premium verir.`)
+\`${prefix}reboot\` Bot'u yeniden başlatır.`)
 message.channel.send(embed)
 };
 
