@@ -826,7 +826,7 @@ var hoşglend = new Discord.MessageEmbed()
 client.channels.get(hoşgeldinK).send(hoşglend) 
 }});
  
-client.on("guildMemberRemove", async(member, message) => {
+client.on("guildMemberRemove", async(member, message, guild) => {
 if (db.has(`hoşgeldinK_${message.guild.id}`) === true) {
   let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
