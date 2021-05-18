@@ -17,6 +17,8 @@ let embed = new Discord.MessageEmbed()
 :warning: **captcha-sistemi** Üzerinde Çalışılıyor!
 :warning: **görev-sistemi** Üzerinde Çalışılıyor!
 :warning: **müzik-sistemi** HATALI!
+:warning: **kanal-kilit/aç** Üzerinde Çalışılıyor!
+:warning: **yavaş-mod** Üzerinde Çalışılıyor!
 
 **Bütün hepsi düzeltilicek!**
 **Hata gördüyseniz** \`${prefix}hata-bildir\`
