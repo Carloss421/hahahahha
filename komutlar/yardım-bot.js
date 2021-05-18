@@ -14,11 +14,11 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 :warning: **kayıt-sistemi** HATALI!
-:warning: **otorol** HATALI!
-:warning: **sayaç** HATALI!
-:warning: **captcha-sistemi** HATALI!
+:warning: **captcha-sistemi** Üzerinde Çalışılıyor!
 :warning: **görev-sistemi** Üzerinde Çalışılıyor!
+:warning: **müzik-sistemi** HATALI!
 
+**Bütün hepsi düzeltilicek!**
 **Hata gördüyseniz** \`${prefix}hata-bildir\`
 **Yardım almak için Aşağıda bulunana DESTEK SUNUCUSU'na tıklaman yeterli.**
 
