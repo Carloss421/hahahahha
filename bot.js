@@ -815,7 +815,7 @@ client.on("guildMemberAdd", async member => {
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
 if (db.has(`hoşgeldinK_${message.guild.id}`) === true) {
-let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
+let hoşgeldinK = db.fetch(`hosgeldinK_${message.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("GREEN")
 .setTitle(":inbox_tray: Sunucuya yeni bir üye katıldı!")

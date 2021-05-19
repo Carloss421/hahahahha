@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
-
+ 
 exports.run = async(client, message, args) => {
   const ayarlar = require("../ayarlar.json")
 let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
@@ -11,11 +11,11 @@ let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
    if(!kanal) return message.channel.send(new Discord.MessageEmbed().setDescription(`
    ${ayarlar.hata} Hoşgeldin `,'mesajlarının gideceği kanalı etiketlemedin :x:'))
    else {
-    db.set(`hoşgeldinK_${message.guild.id}`, kanal.id)
+    db.set(`hosgeldinK_${message.guild.id}`, kanal.id)
     return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} Hoşgeldin kanalı `,'<#'+kanal+'> olarak ayarlandı'))
    }
    if(args[0] === 'sıfırla') {
-    db.delete(`hoşgeldinK_${message.guild.id}`)
+    db.delete(`hosgeldinK_${message.guild.id}`)
     message.channel.send(new Discord.MessageEmbed().setDescription('Hoşgeldin kanalı sıfırlandı.'))
    }
 }
