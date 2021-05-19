@@ -610,18 +610,12 @@ client.on("message", (msg, message, guild) => {
 });
 
 client.on("guildCreate", (guild, message) => {
+
 let alındı = `${ayarlar.oldu2}`
 let alınıyor = "<a:yükleniyor:839266395308687421>"
   const emmmmbed = new Discord.MessageEmbed()
-    .setColor("RAINBOW")
     .setDescription(`
-  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli.**`).then(msg=>msg.delete(1002))
-.setDescription(`${alınıyor} sunucunuzun istatistikleri alınıyor...`).then(i => {
-i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor..`)
-i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor.`)
-i.edit(`${alınıyor} Sunucunuzun istatistikleri alınıyor...`)
-i.edit(`${alındı} Sunucunuzun istatistikleri başarıyla alındı!`)
-}).then(me=>me.delete(3001));
+  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli. Hatalı komutlar** \`${prefix}yardım-bot\``)
 
 
    
