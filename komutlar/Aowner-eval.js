@@ -28,7 +28,7 @@ var code = args.join(' ');
     message.channel.send(token_uyari);
      return;
  };
-if (args[0] === "ayarlar.token") code="Siktir Git"
+if (args[0] === "ayarlar.token") code="Kusura bakma veremem"
  if(code.match(/(client["token"])/g)) {
   let token_uyari2 = new Discord.MessageEmbed()
   .setColor('RANDOM')

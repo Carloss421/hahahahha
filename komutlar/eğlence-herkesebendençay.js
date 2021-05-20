@@ -16,7 +16,7 @@ exports.run = (client, message, params) => {
     .setTimestamp()
     .setDescription('')
 		.setImage(`https://i.sozcu.com.tr/wp-content/uploads/2018/08/iecrop/cay_16_9_1533630396.jpg`)
-    return message.channel.sendEmbed(sunucubilgi);
+    return message.channel.send(sunucubilgi);
     }
 };
 
