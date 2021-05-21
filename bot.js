@@ -1299,7 +1299,13 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
 client.on("guildMemberAdd", async(member, channel, message) => {
 let kanal = db.fetch(`kkayıtkanal_${message.guild.id}`)
 
-k
+kanal.send(new Discord.MessageEmbed()
+.setDescription(`
+${member}(${member.tag}) **sunucumuza hoşgeldin!**
+
+
+
+`))
 
 })
 
