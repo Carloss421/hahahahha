@@ -1301,7 +1301,7 @@ let kanal = db.fetch(`kkayıtkanal_${message.guild.id}`)
 
 kanal.send(new Discord.MessageEmbed()
 .setDescription(`
-${member}(${member.tag}) **sunucumuza hoşgeldin!**
+${member}(${member.tag}) :wave: **sunucumuza hoşgeldin!**
 
 
 
