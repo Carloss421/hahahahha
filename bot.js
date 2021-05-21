@@ -1299,11 +1299,32 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
 client.on("guildMemberAdd", async(member, channel, message) => {
 let kanal = db.fetch(`kkayıtkanal_${message.guild.id}`)
 
+member.hesapoluşturulma = moment.utc(message.guild.members.cache.get(member.id).user.createdAt).format("DD/MM/YY hh:mm")
+.replace("January", "Ocak")
+.replace("February", "Şubat")
+.replace("March", "Mart")
+.replace("April", "Nisan")
+.replace("May", "Mayıs")
+.replace("June", "Haziran")  
+.replace("July", "Temmuz")
+.replace("August", "Ağustos")
+.replace("September", "Eylül")  
+.replace("October", "Ekim")
+.replace("November", "Kasım")  
+.replace("December", "Aralık")
+  
+const oluş = new Date().getTime()
+var kontrol;
+if(oluş < 2629800000) kontrol = `${ayarlar.hata} \`Güvenilir Değil!\``;
+if(oluş > 2629800000) kontrol = `${ayarlar.oldu} \`Güvenilir!\``;
+  //if(gün1 < 86400000) günkont = "Bilgi Bulunamadı."
+  
 kanal.send(new Discord.MessageEmbed()
 .setDescription(`
-${member}(${member.tag}) :wave: **sunucumuza hoşgeldin!**
-
-
+:wave: **Sunucumuza hoşgeldin!** ${member}
+**Hesap oluşturulma tarihi:** \`${member.hesapoluşturulma}\`
+**Güvenilirlik Durumu:** ${kontrol}
+:bar_chart: **Seninle birlikte ${message.guild.memberCont} kişiyiz!**
 
 `))
 
