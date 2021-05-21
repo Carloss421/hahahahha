@@ -20,7 +20,7 @@ module.exports = message => {
   }};
 */
 /*
-const db = require('quick.db')
+const db = require('quick.db') 
 const Discord = require("discord.js");
 const ayarlar = require('../ayarlar.json');
 let talkedRecently = new Set();
