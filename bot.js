@@ -1296,6 +1296,13 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
 });
 
 // -----------------------> [Kayıt-sistemi] <--------------------------------- \\
+client.on("guildMemberAdd", async(member, channel, message) => {
+let kanal = db.fetch(`kkayıtkanal_${message.guild.id}`)
+
+k
+
+})
+
 
 
 // -----------------------> [Davet-Sistemi] <------------------------------ \\
