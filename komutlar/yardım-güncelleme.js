@@ -24,6 +24,7 @@ let embed = new Discord.MessageEmbed()
 ║ \`jail-sistemi\` | eklendi!
 ║ \`seviye-sistemi\` | kaldırıldı!
 ║ \`premium-sistemi\` | kaldırıldı!(Herşey Bedava)
+║ \`kayıt-sistemi\` | İsim değiştirme hatası giderildi!
 ╚═══════════════════╝
 
 
