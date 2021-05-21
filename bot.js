@@ -1295,43 +1295,6 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
   }
 });
 
-// -----------------------> [Kayıt-sistemi] <--------------------------------- \\
-client.on("guildMemberAdd", async(member, channel, message) => {
-let kanal = db.fetch(`kkayıtkanal_${message.guild.id}`)
-
-member.hesapoluşturulma = moment.utc(message.guild.members.cache.get(member.id).user.createdAt).format("DD/MM/YY hh:mm")
-.replace("January", "Ocak")
-.replace("February", "Şubat")
-.replace("March", "Mart")
-.replace("April", "Nisan")
-.replace("May", "Mayıs")
-.replace("June", "Haziran")  
-.replace("July", "Temmuz")
-.replace("August", "Ağustos")
-.replace("September", "Eylül")  
-.replace("October", "Ekim")
-.replace("November", "Kasım")  
-.replace("December", "Aralık")
-  
-const oluş = new Date().getTime()
-var kontrol;
-if(oluş < 2629800000) kontrol = `${ayarlar.hata} \`Güvenilir Değil!\``;
-if(oluş > 2629800000) kontrol = `${ayarlar.oldu} \`Güvenilir!\``;
-
-kanal.send(new Discord.MessageEmbed()
-.setThumbnail(member.avatarURL())
-.setDescription(`
-**Alvi | Kayıt Sistemi**
-
-:wave: **Sunucumuza hoşgeldin!** ${member}
-**Hesap oluşturulma tarihi:** \`${member.hesapoluşturulma}\`
-**Güvenilirlik Durumu:** ${kontrol}
-:bar_chart: **Seninle birlikte ${message.guild.memberCont} kişiyiz!**
-:pencil: **Kayıt olmak için yetkilileri beklemen yeterlidir.**`))
-
-})
-
-
 
 // -----------------------> [Davet-Sistemi] <------------------------------ \\
 client.on("guildMemberRemove", async member => {
