@@ -16,13 +16,13 @@ if (!erkekrol) return message.channel.send(new discord.MessageEmbed().setDescrip
 
 let member = message.mentions.members.first();
 if (!member) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Erkek Olarak Kayıt Edeceğin Kullanıcıyı Belirtmelisin!`))
-let isim = args[1]
+let isim = args[1];
 if (!isim) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> İsim Belirtmelisin!`))
-let yaş = args[2]
+let yaş = args[2];
 if (!yaş) return message.channel.send(new discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Yaş Belirtmelisin!`))
 member.setNickname(`${isim} ${yaş}`)
-member.roles.remove(alınacakrol)
-member.roles.add(erkekrol)
+member.removeRole(alınacakrol)
+member.addRole(erkekrol)
 
 const alviKAYIT = new discord.MessageEmbed()
 .setAuthor(client.user.username, client.user.avatarURL)  

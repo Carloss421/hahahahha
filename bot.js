@@ -1297,33 +1297,7 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
 
 // -----------------------> [Kayıt-sistemi] <--------------------------------- \\
 
-client.on("guildMemberAdd", (member, message) => {
-  let kanal = db.fetch(`logkayıt_${message.guild.id}`);
-  let kayıtçı = db.fetch(`kayıty_${message.guild.id}`);
-  const logkanal = `${kanal}`;
-  const register = `${kayıtçı}`;
-  let user = client.users.get(member.id);
-  require("moment-duration-format");
-  const kurulus = new Date().getTime() - user.createdAt.getTime();
 
-  var kontrol;
-  if (kurulus < 2592000000)
-    kontrol = "<a:kapali:827620346491830272> **__Bu Hesap Güvenilir Değil__**";
-  if (kurulus > 2592000000)
-    kontrol = "<a:acik:827618729193242634> **__Bu Hesap Güvenilir Gözüküyor__**";
-  moment.locale("tr");
-  let log = client.channels.get(logkanal);
-  const embed = new Discord.MessageEmbed()
-.setColor("0xd8d8d8")
-.setTitle(`**Alvi - Kayıt Sistemi**`)
-.setDescription(`
-**:wave: Hoşgeldin!** ${member}  **Seninle \`${member.guild.memberCount}\` Kişiyiz.**  
-**Müsait olduğunda Ses Teyit Odalarından Birine Geçip Kaydını Yaptırabilirsin.** 
-👤 <@&${register}> seninle ilgilenicektir.
-📖 Hesabın Oluşturulma Tarihi: ${moment(member.user.createdAt).format("** YYYY __DD MMMM dddd__**")} ${kontrol}`);
-  log.send(embed);
-  log.send(register).setDescription(`@everyone`).then(message => message.delete < 1000);
-});
 // -----------------------> [Davet-Sistemi] <------------------------------ \\
 client.on("guildMemberRemove", async member => {
   let kanal = await db.fetch(`davetkanal_${member.guild.id}`);

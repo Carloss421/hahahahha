@@ -5,7 +5,7 @@ const db = require('quick.db')
 let talkedRecently = new Set();
 module.exports = (message, args, user) => {
   if (talkedRecently.has(message.author.id)) {
-    return;
+    return; 
   } 
 module.exports = message => {
   } else if (client.aliases.has(command)) {
