@@ -1317,16 +1317,17 @@ const oluş = new Date().getTime()
 var kontrol;
 if(oluş < 2629800000) kontrol = `${ayarlar.hata} \`Güvenilir Değil!\``;
 if(oluş > 2629800000) kontrol = `${ayarlar.oldu} \`Güvenilir!\``;
-  //if(gün1 < 86400000) günkont = "Bilgi Bulunamadı."
-  
+
 kanal.send(new Discord.MessageEmbed()
+.setThumbnail(member.avatarURL())
 .setDescription(`
+**Alvi | Kayıt Sistemi**
+
 :wave: **Sunucumuza hoşgeldin!** ${member}
 **Hesap oluşturulma tarihi:** \`${member.hesapoluşturulma}\`
 **Güvenilirlik Durumu:** ${kontrol}
 :bar_chart: **Seninle birlikte ${message.guild.memberCont} kişiyiz!**
-
-`))
+:pencil: **Kayıt olmak için yetkilileri beklemen yeterlidir.**`))
 
 })
 
