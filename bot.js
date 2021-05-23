@@ -311,7 +311,7 @@ client.on("guildMemberAdd", async(member, message) => {
    captcha.create(member.id);
    member.author.send(new Discord.MessageEmbed().setThumbnail(captcha.convert(captcha.user(member.id).code).base64).setDescription("Doğrulama Kanalına Bu Kodu Yazın!"))
 });
-
+ 
 client.on("message", async(msg) => {
    let id = db.fetch(`captcha_${msg.guild.id}`);
    let rol = db.fetch(`captchaR_${msg.guild.id}`);
