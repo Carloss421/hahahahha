@@ -326,7 +326,7 @@ client.on("message", async(msg) => {
 const youtube = new YouTube("API");
 
 client.on("message", async (msg, message) => {
-  let prefix = ayarlar.prefix;
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
