@@ -13,7 +13,7 @@ exports.run = function(client, message, args, msg) {
   message.channel.send(
   new Discord.MessageEmbed()
     .setTitle('**Başarılı!**')
-    .setDescription('**Başarı ile __'+m+'__ mesaj sildim!**')
+    .setDescription('**Başarıyla __'+m+'__ tane mesaj sildim!**')
     .setColor('0x36393E')).then(i=>{i.react(':gear:')
  })};
 
