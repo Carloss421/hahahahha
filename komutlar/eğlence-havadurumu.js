@@ -1,7 +1,14 @@
 const Discord = require("discord.js");
 const weather = require('weather-js');
 
-exports.run =  (bot, message, args) => {
+exports.run =  (bot, message, client, args) => {
+         const snekfetch = require("snekfetch");
+snekfetch.get(`https://discordbots.org/api/bots/${client.user.id}/check?userId=${message.author.id}`)
+.set("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyODI2NzQ3NDE5MjU2NDI0NSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjIyMDQyNTMyfQ.912A76CIQeNWr9UIDD6ZLSkDZK_ZenMicw6KuombmhE")
+.then(response => {
+  var check = response.body.voted;
+if(check == 1) {
+
   if (!args[0]) return message.channel.send({embed: {
        color: Math.floor(Math.random() * (0xFFFFFF + 1)),
        description: (`:no_entry_sign: Şehir girsene olum nerenin hava durumunu istediğin bana vahiy mi gelcek.`)

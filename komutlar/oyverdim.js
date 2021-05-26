@@ -5,11 +5,12 @@ const dbl = new DBL('', client);
 exports.run = (client, message) => {
     dbl.hasVoted(message.author.id).then(voted => {
         if (!voted) {
-            message.reply("Bu komutu kullanabilmek için DBL üzerinden oy vermen gerekiyor. (Eğer oy verdiyseniz bi kaç dakika bekleyin .s) \nOy vermek için: https://discordbots.org/bot/BOTID/vote") //botunuzun dbl vote linkini yazın
+            message.chanel.send(new Discord.MessageEmbed().setDescription(
+"Bu komutu kullanabilmek için DBL üzerinden oy vermen gerekiyor. (Eğer oy verdiyseniz bi kaç dakika bekleyin .s) \nOy vermek için: https://discordbots.org/bot/"+ client.user.id +"/vote")) 
 
         } else {
-            message.channel.send("Destekçi rolün verildi.");
-            message.member.addRole("")//oy verince eklenecek rol id
+            message.channel.send(new Discord.MessageEmbed().setDescription("Destekçi rolün verildi."));
+            message.member.addRole("847139314542313522")//oy verince eklenecek rol id
 
         }
     })
