@@ -10,16 +10,16 @@ const cevaplar = [
 ];
 
 exports.run = async(client, message, args) => {
-//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyODI2NzQ3NDE5MjU2NDI0NSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjIyMDQyNTMyfQ.912A76CIQeNWr9UIDD6ZLSkDZK_ZenMicw6KuombmhE  
   
  const snekfetch = require("snekfetch");
 snekfetch.get(`https://discordbots.org/api/bots/${client.user.id}/check?userId=${message.author.id}`)
-.set("Authorization", client.ayarlar.dbltoken)
+.set("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyODI2NzQ3NDE5MjU2NDI0NSIsImJvdCI6dHJ1ZSwiaWF0IjoxNjIyMDQyNTMyfQ.912A76CIQeNWr9UIDD6ZLSkDZK_ZenMicw6KuombmhE  ")
 .then(response => {
 var check = response.body.voted;
-if(check == 1) {}
+if(check == 1) {
   
-  let p = db.fetch(`prefix_${message.guild.id}`) || client.ayarlar.prefix;
+  const ayarlar = require('../ayarlar.json')
+  let p = db.fetch(`prefix_${message.guild.id}`) ||ayarlar.prefix;
   var soru = args.join(' ');
 
     var cevap = cevaplar[Math.floor(Math.random() * cevaplar.length)];
@@ -28,10 +28,12 @@ if(check == 1) {}
     else message.channel.send(cevap)
 
   } else {
-  let embed = new Discord.RichEmbed()
+  const ayarlar = require('../ayarlar.json')
+  let embed = new Discord.MessageEmbed()
         .setTitle('HATA')
         .setColor('RANDOM')
-        .setDescription(`${client.emojis.get(client.emojiler.hayır)} **Hata**, bu komutu kullanmak için **12 saat aralıkla** **[BURADAN](https://discordbots.org/bot/${client.user.id}/vote)**  botu oylamanız gerekmektedir. Onaylanması **1-4** dakikayı bulabilir, lütfen bekleyin. `)
+        .setDescription(`
+${ayarlar.hata} Bu komutu kullanmak için **12 saat aralıkla** **[Tıkla](https://discordbots.org/bot/${client.user.id}/vote)**  botu oylamanız gerekmektedir. Onaylanması **1-2** dakikayı bulabilir, lütfen bekleyin. `)
       message.channel.send(embed)
         return }});
   

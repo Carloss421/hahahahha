@@ -36,6 +36,15 @@ exports.run =  (bot, message, args) => {
                 .addField('Nem', `%${current.humidity}`, true)
                 message.channel.send({embed});
         });
+   } else {
+  const ayarlar = require('../ayarlar.json')
+  let embed = new Discord.MessageEmbed()
+        .setTitle('HATA')
+        .setColor('RANDOM')
+        .setDescription(`
+${ayarlar.hata} Bu komutu kullanmak için **12 saat aralıkla** **[Tıkla](https://discordbots.org/bot/${client.user.id}/vote)**  botu oylamanız gerekmektedir. Onaylanması **1-2** dakikayı bulabilir, lütfen bekleyin. `)
+      message.channel.send(embed)
+        return }});
     }
 
 exports.conf = {
