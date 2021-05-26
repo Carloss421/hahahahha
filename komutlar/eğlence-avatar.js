@@ -10,9 +10,11 @@ var check = response.body.voted;
 if(check == 1) {
   
     const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag)
-        .setImage(message.author.avatarURL)
-
+    .setDescription(`
+    ${message.author}
+    
+    Avatarın =>`)  
+    .setThumbnail(message.author.avatarURL())
     message.channel.send(embed);
     } else {
   const ayarlar = require('../ayarlar.json')
