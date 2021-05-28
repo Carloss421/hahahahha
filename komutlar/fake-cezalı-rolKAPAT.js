@@ -12,7 +12,7 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 .setDescription(`• \`${prefix}fake-cezalı-rol-kapat\` **kullanmak için,** \`Yönetici\` **yetkisine sahip olman gerekiyor.**`));
 data.delete(`fake.role.${message.guild.id}`)
 message.channel.send(new Discord.MessageEmbed()
-.setTitle('İşte bu kadar!')
+.setTitle('İşte bu kadar!') 
 .setDescription('Fake cezalı da kullanılan rol kapatıldı.'));
 
 };
