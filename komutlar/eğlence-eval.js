@@ -20,9 +20,9 @@ message.channel.send(eğlence)
   const ayarlar = require('../ayarlar.json')
   let embed = new Discord.MessageEmbed()
         .setTitle('HATA')
-        .setColor('RANDOM')
+        .setColor('#ff0000')
         .setDescription(`
-${ayarlar.hata} Bu komutu kullanmak için **12 saat aralıkla** **[Tıkla](https://discordbots.org/bot/${client.user.id}/vote)**  botu oylamanız gerekmektedir. Onaylanması **1-2** dakikayı bulabilir, lütfen bekleyin. `)
+${ayarlar.hata} Bu komutu kullanabilmek için bota **12 saat aralığıkla [Oy Ver](https://discordbots.org/bot/${client.user.id}/vote)**'meniz gereklidir! Onaylanması **1-2** dakikayı bulabilir, lütfen bekleyin.`)
       message.channel.send(embed)
         return }});
 };
