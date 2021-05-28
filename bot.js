@@ -159,7 +159,7 @@ Bot'un ana prefixi: ${ayarlar.prefix}`));
 
 client.on("message", async message => {
   
-  let prefix = ayarlar.prefix;
+  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
   let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
   let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`);

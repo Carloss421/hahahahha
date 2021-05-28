@@ -65,7 +65,7 @@ if(message.author.bot) return
     talkedRecently.delete(message.author.id);
   }, 2500);
   let client = message.client;
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix 
+  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
   let command = message.content.split(' ')[0].slice(prefix.length);
