@@ -1072,6 +1072,7 @@ client.on("message", message => {
     ".net",
     ".xyz",
     ".tk",
+    ".tv",
     ".pw",
     ".io",
     ".me",
