@@ -1,39 +1,64 @@
 const Discord = require('discord.js');
-const ayarlar = require('../ayarlar.json');
 
-exports.run = (bot, message, params) => {
-   const embed = new Discord.MessageEmbed()
-   .setColor("RANDOM")
-   .setAuthor(message.guild.name, message.guild.userURL)
-   .setThumbnail(message.guild.iconURL)
-   .addField('İsim kısaltması:', message.guild.nameAcronym, true)
-   .addField('Kimliği:', message.guild.id, true)
-   .addField('Bölgesi:', message.guild.region, true)
-   .addField('Sahibi:', message.guild.owner, true)
-   .addField('Doğrulama seviyesi:', message.guild.verificationLevel, true)
-   .addField('Üyeler:', `${message.guild.members.filter( member => member.user.bot).size} bot | ${message.guild.memberCount} üye`, true)
-   .addField('Varsayılan rol:', message.guild.defaultRole, true)
-   .addField('Roller:', message.guild.roles.map(role => role.name).join(', '), true)
-   .addField('Kanallar:', `${message.guild.channels.filter(chan => chan.type === 'voice').size} sesli / ${message.guild.channels.filter(chan => chan.type === 'text').size} metin`, true)
-   .addField('Kanal sayısı:', message.guild.channels.size, true)
-   .addField('AFK kanalı:', message.guild.afkChannel, true)
-   .addField('AFK zaman aşımı:', message.guild.afkTimeout, true)
-   .addField('Oluşturma tarihi:', message.guild.createdAt, true)
-   .setFooter('Sunucunun Bilgileri', message.guild.iconURL)
-   .setTimestamp()
-   message.channel.send({embed});
-   message.react('✓');
- };
+exports.run = async(client, msg) => {
 
- exports.conf = {
-   enabled: true,
-   guildOnly: false,
-   aliases: ["sunucu-bilgi","sunucubilgi"],
-   permLevel: 0
- };
+function checkDays(date) {
+            let now = new Date();
+            let diff = now.getTime() - date.getTime();
+            let days = Math.floor(diff / 86400000);
+            return days + (days == 1 ? " gün" : " gün") + " önce";
+        };
+        let guild = msg.channel.guild
+        let serverSize = msg.guild.memberCount;
+        let botCount = msg.guild.members.cache.filter(m => m.user.bot).size;
+        let humanCount = serverSize - botCount;
+        let verifLevels = ["Yok", "Düşük hesapta e-posta doğrulanmış olmalıdır", "Orta - Discord'a 5 dakikadan daha uzun süre kayıtlı olmalıdır", "Yüksek - (╯ ° □ °） ╯︵ ┻━┻ - sunucunun üyesi 10 dakikadan uzun olmalıdır", "Çok Yüksek - ┻━┻ ミ ヽ (ಠ 益 ಠ) ﾉ 彡 ┻━┻ - doğrulanmış bir telefon numarasına sahip olmalıdır"];
+	let region = {
+			"us-central": "Amerika :flag_us:",
+			"us-east": "Doğu Amerika :flag_us:",
+			"us-south": "Güney Amerika :flag_us:",
+			"us-west": "Batı Amerika :flag_us:",
+			"eu-west": "Batı Avrupa :flag_eu:",
+			"eu-central": "Avrupa :flag_eu:",
+			"singapore": "Singapur :flag_sg:",
+			"london": "Londra :flag_gb:",
+			"japan": "Japonya :flag_jp:",
+			"russia": "Rusya :flag_ru:",
+			"hongkong": "Hong Kong :flag_hk:",
+			"brazil": "Brezilya :flag_br:",
+			"singapore": "Singapur :flag_sg:",
+			"sydney": "Sidney :flag_au:",
+			"southafrica": "Güney Afrika :flag_za:",
+    "amsterdam": "Hollanda :flag_nl:",
+				"europe": "Avrupa :flag_eu:"
 
- exports.help = {
-   name: 'scbilgi',
-   description: 'Kullanılan Yerdeki Sunucu Bilgilerini Gösterir.',
-   usage: 'scbilgi'
- };
+	}
+
+	
+			const yukleniyor = await msg.channel.send(`Sunucu Bilgileri Araştırılıyor`);
+
+let sunucu = new Discord.MessageEmbed()
+.setAuthor('Sunucu Bilgi', msg.guild.iconURL())
+.setThumbnail(msg.guild.iconURL())
+.addField('Sunucu Bilgileri', `Sunucu İsmi: **${guild.name}** \nSunucu ID: **${msg.guild.id}** \nSunucu Sahibi: **${guild.owner}** \nBulunduğu Bölge: **${region[msg.guild.region]}** \nKuruluş Tarihi: **${checkDays(msg.guild.createdAt)}** 
+`)
+.addField(`Üye Bilgileri `, `Toplam Üye: **${humanCount}** \nToplam Bot: **${botCount}** \nRol Sayısı: **${guild.roles.cache.size}**`)
+.addField(`Kanallar`, ` Yazı: **${msg.guild.channels.cache.filter(c => c.type === 'text').size}** \n Sesli: **${msg.guild.channels.cache.filter(c => c.type === 'voice').size}** \n Kategori: **${msg.guild.channels.cache.filter(c => c.type === 'category').size}**`)
+.setTimestamp()
+.setColor('#D2EE07')
+.setFooter('Sunucu Bilgi', msg.guild.iconURL())
+        return yukleniyor.edit('', sunucu);
+
+}; 
+
+module.exports.conf = {
+aliases: ['sunucubilgi','sb','sunucu'],
+permLevel: 0, 
+kategori: 'Sunucu'
+};
+
+module.exports.help = {
+    name: 'sunucu-bilgi',
+    description: 'Sunucu hakkında bilgi verir.',
+    usage: 'sunucu-bilgi'
+};

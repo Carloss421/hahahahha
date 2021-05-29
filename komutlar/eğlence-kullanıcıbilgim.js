@@ -7,8 +7,7 @@ const client = new Discord.Client();
 exports.run = async (bot, msg, args) => {
         let simdikitarih = moment.utc(msg.createdAt).format('DD MM YYYY');
 
-        let user = msg.mentions.users.first() || msg.author;
-       let tanım = "Tanımlanamadı!"
+        let user = msg.author;
         let userinfo = {};
         userinfo.avatar= user.displayAvatarURL;
         userinfo.id = user.id;
@@ -28,7 +27,6 @@ exports.run = async (bot, msg, args) => {
         Bilgilerine Bakılan Kullanıcı: <@${userinfo.id}>`)
         .addField(`Durum`, userinfo.status,true)
         .setColor('03f2df')
-        .addField(`Katılım Tarihi (Sunucu)`, tanım,true)
         .addField(`Kimlik:`, userinfo.id,true)
         .addField(`Botmu:`, userinfo.bot,true)
         .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj,true)
