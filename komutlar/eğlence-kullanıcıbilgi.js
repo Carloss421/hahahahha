@@ -13,10 +13,10 @@ if (!user) return msg.channel.send(new Discord.MessageEmbed().setDescription("Bi
         userinfo.avatar= user.displayAvatarURL;
         userinfo.id = user.id;
         userinfo.status = user.presence.status.toString()
-        .replace("dnd", `Rahatsız Etmeyin`)
-        .replace("online", `Çevrimiçi`)
-        .replace("idle", `Boşta`)
-        .replace("offline", `Çevrimdışı`)
+        .replace("dnd", `<:dnd:848185896658534451> Rahatsız Etmeyin`)
+        .replace("online", `<:online:848185874205507655> Çevrimiçi`)
+        .replace("idle", `<:idle:848185921361805332> Boşta`)
+        .replace("offline", `<:offline:848185846816964618> Çevrimdışı`)
         userinfo.bot = user.bot.toString()
         .replace("false", `Hayır`)
         .replace("true", `Evet`)
