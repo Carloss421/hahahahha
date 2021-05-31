@@ -7,7 +7,7 @@ exports.run = (bot, message) => {
       const embed = new Discord.MessageEmbed();
       embed.setTitle(`**Alvi - Son Silinen Mesaj**`);
       embed.setColor('RANDOM')
-      embed.setDescription(`\`\`\`Bulunamadı!\`\`\``)
+      embed.setDescription(`\`\`\`Bu sunucuda mesaj silinmediği için bulunamadı!\`\`\``)
     message.channel.send({embed: embed});
 
     } else {
