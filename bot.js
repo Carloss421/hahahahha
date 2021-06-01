@@ -748,12 +748,25 @@ client.on("guildMemberAdd", async member => {
 });
 // ----------------> [kayıt-sistemi] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
-let kanal = db.fetch(``)
+let yıl = member.user.createAt("YY")
+
+let ay = member.user.createdAt("MM").replace("01", "Ocak").replace("02", "Şubat").replace("03", "Mart").replace("04", "Nisan").replace("05", "Mayıs").replace("06", "Haziran").replace("07", "Temmuz").replace("08", "Ağustos").replace("09", "Eylül").replace("10", "Ekim").replace("11", "Kasım").replace("12", "Aralık")
+
+let gün = member.user.createdAt("DD").replace
+
+let kanal = db.fetch(`kayıtkanal_${message.guild.id}`)
+kanal.send(new Discord.MessageEmbed().setDescription(`
+${member}(${member.tag}) Sunucumuza hoşgeldin.
+
+Kayıt olmak için sesli kanala geçip yetkililerin gelmesini beklemen yeterlidir eğer öyle bir oda bulunmuyorsa bulunduğun kanala \`İsim Yaş\` yazman yeterli olucaktır.
+
+Hesap Oluşturulma Tarihi: 
+`))
 })
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
 let kanal = db.fetch(`hoşgeldinK_${message.guild.id}`)
-if (db.has(`hoşgeldinK_${message.guild.id}`) === kanal.id) {
+
 let hoşgeldinK = db.fetch(`hosgeldinK_${message.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("GREEN")
@@ -763,11 +776,11 @@ var hoşglend = new Discord.MessageEmbed()
 .addField(`Üye ID:`, `${member.id}`, true)
 .addField(`Üye Adı`, `${member}`, true)
 client.channels.get(hoşgeldinK).send(hoşglend) 
-}});
+});
   
 client.on("guildMemberRemove", async(member, message, guild) => {
   let kanal = db.fetch(`hoşgeldinK_${message.guild.id}`)
-if (db.has(`hosgeldinK_${message.guild.id}`) === kanal.id) {
+
   let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("RED")
@@ -777,7 +790,7 @@ var hoşglend = new Discord.MessageEmbed()
 .addField(`Üye ID:`, `${member.id}`, true)
 .addField(`Üye Adı`, `${member}`, true)
 client.channels.get(hoşgeldinK).send(hoşglend) 
-} 
+
 }) 
 // ----------------> [Güvenlik] <------------------ \\
 client.on('guildMemberAdd', member => {
