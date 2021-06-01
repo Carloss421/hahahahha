@@ -25,10 +25,7 @@ let embed = new Discord.MessageEmbed()
 ║ \`seviye-sistemi\` | kaldırıldı!
 ║ \`premium-sistemi\` | kaldırıldı!(Herşey Bedava)
 ║ \`kayıt-sistemi\` | İsim değiştirme hatası giderildi!
-╚═══════════════════╝
-
-
-:information_source: **Güncellemeler 2 ayda bir yapılacaktır!**`)
+╚═══════════════════╝`)
 message.channel.send(embed)
 };
 

@@ -145,15 +145,6 @@ Yardım menüsü için **${prefixÖ}yardım** yazman gerekli olacaktır :)`)
 });
 
 
-/*client.on('message', message => {
-const prefixD = db.fetch(`prefix_${message.guild.id}`)
-  if (message.content === '<@828267474192564245>') {
-    message.channel.send(new Discord.MessageEmbed()
-.setDesription(`
-Sunucu'daki prefix: ${prefixD}
-Bot'un ana prefixi: ${ayarlar.prefix}`));
-}});
-*/
 
 //     [-----------------> Afk <------------------]  \\
 
@@ -190,48 +181,6 @@ AFK modundan ayrıldın <@${kullanıcı.id}>.`)
   }
 });
 
-/*
-client.on('message', async (message, args) => {
-if(message.content.length > 2) {
-let atılmaay = moment(Date.now()+10800000).format("MM")
-let atılmagün = moment(Date.now()+10800000).format("DD")
-let atılmasaat = moment(Date.now()+10800000).format("HH:mm:ss")
-let atılma = `
-\`${atılmagün} ${atılmaay
-.replace(/01/, 'Ocak')
-.replace(/02/, 'Şubat')
-.replace(/03/, 'Mart')
-.replace(/04/, 'Nisan')
-.replace(/05/, 'Mayıs')
-.replace(/06/, 'Haziran')
-.replace(/07/, 'Temmuz')
-.replace(/08/, 'Ağustos')
-.replace(/09/, 'Eylül')
-.replace(/10/, 'Ekim')
-.replace(/11/, 'Kasım')
-.replace(/12/, 'Aralık')} ${atılmasaat}\``
-
-const user = message.mentions.users.first()
-const sebep = args.join(" ")
-const sebeb = db.fetch(`afksebep_${message.guild.id}_${user.id}`, sebep)
-const kullanıcı = db.fetch(`afkkullanıcı_${user.id}`)
-
-if(message.content.includes === kullanıcı){
-let etiket = new Discord.MessageEmbed()
-.setColor("GREEN")
-.setDescription(`
-<@${message.author.id}> hooop etiketlediğin kullanıcı afk sabırlı ol!
-<@$${kullanıcı.id}> **ADLI KULLANICI'NIN AFK BILGILERI;**
-**etiketlenenin afk sebebi:** \`${sebeb}\`
-**Afk süresi:** \`${atılma}\``)
-message.channel.send(etiket)
-}
-
-message.channel.send(new Discord.MessageEmbed().setDescription(`
-<@${kullanıcı.id}> afk modundan ayrıldınız. **Afk kalma süren:** \`${atılma}\``).setColor("GREEN"))
-db.delete(`afksebeb_${message.author.id}`, sebep)
-db.delete(`afkkullanıcı_${message.author.id}`)
-}})*/
 
 //     [-----------------> Otorol <------------------]  \\
 //     [-----------------> Fake <------------------]  \\
@@ -267,12 +216,8 @@ client.on("guildMemberAdd", async member => {
   if (!skanal31) return;
   skanal31.send(
     new Discord.MessageEmbed()
-      .setDescription(
-        `:inbox_tray: <@${
-          member.user.id
-        }> sunucuya katıldı, **${sayac}** kişi olmamıza **${sayac -
-          member.guild.members.size}** kişi kaldı.`
-      )
+      .setDescription(`
+:inbox_tray: <@${member.user.id}> sunucuya katıldı, **${sayac}** kişi olmamıza **${sayac -member.guild.members.size}** kişi kaldı.`)
       .setColor("GREEN")
       .setTitle("Alvi - Sayaç")
   );
@@ -287,11 +232,8 @@ client.on("guildMemberRemove", async member => {
 
   skanal31.send(
     new Discord.MessageEmbed()
-      .setDescription(
-        `:outbox_tray: <@${
-          member.user.id
-        }> adlı kullanıcı sunucudan ayrıldı. **${sayac}** kullanıcı olmaya **${sayac -
-          member.guild.members.size}** kullanıcı kaldı.`
+      .setDescription(`
+:outbox_tray: <@${member.user.id}> adlı kullanıcı sunucudan ayrıldı. **${sayac}** kullanıcı olmaya **${sayac -member.guild.members.size}** kullanıcı kaldı.`
       )
       .setColor("RED")
       .setTitle("Alvi - Sayaç")
@@ -685,8 +627,6 @@ client.on("guildMemberAdd", async member => {
 
 // ----------------> [Resimli Hoşgeldin Hoşçakal] <-------------- \\
 client.on("guildMemberRemove", async member => {
-  //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
-  //const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
   
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
   var canvaskanal = member.guild.channels.cache.get(db.fetch(`gçkanal_${member.guild.id}`));
@@ -806,9 +746,14 @@ client.on("guildMemberAdd", async member => {
   if (member.user.bot)
     return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
+// ----------------> [kayıt-sistemi] <---------------- \\
+client.on("guildMemberAdd", async(member, message) => {
+let kanal = db.fetch(``)
+})
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
-if (db.has(`hoşgeldinK_${message.guild.id}`) === true) {
+let kanal = db.fetch(`hoşgeldinK_${message.guild.id}`)
+if (db.has(`hoşgeldinK_${message.guild.id}`) === kanal.id) {
 let hoşgeldinK = db.fetch(`hosgeldinK_${message.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("GREEN")
@@ -821,7 +766,8 @@ client.channels.get(hoşgeldinK).send(hoşglend)
 }});
   
 client.on("guildMemberRemove", async(member, message, guild) => {
-if (db.has(`hosgeldinK_${message.guild.id}`) === true) {
+  let kanal = db.fetch(`hoşgeldinK_${message.guild.id}`)
+if (db.has(`hosgeldinK_${message.guild.id}`) === kanal.id) {
   let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("RED")
