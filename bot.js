@@ -748,11 +748,13 @@ client.on("guildMemberAdd", async member => {
 });
 // ----------------> [kayıt-sistemi] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
-let yıl = member.user.createAt("YY")
 
-let ay = member.user.createdAt("MM").replace("01", "Ocak").replace("02", "Şubat").replace("03", "Mart").replace("04", "Nisan").replace("05", "Mayıs").replace("06", "Haziran").replace("07", "Temmuz").replace("08", "Ağustos").replace("09", "Eylül").replace("10", "Ekim").replace("11", "Kasım").replace("12", "Aralık")
+let olus = member.user.createdAt().format("Y [Yıl], M [ay], W [hafta], D [gün], H [saat], m [dakika], s [saniye]")
 
-let gün = member.user.createdAt("DD").replace
+     let süre = olus
+     let guven;
+     if(süre < 1296000000) guven = 'Bu hesap şüpheli!'
+     if(süre > 1296000000) guven = 'Bu hesap güvenli!'
 
 let kanal = db.fetch(`kayıtkanal_${message.guild.id}`)
 kanal.send(new Discord.MessageEmbed().setDescription(`
@@ -760,7 +762,8 @@ ${member}(${member.tag}) Sunucumuza hoşgeldin.
 
 Kayıt olmak için sesli kanala geçip yetkililerin gelmesini beklemen yeterlidir eğer öyle bir oda bulunmuyorsa bulunduğun kanala \`İsim Yaş\` yazman yeterli olucaktır.
 
-Hesap Oluşturulma Tarihi: 
+Hesap Oluşturulma Tarihi: \`${olus}\`
+Güvenirlik: ${guven}
 `))
 })
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
