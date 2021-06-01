@@ -753,8 +753,8 @@ let olus = member.user.createdAt().format("Y [Yıl], M [ay], W [hafta], D [gün]
 
      let süre = olus
      let guven;
-     if(süre < 1296000000) guven = 'Bu hesap şüpheli!'
-     if(süre > 1296000000) guven = 'Bu hesap güvenli!'
+     if(süre < 2629800000) guven = ':warning: Tehlikeli!'
+     if(süre > 2629800000) guven = ':white_check_mark: Güvenilir.'
 
 let kanal = db.fetch(`kayıtkanal_${message.guild.id}`)
 kanal.send(new Discord.MessageEmbed().setDescription(`
@@ -763,8 +763,7 @@ ${member}(${member.tag}) Sunucumuza hoşgeldin.
 Kayıt olmak için sesli kanala geçip yetkililerin gelmesini beklemen yeterlidir eğer öyle bir oda bulunmuyorsa bulunduğun kanala \`İsim Yaş\` yazman yeterli olucaktır.
 
 Hesap Oluşturulma Tarihi: \`${olus}\`
-Güvenirlik: ${guven}
-`))
+Güvenirlik: ${guven}`))
 })
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
@@ -783,8 +782,6 @@ client.channels.get(hoşgeldinK).send(hoşglend)
   
 client.on("guildMemberRemove", async(member, message, guild) => {
   let kanal = db.fetch(`hoşgeldinK_${message.guild.id}`)
-
-  let hoşgeldinK = db.fetch(`hoşgeldinK_${message.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("RED")
 .setTitle(":inbox_tray: Sunucu'dan bir üye ayrıldı!")
@@ -792,7 +789,7 @@ var hoşglend = new Discord.MessageEmbed()
 .setDescription("Oof be kanka, "+ member +" sunucu'dan ayrıldı, senin çıkmanla beraber "+ member.guild.memberCount+" kişi kaldık.")
 .addField(`Üye ID:`, `${member.id}`, true)
 .addField(`Üye Adı`, `${member}`, true)
-client.channels.get(hoşgeldinK).send(hoşglend) 
+client.channels.get(kanal).send(hoşglend) 
 
 }) 
 // ----------------> [Güvenlik] <------------------ \\
