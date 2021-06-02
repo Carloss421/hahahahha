@@ -49,7 +49,7 @@ exports.run = async (client, message, args) => {
   db.set(`sayac_${message.guild.id}`, args[0])
   db.set(`sayacK_${message.guild.id}`, sayackanal.name)
 
-  message.channel.send(new Discord.MessageEmbed().setDescription(`Sayaç **${args[0]}**, sayaç kanalı **${sayackanal}** olarak ayarlandı.`))
+  message.channel.send(new Discord.MessageEmbed().setDescription(`Hedef **${args[0]}**, sayaç kanalı **${sayackanal}** olarak ayarlandı.`))
 }
 
 exports.conf = {
