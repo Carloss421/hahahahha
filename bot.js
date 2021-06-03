@@ -247,22 +247,7 @@ client.on("guildMemberRemove", async member => {
 
 // ------------------->  [CAPTCHA] <--------------------------- \\
 
-const captcha = require("captcha-plus");
 
-client.on("guildMemberAdd", async(member, message) => {
-   captcha.create(member.id);
-   member.author.send(new Discord.MessageEmbed().setThumbnail(captcha.convert(captcha.user(member.id).code).base64).setDescription("Doğrulama Kanalına Bu Kodu Yazın!"))
-});
- 
-client.on("message", async(msg) => {
-   let id = db.fetch(`captcha_${msg.guild.id}`);
-   let rol = db.fetch(`captchaR_${msg.guild.id}`);
-   if(!id || !rol) return;
-   if(msg.channel.id !== id) return;
-   msg.delete();
-   let member = msg.guild.members.cache.find(r => r.id == msg.author.id);
-   if(captcha.check(msg.author.id.message.content)) return member.roles.add(rol);
-});
 // --------------------> [Müzik Sistemi] <----------------------- \\
 
 const youtube = new YouTube("API");
@@ -749,7 +734,7 @@ client.on("guildMemberAdd", async member => {
 // ----------------> [kayıt-sistemi] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
 
-let olus = member.user.createdAt().format("Y [Yıl], M [ay], W [hafta], D [gün], H [saat], m [dakika], s [saniye]")
+let olus = member.user.createdAt().format("Y [Yıl], M [ay], W [hafta], D [gün], H [saat]")
 
      let süre = olus
      let guven;
