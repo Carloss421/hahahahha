@@ -2,8 +2,7 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json')
 
 exports.run = function(client, message) {
-if(message.author.id !== ayarlar.ownerID)
-  if(message.author.id !== ayarlar.ownerİD)  {
+if(message.author.id !== ayarlar.ownerID) {
     const embed = new Discord.MessageEmbed()
     .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
     .setColor('BLUE')

@@ -12,8 +12,7 @@ let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - İstatistik")
 .setColor("RANDOM")
 .setDescription(`
-Geliştirici ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
-Bot ortağı ${araEmoji} **<@${ayarlar.ownerİD}> - Ali/RestVevo**
+Geliştirici/Sahip ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
 Kuruluş tarihi ${araEmoji} **${ayarlar.krştrh}**
 Sunuluş tarihi ${araEmoji} **${ayarlar.snştrh}**
 
@@ -32,7 +31,7 @@ Node.js sürümü ${araEmoji} **${process.version}**
 
 **Verileri alınan komutlar**
 \` Otorol - Sayaç - KayıtSistemi - CaptchaSistemi - Prefix - GörevSistemi \`
-**Veri depolaması fazla artarsa silineceketir!**
+**Veriler temizlendi!**
 [Destek Sunucusu - ](https://discord.gg/NAzGC2cxXR)[Davet Et(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot)[Davet Et(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot)[Oy Ver](https://discordbots.org/bot/${client.user.id}/vote)
 `)//client.guild.member.cache.filter(m => m.user.bot).size
 message.channel.send(embed)
