@@ -28,6 +28,7 @@ var code = args.join(' ');
      return;
  };
 if (args[0] === "ayarlar.token") code="Kusura bakma veremem"
+if (args[0] === "config.token") code="Kusura bakma veremem"
  if(code.match(/(client["token"])/g)) {
   let token_uyari2 = new Discord.MessageEmbed()
   .setColor('RANDOM')
