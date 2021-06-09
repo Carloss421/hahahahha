@@ -7,7 +7,7 @@ app.get(".", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://alvibotaltyapi.glitch.me/`);
+  http.get(`http://alvibotaltyapii.glitch.me/`);
 }, 100000);
 const Discord = require("discord.js");
 const client = new Discord.Client({ disableMentions: "everyone" });
