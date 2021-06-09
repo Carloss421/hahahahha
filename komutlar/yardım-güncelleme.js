@@ -16,7 +16,7 @@ let embed = new Discord.MessageEmbed()
 ║ \`emoji-koruma\` | eklendi!
 ║ \`prefix-sistemi\` | eklendi!
 ║ \`sayaç/otorol\` | güncellendi!
-║ \`HATA\` | Hatalar giderildi!
+║ \`HATALAR\` | giderildi!
 ║ \`fake-üye-sistemi\` | eklendi!
 ║ \`captcha\` | güncellendi!
 ║ \`ayarlar\` | **(BETA)** eklendi!
@@ -25,6 +25,8 @@ let embed = new Discord.MessageEmbed()
 ║ \`seviye-sistemi\` | kaldırıldı!
 ║ \`premium-sistemi\` | kaldırıldı!(Herşey Bedava)
 ║ \`kayıt-sistemi\` | İsim değiştirme hatası giderildi!
+║ \`yılbaşı\` | kaldırıldı!
+║ \`ekonomi-sistemi\` | kaldırıldı!
 ╚═══════════════════╝`)
 message.channel.send(embed)
 };

@@ -23,7 +23,7 @@ let eğlence = new Discord.MessageEmbed()
 \`${prefix}yazıtura\` Yazı-Tura atar.
 \`${prefix}çekiç\` İstediğiniz Kişiye Çekiç Atarsınız.
 \`${prefix}şifre\` Rastgele bir şifre oluşturur.
-\`${prefix}yılbaşı\` Yılbaşına ne kadar kaldı öğrenirsin.
+~~\`${prefix}yılbaşı\` Yılbaşına ne kadar kaldı öğrenirsin.~~
 
 Burada çok fazla komut olduğu için \`${prefix}yardım-eğlence2\` yazarak komutların devamına bakabilirsiniz.`)
 message.channel.send(eğlence)

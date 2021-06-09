@@ -15,10 +15,11 @@ komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyors
 **kullanıcı menüsü** \`${prefix}yardım-kullanıcı\` Kullanıcı menüsünü açar.
 **eğlence menüsü** \`${prefix}yardım-eğlence\` Canı sıkılanlar için yararlı bir menü.
 **moderasyon menüsü** \`${prefix}yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.
-**ekonomi menüsü** \`${prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.
 **yapımcı menüsü** \`${prefix}yardım-yapımcı | ${prefix}yardım-owner\` Yapımcı'nın kullanabiliceği komutları açar.
 **güncelleme menüsü** \`${prefix}güncellemeler | ${prefix}uptades\` Bot'a gelen güncellemeleri gösterir.
 **bot menüsü** \`${prefix}yardım-bot\` Bot'un davet linkini gibi şeyleri gösterir.
+
+~~**ekonomi menüsü** \`${prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.~~
 `)
 message.channel.send(embed)
 };
