@@ -13,7 +13,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client({ disableMentions: "everyone" });
 const ayarlar = require("./ayarlar.json");
 const fs = require("fs");
-const ms = require("parse-ms")
 const moment = require("moment");
 const db = require("quick.db");
 const queue = new Map();

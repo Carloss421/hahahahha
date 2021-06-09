@@ -51,7 +51,6 @@ module.exports = async message => {
 */
 const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js');
-const ms = require('parse-ms');
 const db = require('quick.db');
 let talkedRecently = new Set();
 module.exports = async message => {
