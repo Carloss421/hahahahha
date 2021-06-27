@@ -8,7 +8,7 @@ app.get(".", (request, response) => {
 app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://alvibotaltyapii.glitch.me/`);
-}, 100000);
+}, 90000);
 const Discord = require("discord.js");
 const client = new Discord.Client({ disableMentions: "everyone" });
 const ayarlar = require("./ayarlar.json");
@@ -535,18 +535,17 @@ client.on("message", (msg, message, guild) => {
   }
 });
 
-client.on("guildCreate", (guild, message) => {
+client.on("guildCreate", async(guild, message) => {
 
 let alındı = `${ayarlar.oldu2}`
 let alınıyor = "<a:yükleniyor:839266395308687421>"
+
   const emmmmbed = new Discord.MessageEmbed()
     .setDescription(`
   **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli. Hatalı komutlar** \`${prefix}yardım-bot\``)
 
-
-   
-  
   let defaultChannel = "";
+  
   guild.channels.cache.forEach(channel => {
     if (channel.type == "text" && defaultChannel == "") {
       if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
@@ -554,7 +553,9 @@ let alınıyor = "<a:yükleniyor:839266395308687421>"
       }
     }
   });
-
+  const alın = await defaultChannel.send("Sunucu Verileri alınıyor.")
+  alın.edit("Sunucu Verileri alınıyor..")
+  alın.edit("Sunucu Verileri alınıyor...").then(m => m.delete({ timeout: 2542 }))
   defaultChannel.send(emmmmbed);
 });
 /*
