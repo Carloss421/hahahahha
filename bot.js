@@ -542,7 +542,7 @@ let alınıyor = "<a:yükleniyor:839266395308687421>"
 
   const emmmmbed = new Discord.MessageEmbed()
     .setDescription(`
-  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli. Hatalı komutlar** \`${prefix}yardım-bot\``)
+  **Selamlar chat ben geldim sabahlara kadar kopmaya hazır mısınız? Bende bütün sistemler var rahat olun sadece** \`a!yardım\` **yazarak komutlarıma bakman yeterli. Hatalı komutlar** \`a!yardım-bot\``)
 
   let defaultChannel = "";
   
