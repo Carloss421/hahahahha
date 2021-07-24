@@ -567,33 +567,7 @@ kanal.send(embed)
     
 });
 */
-// ------------------------> [EKLENDİM-ATILDIM] <------------------------- \\
 
-client.on("guildDelete", (guild, message) => {
-  let rrrsembed = new Discord.MessageEmbed()
-
-    .setColor("RED")
-    .setTitle("Bot Atıldı")
-    .addField("Sunucu Adı:", guild.name)
-    .addField("Sunucu sahibi", guild.owner)
-    .addField("Sunucu Sahibi'nin İd'si", guild.ownerID)
-    .addField("Sunucunun Kurulu Olduğu Bölge:", guild.region)
-    .addField("Sunucudaki Kişi Sayısı:", guild.memberCount);
-  return message.guild.channels.get("834494251726667776").send(rrrsembed);
-});
-
-client.on("guildCreate", (guild, message) => {
-  let rrrsembed = new Discord.MessageEmbed()
-
-    .setColor("GREEN")
-    .setTitle("Bot Eklendi")
-    .addField("Sunucu Adı:", guild.name)
-    .addField("Sunucu sahibi", guild.owner)
-    .addField("Sunucu Sahibi'nin İd'si", guild.ownerID)
-    .addField("Sunucunun Kurulu Olduğu Bölge:", guild.region)
-    .addField("Sunucudaki Kişi Sayısı:", guild.memberCount);
-  return message.guild.channels.get("834494251726667776").send(rrrsembed);
-});
 
 // ------------------> [Bot Koruma] <-------------------------- \\
 
