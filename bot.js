@@ -1124,9 +1124,7 @@ client.on("channelDelete", async (channel, message) => {
       .clone(channel.name, true, true, "Kanal silme koruması sistemi")
       .then(async klon => {
         if (!db.has(`korumalog_${guild.id}`)) return;
-        let logs = guild.channels.find(
-          ch => ch.id === db.fetch(`korumalog_${guild.id}`)
-        );
+        let logs = guild.channels.find(ch => ch.id === db.fetch(`korumalog_${guild.id}`));
         if (!logs) return db.delete(`korumalog_${guild.id}`);
         else {
           const embed = new Discord.MessageEmbed()
