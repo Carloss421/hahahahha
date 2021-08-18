@@ -9,7 +9,7 @@ let embed = new Discord.MessageEmbed()
 :two: **Version: 0.0.4**
 **Başlangıç: 18.08.2021 - 13:19 Bitiş:  **\`(GUNCELLEME)\`
 ╔═══════════════════╗
-║ \`görev-sistemi\` **|** eklendi!
+║ \`görev-sistemi(BETA)\` **|** eklendi!
 ║ \`emojiler\` **|** eklendi!
 ║ \`veri-tabanı\` **|** sıfırlandı!
 ╚═══════════════════╝`)

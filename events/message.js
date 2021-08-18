@@ -71,11 +71,11 @@ if(message.author.bot) return
   let params = message.content.split(' ').slice(1);
   let perms = client.elevation(message);
   let cmd;
-  if (client.commands.has(command)) {
-    cmd = client.commands.get(command);
-  } else if (client.aliases.has(command)) {
-    cmd = client.commands.get(client.aliases.get(command));
-  }
+    if (!client.commands.has(command)) {
+    if (client.aliases.has(command)) {
+      cmd = client.commands.get(client.aliases.get(command));
+    } else {
+      message.channel.send(new Discord.MessageEmbed().setDescription(`:warning: \`${command}\` adında bir komut yok! Komut listesine bakmak için: \`\`${prefix}yardım\`\``))}}
   
     if (db.has(`karalist_${message.author.id}`) === true) {
     let embed = new Discord.MessageEmbed()
