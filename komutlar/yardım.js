@@ -17,6 +17,7 @@ komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyors
 **moderasyon menüsü** \`${prefix}yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.
 **yapımcı menüsü** \`${prefix}yardım-yapımcı | ${prefix}yardım-owner\` Yapımcı'nın kullanabiliceği komutları açar.
 **güncelleme menüsü** \`${prefix}güncellemeler | ${prefix}uptades\` Bot'a gelen güncellemeleri gösterir.
+**güncelleme versionları** \`${prefix}güncelleme-v | ${prefix}güncelleme-version\` Gelen güncelleme versionlarını gösterir.
 **bot menüsü** \`${prefix}yardım-bot\` Bot'un davet linkini gibi şeyleri gösterir.
 
 ~~**ekonomi menüsü** \`${prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.~~
