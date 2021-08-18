@@ -30,6 +30,7 @@ message.channel.send({ embed: em })
 db.set(`aboneKL_${message.guild.id}`, log)
 db.set(`aboneK_${message.guild.id}`, kanal)
 db.set(`aboneKI_${message.guild.id}`, kanalN)
+db.set(`aboneS`, message.guild.id)
 };
 
 if(args[0] === 'kapat') {
