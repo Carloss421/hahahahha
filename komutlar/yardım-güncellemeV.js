@@ -8,7 +8,7 @@ exports.run = async(client, message, args) => {
   Başlangıc: **15.05.2021 - 19:09** Bitiş: **16.05.2021 - 20:30** \`UPTADE\`
   
   :two: **Version: 0.0.4**
-  Başlangıc: **18.08.2021 - 13:19** Bitiş: ** ** \`UPTADE\``)
+  Başlangıc: **18.08.2021 - 13:19** Bitiş: **18.08.2021 - 17:00** \`UPTADE\``)
   message.channel.send({ embed: evet })
   };
 

@@ -7,7 +7,7 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 :two: **Version: 0.0.4**
-**Başlangıç: 18.08.2021 - 13:19 Bitiş:  **\`(GUNCELLEME)\`
+**Başlangıç: 18.08.2021 - 13:19 Bitiş:  18.08.2021 - 17:00**\`(GUNCELLEME)\`
 ╔═══════════════════╗
 ║ \`görev-sistemi(BETA)\` **|** eklendi!
 ║ \`emojiler\` **|** eklendi!
