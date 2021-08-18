@@ -9,7 +9,7 @@ if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(n
 let p = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;  
 let l = db.fetch(`aboneKL_${message.guild.id}`)
 let i = db.fetch(`aboneK_${message.guild.id}`)
-let ı = db.fetch(`aboneKI_${}`)
+let ı = db.fetch(`aboneKI_${message.guild.id}`)
 
 if(args[0] !== 'ayarla' && args[0] !== 'kapat') return message.channel.send(new Discord.MessageEmbed().setDescription(`
 ${ayarlar.hata} Lütfen **${p}abone-kanal ayarla** veya **${p}abone-kanal kapat** yaz.`))
@@ -26,9 +26,22 @@ if(!kanalN) return message.channel.send(new Discord.MessageEmbed().setDescriptio
   const em = new Discord.MessageEmbed()
   .setTitle("BAŞARILI!")
   .setDescription(`Log kanalını ${log}, youtube kanal idsini **||${kanal}||** ve youtube kanal ismini **||${kanalN}||** olarak kayıt ettim.`)
-db.set(`aboneK`)
-}
+message.channel.send({ embed: em })
+db.set(`aboneKL_${message.guild.id}`, log)
+db.set(`aboneK_${message.guild.id}`, kanal)
+db.set(`aboneKI_${message.guild.id}`, kanalN)
+};
 
+if(args[0] === 'kapat') {
+  const e = new Discord.MessageEmbed()
+  .setTitle("BAŞARILI!")
+  .setDescription(`Abone sayaç sıfırlandı!`)
+  message.channel.send({ embed: e })
+db.delete(`aboneKL_${message.guild.id}`)
+db.delete(`aboneK_${message.guild.id}`)
+db.delete(`aboneKI_${message.guild.id}`)
+};
+  
 /*
 if(k.kapali !== k.acik) {
   const emb = new Discord.MessageEmbed()
