@@ -11,7 +11,7 @@ let embed = new Discord.MessageEmbed()
 ╔═══════════════════╗
 ║ \`görev-sistemi\` **|** eklendi!
 ║ \`emojiler\` **|** eklendi!
-
+║ \`veri-tabanı\` **|** sıfırlandı!
 ╚═══════════════════╝`)
 message.channel.send(embed)
 };
