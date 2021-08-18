@@ -7,16 +7,26 @@ exports.run = async(client, message, args) => {
 if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.oldu} ${message.author}, bu komutu kullanabilmek için \`YONETICI\` yetkisine sahip olmalısın!`))
 
 let p = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;  
-let v = db.fetch(`aboneK_${message.guild.id}`)
-let k = db.has(`aboneKID_${message.guild.id}` ? "acik" : "kapali")
-let h = db.has(`aboneKLOG_${message.guild.id}` ? "acik" : "kapali")
+let l = db.fetch(`aboneKL_${message.guild.id}`)
+let i = db.fetch(`aboneK_${message.guild.id}`)
+let ı = db.fetch(`aboneKI_${}`)
 
 if(args[0] !== 'ayarla' && args[0] !== 'kapat') return message.channel.send(new Discord.MessageEmbed().setDescription(`
 ${ayarlar.hata} Lütfen **${p}abone-kanal ayarla** veya **${p}abone-kanal kapat** yaz.`))
 
+let log = message.mentions.channels.first()
+let kanal = args[1]
+let kanalN = args[2]
+
 if(args[0] === 'ayarla') {
-  const embedd
+if(!log) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Abonelerin log tutalacağı kanal'ı etiketlemelisin!`).setColor("#ff0000"))
+if(!kanal) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Youtube kanal ID'sini yazmalısın!`).setColor("#ff0000"))
+if(!kanalN) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Youtube kanal İsmini yazmalısın!`).setColor("#ff0000"))
   
+  const em = new Discord.MessageEmbed()
+  .setTitle("BAŞARILI!")
+  .setDescription(`Log kanalını ${log}, youtube kanal idsini **||${kanal}||** ve youtube kanal ismini **||${kanalN}||** olarak kayıt ettim.`)
+db.set(`aboneK`)
 }
 
 /*
