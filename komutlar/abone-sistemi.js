@@ -11,7 +11,7 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}abone-rol\` Abone rolünü ayarlar.
 \`${prefix}abone-yetkili @Yetkili\` Abone verecek rolü ayarlar. 
 \`${prefix}abone-log\` Abone rolü verilenlerin logunu tutar.
-\`${prefix}abone-kanal\` Kanal 1 abone artarsa log tutacağı kanal.`)
+\`${prefix}abone-kanal ayarla & ${prefix}abone-kanal kapat\` Youtube kanalı ayarlar.`)
 message.channel.send(embed)
 };
 
