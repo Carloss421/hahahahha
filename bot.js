@@ -144,8 +144,17 @@ Yardım menüsü için **${prefixÖ}yardım** yazman gerekli olacaktır :)`)
 });
 
 
-//        [-----------------------> Abone Sayaç <-----------------]        \\
+//        [----------------------->  GOREVLER <-----------------]        \\
 
+client.on('message', message  => {
+
+
+let user = message.author;
+let prefixX = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+if(message.author.bot || message.content.startsWith(prefixX)) return;
+
+db.add(`görevMesajGönder.${message.guild.id}.${user.id}`, 1)
+}); 
 
 //     [-----------------> Afk <------------------]  \\
 
@@ -1228,6 +1237,7 @@ client.on("guildMemberRemove", async member => {
   const sasad = member.guild.members.get(d);
   let sayı2 = await db.fetch(`davet_${d}_${member.guild.id}`);
   db.add(`davet_${d}_${member.guild.id}`, -1);
+  db.add(`görevDavetEt.${member.guild.id}.${sa.id}`)
 
   if (!d) {
     client.channels.get(kanal).send(`<:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ **BULUNAMADI**]`);
@@ -1269,7 +1279,8 @@ client.on("guildMemberAdd", async member => {
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const sasad = member.guild.members.get(invite.inviter.id);
     const davetçi = client.users.get(invite.inviter.id);
-
+     
+    db.add(`görevDavetEt.${member.guild.id}.${invite.inviter.id}`, 1)
     db.add(`davet_${invite.inviter.id}_${member.guild.id}`, +1);
     db.set(`bunudavet_${member.id}`, invite.inviter.id);
     let sayı = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
