@@ -1237,7 +1237,7 @@ client.on("guildMemberRemove", async member => {
   const sasad = member.guild.members.get(d);
   let sayı2 = await db.fetch(`davet_${d}_${member.guild.id}`);
   db.add(`davet_${d}_${member.guild.id}`, -1);
-  db.add(`görevDavetEt.${member.guild.id}.${sa.id}`)
+  db.add(`görevDavetEt.${member.guild.id}.${sa.id}`, -1)
 
   if (!d) {
     client.channels.get(kanal).send(`<:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ **BULUNAMADI**]`);
