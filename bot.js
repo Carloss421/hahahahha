@@ -147,6 +147,7 @@ Yardım menüsü için **${prefixÖ}yardım** yazman gerekli olacaktır :)`)
 //        [-----------------------> Abone Sayaç <-----------------]        \\
 
 client.on("message", async(message) => {
+const fetch = require("node-superfetch"); 
 const log = db.fetch(`aboneKL_${message.guild.id}`)
 const isim = db.fetch(`aboneKI_${message.guild.id}`)
 const id = db.fetch(`aboneK_${message.guild.id}`)
@@ -158,11 +159,10 @@ if(!isim) return;
   
 const ytc = await fetch.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${isim}&key=${id}&maxResults=1&type=channel`)
 .catch(() => console.log("!!! KANAL BULUNAMADI! Yeniden Dene !!!"))
-if(!ytc.body.items[0]) return console.log("!!! KANAL BULUNAMADI! Yeniden Dene !!!");
 
-const data = await fetch.get(`http://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics,brandingSettings&id=${ytc.body.items[0].id.channelId}&key=${id}`)
+const data = await fetch.get(`http://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics,brandingSettings&id=${id}&key=${id}`)
 .catch(() => message.channel.send("Bilinmeyen kanal data hatası"));
-
+ 
 return sid.guild.channels.cache.get(log.id).send(`**${isim} Youtube** \`${parseInt(data.body.items[0].statistics.subscriberCount).toLocaleString()}\` aboneye ulaştı!`)
 /*const channel = await fetch.get(`
 https://www.googleapis.com/youtube/v3/search?part=snippet&q=${name}&key=AIzaSyChebRusOAAmCjuwic9_V6Ivy-3BEGb5NI&maxResults=1&type=channel`)

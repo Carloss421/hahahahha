@@ -15,8 +15,8 @@ if(args[0] !== 'ayarla' && args[0] !== 'kapat') return message.channel.send(new 
 ${ayarlar.hata} Lütfen **${p}abone-kanal ayarla** veya **${p}abone-kanal kapat** yaz.`))
 
 let log = message.mentions.channels.first()
-let kanal = args[1]
-let kanalN = args[2]
+let kanal = args[2]
+let kanalN = args[3]
 
 if(args[0] === 'ayarla') {
 if(!log) return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Abonelerin log tutalacağı kanal'ı etiketlemelisin!`).setColor("#ff0000"))
