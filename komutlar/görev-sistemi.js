@@ -8,11 +8,8 @@ let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Görev Sistemi`)
 .setColor("RANDOM")
 .setDescription(`
-~~\`${prefix}görevli\` Görev vericek rolü ayarlar.~~
-~~\`${prefix}görevlog\` Logların düşeceği kanalı ayarlar.~~
-~~\`${prefix}görev-ekle\` Belirtilen kullanıcıya görev ekler.~~
-~~\`${prefix}görev-sil\` Belirtilen miktarda görev siler.~~
-~~\`${prefix}görev-sayısı\` Belirtilen kullanıcı'nın görev sayısını görürsünüz.~~
+\`${prefix}me\` Görevlerinize bakarsınız.
+
 `)
 message.channel.send(embed)
 };
