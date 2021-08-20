@@ -590,7 +590,7 @@ client.on("guildMemberAdd", async member => {
 
   member.kick(member, `Bot koruması aktif!`);
 
-  member.guild.owner.send(
+return member.guild.owner.send(
     `Sunucunuza bir bot eklendi ve sunucudan otomatik olarak atıldı, sunucuya eklenmesini onaylıyor iseniz \`a!giriş-izni ${member.id}\``
   );
 });
@@ -604,10 +604,7 @@ client.on("guildMemberRemove", async member => {
   if (!canvaskanal) return;
 
   const request = require("node-superfetch");
-  const Canvas = require("canvas"),
-    Image = Canvas.Image,
-    Font = Canvas.Font,
-    path = require("path");
+  const Canvas = require("canvas"), Image = Canvas.Image, Font = Canvas.Font, path = require("path");
 
   var randomMsg = ["Sunucudan Ayrıldı."];
   var randomMsg_integer =
@@ -730,7 +727,7 @@ ${moment.utc(message.author.createdAt).format("MMMM DD, YYYY").replace("0", "")}
      if(süre < 2629800000) guven = ':warning: Tehlikeli!'
      if(süre > 2629800000) guven = ':white_check_mark: Güvenilir.'
 let kanal = db.fetch(`kayıtkanal_${member.guild.id}`)
-member.guild.channels.cache.get(kanal).send(new Discord.MessageEmbed().setDescription(`
+return member.guild.channels.cache.get(kanal).send(new Discord.MessageEmbed().setDescription(`
 ${member}(${member.tag}) Sunucumuza hoşgeldin.
 
 Kayıt olmak için sesli kanala geçip yetkililerin gelmesini beklemen yeterlidir eğer öyle bir oda bulunmuyorsa bulunduğun kanala \`İsim Yaş\` yazman yeterli olucaktır.
@@ -743,6 +740,7 @@ client.on("guildMemberAdd", async(member, message, guild) => {
 let kanal = db.fetch(`hoşgeldinK_${member.guild.id}`)
 
 let hoşgeldinK = db.fetch(`hosgeldinK_${member.guild.id}`)
+if(!hoşgeldinK) return;
 var hoşglend = new Discord.MessageEmbed()
 .setColor("GREEN")
 .setTitle(":inbox_tray: Sunucuya yeni bir üye katıldı!")
@@ -750,7 +748,7 @@ var hoşglend = new Discord.MessageEmbed()
 .setDescription("Ooo kimleri görüyorum, "+ member +" sunucuya hoşgeldin, seninle beraber "+ member.guild.memberCount+" kişiye ulaştık.")
 .addField(`Üye ID:`, `${member.id}`, true)
 .addField(`Üye Adı`, `${member}`, true)
-member.guild.channels.cache.get(hoşgeldinK).send(hoşglend) 
+return member.guild.channels.cache.get(hoşgeldinK).send(hoşglend) 
 });
   
 client.on("guildMemberRemove", async(member, message, guild) => {
@@ -762,7 +760,7 @@ var hoşglend = new Discord.MessageEmbed()
 .setDescription("Oof be kanka, "+ member +" sunucu'dan ayrıldı, senin çıkmanla beraber "+ member.guild.memberCount+" kişi kaldık.")
 .addField(`Üye ID:`, `${member.id}`, true)
 .addField(`Üye Adı`, `${member}`, true)
-member.guild.channels.cache.get(kanal).send(hoşglend) 
+return member.guild.channels.cache.get(kanal).send(hoşglend) 
 
 }) 
 // ----------------> [Güvenlik] <------------------ \\
@@ -814,7 +812,7 @@ let günay = `${günü} ${ayı} ${yılı} ${saati}`
      .setTitle(`${member.user.username} Katıldı`)
      .setDescription('<@'+member.id+'> Bilgileri : \n\n  Hesap oluşturulma tarihi **[' + created + ']** (`' + günay + '`) \n\n Hesap durumu : **' + kontrol + '**')
      .setTimestamp()
-    member.guild.channels.cache.get(kanal).send(sunoç)
+return member.guild.channels.cache.get(kanal).send(sunoç)
 })
 // ----------------> [Sa-AS] <--------------------- \\
 client.on("message", async (msg, member, guild) => {
