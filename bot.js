@@ -729,9 +729,8 @@ ${moment.utc(message.author.createdAt).format("MMMM DD, YYYY").replace("0", "")}
      let guven;
      if(süre < 2629800000) guven = ':warning: Tehlikeli!'
      if(süre > 2629800000) guven = ':white_check_mark: Güvenilir.'
-if(!message.guild) return;
-let kanal = db.fetch(`kayıtkanal_${message.guild.id}`)
-kanal.send(new Discord.MessageEmbed().setDescription(`
+let kanal = db.fetch(`kayıtkanal_${member.guild.id}`)
+member.guild.channels.cache.get(kanal).send(new Discord.MessageEmbed().setDescription(`
 ${member}(${member.tag}) Sunucumuza hoşgeldin.
 
 Kayıt olmak için sesli kanala geçip yetkililerin gelmesini beklemen yeterlidir eğer öyle bir oda bulunmuyorsa bulunduğun kanala \`İsim Yaş\` yazman yeterli olucaktır.
@@ -740,10 +739,10 @@ Hesap Oluşturulma Tarihi: \`${olus}\`
 Güvenirlik: ${guven}`))
 })
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
-client.on("guildMemberAdd", async(member, message) => {
-let kanal = db.fetch(`hoşgeldinK_${message.guild.id}`)
+client.on("guildMemberAdd", async(member, message, guild) => {
+let kanal = db.fetch(`hoşgeldinK_${member.guild.id}`)
 
-let hoşgeldinK = db.fetch(`hosgeldinK_${message.guild.id}`)
+let hoşgeldinK = db.fetch(`hosgeldinK_${member.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("GREEN")
 .setTitle(":inbox_tray: Sunucuya yeni bir üye katıldı!")
@@ -751,11 +750,11 @@ var hoşglend = new Discord.MessageEmbed()
 .setDescription("Ooo kimleri görüyorum, "+ member +" sunucuya hoşgeldin, seninle beraber "+ member.guild.memberCount+" kişiye ulaştık.")
 .addField(`Üye ID:`, `${member.id}`, true)
 .addField(`Üye Adı`, `${member}`, true)
-client.channels.get(hoşgeldinK).send(hoşglend) 
+member.guild.channels.cache.get(hoşgeldinK).send(hoşglend) 
 });
   
 client.on("guildMemberRemove", async(member, message, guild) => {
-  let kanal = db.fetch(`hoşgeldinK_${message.guild.id}`)
+  let kanal = db.fetch(`hoşgeldinK_${member.guild.id}`)
 var hoşglend = new Discord.MessageEmbed()
 .setColor("RED")
 .setTitle(":inbox_tray: Sunucu'dan bir üye ayrıldı!")
@@ -763,7 +762,7 @@ var hoşglend = new Discord.MessageEmbed()
 .setDescription("Oof be kanka, "+ member +" sunucu'dan ayrıldı, senin çıkmanla beraber "+ member.guild.memberCount+" kişi kaldık.")
 .addField(`Üye ID:`, `${member.id}`, true)
 .addField(`Üye Adı`, `${member}`, true)
-client.channels.get(kanal).send(hoşglend) 
+member.guild.channels.cache.get(kanal).send(hoşglend) 
 
 }) 
 // ----------------> [Güvenlik] <------------------ \\
@@ -815,7 +814,7 @@ let günay = `${günü} ${ayı} ${yılı} ${saati}`
      .setTitle(`${member.user.username} Katıldı`)
      .setDescription('<@'+member.id+'> Bilgileri : \n\n  Hesap oluşturulma tarihi **[' + created + ']** (`' + günay + '`) \n\n Hesap durumu : **' + kontrol + '**')
      .setTimestamp()
-     client.channels.cache.get(kanal).send(sunoç)
+    member.guild.channels.cache.get(kanal).send(sunoç)
 })
 // ----------------> [Sa-AS] <--------------------- \\
 client.on("message", async (msg, member, guild) => {
@@ -1081,7 +1080,7 @@ client.on("messageUptade", message => {
       }}}});
 // -------------------> [ROL-KORUMA] <------------------ \\
 client.on("roleCreate", async (rolee, member, guild, message) => {
-  let rolkoruma = await db.fetch(`rolK_${message.guild.id}`);
+  let rolkoruma = await db.fetch(`rolK_${rolee.guild.id}`);
   if (rolkoruma == "acik") {
     rolee.delete();
     const embed = new Discord.MessageEmbed()
@@ -1096,7 +1095,7 @@ client.on("roleCreate", async (rolee, member, guild, message) => {
   }
 });
 client.on("roleDelete", async (rol, member, guild, message) => {
-  let rolkoruma = await db.fetch(`rolK_${message.guild.id}`);
+  let rolkoruma = await db.fetch(`rolK_${rol.guild.id}`);
   if (rolkoruma == "acik") {
     rol.clone();
     const embed = new Discord.MessageEmbed()
@@ -1111,7 +1110,7 @@ client.on("roleDelete", async (rol, member, guild, message) => {
   }
 });
 client.on("roleUptade", async (roll, member, guild, message) => {
-  let rolkoruma = await db.fetch(`rolK_${message.guild.id}`);
+  let rolkoruma = await db.fetch(`rolK_${roll.guild.id}`);
   if (rolkoruma == "acik") {
     roll.old();
     const embed = new Discord.MessageEmbed()
@@ -1127,12 +1126,12 @@ client.on("roleUptade", async (roll, member, guild, message) => {
 });
 // ----------------> {Kanal-Koruma} <------------------------ \\
 client.on("channelDelete", async (channel, message) => {
-  let kanalkoruma = await db.fetch(`kanalk_${message.guild.id}`);
+  let kanalkoruma = await db.fetch(`kanalk_${channel.guild.id}`);
   if (kanalkoruma == "acik") {
     if (!channel.guild.me.hasPermission("MANAGE_CHANNELS")) return;
     let guild = channel.guild;
     const logs = await channel.guild.fetchAuditLogs({ type: "CHANNEL_DELETE" });
-    let member = guild.members.get(logs.entries.first().executor.id);
+    let member = channel.members.get(logs.entries.first().executor.id);
     if (!member) return;
     if (member.hasPermission("ADMINISTRATOR")) return;
     channel
@@ -1156,12 +1155,12 @@ client.on("channelDelete", async (channel, message) => {
   }
 });
 client.on("channelCreate", async (channel, message) => {
-  let kanalkoruma = await db.fetch(`kanalk_${message.guild.id}`);
+  let kanalkoruma = await db.fetch(`kanalk_${channel.guild.id}`);
   if (kanalkoruma == "acik") {
     if (!channel.guild.me.hasPermission("MANAGE_CHANNELS")) return;
     let guild = channel.guild;
     const logs = await channel.guild.fetchAuditLogs({ type: "CHANNEL_CREATE" });
-    let member = guild.members.get(logs.entries.first().executor.id);
+    let member = channel.members.get(logs.entries.first().executor.id);
     if (!member) return;
     if (member.hasPermission("ADMINISTRATOR")) return;
     channel.delete();
@@ -1172,12 +1171,12 @@ client.on("channelCreate", async (channel, message) => {
   }
 });
 client.on("channelUptade", async (channel, message) => {
-  let kanalkoruma = await db.fetch(`kanalk_${message.guild.id}`);
+  let kanalkoruma = await db.fetch(`kanalk_${channel.guild.id}`);
   if (kanalkoruma == "acik") {
     if (!channel.guild.me.hasPermission("MANAGE_CHANNELS")) return;
     let guild = channel.guild;
     const logs = await channel.guild.fetchAuditLogs({ type: "CHANNEL_UPTADE" });
-    let member = guild.members.get(logs.entries.first().executor.id);
+    let member = channel.members.get(logs.entries.first().executor.id);
     if (!member) return;
     if (member.hasPermission("ADMINISTRATOR")) return;
     channel.old();

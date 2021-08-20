@@ -27,9 +27,6 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}ticket-sistemi\` Ticket komutlarını görürsünüz.
 \`${prefix}jail-sistemi\` Belirtilen üyeyi hapise atarsınız
 
-**kayıt-sistemi** komutu kullanılabilir ama bir çok hatası olduğundan dolayı önermiyoruz!
-**görev-sistemi** Komutu çalışır durumda ama içinde yazan komutları deneyemezsiniz çünkü onun üzerinde çalışıyor!
-
 Burada çok fazla komut olduğu için \`${prefix}yardım-moderasyon2\` yazarak komutların devamına bakabilirsiniz.`)
 message.channel.send(embed)
 };
