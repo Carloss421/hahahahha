@@ -59,7 +59,7 @@ message.channel.send({ embed: göreveleri })
 };
 
 exports.conf = {
-aliases: ["görevlerim", "tasks"]
+aliases: ["görevlerim", "me", "tasks"]
 };
 
 exports.help = {

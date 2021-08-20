@@ -27,6 +27,7 @@ var prefix = ayarlar.prefix
 const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
 };
+client.setMaxListeners(30)
 /*
 client.on("ready", () => {
   var actvs = [
@@ -719,13 +720,16 @@ client.on("guildMemberAdd", async member => {
 // ----------------> [kayıt-sistemi] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
 
-let olus = member.user.createdAt().format("Y [Yıl], M [ay], W [hafta], D [gün], H [saat]")
-
+let olus = moment.utc(member.createdAt).format("YYYY, MMMM DD **(D.MM.YYYY)**")
+/*
+${moment.utc(message.author.joinedAt).format("MMMM DD, YYYY").replace("0", "")}
+${moment.utc(message.author.createdAt).format("MMMM DD, YYYY").replace("0", "")}
+*/
      let süre = olus
      let guven;
      if(süre < 2629800000) guven = ':warning: Tehlikeli!'
      if(süre > 2629800000) guven = ':white_check_mark: Güvenilir.'
-
+if(!message.guild) return;
 let kanal = db.fetch(`kayıtkanal_${message.guild.id}`)
 kanal.send(new Discord.MessageEmbed().setDescription(`
 ${member}(${member.tag}) Sunucumuza hoşgeldin.
