@@ -587,11 +587,12 @@ client.on("guildMemberAdd", async member => {
   if (db.has(`botkoruma_${member.guild.id}`) === false) return;
   if (member.user.bot === false) return;
   if (db.has(`botİzinli_${member.id}`) === true) return;
-
+let p = db.fetch(`prefix_${member.guild.id}`) || ayarlar.prefix;
+  
   member.kick(member, `Bot koruması aktif!`);
 
 return member.guild.owner.send(
-    `Sunucunuza bir bot eklendi ve sunucudan otomatik olarak atıldı, sunucuya eklenmesini onaylıyor iseniz \`a!giriş-izni ${member.id}\``
+    `Sunucunuza bir bot eklendi ve sunucudan otomatik olarak atıldı, sunucuya eklenmesini onaylıyor iseniz \`${p}giriş-izni ${member.id}\``
   );
 });
 
@@ -658,7 +659,8 @@ client.on("guildMemberRemove", async member => {
 client.on("guildMemberAdd", async member => {
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
   var canvaskanal = member.guild.channels.cache.get(db.fetch(`gçkanal_${member.guild.id}`));
-
+ if(!canvaskanal) return;
+  
   if (!canvaskanal || canvaskanal ===  undefined) return;
   const request = require("node-superfetch");
   const Canvas = require("canvas"),
@@ -716,7 +718,8 @@ client.on("guildMemberAdd", async member => {
 });
 // ----------------> [kayıt-sistemi] <---------------- \\
 client.on("guildMemberAdd", async(member, message) => {
-
+let kanal = db.fetch(`kayıtkanal_${member.guild.id}`)
+if(!kanal) return;
 let olus = moment.utc(member.createdAt).format("YYYY, MMMM DD **(D.MM.YYYY)**")
 /*
 ${moment.utc(message.author.joinedAt).format("MMMM DD, YYYY").replace("0", "")}
@@ -726,7 +729,6 @@ ${moment.utc(message.author.createdAt).format("MMMM DD, YYYY").replace("0", "")}
      let guven;
      if(süre < 2629800000) guven = ':warning: Tehlikeli!'
      if(süre > 2629800000) guven = ':white_check_mark: Güvenilir.'
-let kanal = db.fetch(`kayıtkanal_${member.guild.id}`)
 return member.guild.channels.cache.get(kanal).send(new Discord.MessageEmbed().setDescription(`
 ${member}(${member.tag}) Sunucumuza hoşgeldin.
 
@@ -741,6 +743,7 @@ let kanal = db.fetch(`hoşgeldinK_${member.guild.id}`)
 
 let hoşgeldinK = db.fetch(`hosgeldinK_${member.guild.id}`)
 if(!hoşgeldinK) return;
+if(!kanal) return;
 var hoşglend = new Discord.MessageEmbed()
 .setColor("GREEN")
 .setTitle(":inbox_tray: Sunucuya yeni bir üye katıldı!")
@@ -753,6 +756,7 @@ return member.guild.channels.cache.get(hoşgeldinK).send(hoşglend)
   
 client.on("guildMemberRemove", async(member, message, guild) => {
   let kanal = db.fetch(`hoşgeldinK_${member.guild.id}`)
+  if(!kanal) return;
 var hoşglend = new Discord.MessageEmbed()
 .setColor("RED")
 .setTitle(":inbox_tray: Sunucu'dan bir üye ayrıldı!")
