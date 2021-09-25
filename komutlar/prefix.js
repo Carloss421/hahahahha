@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json')
 const Discord = require('discord.js')
 exports.run = async(client, message, args) => {
   
-message.channel.send(new Discord.MessageEmbed().setDescription(`**${ayarlar.hata}** Prefix \`/\` olduğundan dolayı bu komut kullanım dışıdır!\nAyrıntılar: [:information_source:](https://discord.gg/WBEvG7efdK)`).setColor('BLUE'))
+message.channel.send(new Discord.MessageEmbed().setDescription(`**${ayarlar.hata}** Prefix yakında \`/\` olacağından dolayı bu komut kullanım dışıdır!\nAyrıntılar: [:information_source:](https://discord.gg/WBEvG7efdK)`).setColor('BLUE'))
 /*
 let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let ohow = await db.fetch(`prefix_${message.guild.id}`)

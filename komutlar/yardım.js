@@ -3,7 +3,7 @@ const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
 const db = require('quick.db')
-let prefix = "/"
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   
 let embed = new Discord.MessageEmbed()
 .setTitle('Alvi - Yardım')
@@ -20,10 +20,9 @@ komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyors
 **güncelleme versionları** \`${prefix}güncelleme-v | ${prefix}güncelleme-version\` Gelen güncelleme versionlarını gösterir.
 **bot menüsü** \`${prefix}yardım-bot\` Bot'un davet linkini gibi şeyleri gösterir.
 
-~~**ekonomi menüsü** \`${prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.~~`)
+~~**ekonomi menüsü** \`${prefix}yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.~~
+`)
 message.channel.send(embed)
-  
-
 };
 
 exports.conf = {
@@ -31,13 +30,5 @@ exports.conf = {
  permlevel: 0
 };
 exports.help = {
-    name: "yardım",
-      options: [
-        {
-            name: 'User',
-            description: 'Yardım menüsü',
-            type: 6,
-            required: false
-        }
-    ]
+    name: "yardım"
 }
