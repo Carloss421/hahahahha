@@ -3,13 +3,8 @@ const ayarlar = require('../ayarlar.json')
 const Discord = require('discord.js')
 exports.run = async(client, message, args) => {
   
-  if(message.author.id !== ayarlar.ownerID)  {
-    const embed = new Discord.MessageEmbed()
-    .setDescription(`**${ayarlar.hata}** Prefix \`/\` olduğundan dolayı kullanım dışıdır!\nAyrıntılar: [:information_source:](https://discord.gg/)`)
-    .setColor('BLUE')
-    return message.channel.send(embed).then(msg=>msg.delete(5000));
-    }
-  
+message.channel.send(new Discord.MessageEmbed().setDescription(`**${ayarlar.hata}** Prefix \`/\` olduğundan dolayı bu komut kullanım dışıdır!\nAyrıntılar: [:information_source:](https://discord.gg/WBEvG7efdK)`).setColor('BLUE'))
+/*
 let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let ohow = await db.fetch(`prefix_${message.guild.id}`)
 
@@ -22,7 +17,7 @@ ${ayarlar.hata} Lütfen **${prefix}prefix ayarla** veya **${prefix}prefix sıfı
 /*
  if (args[0] !== 'aç' && args[0] !== 'kapat') return message.channel.send(new Discord.MessageEmbed().setDescription(`${ayarlar.hata} Küfür Engel Ayarlamak İçin \`${prefix}Küfür aç\` | Kapatmak İstiyorsanız \`${prefix}Küfür kapat\` Yazabilirsiniz`))
 */
-  
+ /* 
 if(args[0] === 'ayarla') {
 db.set(`prefix_${message.guild.id}`, args[1])
 message.channel.send(new Discord.MessageEmbed().setDescription(`
@@ -41,7 +36,7 @@ if(args[0] === 'sıfırla') {
 ${ayarlar.oldu2} Prefix Başarıyla Sıfırlandı. Prefix: **${ayarlar.prefix}**
 `).setColor("#29f713"));
 }
-
+*/
   
 };
 
