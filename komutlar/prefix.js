@@ -3,6 +3,13 @@ const ayarlar = require('../ayarlar.json')
 const Discord = require('discord.js')
 exports.run = async(client, message, args) => {
   
+  if(message.author.id !== ayarlar.ownerID)  {
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`**${ayarlar.hata}** Prefix \`/\` olduğundan dolayı kullanım dışıdır!\nAyrıntılar: [:information_source:](https:/)`)
+    .setColor('BLUE')
+    return message.channel.send(embed).then(msg=>msg.delete(5000));
+    }
+  
 let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let ohow = await db.fetch(`prefix_${message.guild.id}`)
 
