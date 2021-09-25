@@ -5,7 +5,7 @@ exports.run = async(client, message, args) => {
   
   if(message.author.id !== ayarlar.ownerID)  {
     const embed = new Discord.MessageEmbed()
-    .setDescription(`**${ayarlar.hata}** Prefix \`/\` olduğundan dolayı kullanım dışıdır!\nAyrıntılar: [:information_source:](https:/)`)
+    .setDescription(`**${ayarlar.hata}** Prefix \`/\` olduğundan dolayı kullanım dışıdır!\nAyrıntılar: [:information_source:](https://discord.gg/)`)
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(5000));
     }
