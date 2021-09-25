@@ -10,9 +10,9 @@ if(!chn) return message.channel.send(new Discord.MessageEmbed().setDescription("
 
 if(args[0] === "ayarla") {
 let a = new Discord.MessageEmbed()
-.setDescription("Sayı Saymaca oyunun kanalı "+ args[0] +" olarak ayarlandı.")
+.setDescription("Sayı Saymaca oyunun kanalı <#"+ chn +"> olarak ayarlandı.")
 message.channel.send(a)
-db.set(`sayısaymaca_${message.guild.id}_${chn.id}`)
+db.set(`sayısaymaca_${message.guild.id}_${chn.id}`, chn)
 };
 if(args[0] === "sıfırla") {
 let s = new Discord.MessageEmbed()
