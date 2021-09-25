@@ -47,14 +47,21 @@ b: "**Günde 893 mesaj gönder.**",
 i: "**Sunucuya 30 kişi davet et.**",
 }
 
+let gM;
+let gD;
+if(görevMesaj !== 0) { gM = `${görevMesaj} / 893`}
+if(görevDavet !== 0) { gD = `${görevDavet} / 30`}
+if(görevMesaj > 892) { gM = "Tamamlandı!"}
+if(görevDavet > 29) { gD = "Tamamlandı!"}
+  
 const göreveleri = new Discord.MessageEmbed()
 .setTitle(`${message.author.nickname || message.author.username} adlı kullanıcı'nın görevleri`)
 .setDescription(`
 ${görevListesi.b}
-${mesajBari(görevMesaj, 893, 9)} \`${görevMesaj > 893 ? "Tamamlandı!" : `${görevMesaj+" / 893"}`}\`
+${mesajBari(görevMesaj, 893, 9)} \`${gM}\`
 
 ${görevListesi.i}
-${davetBari(görevDavet, 39, 9)} \`${görevDavet > 30 ? "Tamamlandı!" : `${görevDavet+" / 30"}`}\``)
+${davetBari(görevDavet, 39, 9)} \`${gD}\``)
 message.channel.send({ embed: göreveleri })
 };
 

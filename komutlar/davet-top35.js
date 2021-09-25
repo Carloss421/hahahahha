@@ -46,13 +46,13 @@ const embed = new Discord.MessageEmbed()
   
   `)
 			.setColor("RANDOM")
-		message.channel.send({embed})
+return message.channel.send(embed)
 
 }
 
 exports.conf = {
 enabled: true,
-aliases: [],
+aliases: ["top35"],
 permLevel: 4
 };
 
