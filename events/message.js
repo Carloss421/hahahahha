@@ -52,6 +52,7 @@ module.exports = async message => {
 const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js');
 const db = require('quick.db');
+const ms = require('parse-ms')
 let talkedRecently = new Set();
 module.exports = async message => {
 if(message.author.bot) return
@@ -91,13 +92,13 @@ if(message.author.bot) return
   if(message.author.id !== ayarlar.ownerİD){
 
     if(bakım){
- // let bakımTIME = new Date("2021-05-16:20:30")
- // let time = ms(bakımTIME - Date.now())
+ let bakımTIME = new Date("2021-10-29:20:30")
+ let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
   <@${message.author.id}>
   **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.**
   ❓**Bakım Sebebi:** \`${bakım}\`
-
+  ⏱️**Tahmini Süre:** **${time.days}** gün, **${time.hours}** saat, **${time.minutes}** dakika, **${time.seconds}** saniye
   
   :arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
   `).setColor("RANDOM"))
