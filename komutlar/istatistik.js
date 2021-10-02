@@ -20,7 +20,7 @@ Sunuluş tarihi ${araEmoji} **${ayarlar.snştrh}**
 Bot Gecikmesi ${araEmoji} **${client.ws.ping}ms**
 Mesaj Gecikmesi ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
 
-Toplam kullanıcı ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}  [${message.client.users.cache.filter(m => m.bot).size} BOT]**
+Toplam kullanıcı ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}  [${message.client.users.cache.filter(m => m.bot, 0).size} BOT]**
 Toplam sunucu ${araEmoji} **${client.guilds.cache.size}**
 Toplam kanal ${araEmoji} **${client.channels.cache.size}**
 Toplam komut ${araEmoji} **${client.commands.size}**
