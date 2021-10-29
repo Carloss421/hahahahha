@@ -7,15 +7,11 @@ const dils = new dil("dil", "diller")
 
 exports.run = async (client, message, args) => {
 
-var lg = dils.get(`dilang.${message.guild.id}`)
-
 let en = require("../Languages/dil/en.js")
 let tr = require("../Languages/dil/tr.js")
-
-let lang;
-
-if(dil == "en"){lang = en}
-if(!dil){lang = tr}
+  
+var lg = dils.get(`dilang.${message.guild.id}`) || tr;
+if(lg == "en"){var lang = en}
 
 if(message.author.id !== ayarlar.ownerID) {
     const embed = new Discord.MessageEmbed()
@@ -36,7 +32,7 @@ var code = args.join(' ');
  if(code.match(/(client.token)/g)) {
   let token_uyari = new Discord.MessageEmbed()
   .setColor('RANDOM')
-    .setDescription(`${lang.AownerEvalERROR}\n\`\`\`xl\n${tokenuyari}\`\`\``)
+    .setDescription(`${lang.lg.AownerEvalERROR}\n\`\`\`xl\n${tokenuyari}\`\`\``)
     message.channel.send(token_uyari);
      return;
  };

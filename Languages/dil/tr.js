@@ -1,6 +1,4 @@
-let lang;
-
-lang = {
+lg: ({
 "AownerEvalOWNERED": "**:x: Bu Komut Yapımcıma Özeldir !**",
 "AownerEvalTOKENWARN": "Tokeni attım geldi mi?",
 "AownerEvalTESTCOMMANDSWARN": "Lütfen test edeceğiniz kodu **yazın!**",
@@ -9,4 +7,4 @@ lang = {
 "AownerEvalCODE": "Kod",
 "AownerEvalCONCLUSION": "Sonuç",
 "AownerEvalERROReD": "Bir hata meydana geldi!"
-}
+})
