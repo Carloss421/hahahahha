@@ -1,0 +1,18 @@
+{
+"evalCommand":{
+"AownerEvalOWNERED": "**:x: Bu Komut Yapımcıma Özeldir !**",
+"AownerEvalTOKENWARN": "Tokeni attım geldi mi?",
+"AownerEvalTESTCOMMANDSWARN": "Lütfen test edeceğiniz kodu **yazın!**",
+"AownerEvalERROR": "Hata çıktı;",
+"AownerEvalTOKENERRORED": "Kusura bakma veremem",
+"AownerEvalCODE": "Kod",
+"AownerEvalCONCLUSION": "Sonuç",
+"AownerEvalERROReD": "Bir hata meydana geldi!"},
+
+"blackList":{
+"AownerKaraOWNERED": "**:x: Bu Komut Yapımcıma Özeldir !**",
+"AownerKaraERROREDID": "Kara listeye almak istediğin kullanıcının ID'sini yaz!",
+"AownerKaraWARNNED": "Bu kullanıcı zaten kara listede!",
+"AownerKaraSUCCESFLY": "adlı kullanıcı başarıyla kara listeye alındı!"
+}
+}

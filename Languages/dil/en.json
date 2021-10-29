@@ -1,4 +1,4 @@
-const dil = {
+{
 "evalCommand":{
 "AownerEvalOWNERED": "**:x: This Command is Exclusive to My Maker !**",
 "AownerEvalTOKENWARN": "I threw the token?",
@@ -7,5 +7,12 @@ const dil = {
 "AownerEvalTOKENERRORED": "I'm sorry I can't",
 "AownerEvalCODE": "Code",
 "AownerEvalCONCLUSION": "Conclusion",
-"AownerEvalERROReD": "An error has occurred!"}
+"AownerEvalERROReD": "An error has occurred!"},
+  
+"blackList":{
+"AownerKaraOWNERED": "**:x: This Command is Exclusive to My Maker !*",
+"AownerKaraERROREDID": "Kara listeye almak istediğin kullanıcının ID'sini yaz!",
+"AownerKaraWARNNED": "Bu kullanıcı zaten kara listede!",
+"AownerKaraSUCCESFLY": "adlı kullanıcı başarıyla kara listeye alındı!"
+}
 }
