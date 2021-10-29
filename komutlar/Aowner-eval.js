@@ -1,14 +1,13 @@
 const Discord = require('discord.js');
 const util = require('util');
-const db = require('quick.db')
 const ayarlar = require('../ayarlar.json')
 const dil = require("../Languages/dil")
 const dils = new dil("dil", "diller")
 
 exports.run = async (client, message, args) => {
 
-let en = require("../Languages/dil/en")
-let tr = require("../Languages/dil/tr")
+let en = require("../Languages/dil/en.json")
+let tr = require("../Languages/dil/tr.json")
 
 let lang;
 

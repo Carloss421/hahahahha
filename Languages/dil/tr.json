@@ -1,5 +1,5 @@
 {
-"evalCommand":{
+"evalCommand":[{
 "AownerEvalOWNERED": "**:x: Bu Komut Yapımcıma Özeldir !**",
 "AownerEvalTOKENWARN": "Tokeni attım geldi mi?",
 "AownerEvalTESTCOMMANDSWARN": "Lütfen test edeceğiniz kodu **yazın!**",
@@ -8,5 +8,5 @@
 "AownerEvalCODE": "Kod",
 "AownerEvalCONCLUSION": "Sonuç",
 "AownerEvalERROReD": "Bir hata meydana geldi!"
-}
+}]
 }
