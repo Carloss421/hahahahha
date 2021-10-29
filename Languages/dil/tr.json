@@ -14,10 +14,16 @@
 "AownerKaraOWNERED": "**:x: Bu Komut Yapımcıma Özeldir !**",
 "AownerKaraERROREDID": "Kara listeye almak istediğin kullanıcının ID'sini yaz!",
 "AownerKaraWARNNED": "Bu kullanıcı zaten kara listede!",
-"AownerKaraSUCCESFLY": "adlı kullanıcı başarıyla kara listeye alındı!"},
+"AownerKaraSUCCESFLY": "adlı kullanıcı başarıyla kara listeye alındı!",
+"msg0": "Komutları kullanamazsın çünkü karalistedesin!"
+},
 
 "care":{
-"msg": "**:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:** `${bakım}`\n⏱️**Tahmini Süre:** **${time.days}** gün, **${time.hours}** saat, **${time.minutes}** dakika, **${time.seconds}** saniye\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**"
+"msg": "**:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:** `${bakım}`\n⏱️**Tahmini Süre:** **${time.days}** gün, **${time.hours}** saat, **${time.minutes}** dakika, **${time.seconds}** saniye\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**"},
+
+"rebootS":{
+"CrebootOWNERED": ""
+
 }
 
 

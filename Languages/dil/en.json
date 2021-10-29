@@ -13,6 +13,11 @@
 "AownerKaraOWNERED": "**:x: This Command is Exclusive to My Maker !*",
 "AownerKaraERROREDID": "Write your ID when you don't want to be blacklisted!",
 "AownerKaraWARNNED": "This user is already blacklisted!",
-"AownerKaraSUCCESFLY": "User has been successfully blacklisted!"
+"AownerKaraSUCCESFLY": "User has been successfully blacklisted!",
+"msg0": "You cannot use commands because you are blacklisted!"
+},
+
+"care": {
+"msg": "**:gear: We are under maintenance to give you the best service.\n**❓**Maintenance Reason:** `${maintenance}`\n⏱️**Estimated Time:** **${time.days}* * days, **${time.hours}** hours, **${time.minutes}** minutes, **${time.seconds}** seconds\n\n:arrows_counterclockwise: **Please Later Try again.**"
 }
 }

@@ -11,8 +11,11 @@ let prefix = ayarlar.prefix;
 }, 8000);
   var msgArray = [
 `Yardım almak için ${prefix}yardım`,
+`${prefix}help to get help`,
 `Yeni özellikler İçin ${prefix}yardım-güncelleme`,
-`Botu eklemek için ${prefix}yardım-bot`
+`${prefix}help-update for new features`,
+`Botu eklemek için ${prefix}yardım-bot`,
+`To add the bot ${prefix}help-bot`
  ];
 
  setInterval(() => { 

@@ -55,6 +55,7 @@ const db = require('quick.db');
 const ms = require('parse-ms')
 const dil = require("../Languages/dil");
 const dils = new dil("dil", "diller");
+
 let talkedRecently = new Set();
 module.exports = async message => {
 if(message.author.bot) return
@@ -79,16 +80,8 @@ if(message.author.bot) return
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
   }
-  
-    if (db.has(`karalist_${message.author.id}`) === true) {
-    let embed = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setDescription("Komutlarımı kullanamazsın çünkü karalistedesin!")
-    message.channel.send({embed: embed})
-    return
-  };
-
-let en = require("../Languages/dil/en.json");
+ 
+  let en = require("../Languages/dil/en.json");
 let tr = require("../Languages/dil/tr.json");
     
   var lg = dils.get(`dilang.${message.guild.id}`)
@@ -98,6 +91,15 @@ var lang = en;
   if (!lg) {
 var lang = tr;
   }
+  
+    if (db.has(`karalist_${message.author.id}`) === true) {
+    let embed = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(lang.blackList.msg0)
+    message.channel.send({embed: embed})
+    return
+  };
+
 
   
   if (cmd) {
