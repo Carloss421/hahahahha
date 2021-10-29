@@ -12,13 +12,10 @@ var lg = dils.get(`dilang.${message.guild.id}`)
 let en = require("../Languages/dil/en.js")
 let tr = require("../Languages/dil/tr.js")
 
-if(dil == "en"){
-var lang = en;
-}
+let lang;
 
-if(!dil){
-var lang = tr;
-}
+if(dil == "en"){lang = en}
+if(!dil){lang = tr}
 
 if(message.author.id !== ayarlar.ownerID) {
     const embed = new Discord.MessageEmbed()
@@ -70,11 +67,11 @@ if (args[0] === "config.token") code=lang.AownerEvalTOKENERRORED
          let giren_cıkan = new Discord.MessageEmbed()
      .setColor('RANDOM')
          .setDescription(`${lang.AownerEvalCODE}\n\`\`\`javascript\n${code}\n\`\`\``)
-         .setDescription(`${lang.AownerEvalConcluION}\n\`\`\`xl\n${evaled}\`\`\``)
+         .setDescription(`${lang.AownerEvalCONCLUSION}\n\`\`\`xl\n${evaled}\`\`\``)
          message.channel.send(giren_cıkan);
     } catch (err) {
     embed.setColor('RANDOM')
-        embed.addField('Bir hata meydana geldi', `\`\`\`xl\n${err}\n\`\`\``)
+        embed.setDescription(`${lang.AownerEvalERROReD}\n\`\`\`xl\n${err}\n\`\`\``)
         message.channel.send(embed);
     };
 };
@@ -82,7 +79,7 @@ if (args[0] === "config.token") code=lang.AownerEvalTOKENERRORED
 exports.conf = {
 enabled: true,
 guildOnly: false,
-aliases: ['koddene'],
+aliases: ['koddene', 'eval', 'trycode', 'evalCODE'],
 permLvl: 4
 };
 exports.help = {
