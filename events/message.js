@@ -109,12 +109,8 @@ var lang = tr;
  let bakımTIME = new Date("2021-11-30:20:30")
  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
-  <@${message.author.id}>
-  **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.**
-  ❓**Bakım Sebebi:** \`${bakım}\`
-  ⏱️**Tahmini Süre:** **${time.days}** gün, **${time.hours}** saat, **${time.minutes}** dakika, **${time.seconds}** saniye
-  
-  :arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
+<@${message.author.id}>
+  ${lang.care.msg}
   `).setColor("RANDOM"))
                               }}
     if (perms < cmd.conf.permLevel) return;
