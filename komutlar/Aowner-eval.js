@@ -2,8 +2,24 @@ const Discord = require('discord.js');
 const util = require('util');
 const db = require('quick.db')
 const ayarlar = require('../ayarlar.json')
+const dil = require("../Languages/dil")
+const dils = new dil("dil", "diller")
 
 exports.run = async (client, message, args) => {
+
+var lg = dils.get(`dilang.${message.guild.id}`)
+
+let en = require("../Languages/dil/en.js")
+let tr = require("../Languages/dil/tr.js")
+
+if(dil == "en"){
+var lang = en;
+}
+
+if(!dil){
+var lang = tr;
+}
+
 if(message.author.id !== ayarlar.ownerID) {
     const embed = new Discord.MessageEmbed()
     .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
