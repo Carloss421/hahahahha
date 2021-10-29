@@ -111,12 +111,12 @@ var lang = tr;
  let bakımTIME = new Date("2021-11-30:20:30")
  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
-<@${message.author.id}>
-${lang.care.msg} \`${bakım}\`${lang.care.msg1}
+${message.author}
+${lang.care.msg} \`${bakım}\`${lang.care.msg1} **${time.days}** ${lang.care.Dhms} **${time.hours}** ${lang.care.dHms} **${time.minutes}** ${lang.care.dhMs} **${time.seconds}** ${lang.care.dhmS}
 
   `).setColor("RANDOM"))
      /*
-     
+**:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:** `{bakım}`\n⏱️**Tahmini Süre:** **{time.days}** gün, **{time.hours}** saat, **{time.minutes}** dakika, **%{time.seconds}** saniye\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
      */                         }}
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);

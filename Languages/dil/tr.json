@@ -20,7 +20,14 @@
 
 "care":{
 "msg": "**:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:**",
-"msg1": "\n⏱️**Tahmini Süre:**"
+"msg1": "\n⏱️**Tahmini Süre:**",
+"msg2": "\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**",
+
+
+"Dhms": "gün,",
+"dHms": "saat,",
+"dhMs": "dakika,",
+"dhmS": "saniye,"
 },
 
 "rebootS":{

@@ -17,7 +17,15 @@
 "msg0": "You cannot use commands because you are blacklisted!"},
 
 "care": {
-"msg": "**:gear: We are under maintenance to give you the best service.\n**❓**Maintenance Reason:** `${maintenance}`\n⏱️**Estimated Time:** **${time.days}* * days, **${time.hours}** hours, **${time.minutes}** minutes, **${time.seconds}** seconds\n\n:arrows_counterclockwise: **Please Later Try again.**"},
+"msg": "**:gear: We are in care to give you the best service.\n**❓**Reason for Maintenance:**",
+"msg1": "\n⏱️**Estimated Time:**",
+"msg2": "\n\n:arrows_counterclockwise: **Please try again later.**",
+
+
+"Dhms": "days,",
+"dHms": "hours,",
+"dhMs": "minutes,",
+"dhmS": "seconds,"},
   
 "rebootS":{
 "CrebootWARNNED": "Enter a command name!",
