@@ -19,7 +19,9 @@
 },
 
 "care":{
-"msg": "**:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:**"},
+"msg": "**:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:**",
+"msg1": "\n⏱️**Tahmini Süre:**"
+},
 
 "rebootS":{
 "CrebootWARNNED": "Bir komut ismi gir!",

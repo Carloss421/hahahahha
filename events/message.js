@@ -112,7 +112,8 @@ var lang = tr;
  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
 <@${message.author.id}>
-  ${lang.care.msg} \`${bakım}\`
+${lang.care.msg} \`${bakım}\`${lang.care.msg1}
+
   `).setColor("RANDOM"))
      /*
      
