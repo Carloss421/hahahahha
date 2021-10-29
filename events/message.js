@@ -95,7 +95,7 @@ var lang = tr;
     if (db.has(`karalist_${message.author.id}`) === true) {
     let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .setDescription(lang.blackList.msg0)
+    .setDescription(`${lang.blackList.msg0}`)
     message.channel.send({embed: embed})
     return
   };
@@ -112,9 +112,11 @@ var lang = tr;
  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
 <@${message.author.id}>
-  ${lang.care.msg}
+  ${lang.care.msg} \`${bakım}\`
   `).setColor("RANDOM"))
-                              }}
+     /*
+     
+     */                         }}
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }
