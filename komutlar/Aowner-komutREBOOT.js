@@ -17,11 +17,11 @@ var lang = tr;
   
         let embed = new Discord.MessageEmbed()
         .setTitle("Reload")
-        .setDescription("Bu komutu sadece sahibim kullanabilir..")
+        .setDescription(lang.rebootS.CrebootOWNERED)
         .setColor("#cdf785");
         if(message.author.id !== '739411430171738142') return message.channel.send(embed);
 
-        if(!args[0].toLowerCase()) return message.channel.send("Bir komut ismi gir!")
+        if(!args[0].toLowerCase()) return message.channel.send(lang.rebootS.CrebootWARNNED)
 
         let komutİsim = args[0].toLowerCase()
 
@@ -30,12 +30,12 @@ var lang = tr;
           delete require.cache[require.resolve(`./${komutİsim}.js`)]
           const pull = require(`./${komutİsim}.js`)
           client.commands.set(pull.help.name, pull)
-          message.channel.send(`Yeniden Başlatıldı: \`${komutİsim}\``)
+          message.channel.send(`${lang.rebootS.CrebootSUCCESFLY} \`${komutİsim}\``)
         }
 
         catch (e) {
           console.log(e)
-          return message.channel.send(`Komut Yeniden Yüklenemedi: ${komutİsim} \n${e}`)
+          return message.channel.send(`${lang.rebootS.CrebootERRORED} ${komutİsim} \n${e}`)
         }
 
 

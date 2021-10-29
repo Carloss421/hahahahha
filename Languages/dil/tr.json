@@ -22,8 +22,14 @@
 "msg": "**:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:** `${bakım}`\n⏱️**Tahmini Süre:** **${time.days}** gün, **${time.hours}** saat, **${time.minutes}** dakika, **${time.seconds}** saniye\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**"},
 
 "rebootS":{
-"CrebootOWNERED": ""
-
+"CrebootWARNNED": "Bir komut ismi gir!",
+"CrebootERRORED": "Komut Yeniden Yüklenemedi:",
+"CrebootSUCCESFLY": "Yeniden Başlatıldı:",
+  
+"rebootOWNERED": "Bu komutu sadece sahibim kullanabilir..",
+  
+"rebootSUCCESFLY": "Yeniden Başlıyorum!",
+"rebootSUCCESFLY0": "Yeniden başlatılıyor..."
 }
 
 
