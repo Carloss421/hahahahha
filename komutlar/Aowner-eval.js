@@ -22,33 +22,33 @@ var lang = tr;
 
 if(message.author.id !== ayarlar.ownerID) {
     const embed = new Discord.MessageEmbed()
-    .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
+    .setDescription(lang.AownerEvalOWNERED)
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(3000));
     }
-let tokenuyari = `SyntaxError: Unexpected token: (Tokeni attım geldi mi ?)`;
+let tokenuyari = lang.AownerEvalTOKENWARN;
 var embed = new Discord.MessageEmbed().setColor('RANDOM');
 var code = args.join(' ');
 //var code2 = args.slice(1).join(' ') ||  args.join(' ');
 
  if(!args[0]) {
-   message.channel.send(`Lütfen test edeceğiniz kodu **yazın!**`)
+   message.channel.send(lang.AownerEvalTESTCOMMANDSWARN)
    return;
  };
 
  if(code.match(/(client.token)/g)) {
   let token_uyari = new Discord.MessageEmbed()
   .setColor('RANDOM')
-    .addField('Hata çıktı;', `\`\`\`xl\n${tokenuyari}\`\`\``)
+    .setDescription(`${lang.AownerEvalERROR}\n\`\`\`xl\n${tokenuyari}\`\`\``)
     message.channel.send(token_uyari);
      return;
  };
-if (args[0] === "ayarlar.token") code="Kusura bakma veremem"
-if (args[0] === "config.token") code="Kusura bakma veremem"
+if (args[0] === "ayarlar.token") code=lang.AownerEvalTOKENERRORED
+if (args[0] === "config.token") code=lang.AownerEvalTOKENERRORED
  if(code.match(/(client["token"])/g)) {
   let token_uyari2 = new Discord.MessageEmbed()
   .setColor('RANDOM')
-    .addField('Hata çıktı;', `\`\`\`xl\n${tokenuyari}\`\`\``)
+    .setDescription(`${lang.AownerEvalERROR}\n\`\`\`xl\n${tokenuyari}\`\`\``)
     message.channel.send(token_uyari2);
      return;
  };
@@ -69,8 +69,8 @@ if (args[0] === "config.token") code="Kusura bakma veremem"
         else embed.setDescription(`\`\`\`xl\n${evaled}\n\`\`\``)
          let giren_cıkan = new Discord.MessageEmbed()
      .setColor('RANDOM')
-         .addField('Kod', `\`\`\`javascript\n${code}\n\`\`\``)
-         .addField('Sonuç', `\`\`\`xl\n${evaled}\`\`\``)
+         .setDescription(`${lang.AownerEvalCODE}\n\`\`\`javascript\n${code}\n\`\`\``)
+         .setDescription(`${lang.AownerEvalConcluION}\n\`\`\`xl\n${evaled}\`\`\``)
          message.channel.send(giren_cıkan);
     } catch (err) {
     embed.setColor('RANDOM')
