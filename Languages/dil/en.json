@@ -2,7 +2,7 @@
 "evalCommand":{
 "AownerEvalOWNERED": "**:x: This Command is Exclusive to My Maker !**",
 "AownerEvalTOKENWARN": "I threw the token?",
-"AownerEvalTESTCOMMANDSWARN": "Please **write the code you are going to test!**",
+"AownerEvalTESTCOMMANDSWARN": "Please **write the** code you are going to test!",
 "AownerEvalERROR": "Error output;",
 "AownerEvalTOKENERRORED": "I'm sorry I can't",
 "AownerEvalCODE": "Code",
@@ -11,8 +11,8 @@
   
 "blackList":{
 "AownerKaraOWNERED": "**:x: This Command is Exclusive to My Maker !*",
-"AownerKaraERROREDID": "Kara listeye almak istediğin kullanıcının ID'sini yaz!",
-"AownerKaraWARNNED": "Bu kullanıcı zaten kara listede!",
-"AownerKaraSUCCESFLY": "adlı kullanıcı başarıyla kara listeye alındı!"
+"AownerKaraERROREDID": "Write your ID when you don't want to be blacklisted!",
+"AownerKaraWARNNED": "This user is already blacklisted!",
+"AownerKaraSUCCESFLY": "User has been successfully blacklisted!"
 }
 }

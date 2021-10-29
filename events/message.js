@@ -53,6 +53,8 @@ const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js');
 const db = require('quick.db');
 const ms = require('parse-ms')
+const dil = require("../Languages/dil");
+const dils = new dil("dil", "diller");
 let talkedRecently = new Set();
 module.exports = async message => {
 if(message.author.bot) return
@@ -86,13 +88,25 @@ if(message.author.bot) return
     return
   };
 
+let en = require("../Languages/dil/en.json");
+let tr = require("../Languages/dil/tr.json");
+    
+  var lg = dils.get(`dilang.${message.guild.id}`)
+  if (lg == "en") {
+var lang = en;
+  }
+  if (!lg) {
+var lang = tr;
+  }
+
+  
   if (cmd) {
   let bakım = await db.fetch('bakım');
   if(message.author.id !== ayarlar.ownerID)
   if(message.author.id !== ayarlar.ownerİD){
 
     if(bakım){
- let bakımTIME = new Date("2021-10-29:20:30")
+ let bakımTIME = new Date("2021-11-30:20:30")
  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
   <@${message.author.id}>
