@@ -52,6 +52,6 @@
   
 "helpMenu":{
 "hTitle": "Help",
-"hDescription": "If you don't know how to use the command, you can report the error by using the **a!bug-report** command to report any bugs, non-working or vulnerabilities you find in Alvi. user menu** `a!help-user` Opens the user menu.\n**entertainment menu** `a!help-entertainment` A useful menu for those who are bored.\n**moderation menu** `a!help- moderation ` Adjusted for convenience.\n**producer menu** `a!help-producer | a!help-owner` Opens commands available to the Producer.\n**update menu** `a!updates | a!uptades` Shows updates to the bot.\n**update versions** `a!uptade-v | a!update-version` Shows incoming update versions.\n**bot menu** `a!help-bot` Shows things like bot's invite link.\n\n~~**economy menu** `a! help-economy` Adjusted for entertainment.~~"
+"hDescription": "If you don't know how to use the command, you can report the bug by [Our Support Server](https://discord.gg/NAzGC2cxXR)\n\n**user menu** `a!help-user` Opens the User menu.\n**entertainment menu** `a!help-entertainment` A useful menu for those who are bored.\n**moderation menu** `a!help-moderation` has been adjusted for the convenience of privileges.\n**producer menu** `a!help-producer | a!help-owner` Opens commands available to the producer.\n**update menu** `a!updates | a!uptades` Shows the bot's updates.\n**update versions** `a!update-v | a!update-version` Displays incoming update versions.\n**bot menu** `a!help-bot` Shows things like bot's invite link.\n\n~~**economy menu** `a!help-economy` It is set for entertainment.~~"
 }
 }
