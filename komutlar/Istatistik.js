@@ -32,36 +32,35 @@ Usage: **a!set-language En/Tr**`)
 return message.channel.send({embed: embedd})
 };
   
-  
-const duration = moment
-    .duration(client.uptime)
-    .format("D [gün], H [saat], m [dakika], s [saniye]");
+if(lg == "tr"){var duration = moment.duration(client.uptime).format("D [gün], H [saat], m [dakika], s [saniye]")}
+if(lg == "en"){var duration = moment.duration(client.uptime).format("D [days], H [hours], m [minutes], s [seconds]")}
+
 let araEmoji =  "**⇢**"
 let embed = new Discord.MessageEmbed()
-.setTitle(`Alvi - ${lang.statistic.sTitle}`)
+.setTitle(`Alvi - ${lang.statistic.Title}`)
 .setColor("RANDOM")
 .setDescription(`
 ${lang.statistic.msg} ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
 ${lang.statistic.msg0} ${araEmoji} **${ayarlar.krştrh}**
-Sunuluş tarihi ${araEmoji} **${ayarlar.snştrh}**
+${lang.statistic.msg1} ${araEmoji} **${ayarlar.snştrh}**
 
-Çalışma Süresi ${araEmoji} **${duration}**
-Bot Gecikmesi ${araEmoji} **${client.ws.ping}ms**
-Mesaj Gecikmesi ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
+${lang.statistic.msg2} ${araEmoji} **${duration}**
+${lang.statistic.msg3} ${araEmoji} **${client.ws.ping}ms**
+${lang.statistic.msg4} ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
 
-Toplam kullanıcı ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}  [${message.client.users.cache.filter(m => m.bot, 0).size} BOT]**
-Toplam sunucu ${araEmoji} **${client.guilds.cache.size}**
-Toplam kanal ${araEmoji} **${client.channels.cache.size}**
-Toplam komut ${araEmoji} **${client.commands.size}**
+${lang.statistic.msg5} ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}  [${message.client.users.cache.filter(m => m.bot, 0).size} BOT]**
+${lang.statistic.msg6} ${araEmoji} **${client.guilds.cache.size}**
+${lang.statistic.msg7} ${araEmoji} **${client.channels.cache.size}**
+${lang.statistic.msg8} ${araEmoji} **${client.commands.size}**
 
-Müzik Oynatılan sunucu ${araEmoji} **${client.voice.connections.size}**
-Discord.js sürümü ${araEmoji} **v${Discord.version}**
-Node.js sürümü ${araEmoji} **${process.version}**
+${lang.statistic.msg9} ${araEmoji} **${client.voice.connections.size}**
+${lang.statistic.msg10} ${araEmoji} **v${Discord.version}**
+${lang.statistic.msg11} ${araEmoji} **${process.version}**
 
-**Verileri alınan komutlar**
-\` Otorol - Sayaç - KayıtSistemi - CaptchaSistemi - DilSistemi - GörevSistemi \`
-**Veriler temizlendi!**
-[Destek Sunucusu - ](https://discord.gg/NAzGC2cxXR)[Davet Et(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot)[Davet Et(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot)[Oy Ver - ](https://discordbots.org/bot/${client.user.id}/vote)[Ekip](https://discord.gg/HWxK3S5GfT)
+**${lang.statistic.msg12}**
+\` ${lang.statistic.msg13} \`
+**${lang.statistic.msg14}**
+[${lang.statistic.msg15} - ](https://discord.gg/NAzGC2cxXR)[${lang.statistic.msg16}(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot)[${lang.statistic.msg17}(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot)[${lang.statistic.msg18} - ](https://discordbots.org/bot/${client.user.id}/vote)[${lang.statistic.msg19}](https://discord.gg/HWxK3S5GfT)
 `)//client.guild.member.cache.filter(m => m.user.bot).size
 message.channel.send(embed)
 };

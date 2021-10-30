@@ -54,10 +54,28 @@
 
   
 "statistic":{
-"sTitle": "Statistic",
+"Title": "İstatistik",
 "msg": "Geliştirici/Sahip",
 "msg0": "Kuruluş tarihi",
-"msg1": ""
+"msg1": "Sunuluş tarihi",
+"msg2": "Çalışma Süresi",
+"msg3": "Bot Gecikmesi",
+"msg4": "Mesaj Gecikmesi",
+"msg5": "Toplam kullanıcı",
+"msg6": "Toplam sunucu",
+"msg7": "Toplam kanal",
+"msg8": "Toplam komut",
+"msg9": "Müzik Oynatılan sunucu",
+"msg10": "Discord.js sürümü",
+"msg11": "Node.js sürümü",
+"msg12": "Verileri alınan komutlar",
+"msg13": "Otorol - Sayaç - KayıtSistemi - CaptchaSistemi - DilSistemi - GörevSistemi",
+"msg14": "Veriler temizlendi!",
+"msg15": "Destek Sunucusu",
+"msg16": "Davet Et",
+"msg17": "Davet Et",
+"msg18": "Oy Ver",
+"msg19": "Ekip"
 },  
 
 "helpMenu":{
