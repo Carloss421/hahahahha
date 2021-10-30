@@ -95,16 +95,16 @@ var lang = tr;
 if(!lg){
 const embedd = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
-.setAuthor(client.user)
-.setTitle(ayarlar.hata, "**Hata | Error**")
-.setDescription(`
+.setAuthor(client.user.username)
+
+.addField("<:hayir0:838855037161570375> **Hata | Error**",`
 **TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
 Kullanım: **a!dil-ayarla Tr/En**
 
 **EN:** You must select the language before using the bot!
 Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.avatarURL(), message.author.tag)
-message.channel.send({embed: embedd})
+.setFooter(message.author.tag, message.author.avatarURL())
+return message.channel.send({embed: embedd})
 }
   
   
