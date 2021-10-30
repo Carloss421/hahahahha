@@ -12,7 +12,7 @@ let prefix = ayarlar.prefix;
   var msgArray = [
 `Yardım almak için ${prefix}yardım`,
 //`${prefix}help to get help`,
-`Yeni özellikler İçin ${prefix}yardım-güncelleme`,
+`Yeni özellikler için ${prefix}yardım-güncelleme`,
 //`${prefix}help-update for new features`,
 `Botu eklemek için ${prefix}yardım-bot`,
 `Alvi Bottaki ayrıntılar için discord.gg/WBEvG7efdK`
