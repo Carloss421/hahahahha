@@ -68,7 +68,7 @@ if(message.author.bot) return
     talkedRecently.delete(message.author.id);
   }, 2500);
   let client = message.client;
-  let prefix = await ayarlar.prefix;
+  let prefix = ayarlar.prefix;
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
   let command = message.content.split(' ')[0].slice(prefix.length);
@@ -92,18 +92,6 @@ var lang = en;
 var lang = tr;
   }
   
-    if (db.has(`karalist_${message.author.id}`) === true) {
-    let embed = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setDescription(`${lang.blackList.msg0}`)
-    message.channel.send({embed: embed})
-    return
-  };
-
-
-  
-  if (cmd) {
-  
 if(!lg){
 const embedd = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
@@ -115,9 +103,22 @@ Kullanım: **a!dil-ayarla Tr/En**
 
 **EN:** You must select the language before using the bot!
 Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.avatarURL(), message.author.tag).setTimestamp()
+.setFooter(message.author.avatarURL(), message.author.tag)
+message.channel.send({embed: embedd})
 }
-    
+  
+  
+    if (db.has(`karalist_${message.author.id}`) === true) {
+    let embed = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(`${lang.blackList.msg0}`)
+    message.channel.send({embed: embed})
+    return
+  };
+
+
+  
+  if (cmd) {
     
   let bakım = await db.fetch('bakım');
   if(message.author.id !== ayarlar.ownerID)
