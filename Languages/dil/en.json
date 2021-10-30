@@ -49,6 +49,30 @@
 "aSUCCESFLY": "✔️ **The subscriber has successfully",
 "aSUCCESFLY0": "has been set**"},
 
+"statistic":{
+"Title": "Statistic",
+"msg": "Developer/Owner",
+"msg0": "Year of foundation",
+"msg1": "Submission date",
+"msg2": "Operation time",
+"msg3": "Bot Delay",
+"msg4": "Message Delay",
+"msg5": "Total users",
+"msg6": "Total servers",
+"msg7": "Total channels",
+"msg8": "Total commands",
+"msg9": "Music Playing server",
+"msg10": "Discord.js version",
+"msg11": "Node.js version",
+"msg12": "Commands with data",
+"msg13": "Autorole - Counter - RegistrationSystem - CaptchaSystem - LanguageSystem - TaskSystem",
+"msg14": "Data cleared!",
+"msg15": "Support Server",
+"msg16": "Invite",
+"msg17": "Invite",
+"msg18": "Vote",
+"msg19": "Team"},
+  
   
 "helpMenu":{
 "hTitle": "Help",
