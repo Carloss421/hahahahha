@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
   if (lg == "en") {
 var lang = en;
   }
-  if (!lg) {
+  if (lg == "tr") {
 var lang = tr;
   }
 

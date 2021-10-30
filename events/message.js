@@ -68,7 +68,7 @@ if(message.author.bot) return
     talkedRecently.delete(message.author.id);
   }, 2500);
   let client = message.client;
-  let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  let prefix = await ayarlar.prefix;
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
   let command = message.content.split(' ')[0].slice(prefix.length);
@@ -88,7 +88,7 @@ let tr = require("../Languages/dil/tr.json");
   if (lg == "en") {
 var lang = en;
   }
-  if (!lg) {
+  if (lg == "tr") {
 var lang = tr;
   }
   
@@ -103,6 +103,22 @@ var lang = tr;
 
   
   if (cmd) {
+  
+if(!lg){
+const embedd = new Discord.MessageEmbed()
+.setThumbnail(client.user.avatarURL())
+.setAuthor(client.user)
+.setTitle(ayarlar.hata, "**Hata | Error**")
+.setDescription(`
+**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
+Kullanım: **a!dil-ayarla Tr/En**
+
+**EN:** You must select the language before using the bot!
+Usage: **a!set-language En/Tr**`)
+.setFooter(message.author.avatarURL(), message.author.tag).setTimestamp()
+}
+    
+    
   let bakım = await db.fetch('bakım');
   if(message.author.id !== ayarlar.ownerID)
   if(message.author.id !== ayarlar.ownerİD){

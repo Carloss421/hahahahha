@@ -11,9 +11,9 @@ exports.run = function(client, message) {
   if (lg == "en") {
 var lang = en;
   }
-  if (!lg) {
+  if (lg == "tr") {
 var lang = tr;
-  } 
+  }
   
   
 if(message.author.id !== ayarlar.ownerID) {
