@@ -137,7 +137,7 @@ const prefixÖ = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   const embed = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
 .setDescription(`
-<@${message.author.id}>, bu sunucuda ayarlanmış olan prefix **${prefixÖ}**
+<@${message.author.id}>
 
 Yardım menüsü için **${prefixÖ}yardım** yazman gerekli olacaktır :)`)
 .setColor('RANDOM')
@@ -161,7 +161,7 @@ db.add(`görevMesajGönder.${message.guild.id}.${user.id}`, 1)
 
 client.on("message", async message => {
   
-  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
   let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
   let afkkullanıcı = await db.fetch(`afk_${kullanıcı.id}`);
