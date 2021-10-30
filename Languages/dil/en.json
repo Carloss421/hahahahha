@@ -35,6 +35,18 @@
 "rebootOWNERED": "Only my owner can use this command..",
   
 "rebootSUCCESFLY": "I'm Starting Again!",
-"rebootSUCCESFLY0": "Restarting..."
-}
+"rebootSUCCESFLY0": "Restarting..."},
+
+"subscribe":{
+"rAUTHORIZED": "You do not have the necessary permissions to use this command!",
+"rROLEMENTIONES": "❌ **You Need to Tag a Role\nExample: __a!subscriber-role @role__**",
+"rSUCCESFLY": "✔️ **Subscriber role successfully",
+"rSUCCESFLY0": "has been set**",
+"sSYSTEM": "`a!subscriber-role` Sets the subscriber role.\n`a!subscriber-authorized @Authorized` Sets the role to grant the subscriber. \n`a!subscriber-log` Keeps the log of those who are given the subscriber role.\n`a!subscriber-set channel & a!subscriber-channel close` Youtube subscriber counter sets.**COMING SOON!**",
+"sSYSTEm": "SubscribeSystem",
+
+"aROLEMENTIONES": "❌ **You Need to Tag a Role\nExample: __a!subscriber-authority-role @role__**",
+"aSUCCESFLY": "✔️ **The subscriber has successfully",
+"aSUCCESFLY0": "has been set**"}
+  
 }

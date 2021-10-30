@@ -42,12 +42,15 @@
   
 "subscribe":{
 "rAUTHORIZED": "Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!",
-"rROLEMENTIONES": "💲 **Bir Rol Etiketlemen Gerekmekte \nÖrnek: __a!abonerol @rol__**",
+"rROLEMENTIONES": "❌ **Bir Rol Etiketlemen Gerekmekte \nÖrnek: __a!abonerol @rol__**",
 "rSUCCESFLY": "✔️ **Abone rolü başarıyla",
 "rSUCCESFLY0": "olarak ayarlandı.**",
 "sSYSTEM": "`a!abone-rol` Abone rolünü ayarlar.\n`a!abone-yetkili @Yetkili` Abone verecek rolü ayarlar. \n`a!abone-log` Abone rolü verilenlerin logunu tutar.\n`a!abone-kanal ayarla & a!abone-kanal kapat` Youtube abone sayaç ayarlar.**YAKINDA!**",
-"sSYSTEm": "AboneSistemi"
-}
+"sSYSTEm": "AboneSistemi",
+
+"aROLEMENTIONES": "❌ **Bir Rol Etiketlemen Gerekmekte \nÖrnek: __a!abone-yetkili-rol @rol__**",
+"aSUCCESFLY": "✔️ **Abone yetkilisi başarıyla",
+"aSUCCESFLY0": "olarak ayarlandı.**"}
 
 
 }

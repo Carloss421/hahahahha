@@ -1,24 +1,31 @@
 const database = require("quick.db");
 const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js');
-
+const dil = require("../Languages/dil");
+const dils = new dil("dil", "diller");
 
 exports.run = async (client, message) => {
+    
+  let en = require("../Languages/dil/en.json");
+  let tr = require("../Languages/dil/tr.json");
+
+  var lg = dils.get(`dilang.${message.guild.id}`)
+  if (lg == "en") {
+var lang = en;
+  }
+  if (!lg) {
+var lang = tr;
+  }
+  
   if (!message.member.hasPermission(`ADMINISTRATOR`))
-    return message.channel.send(
-      `Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin.`
-    );
+    return message.channel.send(lang.subscribe.rAUTHORIZED);
 
   let rol = message.mentions.roles.first();
   if (!rol)
-    return message.channel.send(
-      `❌ **Bir Rol Etiketlemen Gerekmekte \nÖrnek: __${ayarlar.prefix}abone-yetkili-rol @rol__**`
-    );
+    return message.channel.send(lang.subscribe.aROLEMENTIONES);
 
   database.set(`aboneyetkilisi.${message.guild.id}`, rol.id);
-  message.channel.send(new Discord.MessageEmbed().setDescription(
-    `✔️ **Abone yetkilisi başarıyla "${rol}" olarak ayarlandı.**`
-  ));
+  message.channel.send(new Discord.MessageEmbed().setDescription(`${lang.subscribe.aSUCCESFLY} ${rol} ${lang.subscribe.aSUCCESFLY0}`));
 };
 
 exports.conf = {
