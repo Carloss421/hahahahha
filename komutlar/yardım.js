@@ -36,20 +36,7 @@ return message.channel.send({embed: embedd})
 let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - ${lang.helpMenu.hTitle}`)
 .setColor('RANDOM')
-.setDescription(`
-Alvi'de bulduğunuz hata,çalışmama veya açıkları bildirmek için **a!hata-bildir**
-komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyorsanız [Destek Sunucumuza](https://discord.gg/NAzGC2cxXR) gelerekte bildirebilirsiniz.
-
-**kullanıcı menüsü** \`a!yardım-kullanıcı\` Kullanıcı menüsünü açar.
-**eğlence menüsü** \`a!yardım-eğlence\` Canı sıkılanlar için yararlı bir menü.
-**moderasyon menüsü** \`a!yardım-moderasyon\` Yetkilere kolaylık olsun diye ayarlandı.
-**yapımcı menüsü** \`a!yardım-yapımcı | a!yardım-owner\` Yapımcı'nın kullanabiliceği komutları açar.
-**güncelleme menüsü** \`a!güncellemeler | a!uptades\` Bot'a gelen güncellemeleri gösterir.
-**güncelleme versionları** \`a!güncelleme-v | a!güncelleme-version\` Gelen güncelleme versionlarını gösterir.
-**bot menüsü** \`a!yardım-bot\` Bot'un davet linkini gibi şeyleri gösterir.
-
-~~**ekonomi menüsü** \`a!yardım-ekonomi\` Eğlence amaçlı ayarlanmıştır.~~
-`)
+.setDescription(lang.helpMenu.hDescription)
 message.channel.send(embed)
 };
 

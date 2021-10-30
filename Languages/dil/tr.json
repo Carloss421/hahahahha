@@ -50,8 +50,11 @@
 
 "aROLEMENTIONES": "❌ **Bir Rol Etiketlemen Gerekmekte \nÖrnek: __a!abone-yetkili-rol @rol__**",
 "aSUCCESFLY": "✔️ **Abone yetkilisi başarıyla",
-"aSUCCESFLY0": "olarak ayarlandı.**"}
+"aSUCCESFLY0": "olarak ayarlandı.**"},
 
-
+"helpMenu":{
+"hTitle": "Yardım",
+"hDescription": "Alvi'de bulduğunuz hata,çalışmama veya açıkları bildirmek için **a!hata-bildir** komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyorsanız [Destek Sunucumuza](https://discord.gg/NAzGC2cxXR) gelerekte bildirebilirsiniz.\n\n**kullanıcı menüsü** `a!yardım-kullanıcı` Kullanıcı menüsünü açar.\n**eğlence menüsü** `a!yardım-eğlence` Canı sıkılanlar için yararlı bir menü.\n**moderasyon menüsü** `a!yardım-moderasyon` Yetkilere kolaylık olsun diye ayarlandı.\n**yapımcı menüsü** `a!yardım-yapımcı | a!yardım-owner` Yapımcı'nın kullanabiliceği komutları açar.\n**güncelleme menüsü** `a!güncellemeler | a!uptades` Bot'a gelen güncellemeleri gösterir.\n**güncelleme versionları** `a!güncelleme-v | a!güncelleme-version` Gelen güncelleme versionlarını gösterir.\n**bot menüsü** `a!yardım-bot` Bot'un davet linkini gibi şeyleri gösterir.\n\n~~**ekonomi menüsü** `a!yardım-ekonomi` Eğlence amaçlı ayarlanmıştır.~~"
 }
 
+}
