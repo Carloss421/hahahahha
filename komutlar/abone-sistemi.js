@@ -1,17 +1,26 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
+const db = require('quick.db')
+const dil = require("../Languages/dil");
+const dils = new dil("dil", "diller");
 
 exports.run = function(client, message, args) {
-const db = require('quick.db')
-let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+
+  let en = require("../Languages/dil/en.json");
+  let tr = require("../Languages/dil/tr.json");
+
+  var lg = dils.get(`dilang.${message.guild.id}`)
+  if (lg == "en") {
+var lang = en;
+  }
+  if (!lg) {
+var lang = tr;
+  }
+
 let embed = new Discord.MessageEmbed()
-.setTitle(`Alvi - AboneSistemi`)
+.setTitle(`Alvi - ${lang.subscribe.sSYSTEm}`)
 .setColor("RANDOM")
-.setDescription(`
-\`${prefix}abone-rol\` Abone rolünü ayarlar.
-\`${prefix}abone-yetkili @Yetkili\` Abone verecek rolü ayarlar. 
-\`${prefix}abone-log\` Abone rolü verilenlerin logunu tutar.
-\`${prefix}abone-kanal ayarla & ${prefix}abone-kanal kapat\` Youtube abone sayaç ayarlar.**YAKINDA!**`)
+.setDescription(lang.subscribe.sSYSTEM)
 message.channel.send(embed)
 };
 
