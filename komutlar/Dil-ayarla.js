@@ -14,7 +14,8 @@ if (lg == "tr") {var lang = tr}*/
 
 let dilSeç = args[1]
 
-if(args[0] !== 'Tr' && args[0] !== 'tr' && args[0] !== 'TR' && args[0] !== 'tR' && args[0] !== 'sıfırla' && args[0] !== 'En' && 'en' && 'EN' && 'eN') return message.channel.send(new Discord.MessageEmbed().setDescription(``))
+if(args[0] !== 'Tr' && args[0] !== 'tr' && args[0] !== 'TR' && args[0] !== 'tR' 
+&& args[0] !== 'En' && args[0] !== 'en' && args[0] !== 'EN' && args[0] !== 'eN') return message.channel.send(new Discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Dil ayarlıcaksanız **a!dil-ayarla Tr/En**/If you want to set language **a!language-set En/Tr**`))
 
 if(args[0] === 'Tr' && 'tr' && 'TR' && 'tR'){
 if(!dilSeç) return message.reply("<:hayir0:838855037161570375> Lütfen bir dil belirtin!\nKullanım: **a!dil-ayarla Tr/En**")

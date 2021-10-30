@@ -93,6 +93,12 @@ var lang = tr;
   }
   
 if(!lg){
+if(cmd.name == "dil-ayarla") return;
+if(cmd.aliases == "language-set") return;
+if(cmd.aliases == "set-language") return;
+/*if(message.content.startsWith("a!dil-ayarla")) return;
+if(message.content.startsWith("a!language-set")) return;
+if(message.content.startsWith("a!set-language")) return;*/
 const embedd = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
 .setAuthor(client.user.username)
