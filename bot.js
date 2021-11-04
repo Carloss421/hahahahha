@@ -8,7 +8,7 @@ app.get(".", (request, response) => {
 app.listen(process.env.PORT);
 setInterval(() => {
   http.get(`http://alvibotaltyapii.glitch.me/`);
-}, 90000);
+}, 60000);
 const Discord = require("discord.js");
 const client = new Discord.Client({ disableMentions: "everyone" });
 const ayarlar = require("./ayarlar.json");
