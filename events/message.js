@@ -84,7 +84,7 @@ if(message.author.bot) return
   let en = require("../Languages/dil/en.json");
 let tr = require("../Languages/dil/tr.json");
     
-  var lg = dils.get(`dilang.${message.guild.id}`)
+  var lg = dils.get(`dilang.${message.guild.id}`) || "tr";
   if (lg == "en") {
 var lang = en;
   }
@@ -108,7 +108,7 @@ var lang = tr;
   if(message.author.id !== ayarlar.ownerİD){
 
     if(bakım){
- let bakımTIME = new Date("2021-11-30:20:30")
+ let bakımTIME = new Date("2022-3-10:20:30")
  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
 ${message.author}
