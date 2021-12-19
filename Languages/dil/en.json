@@ -53,7 +53,10 @@
 "msg": "you must write a reason to enter the mode.",
 "msg0": "Successfully",
 "msg1": "due to",
-"msg2": "mode switched!"
+"msg2": "mode switched!",
+"msg3": "You left AFK mode",
+"msg4": "currently AFK.",
+"msg5": "Reason"
 },
   
 "statistic":{

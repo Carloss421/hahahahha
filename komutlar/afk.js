@@ -33,13 +33,13 @@ return message.channel.send({embed: embedd})
 };
   
   let user = message.author
-  let sebep = args.join(" ") 
+  let sebep = args.join(" ")
   let member = message.mentions.members.first() 
   if (!sebep) return message.channel.send(new Discord.MessageEmbed().setDescription(`
 <:hayir0:838855037161570375> \`AFK\` ${lang.systemAFK.msg}`).setColor("RED"))
   db.set(`afk_${user.id}`, sebep)
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-<:evet1:838854924875726898> ${lang.sysstemAFK.msg0} **${sebep}** ${lang.sysstemAFK.msg1} \`AFK\` ${lang.sysstemAFK.msg2}`).setColor("GREEN")) 
+<:evet1:838854924875726898> ${lang.systemAFK.msg0} **${sebep}** ${lang.systemAFK.msg1} \`AFK\` ${lang.systemAFK.msg2}`).setColor("GREEN")) 
 };
 
 exports.conf = {

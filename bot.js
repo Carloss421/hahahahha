@@ -160,11 +160,11 @@ db.add(`görevMesajGönder.${message.guild.id}.${user.id}`, 1)
 //     [-----------------> Afk <------------------]  \\
 
 client.on("message", async message => {
-const dil = require("../Languages/dil");
+const dil = require("./Languages/dil");
 const dils = new dil("dil", "diller");
 
-  let en = require("../Languages/dil/en.json");
-  let tr = require("../Languages/dil/tr.json");
+  let en = require("./Languages/dil/en.json");
+  let tr = require("./Languages/dil/tr.json");
 
   var lg = dils.get(`dilang.${message.guild.id}`)
   if (lg == "en") {
@@ -1305,7 +1305,7 @@ client.on("guildMemberAdd", async member => {
 
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const sasad = member.guild.member(invite.inviter);
-    const davetçi = client.users.get(invite.inviter.id);
+    const davetçi = member.guild.user(invite.inviter);
      
     db.add(`görevDavetEt.${member.guild.id}.${invite.inviter.id}`, 1)
     db.add(`davet_${invite.inviter.id}_${member.guild.id}`, +1);
@@ -1319,10 +1319,10 @@ client.on("guildMemberAdd", async member => {
       sayı2 = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
     }
 
-    client.channels.get(kanal).send(`:inbox_tray:  <@${member.user.id}> Sunucuya Katıldı.! Davet Eden Kişi: <@${davetçi.id}> [**${sayı2}**]`);
+    client.guild.channels.cache.get(kanal).send(`:inbox_tray:  <@${member.user.id}> Sunucuya Katıldı.! Davet Eden Kişi: <@${davetçi.id}> [**${sayı2}**]`);
     if (!veri) return;
 
-    if (!sasad.roles.has(veri)) {
+    if (!sasad.roles.cache.has(veri)) {
       if (sayı2 => veri12) {
         sasad.roles.add(veri);
         return;
