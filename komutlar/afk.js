@@ -1,15 +1,45 @@
+const db = require("quick.db");
+const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js');
-const db = require('quick.db')
+const dil = require("../Languages/dil");
+const dils = new dil("dil", "diller");
 
 exports.run = async (client, message, args) => {
+    
+  let en = require("../Languages/dil/en.json");
+  let tr = require("../Languages/dil/tr.json");
+
+  var lg = dils.get(`dilang.${message.guild.id}`)
+  if (lg == "en") {
+var lang = en;
+  }
+  if (lg == "tr") {
+var lang = tr;
+  }
+  
+  if(!lg){
+const embedd = new Discord.MessageEmbed()
+.setThumbnail(client.user.avatarURL())
+.setAuthor(client.user.username)
+
+.addField("<:hayir0:838855037161570375> **Hata | Error**",`
+**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
+Kullanım: **a!dil-ayarla Tr/En**
+
+**EN:** You must select the language before using the bot!
+Usage: **a!set-language En/Tr**`)
+.setFooter(message.author.tag, message.author.avatarURL())
+return message.channel.send({embed: embedd})
+};
+  
   let user = message.author
   let sebep = args.join(" ") 
   let member = message.mentions.members.first() 
   if (!sebep) return message.channel.send(new Discord.MessageEmbed().setDescription(`
-<:hayir0:838855037161570375> \`AFK\` moduna girmek için bir sebep yazmalısın.`).setColor("RED"))
+<:hayir0:838855037161570375> \`AFK\` ${lang.systemAFK.msg}`).setColor("RED"))
   db.set(`afk_${user.id}`, sebep)
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-<:evet1:838854924875726898> Başarıyla **${sebep}** sebebiyle \`AFK\` moduna geçildi.`).setColor("GREEN")) 
+<:evet1:838854924875726898> ${lang.sysstemAFK.msg0} **${sebep}** ${lang.sysstemAFK.msg1} \`AFK\` ${lang.sysstemAFK.msg2}`).setColor("GREEN")) 
 };
 
 exports.conf = {

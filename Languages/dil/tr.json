@@ -52,6 +52,15 @@
 "aSUCCESFLY": "✔️ **Abone yetkilisi başarıyla",
 "aSUCCESFLY0": "olarak ayarlandı.**"},
 
+"systemAFK":{
+"msg": "moduna girmek için bir sebep yazmalısın.",
+"msg0": "Başarıyla",
+"msg1": "sebebiyle",
+"msg2": "moduna geçildi!",
+"msg3": "AFK modundan ayrıldın",
+"msg4": "şuanda AFK.",
+"msg5": "Sebep"
+},
   
 "statistic":{
 "Title": "İstatistik",

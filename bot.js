@@ -132,7 +132,7 @@ client.unload = command => {
 
 //     [-----------------> BOT ETIKET <---------------] \\
 client.on('message', async message => {
-const prefixÖ = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+const prefixÖ = await ayarlar.prefix;
 
   const embed = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
@@ -151,7 +151,7 @@ client.on('message', message  => {
 
 
 let user = message.author;
-let prefixX = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+let prefixX = ayarlar.prefix;
 if(message.author.bot || message.content.startsWith(prefixX)) return;
 
 db.add(`görevMesajGönder.${message.guild.id}.${user.id}`, 1)
@@ -160,6 +160,34 @@ db.add(`görevMesajGönder.${message.guild.id}.${user.id}`, 1)
 //     [-----------------> Afk <------------------]  \\
 
 client.on("message", async message => {
+const dil = require("../Languages/dil");
+const dils = new dil("dil", "diller");
+
+  let en = require("../Languages/dil/en.json");
+  let tr = require("../Languages/dil/tr.json");
+
+  var lg = dils.get(`dilang.${message.guild.id}`)
+  if (lg == "en") {
+var lang = en;
+  }
+  if (lg == "tr") {
+var lang = tr;
+  }
+  
+  if(!lg){
+const embedd = new Discord.MessageEmbed()
+.setThumbnail(client.user.avatarURL())
+.setAuthor(client.user.username)
+
+.addField("<:hayir0:838855037161570375> **Hata | Error**",`
+**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
+Kullanım: **a!dil-ayarla Tr/En**
+
+**EN:** You must select the language before using the bot!
+Usage: **a!set-language En/Tr**`)
+.setFooter(message.author.tag, message.author.avatarURL())
+return message.channel.send({embed: embedd})
+};
   
   let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
@@ -169,23 +197,17 @@ client.on("message", async message => {
   if (message.author.bot) return;
   if (message.content.includes(`${prefix}afk`)) return;
   if (message.content.includes(`<@${kullanıcı.id}>`)) {
-    if (afkdkullanıcı) {
-      message.channel.send(
-        new Discord.MessageEmbed().setDescription(`
-AFK modundan ayrıldın <@${kullanıcı.id}>.`)
+if (afkdkullanıcı) {message.channel.send(new Discord.MessageEmbed().setDescription(`${lang.systemAFK.msg3} <@${kullanıcı.id}>.`)
       );
       db.delete(`afk_${message.author.id}`);
     }
-    if (afkkullanıcı)
-      return message.channel.send(
-        `${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``
+if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` ${lang.systemAFK.msg4}\n${lang.systemAFK.msg5}: \`${sebep}\``
       );
   }
   if (!message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
       message.channel.send(
-        new Discord.MessageEmbed().setDescription(`
-AFK modundan ayrıldın <@${kullanıcı.id}>.`)
+        new Discord.MessageEmbed().setDescription(`${lang.systemAFK.msg3} <@${kullanıcı.id}>.`)
       );
       db.delete(`afk_${message.author.id}`);
     }
@@ -1282,7 +1304,7 @@ client.on("guildMemberAdd", async member => {
     invites[member.guild.id] = guildInvites;
 
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const sasad = member.guild.members.get(invite.inviter.id);
+    const sasad = member.guild.member(invite.inviter);
     const davetçi = client.users.get(invite.inviter.id);
      
     db.add(`görevDavetEt.${member.guild.id}.${invite.inviter.id}`, 1)
@@ -1302,13 +1324,13 @@ client.on("guildMemberAdd", async member => {
 
     if (!sasad.roles.has(veri)) {
       if (sayı2 => veri12) {
-        sasad.addRole(veri);
+        sasad.roles.add(veri);
         return;
       }
     } else {
       if (!veri2) return;
       if (sayı2 => veri21) {
-        sasad.addRole(veri2);
+        sasad.roles.add(veri2);
         return;
       }
     }

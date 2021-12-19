@@ -49,6 +49,13 @@
 "aSUCCESFLY": "✔️ **The subscriber has successfully",
 "aSUCCESFLY0": "has been set**"},
 
+"systemAFK":{
+"msg": "you must write a reason to enter the mode.",
+"msg0": "Successfully",
+"msg1": "due to",
+"msg2": "mode switched!"
+},
+  
 "statistic":{
 "Title": "Statistic",
 "msg": "Developer/Owner",
