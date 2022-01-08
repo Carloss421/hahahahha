@@ -40,7 +40,7 @@ let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - ${lang.statistic.Title}`)
 .setColor("RANDOM")
 .setDescription(`
-${lang.statistic.msg} ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
+${lang.statistic.msg} ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat - ${ayarlar.ownerDcname}**
 ${lang.statistic.msg0} ${araEmoji} **${ayarlar.krştrh}**
 ${lang.statistic.msg1} ${araEmoji} **${ayarlar.snştrh}**
 
@@ -53,7 +53,6 @@ ${lang.statistic.msg6} ${araEmoji} **${client.guilds.cache.size}**
 ${lang.statistic.msg7} ${araEmoji} **${client.channels.cache.size}**
 ${lang.statistic.msg8} ${araEmoji} **${client.commands.size}**
 
-${lang.statistic.msg9} ${araEmoji} **${client.voice.connections.size}**
 ${lang.statistic.msg10} ${araEmoji} **v${Discord.version}**
 ${lang.statistic.msg11} ${araEmoji} **${process.version}**
 

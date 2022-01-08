@@ -110,11 +110,13 @@ var lang = tr;
     if(bakım){
  let bakımTIME = new Date("2022-6-10:20:30")
  let time = ms(bakımTIME - Date.now())
-  return message.channel.send(new Discord.MessageEmbed().setDescription(`
-${message.author}
-${lang.care.msg} \`${bakım}\`${lang.care.msg1} **${time.days}** ${lang.care.Dhms} **${time.hours}** ${lang.care.dHms} **${time.minutes}** ${lang.care.dhMs} **${time.seconds}** ${lang.care.dhmS}
+  return message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author}
+**:gear: Sizlere en iyi hizmeti verebilmek için bakımdayız!/We are in care to give you the best service!**
+**❓**Bakım Sebebi/Care Reason:** \`${bakım}\`
+**Tahmini Süre/Estimated Time:** **${time.days}** gün/days, **${time.hours}** saat/hours, **${time.minutes}** dakika/minutes **${time.seconds}** saniye/seconds
 
-  `).setColor("RANDOM"))
+Alvi neden büyük güncellemede? Neden prefix sistemi devre dışı? vb. sorular için/Why is Alvi in the big update? Why is the prefix system disabled? etc. for questions [Tıkla Ve Gel/Click And Join](https://discord.gg/WBEvG7efdK)
+`).setColor("RANDOM"))
      /*
 **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:** `{bakım}`\n⏱️**Tahmini Süre:** **{time.days}** gün, **{time.hours}** saat, **{time.minutes}** dakika, **%{time.seconds}** saniye\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
      */                         }}
