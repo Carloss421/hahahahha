@@ -14,18 +14,18 @@ exports.run = (client, message, args) => {
        return message.channel.send(embed2)
 
     }
-  const emoji = message.guild.emojis.cache.get(emojiname)
+  const emoji = message.guild.emojis.cache.find(name => ("name", emojiname))
 
 
     const embed = new Discord.MessageEmbed()
 
     .setColor("RANDOM")
 
-    .addField("Emojinin ismi", `${emojiname}`)
+    .addField("Emojinin ismi", `${emojiname}`, true)
 
-    .addField("Emoji ID", `${emoji ? emoji.id : "Bulunamadı!"}`)
+    .addField("Emoji ID", `${emoji ? emoji.id : "Bulunamadı!"}`, true)
 
-    .addField("Link", `${emoji ? emoji.url : "Bulunamadı!"}`)
+    .addField("Link", `${emoji ? emoji.url : "Bulunamadı!"}`, true)
 
     .setTimestamp()
 

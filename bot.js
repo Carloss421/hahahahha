@@ -925,13 +925,13 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
     let kisi = emoji.guild.member(entry.executor);
     kisi.roles
       .filter(a => a.hasPermission("ADMINISTRATOR"))
-      .forEach(x => kisi.removeRole(x.id));
+      .forEach(x => kisi.roles.remove(x.id));
     kisi.roles
       .filter(a => a.hasPermission("MANAGE_CHANNELS"))
-      .forEach(x => kisi.removeRole(x.id));
+      .forEach(x => kisi.roles.remove(x.id));
     kisi.roles
       .filter(a => a.hasPermission("MANAGE_ROLES"))
-      .forEach(x => kisi.removeRole(x.id));
+      .forEach(x => kisi.roles.remove(x.id));
     kisi.mute();
 
     const deleter = emoji.executor;
@@ -943,102 +943,8 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
       if (members.id !== id) return;
       members.roles.forEach(role => {
         if (role.hasPermission(8) || role.hasPermission("MANAGE_EMOJIS")) {
-          members.removeRole(role.id);
+          members.roles.remove(role.id);
 
-          emoji.guild.owner.send(
-            `**<@${yetkili.id}> İsimli yetkili <@${user.id}>** adlı kişi **${emoji.guild.name}** adlı sunucunuzda emoji sildi ve yetkileri alındı!`
-          );
-        }
-      });
-    });
-  }
-});
-
-
-// -----------------------> [Davet-Sistemi] <------------------------------ \\
-client.on("guildMemberRemove", async member => {
-  let kanal = await db.fetch(`davetkanal_${member.guild.id}`);
-  if (!kanal) return;
-  let veri = await db.fetch(`rol1_${member.guild.id}`);
-  let veri12 = await db.fetch(`roldavet1_${member.guild.id}`);
-  let veri21 = await db.fetch(`roldavet2_${member.guild.id}`);
-  let veri2 = await db.fetch(`rol2_${member.guild.id}`);
-  let d = await db.fetch(`bunudavet_${member.id}`);
-  const sa = client.users.get(d);
-  const sasad = member.guild.members.get(d);
-  let sayı2 = await db.fetch(`davet_${d}_${member.guild.id}`);
-  db.add(`davet_${d}_${member.guild.id}`, -1);
-  db.add(`görevDavetEt.${member.guild.id}.${sa.id}`, -1)
-
-  if (!d) {
-    client.channels.get(kanal).send(`<:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ **BULUNAMADI**]`);
-    return;
-  } else {
-    client.channels.get(kanal).send(`:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ <@${sa.id}> ]`);
-
-    if (!veri) return;
-
-    if (sasad.roles.has(veri)) {
-      if (sayı2 <= veri12) {
-        sasad.removeRole(veri);
-        return;
-      }
-    }
-    if (sasad.roles.has(veri2)) {
-      if (!veri2) return;
-      if (sayı2 <= veri21) {
-        sasad.removeRole(veri2);
-        return;
-      }
-    }
-  }
-});
-
-client.on("guildMemberAdd", async member => {
-  member.guild.fetchInvites().then(async guildInvites => {
-    let veri = await db.fetch(`rol1_${member.guild.id}`);
-    let veri12 = await db.fetch(`roldavet1_${member.guild.id}`);
-    let veri21 = await db.fetch(`roldavet2_${member.guild.id}`);
-    let veri2 = await db.fetch(`rol2_${member.guild.id}`);
-    let kanal = await db.fetch(`davetkanal_${member.guild.id}`);
-    if (!kanal) return;
-    let invites;
-    const ei = invites[member.guild.id];
-
-    invites[member.guild.id] = guildInvites;
-
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const sasad = member.guild.member(invite.inviter);
-    const davetçi = member.guild.user(invite.inviter);
-     
-    db.add(`görevDavetEt.${member.guild.id}.${invite.inviter.id}`, 1)
-    db.add(`davet_${invite.inviter.id}_${member.guild.id}`, +1);
-    db.set(`bunudavet_${member.id}`, invite.inviter.id);
-    let sayı = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
-
-    let sayı2;
-    if (!sayı) {
-      sayı2 = 0;
-    } else {
-      sayı2 = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
-    }
-
-    client.guild.channels.cache.get(kanal).send(`:inbox_tray:  <@${member.user.id}> Sunucuya Katıldı.! Davet Eden Kişi: <@${davetçi.id}> [**${sayı2}**]`);
-    if (!veri) return;
-
-    if (!sasad.roles.cache.has(veri)) {
-      if (sayı2 => veri12) {
-        sasad.roles.add(veri);
-        return;
-      }
-    } else {
-      if (!veri2) return;
-      if (sayı2 => veri21) {
-        sasad.roles.add(veri2);
-        return;
-      }
-    }
-  });
-});
+emoji.guild.owner.send(`**<@${yetkili.id}> İsimli yetkili <@${user.id}>** adlı kişi **${emoji.guild.name}** adlı sunucunuzda emoji sildi ve yetkileri alındı!`)}})})}});
 
 client.login(ayarlar.token);

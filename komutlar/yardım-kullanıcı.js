@@ -10,7 +10,7 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}kullanıcı-bilgi\` kullanıcı'nın bilgilerine bakarsınız.
 \`${prefix}sunucu-bilgi\` sunucu'nun bilgilerine bakarsınız.
 \`${prefix}rol-bilgi\` rol'ün bilgilerine bakarsınız.
-\`${prefix}emoji-bilgi(HATALI)\` emoji'nin bilgilerine bakarsınız.
+\`${prefix}emoji-bilgi\` emoji'nin bilgilerine bakarsınız.
 \`${prefix}canlı-destek\` Destek alırsınız. Troll amaçlı kullanılırsa karalisteye alınırsınız.
 \`${prefix}hata-bildir\` Hatayı, açığı bildirebilirsiniz.
 \`${prefix}öneri\` Bot için öneri'de bulunursunuz.
