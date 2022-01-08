@@ -4,11 +4,9 @@ exports.run = (client, message, args) => {
 
     let emojiname = args[0];
 
-    const emoji = message.guild.emojis.find("name", `${emojiname}`)
+      if (!emojiname) { 
 
-    if (!emojiname) { 
-
-       const embed2 = new Discord.MesageEmbed()
+       const embed2 = new Discord.MessageEmbed()
 
      .setColor("BLACK")
      .setDescription("Emoji İsmi Belirtmediniz?")
@@ -16,16 +14,18 @@ exports.run = (client, message, args) => {
        return message.channel.send(embed2)
 
     }
+  const emoji = message.guild.emojis.cache.get(emojiname)
 
-    const embed = new Discord.MesageEmbed()
+
+    const embed = new Discord.MessageEmbed()
 
     .setColor("RANDOM")
 
     .addField("Emojinin ismi", `${emojiname}`)
 
-    .addField("Emoji ID", `${emoji.id}`)
+    .addField("Emoji ID", `${emoji ? emoji.id : "Bulunamadı!"}`)
 
-    .addField("Link", `${emoji.url}`)
+    .addField("Link", `${emoji ? emoji.url : "Bulunamadı!"}`)
 
     .setTimestamp()
 
