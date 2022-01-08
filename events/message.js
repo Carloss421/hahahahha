@@ -95,12 +95,8 @@ var lang = tr;
  
   if (cmd) {
   let bakım = await db.fetch('bakım');
-  
+  /*
 if(!lg){
-/*
-if(!cmd.help.name === "language-set");
-if(!cmd.help.name === "set-language");
-*/
 if(!cmd.help.name === "dil-ayarla"){
 const embedd = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
@@ -153,7 +149,7 @@ return message.channel.send({embed: embedd})}};
     .setDescription(`${lang.blackList.msg0}`)
     message.channel.send({embed: embed})
     return
-  };
+  };*/
     
     if(bakım){
  let bakımTIME = new Date("2022-6-10:20:30")
@@ -171,7 +167,7 @@ Alvi neden büyük güncellemede? Neden prefix sistemi devre dışı? vb. sorula
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
   }
-};
+
 
 /*
 const Discord = require('discord.js');
