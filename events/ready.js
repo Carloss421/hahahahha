@@ -15,7 +15,7 @@ let prefix = ayarlar.prefix;
 `Yeni özellikler için ${prefix}yardım-güncelleme`,
 `${prefix}help-update for new features`,
 `Botu eklemek için ${prefix}yardım-bot`,
-`Alvi Bottaki ayrıntılar için discord.gg/WBEvG7efdK`
+`Alvi Bottaki ayrıntılar için discord.gg/WBEvG7efdK`,
 `To add the bot ${prefix}help-bot`
  ];
 

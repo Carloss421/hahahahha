@@ -8,9 +8,8 @@ var lg = dils.get(`dilang.${message.guild.id}`)
 
 let dilSeç = args[0]
 
-if(args[0] !== 'Tr' && args[0] !== 'tr' && args[0] !== 'TR' && args[0] !== 'tR' 
-&& args[0] !== 'En' && args[0] !== 'en' && args[0] !== 'EN' && args[0] !== 'eN') return message.channel.send(new Discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Dil ayarlıcaksanız **a!dil-ayarla Tr/En**/If you want to set language **a!language-set En/Tr**`))
-
+if(!["Tr", "tr", "TR", "tR", "En", "en", "EN", "eN"].includes(args[0])) return message.channel.send(new Discord.MessageEmbed().setDescription(`<:hayir0:838855037161570375> Dil ayarlıcaksanız **a!dil-ayarla Tr/En**/If you want to set language **a!language-set En/Tr**`))
+  
 if(args[0] === 'Tr' && 'tr' && 'TR' && 'tR'){
 if(!dilSeç) return message.reply("<:hayir0:838855037161570375> Lütfen bir dil belirtin!\nKullanım: **a!dil-ayarla Tr/En**")
 if(lg == "tr") return message.reply("<:hayir0:838855037161570375> Dil zaten Türkçe!")

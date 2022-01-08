@@ -29,7 +29,7 @@ Kullanım: **a!dil-ayarla Tr/En**
 **EN:** You must select the language before using the bot!
 Usage: **a!set-language En/Tr**`)
 .setFooter(message.author.tag, message.author.avatarURL())
-message.channel.send({embed: embedd})
+return message.channel.send({embed: embedd})
 };
   
 if(lg == "tr"){var duration = moment.duration(client.uptime).format("D [gün], H [saat], m [dakika], s [saniye]")}

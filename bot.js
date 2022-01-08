@@ -174,7 +174,7 @@ var lang = en;
 var lang = tr;
   }
   
-  if(!lg){
+ /* if(!lg){
 const embedd = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
 .setAuthor(client.user.username)
@@ -188,7 +188,7 @@ Usage: **a!set-language En/Tr**`)
 .setFooter(message.author.tag, message.author.avatarURL())
 return message.channel.send({embed: embedd})
 };
-  
+  */
   let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
   let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
