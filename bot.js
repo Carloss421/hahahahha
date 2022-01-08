@@ -638,20 +638,7 @@ client.on("message", async msg => {
     }
   }
 });
-// -------------------> [Snipe] <---------------- \\
-client.on("messageDelete", msg => {
-  let asd = JSON.parse(fs.readFileSync("./jsonlar/snipe.json", "utf8"));
-  asd[msg.guild.id] = {
-    mesaj: msg.content,
-    isim: msg.author.username + "#" + msg.author.discriminator
-  };
 
-  fs.writeFile("./jsonlar/snipe.json", JSON.stringify(asd), err => {
-    //console.log(err)
-  });
-
-  asd[msg.guild.id].mesaj = msg.content;
-});
 // -------------------> [Spam-koruma] <--------------- \\
 client.on("message", msg => {
   const antispam = require("discord-anti-spam-tr");

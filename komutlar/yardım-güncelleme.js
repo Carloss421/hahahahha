@@ -15,6 +15,7 @@ Başlangıç: **09.10.2021 - 17:43** Bitiş:  **..2022 - :** \`MEGA UPDATE\`
 ║ \`görev-sistemi(PREMUIM)\` **|** premium'a geçirildi!
 ║ \`emoji-koruma && sunucu-koruma\` **|** premium'a geçirildi!
 ║ \`yılbaşı\` **|** eklendi!
+║ \`snipe\` **|** kaldırıldı!
 ║ \`HATALAR\` **|** giderildi!
 ╚═══════════════════╝`)
 message.channel.send(embed)
