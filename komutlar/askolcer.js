@@ -1,7 +1,34 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js')
+const dil = require("../Languages/dil");
+const dils = new dil("dil", "diller");
 
-exports.run = (client, message, args) => {
+exports.run = async (client, message, args) => {
+    
+  let en = require("../Languages/dil/en.json");
+  let tr = require("../Languages/dil/tr.json");
 
+  var lg = dils.get(`dilang.${message.guild.id}`)
+  if (lg == "en") {
+var lang = en;
+  }
+  if (lg == "tr") {
+var lang = tr;
+  }
+  
+  if(!lg){
+const embedd = new Discord.MessageEmbed()
+.setThumbnail(client.user.avatarURL())
+.setAuthor(client.user.username)
+
+.addField("<:hayir0:838855037161570375> **Hata | Error**",`
+**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
+Kullanım: **a!dil-ayarla Tr/En**
+
+**EN:** You must select the language before using the bot!
+Usage: **a!set-language En/Tr**`)
+.setFooter(message.author.tag, message.author.avatarURL())
+return message.channel.send({embed: embedd})
+};
 
   const db = require('quick.db');
 
@@ -10,12 +37,8 @@ exports.run = (client, message, args) => {
         let member = message.guild.member(message.mentions.users.array()[0] || message.guild.members.get(args[0]))
         let member2 = message.guild.member(message.mentions.users.array()[1] || message.guild.members.get(args[1]))
         var s = message.author
-        if(member2) {
-                var s = member2.user
-        }
-        if(!member) {
-                const embed = new Discord.MessageEmbed()
-                        .setDescription('Lütfen bir üyeyi etiketleyiniz')
+        if(member2) { var s = member2.user }
+        if(!member) {const embed = new Discord.MessageEmbed().setDescription(lang.love.a)
                         .setColor("RANDOM")
                 message.channel.send({embed})
                 return

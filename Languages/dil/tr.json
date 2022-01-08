@@ -61,6 +61,10 @@
 "msg4": "şuanda AFK.",
 "msg5": "Sebep"
 },
+
+"love":{
+"a": "Lütfen bir üye etiketleyin!"
+},
   
 "statistic":{
 "Title": "İstatistik",

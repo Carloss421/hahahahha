@@ -59,6 +59,11 @@
 "msg5": "Reason"
 },
   
+"love":{
+"a": "Please member mention!"
+  
+},
+
 "statistic":{
 "Title": "Statistic",
 "msg": "Developer/Owner",
