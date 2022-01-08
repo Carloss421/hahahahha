@@ -60,23 +60,23 @@ return message.channel.send({embed: embedd})
                 var kalp = '🖤'
                 var akalp = '🖤🖤🖤🖤🖤🖤🖤🖤🖤'
         }
-  var yorum = "Sizi evlendirelim <3"
+  var yorum = lang.love.b
         if(anasonuc < 99) {
-                var yorum = "Sizi Birlikte Güzelsiniz <3"
+  var yorum = lang.love.c
         }
         if(anasonuc < 69) {
-                var yorum = "Seviyoruz :black_heart:"
+  var yorum = lang.love.ç
         }
         if(anasonuc < 45) {
-                var yorum = "Terazi Değilim Ama Karşı Tarafta Bir Ağırlık Var Gibi."
+  var yorum = lang.love.d
         }
         if(anasonuc < 27) {
-                var yorum =  "Püü Çirkin Unut Gitsin."
+  var yorum = lang.love.e
         }
 
         const embed = new Discord.MessageEmbed()
                 .setAuthor(`${member.user.tag} | ${s.tag}`)
-                .setDescription(`AŞK Yüzde: **${anasonuc}**! \n${kalp}${akalp} \n\n${yorum}`)
+                .setDescription(`${lang.love.f}: **${anasonuc}**! \n${kalp}${akalp} \n\n${yorum}`)
                 .setColor("RANDOM")
         .setTimestamp()
         message.channel.send({embed})
@@ -86,12 +86,10 @@ return message.channel.send({embed: embedd})
 exports.conf = {
   enabled: true, 
   guildOnly: false, 
-  aliases: ["aşk"],
+  aliases: ["aşk", "love", "love-meter"],
   permLevel: 0,
 };
 
 exports.help = {
-  name: 'aşk-ölçer',
-  description: 'İki kullanıcı arasındaki aşkı ölçer.',
-  usage: 'aşk-ölçer <@kullanıcı> veya aşk-ölçer <@kullanıcı> <@kullanıcı>',
+  name: 'aşk-ölçer'
 };

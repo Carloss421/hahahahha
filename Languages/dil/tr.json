@@ -63,7 +63,13 @@
 },
 
 "love":{
-"a": "Lütfen bir üye etiketleyin!"
+"a": "Lütfen bir üye etiketleyin!",
+"b": "Sizi evlendirelim <3",
+"c": "Siz birlikte güzelsiniz <3",
+"ç": "Seviyoruz",
+"d": "Terazi değilim ama karşı tarafta bir ağırlık var gibi.",
+"e": "Püü çirkin unut gitsin",
+"f": "AŞK Yüzde"
 },
   
 "statistic":{
