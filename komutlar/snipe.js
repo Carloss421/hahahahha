@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const fs = require("fs")
 
 exports.run = (bot, message) => {
-    let profil = JSON.parse(fs.readFileSync("./jsonlar/snipe.json", "utf8"));
+    let profil = JSON.parse(fs.readFileSync("../jsonlar/snipe.json", "utf8"));
     if(!profil[message.guild.id]) {
       const embed = new Discord.MessageEmbed();
       embed.setTitle(`**Alvi - Son Silinen Mesaj**`);

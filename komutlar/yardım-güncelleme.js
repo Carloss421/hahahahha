@@ -6,12 +6,16 @@ let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Güncelleme")
 .setColor("RANDOM")
 .setDescription(`
-:two: **Version: 0.0.4**
-**Başlangıç: 18.08.2021 - 13:19 Bitiş:  18.08.2021 - 22:48**\`(GUNCELLEME)\`
+:three: **Version: 0.0.5**
+Başlangıç: **09.10.2021 - 17:43** Bitiş:  **..2022 - :** \`MEGA UPDATE\`
 ╔═══════════════════╗
-║ \`görev-sistemi(BETA)\` **|** eklendi!
-║ \`emojiler\` **|** eklendi!
-║ \`veri-tabanı\` **|** sıfırlandı!
+║ \`prefix-sistemi\` **|** kaldırıldı!
+║ \`dil-sistemi\` **|** eklendi!
+║ \`premium-sistemi\`**|** eklendi!
+║ \`görev-sistemi(PREMUIM)\` **|** premium'a geçirildi!
+║ \`emoji-koruma && sunucu-koruma\` **|** premium'a geçirildi!
+║ \`yılbaşı\` **|** eklendi!
+║ \`HATALAR\` **|** giderildi!
 ╚═══════════════════╝`)
 message.channel.send(embed)
 };
