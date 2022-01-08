@@ -108,7 +108,7 @@ var lang = tr;
   if(message.author.id !== ayarlar.ownerİD){
 
     if(bakım){
- let bakımTIME = new Date("2022-3-10:20:30")
+ let bakımTIME = new Date("2022-6-10:20:30")
  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
 ${message.author}
