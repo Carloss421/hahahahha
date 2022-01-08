@@ -15,24 +15,6 @@ var lang = en;
 var lang = tr;
   }
   
-  if(!lg){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})
-};
-  
-  
-  
-  
 if(message.author.id !== ayarlar.ownerID) {
     const embed = new Discord.MessageEmbed()
     .setDescription(lang.rebootS.rebootOWNERED)
