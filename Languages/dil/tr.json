@@ -72,6 +72,10 @@
 "f": "AŞK Yüzde"
 },
   
+"settings":{
+"a": "Sunucusu'nun Ayarları"
+},
+  
 "statistic":{
 "Title": "İstatistik",
 "msg": "Geliştirici/Sahip",

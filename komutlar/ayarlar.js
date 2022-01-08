@@ -1,18 +1,44 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
 const ayarlar = require('../ayarlar.json')
+const dil = require("../Languages/dil");
+const dils = new dil("dil", "diller");
 
 exports.run = async(client, message, args) => {
-// KULLANIM \\
 
-let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
- 
+    
+  let en = require("../Languages/dil/en.json");
+  let tr = require("../Languages/dil/tr.json");
+
+  var lg = dils.get(`dilang.${message.guild.id}`)
+  if (lg == "en") {
+var lang = en;
+  }
+  if (lg == "tr") {
+var lang = tr;
+  }
+  
+  if(!lg){
+const embedd = new Discord.MessageEmbed()
+.setThumbnail(client.user.avatarURL())
+.setAuthor(client.user.username)
+
+.addField("<:hayir0:838855037161570375> **Hata | Error**",`
+**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
+Kullanım: **a!dil-ayarla Tr/En**
+
+**EN:** You must select the language before using the bot!
+Usage: **a!set-language En/Tr**`)
+.setFooter(message.author.tag, message.author.avatarURL())
+return message.channel.send({embed: embedd})
+};
+
 let ayarlarS = new Discord.MessageEmbed()
 .setDescription(` 
-**${message.guild.name} | Sunucusu'nun Ayarları**
+**${message.guild.name} | ${lang.settings.a}**
 
-Prefix: ${db.has(`prefix_${message.guild.id}`) ? `**${prefix}**` : `**${ayarlar.prefix}**`}
-İsim: **<@${client.user.id}>**
+Prefix: **${ayarlar.prefix}**
+İsim: **${client.user.username} | ${client.member.nickname}**
 
 Küfür Engel: ${db.has(`küfürE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
 Reklam Engel: ${db.has(`reklamE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}

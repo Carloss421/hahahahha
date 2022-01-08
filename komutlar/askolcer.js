@@ -30,12 +30,8 @@ Usage: **a!set-language En/Tr**`)
 return message.channel.send({embed: embedd})
 };
 
-  const db = require('quick.db');
-
-
-
-        let member = message.guild.member(message.mentions.users.array()[0] || message.guild.members.get(args[0]))
-        let member2 = message.guild.member(message.mentions.users.array()[1] || message.guild.members.get(args[1]))
+        let member = message.guild.member(message.mentions.users.array()[0])
+        let member2 = message.guild.member(message.mentions.users.array()[1])
         var s = message.author
         if(member2) { var s = member2.user }
         if(!member) {const embed = new Discord.MessageEmbed().setDescription(lang.love.a)
