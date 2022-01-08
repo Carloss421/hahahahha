@@ -97,6 +97,10 @@ var lang = tr;
   let bakım = await db.fetch('bakım');
   
 if(!lg){
+if(!cmd.help.name === "dil-ayarla"){
+if(!cmd.help.name === "language-set");
+if(!cmd.help.name === "set-language");
+
 const embedd = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
 .setAuthor(client.user.username)

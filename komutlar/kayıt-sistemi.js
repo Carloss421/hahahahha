@@ -9,25 +9,25 @@ let embed = new Discord.MessageEmbed()
 .setColor("RANDOM")
 .setDescription(`
 👩 \`${prefix}kız | ${prefix}kız-kayıt | ${prefix}k\` Kız kaydı yapar.
-👩 \`${prefix}kız-rol\` Kız kaydı yapıldığında verilecek rol.
+👩 \`${prefix}kız-rol ayarla\` Kız kaydı yapıldığında verilecek rol.
 👩 \`${prefix}kız-rol sıfırla\` Kız kaydı yapıldığında verilecek rolünü sıfırlar.
 
 🧑 \`${prefix}erkek | ${prefix}erkek-kayıt | ${prefix}e\` Erkek kaydı yapar.
-🧑 \`${prefix}erkek-rol\` Erkek kaydı yapıldığında verilecek rol.
+🧑 \`${prefix}erkek-rol ayarla\` Erkek kaydı yapıldığında verilecek rol.
 🧑 \`${prefix}erkek-rol sıfırla\` Erkek kaydı yapıldığında verilecek rolünü sıfırlar.
 
-📋 \`${prefix}alınacak-rol\` Bir kayıt yapıldığında **@Misafir** rolünü almasını sağlar.
+📋 \`${prefix}alınacak-rol ayarla\` Bir kayıt yapıldığında **@Misafir** rolünü almasını sağlar.
 📋 \`${prefix}alınacak-rol sıfırla\` Bir kayıt yapıldığında verilecek rolü sıfırlar.
-📋 \`${prefix}kayıt-yetkili\` Kayıt yapacak rolü ayarlar.
+📋 \`${prefix}kayıt-yetkili ayarla\` Kayıt yapacak rolü ayarlar.
 📋 \`${prefix}kayıt-yetkili sıfırla\` Kayıt yapacak rolünü sıfırlar.
-📋 \`${prefix}kayıt-log\` Kayıt logunu ayarlar.
+📋 \`${prefix}kayıt-log ayarla\` Kayıt logunu ayarlar.
 📋 \`${prefix}kayıt-log sıfırla\` Kayıt logunu sıfırlar.
-📋 \`${prefix}kayıt-kanal\` Kayıt kanalını ayarlar.
+📋 \`${prefix}kayıt-kanal ayarla\` Kayıt kanalını ayarlar.
 📋 \`${prefix}kayıt-kanal sıfırla\` Kayıt kanalını sıfırlar.
 📋 \`${prefix}kayıt-sistemini sıfırla\` Bütün ayarlanan kayıt komutlarını sıfırlar.
 
 👤 \`${prefix}normal | ${prefix}normal-kayıt | ${prefix}nk\` Üye kaydı yapar.
-👤 \`${prefix}normal-rol\` Üye kaydı yapıldığında verilecek rol.
+👤 \`${prefix}normal-rol ayarla\` Üye kaydı yapıldığında verilecek rol.
 👤 \`${prefix}normal-rol sıfırla\` Üye kaydı yapıldığında verilecek rolü sıfırlar.
 
 

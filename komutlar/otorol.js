@@ -18,7 +18,7 @@ ${prefix}otorol-sıfırla Otorolü kapatır.
 exports.conf = {
   enabled: true,  
   guildOnly: false, 
-  aliases: [], 
+  aliases: ["autorole"], 
   permLevel: 0
 };
 

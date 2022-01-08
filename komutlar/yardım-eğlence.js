@@ -2,8 +2,7 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
-  const db = require('quick.db')
-let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+let prefix = ayarlar.prefix;
 let eğlence = new Discord.MessageEmbed()
 .setTitle('Alvi - Eğlence')
 .setColor('RANDOM')

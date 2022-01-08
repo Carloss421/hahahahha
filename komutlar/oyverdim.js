@@ -10,7 +10,7 @@ exports.run = (client, message) => {
 
         } else {
             message.channel.send(new Discord.MessageEmbed().setDescription("Destekçi rolün verildi."));
-            message.member.addRole("847139314542313522")//oy verince eklenecek rol id
+            message.member.roles.add("847139314542313522")//oy verince eklenecek rol id
 
         }
     })

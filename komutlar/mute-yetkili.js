@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ["mute-authorize"],
   permLevel: 0
 };
 

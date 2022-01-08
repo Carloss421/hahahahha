@@ -47,7 +47,7 @@ let role = message.guild.roles.cache.find(val => val.name === "Muted");
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: [],
+  aliases: ["affet-mute"],
   permlevel: 0
 }
 exports.help = {

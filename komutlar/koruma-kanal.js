@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
   const ayarlar = require('../ayarlar.json')
-let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+let prefix = ayarlar.prefix;
 
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(new Discord.MessageEmbed().setDescription("Bu komutu kullanabilmek için `YONETICI` iznine sahip olmalısın!").setColor("#ff0000"))
 
