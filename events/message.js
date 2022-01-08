@@ -154,7 +154,7 @@ return message.channel.send({embed: embedd})}};
     if(bakım){
  let bakımTIME = new Date("2022-6-10:20:30")
  let time = ms(bakımTIME - Date.now())
-  return message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author}
+  return message.reply(new Discord.MessageEmbed().setDescription(`${message.author}
 **:gear: Sizlere en iyi hizmeti verebilmek için bakımdayız!/We are in care to give you the best service!**
 **❓Bakım Sebebi/Care Reason:** \`${bakım}\`
 **Tahmini Süre/Estimated Time:** **${time.days}** gün/days, **${time.hours}** saat/hours, **${time.minutes}** dakika/minutes **${time.seconds}** saniye/seconds

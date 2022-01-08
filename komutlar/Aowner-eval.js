@@ -95,7 +95,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["koddene", "eval", "trycode", "evalCODE"],
-  permLvl: 4
+  permLevel: 4
 };
 exports.help = {
   name: "evalKOD",
