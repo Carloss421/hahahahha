@@ -164,7 +164,9 @@ Alvi neden büyük güncellemede? Neden prefix sistemi devre dışı? vb. sorula
      /*
 **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:** `{bakım}`\n⏱️**Tahmini Süre:** **{time.days}** gün, **{time.hours}** saat, **{time.minutes}** dakika, **%{time.seconds}** saniye\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
      */                         }}}
-    cmd.run(client, message, params, perms);
+//if(!cmd === cmd.help.name){return message.channel.send(new Discord.MessageEmbed().setDescription(`Komutlarımın arasında \`${cmd}\` adında komut bulunmuyor lütfen \`a!yardım\` yazarak tekrar bakınız!`))}
+if(!cmd === cmd.help.name) return;
+cmd.run(client, message, params, perms);
   }
 
 

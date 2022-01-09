@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
 
-exports.run = function(client, message, args) {
+exports.run = async(client, message, args) => {
 let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Güncelleme")
 .setColor("RANDOM")
@@ -14,6 +14,7 @@ Başlangıç: **09.10.2021 - 17:43** Bitiş:  **..2022 - :** \`MEGA UPDATE\`
 ║ \`premium-sistemi\`**|** eklendi!
 ║ \`görev-sistemi\` **|** premium'a geçirildi!
 ║ \`emoji-koruma && sunucu-koruma\` **|** premium'a geçirildi!
+║ \`komut-bulunamadı-sistemi\` **|** eklendi!
 ║ \`davet-sistemi\` **|** kaldırıldı!
 ║ \`jail-sistemi\` **|** kaldırıldı!
 ║ \`yılbaşı\` **|** eklendi!
