@@ -73,7 +73,15 @@
 "a": "Server's Settings",
 "b": "Name",
 "c": "Cursing Obstacle",
-"ç": "Ad Block"
+"ç": "Ad Block",
+"d": "AutoRole",
+"e": "Bot Protection",
+"f": "Role Protection",
+"g": "Channel Protection",
+"ğ": "Emoji Protection",
+"h": "Counter",
+"ı": "Open",
+"i": "Close"
 },
   
 "statistic":{

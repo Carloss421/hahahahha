@@ -76,7 +76,15 @@
 "a": "Sunucusu'nun Ayarları",
 "b": "İsim",
 "c": "Küfür Engel",
-"ç": "Reklam Engel"
+"ç": "Reklam Engel",
+"d": "Otorol",
+"e": "Bot Koruma",
+"f": "Rol Koruma",
+"g": "Kanal Koruma",
+"ğ": "Emoji Koruma",
+"h": "Sayaç",
+"ı": "Açık",
+"i": "Kapalı"
 },
   
 "statistic":{
