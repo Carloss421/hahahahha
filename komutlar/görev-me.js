@@ -51,8 +51,8 @@ let gM;
 let gD;
 if(görevMesaj !== 0) { gM = `${görevMesaj} / 893`}
 if(görevDavet !== 0) { gD = `${görevDavet} / 30`}
-if(görevMesaj > 892) { gM = "Tamamlandı!"}
-if(görevDavet > 29) { gD = "Tamamlandı!"}
+if(görevMesaj > 893 || görevMesaj >= 893) { gM = "Tamamlandı!"}
+if(görevDavet > 30 || görevMesaj >= 30) { gD = "Tamamlandı!"}
   
 const göreveleri = new Discord.MessageEmbed()
 .setTitle(`${message.author.nickname || message.author.username} adlı kullanıcı'nın görevleri`)
@@ -61,7 +61,7 @@ ${görevListesi.b}
 ${mesajBari(görevMesaj, 893, 9)} \`${gM}\`
 
 ${görevListesi.i}
-${davetBari(görevDavet, 39, 9)} \`${gD}\``)
+${davetBari(görevDavet, 30, 9)} \`${gD}\``)
 message.channel.send({ embed: göreveleri })
 };
 

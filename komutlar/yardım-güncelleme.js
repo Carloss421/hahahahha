@@ -17,6 +17,9 @@ Başlangıç: **09.10.2021 - 17:43** Bitiş:  **..2022 - :** \`MEGA UPDATE\`
 ║ \`komut-bulunamadı-sistemi\` **|** eklendi!
 ║ \`davet-sistemi\` **|** kaldırıldı!
 ║ \`jail-sistemi\` **|** kaldırıldı!
+║ \`gif-sistemi\` **|** kaldırıldı!
+║ \`kayıt-sistemi\` **|** kaldırıldı!
+║ \`spam-koruma\` **|** kaldırıldı!
 ║ \`yılbaşı\` **|** eklendi!
 ║ \`snipe\` **|** kaldırıldı!
 ║ \`HATALAR\` **|** giderildi!

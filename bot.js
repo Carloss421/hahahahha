@@ -173,6 +173,7 @@ var lang = en;
   if (lg == "tr") {
 var lang = tr;
   }
+  if(!lg) return;
 
   let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
@@ -225,7 +226,6 @@ client.on('guildMemberAdd', async member => {
 
 });
 //     [-----------------> Sayaç <------------------]  \\
-
 client.on("guildMemberAdd", async member => {
   let sayac = await db.fetch(`sayac_${member.guild.id}`);
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
@@ -258,12 +258,7 @@ client.on("guildMemberRemove", async member => {
   );
 });
 
-// ------------------> [Tag Alana Rol Ver] <------------------- \\
-
-
 //                        OYUNLAR                           \\
-
-// ------------------->  [CAPTCHA] <--------------------------- \\
 client.on("message", (msg, message, guild) => {
   if (msg.content.toLowerCase() === prefix +"invite") {
     const eris = new Discord.MessageEmbed().setDescription(
@@ -442,27 +437,6 @@ client.on("guildMemberAdd", async member => {
   if (member.user.bot)
     return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
-// ----------------> [kayıt-sistemi] <---------------- \\
-client.on("guildMemberAdd", async(member, message) => {
-let kanal = db.fetch(`kayıtkanal_${member.guild.id}`)
-if(!kanal) return;
-let olus = moment.utc(member.createdAt).format("YYYY, MMMM DD **(D.MM.YYYY)**")
-/*
-${moment.utc(message.author.joinedAt).format("MMMM DD, YYYY").replace("0", "")}
-${moment.utc(message.author.createdAt).format("MMMM DD, YYYY").replace("0", "")}
-*/
-     let süre = olus
-     let guven;
-     if(süre < 2629800000) guven = ':warning: Tehlikeli!'
-     if(süre > 2629800000) guven = ':white_check_mark: Güvenilir.'
-return member.guild.channels.cache.get(kanal).send(new Discord.MessageEmbed().setDescription(`
-${member}(${member.tag}) Sunucumuza hoşgeldin.
-
-Kayıt olmak için sesli kanala geçip yetkililerin gelmesini beklemen yeterlidir eğer öyle bir oda bulunmuyorsa bulunduğun kanala \`İsim Yaş\` yazman yeterli olucaktır.
-
-Hesap Oluşturulma Tarihi: \`${olus}\`
-Güvenirlik: ${guven}`))
-})
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
 client.on("guildMemberAdd", async(member, message, guild) => {
 let kanal = db.fetch(`hoşgeldinK_${member.guild.id}`)
@@ -626,43 +600,7 @@ client.on("message", async msg => {
         if (!msg.member.hasPermission("ADMINISTRATOR")) {
           if (!msg.mentions.users.first()) {
             msg.delete();
-            return msg.channel
-              .send(`<@${msg.author.id}> Lütfen CAPS kapat!`)
-              .edit(
-                `Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor. Bu yüzden mesajını sildim!`
-              )
-              .then(m => m.delete(5000));
-          }
-        }
-      }
-    }
-  }
-});
-
-// -------------------> [Spam-koruma] <--------------- \\
-client.on("message", msg => {
-  const antispam = require("discord-anti-spam-tr");
-  let spamEngel = JSON.parse(
-    fs.readFileSync("./jsonlar/spamEngelle.json", "utf8")
-  );
-  if (!msg.guild) return;
-  if (!spamEngel[msg.guild.id]) return;
-  if (spamEngel[msg.guild.id].spamEngel === "kapali") return;
-  if (spamEngel[msg.guild.id].spamEngel === "acik") {
-    antispam(client, {
-      uyarmaSınırı: 3,
-      banlamaSınırı: 7,
-      aralık: 1000,
-      uyarmaMesajı: "Spamı Durdur Yoksa Mutelerim.",
-      rolMesajı: "Spam için yasaklandı, başka biri var mı?",
-      maxSpamUyarı: 4,
-      maxSpamBan: 12,
-      zaman: 7,
-      rolİsimi: "spamMUTED"
-    });
-  }
-});
-
+            return msg.channel.send(`<@${msg.author.id}> Lütfen CAPS kapat!`).edit(`Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor. Bu yüzden mesajını sildim!`).then(m => m.delete(5000))}}}}}});
 // -------------------> [Kufur-Engel] <---------------- \\
 client.on("message", message => {
 if (db.has(`küfürE_${message.guild.id}`) === true) {
@@ -709,76 +647,21 @@ message.channel.send(ke).then(message => message.delete(5000));
 // -------------------> [Reklam-Engel] <---------------- \\
 client.on("message", message => {
   if (db.has(`reklamE_${message.guild.id}`) === true) {
-      const reklam = [
-    ".ml",
-    "discord.gg",
-    "invite",
-    "discordapp",
-    "discordgg",
-    ".com",
-    ".net",
-    ".xyz",
-    ".tk",
-    ".tv",
-    ".pw",
-    ".io",
-    ".me",
-    ".gg",
-    "www.",
-    "https",
-    "http",
-    ".gl",
-    ".org",
-    ".com.tr",
-    ".biz",
-    ".party",
-    ".rf.gd",
-    ".az",
-    "glitch.me",
-    "glitch.com"
-  ];
+const reklam = [
+".ml", "discord.gg", "invite", "discordapp", "discordgg", ".com", ".net", ".xyz", ".tk", ".tv", ".pw", ".io", ".me", 
+".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az", "glitch.me", "glitch.com"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
       if (!message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
-        var ke = new Discord.MessageEmbed()
-          .setColor("RANDOM")
-          .setAuthor("Reklam Engel (SISTEM)")
-          .setDescription(
-            `Hey <@${message.author.id}>, Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`
-          );
+        var ke = new Discord.MessageEmbed().setColor("RANDOM").setAuthor("Reklam Engel (SISTEM)").setDescription(`Hey <@${message.author.id}>, Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`);
         
         db.add(`reklamEwarn_${message.author.id}`, 1);
-        message.channel.send(ke).then(message => message.delete(5000));
-      }}}});
+        message.channel.send(ke).then(message => message.delete(5000))}}}});
 client.on("messageUptade", message => {
     if (db.has(`reklamE_${message.guild.id}`) === true) {
       const reklam = [
-    ".ml",
-    "discord.gg",
-    "invite",
-    "discordapp",
-    "discordgg",
-    ".com",
-    ".net",
-    ".xyz",
-    ".tk",
-    ".pw",
-    ".io",
-    ".me",
-    ".gg",
-    "www.",
-    "https",
-    "http",
-    ".gl",
-    ".org",
-    ".com.tr",
-    ".biz",
-    ".party",
-    ".rf.gd",
-    ".az",
-    "glitch.me",
-    "glitch.com"
-  ];
+".ml", "discord.gg", "invite", "discordapp", "discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", 
+".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az", "glitch.me","glitch.com"];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
       if (!message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
