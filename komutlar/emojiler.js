@@ -9,7 +9,10 @@ exports.run = async(client, msg, args) => {
             staticEmotes = [];
   var guild = msg.guild
 
-guild.emojis.cache.forEach((e) => {e.animated ? animEmotes.push(`<a:${e.name}:${e.id}> **ID:** ${e.id} **Tarih:** ${moment.utc(e.createdAt).format("D.MM.YYYY")}\n`) : staticEmotes.push(`<:${e.name}:${e.id}> **ID:** ${e.id} **Tarih:** ${moment.utc(e.createdAt).format("D.MM.YYYY")}\n`)});
+guild.emojis.cache.forEach((e) => {e.animated ? 
+animEmotes.push(`<a:${e.name}:${e.id}> **ID:** ${e.id} **Tarih:** ${moment.utc(e.createdAt).format("D.MM.YYYY")} **|** \`${e.name}\`\n`) : 
+staticEmotes.push(`<:${e.name}:${e.id}> **ID:** ${e.id} **Tarih:** ${moment.utc(e.createdAt).format("D.MM.YYYY")} **|** \`${e.name}\`\n`)});
+  
 staticEmotes = staticEmotes.length !== 0 ? `
 **Toplam: [${staticEmotes.length+animEmotes.length}]**
 

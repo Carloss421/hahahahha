@@ -5,23 +5,16 @@ const ayarlar = require("../ayarlar.json");
 
 
 exports.run = async (client, message, args) => {
-  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  let prefix = ayarlar.prefix;
   let CEKişi = message.mentions.users.first();
   let CESebep = args.slice(1).join(" ") || "Belirtilmemiş";
-  let CELog = db.fetch("cezalog." + message.guild.id);
-  let CEYetkili = db.fetch("banyetkilisi." + message.guild.id);
 
-  if (!CEYetkili) return message.channel.send(new Discord.MessageEmbed().setDescription("Sistem ayarlanmamış! Ayarlamak için `a!ban-sistemi`"));
-  if (!CELog) return message.channel.send(new Discord.MessageEmbed().setDescription("Sistem ayarlanmamış! Ayarlamak için `a!ban-sistemi`"));
-
-  if (!message.member.roles.cache.has(CEYetkili))
-    return message.channel.send(new Discord.MessageEmbed().setDescription(`
-  <@${message.author.id}> Ban Yetkin Olmadan Ban Sistemdeki Hiç Birşeyi Ayarlamassın.`).setColor("RED"));
+  if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(new Discord.MessageEmbed().setDescription("`UYELERI_YASAKLA` izniniz bulunmamakta!"));
   if (!CEKişi)
     return message.channel.send(
       new Discord.MessageEmbed()
         .setColor("#00ff00")
-        .setDescription(`Banlanacak Kişiyi Etiketle \n🔮 Doğru Kullanım \`${prefix}ban @Kişi <Sebep>\``).setColor("RED")
+        .setDescription(`Banlanacak Kişiyi Etiketle\n🔮 Kullanım: \`${prefix}ban @Kişi <Sebep>\``).setColor("RED")
     );
   if (
     !message.guild.members.cache
@@ -30,11 +23,7 @@ exports.run = async (client, message, args) => {
   )
     return message.channel.send(new Discord.MessageEmbed().setDescription("Ban yetkim yok.").setColor("RED"));
   await message.guild.members.ban(CEKişi.id, { reason: CESebep });
-  await message.guild.channels.cache
-    .get(CELog)
-    .send(new Discord.MessageEmbed().setDescription(
-"<@"+ CEKişi.id +" adlı kullanıcı <@"+ message.author.id +"> adlı yetkili tarafından\n```" +CESebep +"```,\nsebebi ile banlandı!"
-    ));
+
   return message.channel.send(new Discord.MessageEmbed().setDescription(
 "<@"+ CEKişi.id +" adlı kullanıcı <@"+ message.author.id +"> adlı yetkili tarafından\n```" +CESebep +"```,\nsebebi ile banlandı!"
   ));
