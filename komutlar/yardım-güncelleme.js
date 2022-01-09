@@ -12,7 +12,7 @@ Başlangıç: **09.10.2021 - 17:43** Bitiş:  **..2022 - :** \`MEGA UPDATE\`
 ║ \`prefix-sistemi\` **|** kaldırıldı!
 ║ \`dil-sistemi\` **|** eklendi!
 ║ \`premium-sistemi\`**|** eklendi!
-║ \`görev-sistemi(PREMUIM)\` **|** premium'a geçirildi!
+║ \`görev-sistemi\` **|** premium'a geçirildi!
 ║ \`emoji-koruma && sunucu-koruma\` **|** premium'a geçirildi!
 ║ \`yılbaşı\` **|** eklendi!
 ║ \`snipe\` **|** kaldırıldı!

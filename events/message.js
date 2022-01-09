@@ -95,7 +95,7 @@ var lang = tr;
  
   if (cmd) {
   let bakım = await db.fetch('bakım');
-
+/*
 if(!lg){
 if(!cmd.help.name === "dil-ayarla"){
 const embedd = new Discord.MessageEmbed()
@@ -111,7 +111,7 @@ Usage: **a!set-language En/Tr**`)
 .setFooter(message.author.tag, message.author.avatarURL())
 return message.channel.send({embed: embedd})}
 
-if(!cmd.help.name === "language-set"){
+if(!cmd.conf.aliases === "language-set"){
 const embedd = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
 .setAuthor(client.user.username)
@@ -125,7 +125,7 @@ Usage: **a!set-language En/Tr**`)
 .setFooter(message.author.tag, message.author.avatarURL())
 return message.channel.send({embed: embedd})}
 
-if(!cmd.help.name === "set-language"){
+if(!cmd.conf.aliases === "set-language"){
 const embedd = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
 .setAuthor(client.user.username)
@@ -138,7 +138,7 @@ Kullanım: **a!dil-ayarla Tr/En**
 Usage: **a!set-language En/Tr**`)
 .setFooter(message.author.tag, message.author.avatarURL())
 return message.channel.send({embed: embedd})}};
-    
+*/
   
   /*
   if(message.author.id !== ayarlar.ownerID)
