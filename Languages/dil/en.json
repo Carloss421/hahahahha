@@ -83,7 +83,17 @@
 "dHms": "hours,",
 "dhMs": "minutes,",
 "dhmS": "seconds,"}, 
-  
+
+"ban":{"B": "BanSystem","AN": "Ban command.",
+"a": "Unspecified.",
+"b": "`BAN_MEMBERS` you do not have permission!",
+"c": "Please tag the user to be banned!",
+"ç": "Usage:",
+"d": "user",
+"e": "reason",
+"f": "I don't have permission to ban!"
+},
+
 "statistic":{
 "Title": "Statistic",
 "msg": "Developer/Owner",

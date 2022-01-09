@@ -87,9 +87,14 @@
 "dhmS": "saniye,"
 },
 
-"ban":{
-"B": "BanSistemi",
-"AN": ""
+"ban":{"B": "BanSistemi","AN": "Ban komutu.",
+"a": "Belirtilmemiş.",
+"b": "`UYELERI_YASAKLA` izniniz bulunmamakta!",
+"c": "Lütfen banlanacak kullanıcıyı etiketleyiniz!",
+"ç": "Kullanım:",
+"d": "kullanıcı",
+"e": "sebep",
+"f": "Benim ban yetkim yok!"
 },
 
 "statistic":{
