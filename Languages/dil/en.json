@@ -91,7 +91,10 @@
 "ç": "Usage:",
 "d": "user",
 "e": "reason",
-"f": "I don't have permission to ban!"
+"f": "I don't have permission to ban!",
+"g": "usernamed",
+"ğ": "by the official named",
+"h": "Banned for this reason!"
 },
 
 "statistic":{

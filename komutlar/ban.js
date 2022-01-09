@@ -36,7 +36,7 @@ var lang = tr;
     return message.channel.send(new Discord.MessageEmbed().setDescription(lang.ban.f).setColor("RED"));
   await message.guild.members.ban(CEKişi.id, { reason: CESebep });
 
-return message.channel.send(new Discord.MessageEmbed().setDescription("<@"+ CEKişi.id +" adlı kullanıcı <@"+ message.author.id +"> adlı yetkili tarafından\n```" +CESebep +"```,\nsebebi ile banlandı!"
+return message.channel.send(new Discord.MessageEmbed().setDescription("<@"+ CEKişi.id +" "+ lang.ban.g +" <@"+ message.author.id +"> "+ lang.ban.ğ +"\n```" +CESebep +"``` "+ lang.ban.h +""
   ));
 };
 exports.conf = {
