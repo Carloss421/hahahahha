@@ -110,6 +110,6 @@
   
 "helpMenu":{
 "hTitle": "Help",
-"hDescription": "If you don't know how to use the command, you can report the bug by [Our Support Server](https://discord.gg/NAzGC2cxXR)\n\n**user menu** `a!help-user` Opens the User menu.\n**entertainment menu** `a!help-entertainment` A useful menu for those who are bored.\n**moderation menu** `a!help-moderation` has been adjusted for the convenience of privileges.\n**producer menu** `a!help-producer | a!help-owner` Opens commands available to the producer.\n**update menu** `a!updates | a!uptades` Shows the bot's updates.\n**update versions** `a!update-v | a!update-version` Displays incoming update versions.\n**bot menu** `a!help-bot` Shows things like bot's invite link.\neconomy menu** `a!help-economy` It is set for entertainment."
+"hDescription": "If you don't know how to use the command, you can report the bug by [Our Support Server](https://discord.gg/NAzGC2cxXR)\n\n**User menu** `a!help-user` Opens the User menu.\n**Entertainment menu** `a!help-entertainment` A useful menu for those who are bored.\n**Moderation menu** `a!help-moderation` has been adjusted for the convenience of privileges.\n**Producer menu** `a!help-producer | a!help-owner` Opens commands available to the producer.\n**Update menu** `a!updates | a!uptades` Shows the bot's updates.\n**Update versions** `a!update-v | a!update-version` Displays incoming update versions.\n**Bot menu** `a!help-bot` Shows things like bot's invite link.\nEconomy menu** `a!help-economy` It is set for entertainment."
 }
 }

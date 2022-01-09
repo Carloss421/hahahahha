@@ -4,9 +4,18 @@ const ayarlar = require("../ayarlar.json");
 
 
 exports.run = async (client, message, args) => {
-  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+  let prefix = ayarlar.prefix;
   let CEChannel = message.mentions.channels.first();
   let CELog = db.fetch("cezalog: " + message.guild.id) || "Log kanalı ayarlı değil!";
+  
+  if(CELog === "Log kanalı ayarlı değil!"){
+  message.guild.channels.create("cezalog").then(s => {
+  let role = message.guild.roles.cache.find(r => r.name === '@everyone')
+  s.over
+  }
+) 
+  }
+  
   if (
     !message.guild.members.cache
       .get(message.author.id)

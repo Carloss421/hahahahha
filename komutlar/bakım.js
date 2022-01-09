@@ -3,10 +3,9 @@ const db = require("quick.db");
 const ayarlar = require("../ayarlar.json")
 exports.run = async (client, message, args) => {
 
-  if(message.author.id !== ayarlar.ownerID)
-  if(message.author.id !== ayarlar.ownerİD)  {
+  if(message.author.id !== ayarlar.ownerID){
     const embed = new Discord.MessageEmbed()
-    .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
+    .setDescription(`**:x: Bu komutu sahip kullanabilir/Here command use owner!**`)
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(5000));
     }
