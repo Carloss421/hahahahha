@@ -97,6 +97,8 @@
 "h": "Banned for this reason!"
 },
 
+"lsupport":{"CD": "This command is currently under maintenance!"},
+  
 "statistic":{
 "Title": "Statistic",
 "msg": "Developer/Owner",
