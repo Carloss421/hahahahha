@@ -15,17 +15,6 @@
 "AownerKaraWARNNED": "This user is already blacklisted!",
 "AownerKaraSUCCESFLY": "User has been successfully blacklisted!",
 "msg0": "You cannot use commands because you are blacklisted!"},
-
-"care": {
-"msg": "**:gear: We are in care to give you the best service.\n**❓**Reason for Maintenance:**",
-"msg1": "\n⏱️**Estimated Time:**",
-"msg2": "\n\n:arrows_counterclockwise: **Please try again later.**",
-
-
-"Dhms": "days,",
-"dHms": "hours,",
-"dhMs": "minutes,",
-"dhmS": "seconds,"},
   
 "rebootS":{
 "CrebootWARNNED": "Enter a command name!",
@@ -83,6 +72,17 @@
 "ı": "Open",
 "i": "Close"
 },
+
+"care": {
+"msg": "**:gear: We are in care to give you the best service.\n**❓**Reason for Maintenance:**",
+"msg1": "\n⏱️**Estimated Time:**",
+"msg2": "\n\n:arrows_counterclockwise: **Please try again later.**",
+
+
+"Dhms": "days,",
+"dHms": "hours,",
+"dhMs": "minutes,",
+"dhmS": "seconds,"}, 
   
 "statistic":{
 "Title": "Statistic",

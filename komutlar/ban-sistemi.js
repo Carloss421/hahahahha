@@ -1,17 +1,27 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
+const dil = require("../Languages/dil");
+const dils = new dil("dil", "diller");
 
-exports.run = function(client, message, args) {
-  const db = require('quick.db')
-  let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+exports.run = async(client, message, args) => {
+
+    
+  let en = require("../Languages/dil/en.json");
+  let tr = require("../Languages/dil/tr.json");
+
+  var lg = dils.get(`dilang.${message.guild.id}`)
+  if (lg == "en") {
+var lang = en;
+  }
+  if (lg == "tr") {
+var lang = tr;
+  }
+
+  let prefix = ayarlar.prefix;
 let embed = new Discord.MessageEmbed()
-.setTitle(`Alvi - BanSistemi`)
+.setTitle(`Alvi - ${lang.ban.B}`)
 .setColor("RANDOM")
-.setDescription(`
-\`${prefix}ban\` Ban komutu
-\`${prefix}bansay | ${prefix}say\` Banlananları sayar.
-\`${prefix}ban-yetkili @Yetkili\` Banlayacak rolü ayarlar. 
-\`${prefix}ban-log\` Banlananların logunu tutar.`)
+.setDescription(`\`${prefix}ban\` ${lang.ban.AN}`)
 message.channel.send(embed)
 };
 

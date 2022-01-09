@@ -665,17 +665,11 @@ client.on("messageUptade", message => {
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
       if (!message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
-        var ke = new Discord.MessageEmbed()
-          .setColor("RANDOM")
-          .setAuthor("Reklam Engel (SISTEM)")
-          .setDescription(`
-            Sen kendini akıllımı sanıyorsun <@${message.author.id}>
-           Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`
-          );
+        var ke = new Discord.MessageEmbed().setColor("RANDOM").setAuthor("Reklam Engel (SISTEM)").setDescription(`Sen kendini akıllımı sanıyorsun <@${message.author.id}>
+Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`);
         
         db.add(`reklamEwarn_${message.author.id}`, 1);
-        message.channel.send(ke).then(message => message.delete(5000));
-      }}}});
+        message.channel.send(ke).then(message => message.delete(5000))}}}});
 // -------------------> [ROL-KORUMA] <------------------ \\
 client.on("roleCreate", async (rolee, member, guild, message) => {
   let rolkoruma = await db.fetch(`rolK_${rolee.guild.id}`);
@@ -814,7 +808,6 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
       members.roles.forEach(role => {
         if (role.hasPermission(8) || role.hasPermission("MANAGE_EMOJIS")) {
           members.roles.remove(role.id);
-
 emoji.guild.owner.send(`**<@${yetkili.id}> İsimli yetkili <@${user.id}>** adlı kişi **${emoji.guild.name}** adlı sunucunuzda emoji sildi ve yetkileri alındı!`)}})})}});
 
 client.login(ayarlar.token);

@@ -25,14 +25,14 @@ let ayarlarS = new Discord.MessageEmbed()
 Prefix: **${ayarlar.prefix}**
 ${lang.settings.b}: **${client.user.username} | ${client.member.nickname}**
 
-${lang.settings.c}: ${db.has(`küfürE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-${lang.settings.ç}: ${db.has(`reklamE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-${lang.settings.d}: ${db.has(`otoRL_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-${lang.settings.e}: ${db.has(`botK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-${lang.settings.f}: ${db.has(`rolK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-${lang.settings.g}: ${db.has(`kanalK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-${lang.settings.ğ}: ${db.has(`emojikoruma_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-${lang.settings.h}: ${db.has(`sayac_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+${lang.settings.c}: ${db.has(`küfürE_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
+${lang.settings.ç}: ${db.has(`reklamE_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
+${lang.settings.d}: ${db.has(`otoRL_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
+${lang.settings.e}: ${db.has(`botK_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
+${lang.settings.f}: ${db.has(`rolK_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
+${lang.settings.g}: ${db.has(`kanalK_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
+${lang.settings.ğ}: ${db.has(`emojikoruma_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
+${lang.settings.h}: ${db.has(`sayac_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
 `)
 message.channel.send(ayarlarS)
 };

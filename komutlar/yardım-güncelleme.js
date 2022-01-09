@@ -22,6 +22,7 @@ Başlangıç: **09.10.2021 - 17:43** Bitiş:  **..2022 - :** \`MEGA UPDATE\`
 ║ \`spam-koruma\` **|** kaldırıldı!
 ║ \`yılbaşı\` **|** eklendi!
 ║ \`snipe\` **|** kaldırıldı!
+║ \`GEREKSIZ KOMUTLAR/SISTEMLER\` **|** kaldırıldı!
 ║ \`HATALAR\` **|** giderildi!
 ╚═══════════════════╝`)
 message.channel.send(embed)
