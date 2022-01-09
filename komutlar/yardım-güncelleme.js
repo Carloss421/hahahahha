@@ -14,6 +14,8 @@ Başlangıç: **09.10.2021 - 17:43** Bitiş:  **..2022 - :** \`MEGA UPDATE\`
 ║ \`premium-sistemi\`**|** eklendi!
 ║ \`görev-sistemi\` **|** premium'a geçirildi!
 ║ \`emoji-koruma && sunucu-koruma\` **|** premium'a geçirildi!
+║ \`davet-sistemi\` **|** kaldırıldı!
+║ \`jail-sistemi\` **|** kaldırıldı!
 ║ \`yılbaşı\` **|** eklendi!
 ║ \`snipe\` **|** kaldırıldı!
 ║ \`HATALAR\` **|** giderildi!

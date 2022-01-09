@@ -26,7 +26,7 @@ let embed2 = new Discord.MessageEmbed()
 .setColor("RED")
 if (!message.member.hasPermission("MANAGE_MESSAGES"))
     return message.channel.send(embed)
-  let toMute = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
+  let toMute = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 if (!toMute) return message.channel.send(xdemb);
 const embed3 = new Discord.MessageEmbed()
   .setDescription(":warning: **Bu kullanıcının susturulmamış!**")
@@ -36,11 +36,9 @@ let role = message.guild.roles.cache.find(val => val.name === "Muted");
 
         if(!role || !toMute.roles.has(role.id)) return message.channel.send(embed3);
 
-        await toMute.removeRole(role);
-      let modlog = message.guild.channels.find('name', 'cezalog');
-    if (!modlog) return message.reply('`cezalog` kanalını bulamıyorum. Bunu gerçekliştirmek için **cezalog** adında kanal oluşturun!');
+        await toMute.roles.remove(role);
   let embed4 = new Discord.MessageEmbed()
-  .setDescription(`:white_check_mark: **<@${toMute.id}> yoksaymaktan vazgeçildi!**`)
+  .setDescription(`:white_check_mark: **<@${toMute.id}> susturmadan vazgeçildi!**`)
 .setColor("GREEN")
   message.channel.send(embed4)
 };
