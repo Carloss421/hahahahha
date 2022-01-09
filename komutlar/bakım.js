@@ -9,6 +9,9 @@ exports.run = async (client, message, args) => {
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(5000));
     }
+
+if(!["aç", "kapat"].includes(args[0])) return message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author} Hazretleri sana haşa cevap veya sual sormak gibi niyetim yok ama \`aç\` veya \`kapat\` yazarsan memnun olurum paşam.`))
+  
 if(args[0] === "aç"){
   if(!args[1]){
   message.channel.send('Bakım modu sebebini belirtin!')
