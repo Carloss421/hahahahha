@@ -95,7 +95,7 @@ var lang = tr;
  
   if (cmd) {
   let bakım = await db.fetch('bakım');
-  /*
+
 if(!lg){
 if(!cmd.help.name === "dil-ayarla"){
 const embedd = new Discord.MessageEmbed()
@@ -140,7 +140,7 @@ Usage: **a!set-language En/Tr**`)
 return message.channel.send({embed: embedd})}};
     
   
-  
+  /*
   if(message.author.id !== ayarlar.ownerID)
   if(message.author.id !== ayarlar.ownerİD){
     if (db.has(`karalist_${message.author.id}`) === true) {
