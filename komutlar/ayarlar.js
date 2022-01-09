@@ -23,11 +23,11 @@ let ayarlarS = new Discord.MessageEmbed()
 **${message.guild.name} | ${lang.settings.a}**
 
 Prefix: **${ayarlar.prefix}**
-İsim: **${client.user.username} | ${client.member.nickname}**
+${lang.settings.b}: **${client.user.username} | ${client.member.nickname}**
 
-Küfür Engel: ${db.has(`küfürE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-Reklam Engel: ${db.has(`reklamE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
-Otorol: ${db.has(`otoRL_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+${lang.settings.c}: ${db.has(`küfürE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+${lang.settings.ç}: ${db.has(`reklamE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+${lang.settings.d}: ${db.has(`otoRL_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
 Bot Koruma: ${db.has(`botK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
 Rol Koruma: ${db.has(`rolK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
 Kanal Koruma: ${db.has(`kanalK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}

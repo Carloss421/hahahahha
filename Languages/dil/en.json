@@ -69,6 +69,13 @@
 "f": "LOVE Percentage"
 },
 
+"settings":{
+"a": "Server's Settings",
+"b": "Name",
+"c": "Cursing Obstacle",
+"ç": "Ad Block"
+},
+  
 "statistic":{
 "Title": "Statistic",
 "msg": "Developer/Owner",

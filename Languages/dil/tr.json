@@ -73,7 +73,10 @@
 },
   
 "settings":{
-"a": "Sunucusu'nun Ayarları"
+"a": "Sunucusu'nun Ayarları",
+"b": "İsim",
+"c": "Küfür Engel",
+"ç": "Reklam Engel"
 },
   
 "statistic":{
