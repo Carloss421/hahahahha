@@ -143,14 +143,26 @@ return message.channel.send({embed: embedd})}};
   /*
   if(message.author.id !== ayarlar.ownerID)
   if(message.author.id !== ayarlar.ownerİD){
+if (db.has(`karalist_${message.author.id}`) === true) {
+    let embed = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(`${lang.blackList.msg0}`)
+    message.channel.send({embed: embed})
+    return
+  };
+    */
+    if(message.author.id !== ayarlar.ownerID){
+    /*
+    if(!lg) return;
     if (db.has(`karalist_${message.author.id}`) === true) {
     let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setDescription(`${lang.blackList.msg0}`)
     message.channel.send({embed: embed})
     return
-  };*/
-    if(message.author.id !== ayarlar.ownerID){
+  };
+    */
+    
     if(bakım){
  let bakımTIME = new Date("2022-6-10:20:30")
  let time = ms(bakımTIME - Date.now())

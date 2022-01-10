@@ -783,7 +783,7 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
   const i = await db.fetch(`emojikoruma_${emoji.guild.id}`, true);
   if (i) {
     const entry = await emoji.guild
-      .fetchAuditLogs({ type: "EMOJİ_DELETE" })
+      .fetchAuditLogs({ type: "EMOJI_DELETE" })
       .then(audit => audit.entries.first());
 
     let kisi = emoji.guild.member(entry.executor);
