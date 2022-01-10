@@ -41,8 +41,6 @@ ${lang.statistic.msg8} ${araEmoji} **${client.commands.size}**
 ${lang.statistic.msg10} ${araEmoji} **v${Discord.version}**
 ${lang.statistic.msg11} ${araEmoji} **${process.version}**
 
-**${lang.statistic.msg12}**
-\`${lang.statistic.msg13}\`
 **${lang.statistic.msg14}**
 [${lang.statistic.msg15} - ](https://discord.gg/NAzGC2cxXR)[${lang.statistic.msg16}(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot)[${lang.statistic.msg17}(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot)[${lang.statistic.msg18} - ](https://discordbots.org/bot/${client.user.id}/vote)[${lang.statistic.msg19}](https://discord.gg/HWxK3S5GfT)
 `)//client.guild.member.cache.filter(m => m.user.bot).size
