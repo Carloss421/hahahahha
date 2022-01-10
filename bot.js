@@ -267,7 +267,7 @@ client.on("message", (msg, message, guild) => {
     msg.channel.send(eris);
   }
 });
-
+/*
 client.on("guildCreate", async(guild, message) => {
 
 let alındı = `${ayarlar.oldu2}`
@@ -290,7 +290,7 @@ let alınıyor = "<a:yükleniyor:839266395308687421>"
   alın.edit("Sunucu Verileri alınıyor..")
   alın.edit("Sunucu Verileri alınıyor...").then(m => m.delete({ timeout: 2542 }))
   defaultChannel.send(emmmmbed);
-});
+});*/
 /*
 client.on('guildCreate', guild => {
 let kanal = guild.channels.filters(c => c.type === "text").random()
