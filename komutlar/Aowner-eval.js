@@ -1,52 +1,23 @@
 const Discord = require("discord.js");
 const util = require("util");
 const ayarlar = require("../ayarlar.json");
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
 
 exports.run = async (client, message, args) => {
-  let en = require("../Languages/dil/en.json");
-  let tr = require("../Languages/dil/tr.json");
 
-
-
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-  if (lg == "tr") {
-var lang = tr;
-  }
-
-  if(!lg){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})
-};
-  
   
   if (message.author.id !== ayarlar.ownerID) {
     const embed = new Discord.MessageEmbed()
-      .setDescription(lang.evalCommand.AownerEvalOWNERED)
+      .setDescription("Bu komutu sahibim kullanabilir")
       .setColor("BLUE");
     return message.channel.send(embed).then(msg => msg.delete(3000));
   }
-  let tokenuyari = lang.evalCommand.AownerEvalTOKENWARN;
+  let tokenuyari = "Gel g!tümüde veriyim! 31 POK PULURSUN APIĞ!"
   var embed = new Discord.MessageEmbed().setColor("RANDOM");
   var code = args.join(" ");
   //var code2 = args.slice(1).join(' ') ||  args.join(' ');
 
   if (!args[0]) {
-    message.channel.send(lang.evalCommand.AownerEvalTESTCOMMANDSWARN);
+    message.channel.send("Lütfen denenecek herhangi bir parametre/kullanım vb. şeyleri giriniz!");
     return;
   }
 
@@ -54,20 +25,20 @@ return message.channel.send({embed: embedd})
     let token_uyari = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setDescription(
-        `${lang.evalCommand.AownerEvalERROR}\n\`\`\`xl\n${tokenuyari}\`\`\``
+        `Tokenim: **31alvibot62**\n\`\`\`xl\n${tokenuyari}\`\`\``
       );
     message.channel.send(token_uyari);
     return;
   }
   if (args[0] === "ayarlar.token")
-    code = lang.evalCommand.AownerEvalTOKENERRORED;
+    code = "Gel g!tümüde veriyim! 31 POK PULURSUN APIĞ!"
   if (args[0] === "config.token")
-    code = lang.evalCommand.AownerEvalTOKENERRORED;
+    code = "Gel g!tümüde veriyim! 31 POK PULURSUN APIĞ!"
   if (code.match(/(client["token"])/g)) {
     let token_uyari2 = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setDescription(
-        `${lang.evalCommand.AownerEvalERROR}\n\`\`\`xl\n${tokenuyari}\`\`\``
+        `Tokenim: **31alvibot62**\n\`\`\`xl\n${tokenuyari}\`\`\``
       );
     message.channel.send(token_uyari2);
     return;

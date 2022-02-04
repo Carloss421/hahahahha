@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
 
         catch (e) {
           console.log(e)
-          return message.channel.send(`${lang.rebootS.CrebootERRORED} ${komutİsim} \n${e}`)
+          return message.channel.send(`Aovğ! Bir hatayla karşılaştık!\n${e}`)
         }
 
 

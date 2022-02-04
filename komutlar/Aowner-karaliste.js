@@ -1,40 +1,12 @@
 const Discord = require("discord.js");
 const db = require('quick.db');
 const ayarlar = require('../ayarlar.json')
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
 
 exports.run = async (client, message, args) => {
-  let en = require("../Languages/dil/en.json");
-  let tr = require("../Languages/dil/tr.json");
 
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-   if (lg == "tr") {
-var lang = tr;
-  }
-  
-  if(!lg){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})
-};
-  
-  
    if(message.author.id !== ayarlar.ownerID)  {
     const embed = new Discord.MessageEmbed()
-    .setDescription(lang.blackList.AownerKaraOWNERED)
+    .setDescription("Bu komut sahibim kullanabilir")
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(5000));
     }
@@ -42,18 +14,18 @@ return message.channel.send({embed: embedd})
   if (!user) {
     let e = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .setDescription(lang.blackList.AownerKaraERROREDID)
+    .setDescription("Lütfen karalisteye alınacak kullanıcıyı etiketle!")
     message.channel.send({embed: e})
     return;
   };
 
-  if (db.has(`karalist_${user.id}`) === true) return message.reply(lang.blackList.AownerKaraWARNNED);
+  if (db.has(`karalist_${user.id}`) === true) return message.reply("Bu kullanıcı zaten karalistede!");
 
   db.set(`karalist_${user.id}`, "aktif")
 
   let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .setDescription(`**${user.tag}(${user.id})** ${lang.blacklist.AownerKaraSUCCESFLY}`)
+    .setDescription(`**${user.tag}(${user.id})** adlı kullanıcı başarıyla karalisteye atıldı!`)
     message.channel.send({embed: embed})
 
 };
