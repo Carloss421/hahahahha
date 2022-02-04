@@ -14,24 +14,23 @@ Geliştirici/Sahip ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
 Kuruluş Tarihi ${araEmoji} **${ayarlar.krştrh}**
 Sunuluş Tarihi ${araEmoji} **${ayarlar.snştrh}**
 
-Ut ${araEmoji} **${moment.duration(client.duration)}**
-${lang.statistic.msg3} ${araEmoji} **${client.ws.ping}ms**
-${lang.statistic.msg4} ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
+Uptime Süresi ${araEmoji} **${moment.duration(client.duration)}**
+Bot Pingi ${araEmoji} **${client.ws.ping}ms**
+Mesaj Pingi ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
 
-${lang.statistic.msg5} ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}  [${message.client.users.cache.filter(m => m.bot, 0).size} BOT]**
-${lang.statistic.msg6} ${araEmoji} **${client.guilds.cache.size}**
-${lang.statistic.msg7} ${araEmoji} **${client.channels.cache.size}**
-${lang.statistic.msg8} ${araEmoji} **${client.commands.size}**
+Kullanıcı Sayısı ${araEmoji} **${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}  [${message.client.users.cache.filter(m => m.bot, 0).size} BOT]**
+Sunucu Sayısı ${araEmoji} **${client.guilds.cache.size}**
+Kanal Sayısı ${araEmoji} **${client.channels.cache.size}**
+Komut Sayısı ${araEmoji} **${client.commands.size}**
 
-${lang.statistic.msg9} ${araEmoji} **${client.voice.connections.size}**
-${lang.statistic.msg10} ${araEmoji} **v${Discord.version}**
-${lang.statistic.msg11} ${araEmoji} **${process.version}**
+Ses Olan Kullanıcılar ${araEmoji} **${client.voice.connections.size}**
+Discord.js Version ${araEmoji} **v${Discord.version}**
+Node.js Version ${araEmoji} **${process.version}**
 
-**${lang.statistic.msg12}**
-\`${lang.statistic.msg13}\`
-**${lang.statistic.msg14}**
-[${lang.statistic.msg15} - ](https://discord.gg/NAzGC2cxXR)[${lang.statistic.msg16}(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot)[${lang.statistic.msg17}(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot)[${lang.statistic.msg18} - ](https://discordbots.org/bot/${client.user.id}/vote)[${lang.statistic.msg19}](https://discord.gg/HWxK3S5GfT)
-`)//client.guild.member.cache.filter(m => m.user.bot).size
+**Veri Alınan Komutlar**
+\`Otorol - Sayaç - KayıtSistemi - CaptchaSistemi - GörevSistemi\`
+**Veriler Temizlendi**
+[Destek Sunucusu - ](https://discord.gg/NAzGC2cxXR)[Davet Et(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot)[Davet Et(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot)[Oy Ver - ](https://discordbots.org/bot/${client.user.id}/vote)`)
 message.channel.send(embed)
 };
 exports.conf = {

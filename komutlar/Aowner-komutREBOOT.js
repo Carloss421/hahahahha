@@ -1,43 +1,15 @@
 const Discord = require("discord.js");
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
 
 exports.run = async (client, message, args) => {
-  let en = require("../Languages/dil/en.json");
-  let tr = require("../Languages/dil/tr.json");
 
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-  if (lg == "tr") {
-var lang = tr;
-  }
-  
-  
-  if(!lg){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})
-};
-  
   
         let embed = new Discord.MessageEmbed()
         .setTitle("Reload")
-        .setDescription(lang.rebootS.CrebootOWNERED)
+        .setDescription("Bu komutu sahibim kullanabilir")
         .setColor("#cdf785");
         if(message.author.id !== '739411430171738142') return message.channel.send(embed);
 
-        if(!args[0].toLowerCase()) return message.channel.send(lang.rebootS.CrebootWARNNED)
+        if(!args[0].toLowerCase()) return message.channel.send("Bir komut ismi gir")
 
         let komutİsim = args[0].toLowerCase()
 
@@ -46,7 +18,7 @@ return message.channel.send({embed: embedd})
           delete require.cache[require.resolve(`./${komutİsim}.js`)]
           const pull = require(`./${komutİsim}.js`)
           client.commands.set(pull.help.name, pull)
-          message.channel.send(`${lang.rebootS.CrebootSUCCESFLY} \`${komutİsim}\``)
+          message.channel.send(`Başarıyla \`${komutİsim}\` adlı komut yeniden başlatıldı!`)
         }
 
         catch (e) {
