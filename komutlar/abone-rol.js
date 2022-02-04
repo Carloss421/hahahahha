@@ -1,47 +1,18 @@
 let database = require("quick.db");
 const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js')
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
 
 exports.run = async (client, message) => {
-  
-  let en = require("../Languages/dil/en.json");
-  let tr = require("../Languages/dil/tr.json");
 
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-  if (lg == "tr") {
-var lang = tr;
-  }
-  
-  if(!lg){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})
-};
-  
-  
   if (!message.member.hasPermission(`ADMINISTRATOR`))
-    return message.channel.send(lang.subscribe.rAUTHORIZED);
+    return message.channel.send("Bu komutu kullanabilmek için gerekli yetkiye sahip değilsin!");
 
   let rol = message.mentions.roles.first();
   if (!rol)
-    return message.channel.send(lang.subscribe.rROLEMENTIONES);
+    return message.channel.send("❌ **Bir Rol Etiketlemen Gerekmekte \nÖrnek: __a!abone-yetkili-rol @rol__**");
 
   database.set(`abonerol.${message.guild.id}`, rol.id);
-  message.channel.send(new Discord.MessageEmbed().setDescription(`${lang.subscribe.rSUCCESFLY} <@${rol.id}> ${lang.subscribe.rSUCCESFLY0}`));
+  message.channel.send(new Discord.MessageEmbed().setDescription(`✔️ Abone rolü başarıyla <@${rol.id}> olarak ayarlandı!`));
 };
 
 exports.conf = {

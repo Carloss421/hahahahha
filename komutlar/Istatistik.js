@@ -1,48 +1,17 @@
 const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
 const moment = require("moment");
 require("moment-duration-format");
 
 exports.run = function(client, message, args) {
-   let en = require("../Languages/dil/en.json");
-  let tr = require("../Languages/dil/tr.json");
-
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-  if (lg == "tr") {
-var lang = tr;
-  }
-  
-  if(!lg){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})
-};
-  
-if(lg == "tr"){var duration = moment.duration(client.uptime).format("D [gün], H [saat], m [dakika], s [saniye]")}
-if(lg == "en"){var duration = moment.duration(client.uptime).format("D [days], H [hours], m [minutes], s [seconds]")}
-
-let araEmoji =  "**⇢**"
+const araEmoji =  "**⇢**"
 let embed = new Discord.MessageEmbed()
-.setTitle(`Alvi - ${lang.statistic.Title}`)
+.setTitle(`Alvi - İstatistik`)
 .setColor("RANDOM")
 .setDescription(`
-${lang.statistic.msg} ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
-${lang.statistic.msg0} ${araEmoji} **${ayarlar.krştrh}**
-${lang.statistic.msg1} ${araEmoji} **${ayarlar.snştrh}**
+Geliştirici/Sahip ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
+Kuruluş Tarihi ${araEmoji} **${ayarlar.krştrh}**
+Sunuluş Tarihi ${araEmoji} **${ayarlar.snştrh}**
 
 ${lang.statistic.msg2} ${araEmoji} **${duration}**
 ${lang.statistic.msg3} ${araEmoji} **${client.ws.ping}ms**
