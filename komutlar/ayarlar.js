@@ -1,38 +1,27 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
 const ayarlar = require('../ayarlar.json')
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
 
 exports.run = async(client, message, args) => {
+// KULLANIM \\
 
-    
-  let en = require("../Languages/dil/en.json");
-  let tr = require("../Languages/dil/tr.json");
-
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-  if (lg == "tr") {
-var lang = tr;
-  }
-
+let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
+ 
 let ayarlarS = new Discord.MessageEmbed()
 .setDescription(` 
-**${message.guild.name} | ${lang.settings.a}**
+**${message.guild.name} | Sunucusu'nun Ayarları**
 
-Prefix: **${ayarlar.prefix}**
-${lang.settings.b}: **${client.user.username} | ${client.member.nickname}**
+Prefix: ${db.has(`prefix_${message.guild.id}`) ? `**${prefix}**` : `**${ayarlar.prefix}**`}
+İsim: **<@${client.user.id}>**
 
-${lang.settings.c}: ${db.has(`küfürE_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
-${lang.settings.ç}: ${db.has(`reklamE_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
-${lang.settings.d}: ${db.has(`otoRL_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
-${lang.settings.e}: ${db.has(`botK_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
-${lang.settings.f}: ${db.has(`rolK_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
-${lang.settings.g}: ${db.has(`kanalK_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
-${lang.settings.ğ}: ${db.has(`emojikoruma_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
-${lang.settings.h}: ${db.has(`sayac_${message.guild.id}`) ? `**${lang.settings.ı}**` : `**${lang.settings.i}**`}
+Küfür Engel: ${db.has(`küfürE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Reklam Engel: ${db.has(`reklamE_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Otorol: ${db.has(`otoRL_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Bot Koruma: ${db.has(`botK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Rol Koruma: ${db.has(`rolK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Kanal Koruma: ${db.has(`kanalK_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Emoji Koruma: ${db.has(`emojikoruma_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
+Sayaç: ${db.has(`sayac_${message.guild.id}`) ? `**Açık**` : `**Kapalı**`}
 `)
 message.channel.send(ayarlarS)
 };

@@ -1,30 +1,15 @@
-const db = require("quick.db");
-const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js');
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
+const db = require('quick.db')
 
 exports.run = async (client, message, args) => {
-    
-  let en = require("../Languages/dil/en.json");
-  let tr = require("../Languages/dil/tr.json");
-
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-  if (lg == "tr") {
-var lang = tr;
-  }
-  
   let user = message.author
-  let sebep = args.join(" ")
+  let sebep = args.join(" ") 
   let member = message.mentions.members.first() 
   if (!sebep) return message.channel.send(new Discord.MessageEmbed().setDescription(`
-<:hayir0:838855037161570375> \`AFK\` ${lang.systemAFK.msg}`).setColor("RED"))
+<:hayir0:838855037161570375> \`AFK\` moduna girmek için bir sebep yazmalısın.`).setColor("RED"))
   db.set(`afk_${user.id}`, sebep)
 message.channel.send(new Discord.MessageEmbed().setDescription(`
-<:evet1:838854924875726898> ${lang.systemAFK.msg0} **${sebep}** ${lang.systemAFK.msg1} \`AFK\` ${lang.systemAFK.msg2}`).setColor("GREEN")) 
+<:evet1:838854924875726898> Başarıyla **${sebep}** sebebiyle \`AFK\` moduna geçildi.`).setColor("GREEN")) 
 };
 
 exports.conf = {

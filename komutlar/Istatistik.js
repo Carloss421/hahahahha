@@ -16,7 +16,22 @@ var lang = en;
   if (lg == "tr") {
 var lang = tr;
   }
+  
+  if(!lg){
+const embedd = new Discord.MessageEmbed()
+.setThumbnail(client.user.avatarURL())
+.setAuthor(client.user.username)
 
+.addField("<:hayir0:838855037161570375> **Hata | Error**",`
+**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
+Kullanım: **a!dil-ayarla Tr/En**
+
+**EN:** You must select the language before using the bot!
+Usage: **a!set-language En/Tr**`)
+.setFooter(message.author.tag, message.author.avatarURL())
+return message.channel.send({embed: embedd})
+};
+  
 if(lg == "tr"){var duration = moment.duration(client.uptime).format("D [gün], H [saat], m [dakika], s [saniye]")}
 if(lg == "en"){var duration = moment.duration(client.uptime).format("D [days], H [hours], m [minutes], s [seconds]")}
 
@@ -25,7 +40,7 @@ let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - ${lang.statistic.Title}`)
 .setColor("RANDOM")
 .setDescription(`
-${lang.statistic.msg} ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat - ${ayarlar.ownerDcname}**
+${lang.statistic.msg} ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
 ${lang.statistic.msg0} ${araEmoji} **${ayarlar.krştrh}**
 ${lang.statistic.msg1} ${araEmoji} **${ayarlar.snştrh}**
 
@@ -38,9 +53,12 @@ ${lang.statistic.msg6} ${araEmoji} **${client.guilds.cache.size}**
 ${lang.statistic.msg7} ${araEmoji} **${client.channels.cache.size}**
 ${lang.statistic.msg8} ${araEmoji} **${client.commands.size}**
 
+${lang.statistic.msg9} ${araEmoji} **${client.voice.connections.size}**
 ${lang.statistic.msg10} ${araEmoji} **v${Discord.version}**
 ${lang.statistic.msg11} ${araEmoji} **${process.version}**
 
+**${lang.statistic.msg12}**
+\`${lang.statistic.msg13}\`
 **${lang.statistic.msg14}**
 [${lang.statistic.msg15} - ](https://discord.gg/NAzGC2cxXR)[${lang.statistic.msg16}(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot)[${lang.statistic.msg17}(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot)[${lang.statistic.msg18} - ](https://discordbots.org/bot/${client.user.id}/vote)[${lang.statistic.msg19}](https://discord.gg/HWxK3S5GfT)
 `)//client.guild.member.cache.filter(m => m.user.bot).size

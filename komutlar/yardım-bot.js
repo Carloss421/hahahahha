@@ -4,7 +4,8 @@ const moment = require('moment')
 require("moment-duration-format")
 
 exports.run = function(client, message, args) {
-let prefix = ayarlar.prefix;
+  const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   const duration = moment
     .duration(client.uptime)
     .format(" D [gün], H [saat], m [dakika], s [saniye]");

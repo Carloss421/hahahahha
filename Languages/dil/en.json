@@ -15,6 +15,17 @@
 "AownerKaraWARNNED": "This user is already blacklisted!",
 "AownerKaraSUCCESFLY": "User has been successfully blacklisted!",
 "msg0": "You cannot use commands because you are blacklisted!"},
+
+"care": {
+"msg": "**:gear: We are in care to give you the best service.\n**❓**Reason for Maintenance:**",
+"msg1": "\n⏱️**Estimated Time:**",
+"msg2": "\n\n:arrows_counterclockwise: **Please try again later.**",
+
+
+"Dhms": "days,",
+"dHms": "hours,",
+"dhMs": "minutes,",
+"dhmS": "seconds,"},
   
 "rebootS":{
 "CrebootWARNNED": "Enter a command name!",
@@ -38,67 +49,6 @@
 "aSUCCESFLY": "✔️ **The subscriber has successfully",
 "aSUCCESFLY0": "has been set**"},
 
-"systemAFK":{
-"msg": "you must write a reason to enter the mode.",
-"msg0": "Successfully",
-"msg1": "due to",
-"msg2": "mode switched!",
-"msg3": "You left AFK mode",
-"msg4": "currently AFK.",
-"msg5": "Reason"
-},
-  
-"love":{
-"a": "Please member mention!",
-"b": "Let's get you married <3",
-"c": "You are beautiful together <3",
-"ç": "We love",
-"d": "I'm not a Libra, but there seems to be a weight on the opposite side.",
-"e": "Forget it ugly",
-"f": "LOVE Percentage"
-},
-
-"settings":{
-"a": "Server's Settings",
-"b": "Name",
-"c": "Cursing Obstacle",
-"ç": "Ad Block",
-"d": "AutoRole",
-"e": "Bot Protection",
-"f": "Role Protection",
-"g": "Channel Protection",
-"ğ": "Emoji Protection",
-"h": "Counter",
-"ı": "Open",
-"i": "Close"
-},
-
-"care": {
-"msg": "**:gear: We are in care to give you the best service.\n**❓**Reason for Maintenance:**",
-"msg1": "\n⏱️**Estimated Time:**",
-"msg2": "\n\n:arrows_counterclockwise: **Please try again later.**",
-
-
-"Dhms": "days,",
-"dHms": "hours,",
-"dhMs": "minutes,",
-"dhmS": "seconds,"}, 
-
-"ban":{"B": "BanSystem","AN": "Ban command.",
-"a": "Unspecified.",
-"b": "`BAN_MEMBERS` you do not have permission!",
-"c": "Please tag the user to be banned!",
-"ç": "Usage:",
-"d": "user",
-"e": "reason",
-"f": "I don't have permission to ban!",
-"g": "usernamed",
-"ğ": "by the official named",
-"h": "Banned for this reason!"
-},
-
-"lsupport":{"CD": "This command is currently under maintenance!"},
-  
 "statistic":{
 "Title": "Statistic",
 "msg": "Developer/Owner",
@@ -111,6 +61,7 @@
 "msg6": "Total servers",
 "msg7": "Total channels",
 "msg8": "Total commands",
+"msg9": "Music Playing server",
 "msg10": "Discord.js version",
 "msg11": "Node.js version",
 "msg12": "Commands with data",
@@ -125,6 +76,6 @@
   
 "helpMenu":{
 "hTitle": "Help",
-"hDescription": "If you don't know how to use the command, you can report the bug by [Our Support Server](https://discord.gg/NAzGC2cxXR)\n\n**User menu** `a!help-user` Opens the User menu.\n**Entertainment menu** `a!help-entertainment` A useful menu for those who are bored.\n**Moderation menu** `a!help-moderation` has been adjusted for the convenience of privileges.\n**Producer menu** `a!help-producer | a!help-owner` Opens commands available to the producer.\n**Update menu** `a!updates | a!uptades` Shows the bot's updates.\n**Update versions** `a!update-v | a!update-version` Displays incoming update versions.\n**Bot menu** `a!help-bot` Shows things like bot's invite link.\nEconomy menu** `a!help-economy` It is set for entertainment."
+"hDescription": "If you don't know how to use the command, you can report the bug by [Our Support Server](https://discord.gg/NAzGC2cxXR)\n\n**user menu** `a!help-user` Opens the User menu.\n**entertainment menu** `a!help-entertainment` A useful menu for those who are bored.\n**moderation menu** `a!help-moderation` has been adjusted for the convenience of privileges.\n**producer menu** `a!help-producer | a!help-owner` Opens commands available to the producer.\n**update menu** `a!updates | a!uptades` Shows the bot's updates.\n**update versions** `a!update-v | a!update-version` Displays incoming update versions.\n**bot menu** `a!help-bot` Shows things like bot's invite link.\n\n~~**economy menu** `a!help-economy` It is set for entertainment.~~"
 }
 }

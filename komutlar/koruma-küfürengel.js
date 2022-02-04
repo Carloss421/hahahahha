@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const db = require('quick.db');
 const ayarlar = require('../ayarlar.json')
 exports.run = async(client, message, args) => {
-let prefix = ayarlar.prefix;
+let prefix = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   
   if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.MessageEmbed().setDescription(`Bu komudu kullanabilmek için **Yönetici** yetkisine sahip olman gerek.`))
   

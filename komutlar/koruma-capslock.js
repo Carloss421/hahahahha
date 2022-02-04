@@ -4,7 +4,7 @@ const ayarlar = require('../ayarlar.json')
 exports.run = async (client, message, args) => {
 
 
-let prefix = ayarlar.prefix;
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
   if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(new Discord.MessageEmbed().setDescription(`❌ Bu Komutu Kullana Bilmek İçin \`Sunucuyu Yönet\` Yetkisine Sahip Olmalısın!`))
 
   let capslock = await db.fetch(`capslock_${message.guild.id}`)

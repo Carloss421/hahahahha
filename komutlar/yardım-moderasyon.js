@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
-let prefix = ayarlar.prefix;
+  const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon`)
 .setColor("RANDOM")
@@ -18,10 +19,12 @@ let embed = new Discord.MessageEmbed()
 \`${prefix}sayaç | sayaç-ayarla\` Sayaç ayarlar,sıfırlar.
 \`${prefix}kanal-koruma | aç - kapat\` Kanal korumayı açar,kapatır.
 \`${prefix}rol-koruma | aç - kapat\` Rol korumayı açar,kapatır.
-\`${prefix}emoji-koruma | aç - kapat (PREMIUM)\` Emoji korumayı açar,kapatır.
+\`${prefix}emoji-koruma | aç - kapat\` Emoji korumayı açar,kapatır.
 \`${prefix}sunucu-koruma | aç - kapat (YAKINDA)\` Sunucu korumayı açar,kapatır.
 \`${prefix}kayıt-sistemi\` Kayıt komutlarını görürsünüz.
-\`${prefix}görev-sistemi (PREMIUM)\` Görev komutlarını görürsünüz.
+\`${prefix}captcha-sistemi\` Captcha komutlarını görürsünüz.
+\`${prefix}görev-sistemi\` Görev komutlarını görürsünüz.
+\`${prefix}ticket-sistemi\` Ticket komutlarını görürsünüz.
 \`${prefix}jail-sistemi\` Belirtilen üyeyi hapise atarsınız
 
 Burada çok fazla komut olduğu için \`${prefix}yardım-moderasyon2\` yazarak komutların devamına bakabilirsiniz.`)

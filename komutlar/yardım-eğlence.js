@@ -2,7 +2,8 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
-let prefix = ayarlar.prefix;
+  const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let eğlence = new Discord.MessageEmbed()
 .setTitle('Alvi - Eğlence')
 .setColor('RANDOM')
@@ -22,7 +23,7 @@ let eğlence = new Discord.MessageEmbed()
 \`${prefix}yazıtura\` Yazı-Tura atar.
 \`${prefix}çekiç\` İstediğiniz Kişiye Çekiç Atarsınız.
 \`${prefix}şifre\` Rastgele bir şifre oluşturur.
-\`${prefix}yılbaşı\` Yılbaşına ne kadar kaldı öğrenirsin.
+~~\`${prefix}yılbaşı\` Yılbaşına ne kadar kaldı öğrenirsin.~~
 
 Burada çok fazla komut olduğu için \`${prefix}yardım-eğlence2\` yazarak komutların devamına bakabilirsiniz.`)
 message.channel.send(eğlence)

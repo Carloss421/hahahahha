@@ -2,13 +2,14 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 
 exports.run = function(client, message, args) {
-let prefix = ayarlar.prefix;
+const db = require('quick.db')
+let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - Moderasyon2`)
 .setColor("RANDOM")
 .setDescription(`
 \`${prefix}çekiliş-sistemi\` Çekiliş komutlarını açar.
-\`${prefix}botkoruma <aç/kapat> (PREMUIM)\` Botkoruma açıp kapatır.
+\`${prefix}botkoruma <aç/kapat>  (PREMUIM)\` Botkoruma açıp kapatır.
 \`${prefix}botizin | ${prefix}bot-izin ID\` İzin verilen botlara girimesini engellemez.
 \`${prefix}müzik-sistemi\` Müzik komutlarını açar.
 \`${prefix}davet-sistemi\` Davet komutlarını açar.

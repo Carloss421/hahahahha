@@ -15,7 +15,7 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,  
   guildOnly: false, 
-  aliases: ["counter"], 
+  aliases: [], 
   permLevel: 0
 };
 

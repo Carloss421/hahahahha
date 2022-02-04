@@ -1,29 +1,17 @@
 const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
 
-exports.run = async(client, message, args) => {
+exports.run = function(client, message, args) {
 let embed = new Discord.MessageEmbed()
 .setTitle("Alvi - Güncelleme")
 .setColor("RANDOM")
 .setDescription(`
-:three: **Version: 0.0.5**
-Başlangıç: **09.10.2021 - 17:43** Bitiş:  **..2022 - :** \`MEGA UPDATE\`
+:two: **Version: 0.0.4**
+**Başlangıç: 18.08.2021 - 13:19 Bitiş:  18.08.2021 - 22:48**\`(GUNCELLEME)\`
 ╔═══════════════════╗
-║ \`prefix-sistemi\` **|** kaldırıldı!
-║ \`dil-sistemi\` **|** eklendi!
-║ \`premium-sistemi\`**|** eklendi!
-║ \`görev-sistemi\` **|** premium'a geçirildi!
-║ \`emoji-koruma && sunucu-koruma\` **|** premium'a geçirildi!
-║ \`komut-bulunamadı-sistemi\` **|** eklendi!
-║ \`davet-sistemi\` **|** kaldırıldı!
-║ \`jail-sistemi\` **|** kaldırıldı!
-║ \`gif-sistemi\` **|** kaldırıldı!
-║ \`kayıt-sistemi\` **|** kaldırıldı!
-║ \`spam-koruma\` **|** kaldırıldı!
-║ \`yılbaşı\` **|** eklendi!
-║ \`snipe\` **|** kaldırıldı!
-║ \`GEREKSIZ KOMUTLAR/SISTEMLER\` **|** kaldırıldı!
-║ \`HATALAR\` **|** giderildi!
+║ \`görev-sistemi(BETA)\` **|** eklendi!
+║ \`emojiler\` **|** eklendi!
+║ \`veri-tabanı\` **|** sıfırlandı!
 ╚═══════════════════╝`)
 message.channel.send(embed)
 };

@@ -84,7 +84,7 @@ if(message.author.bot) return
   let en = require("../Languages/dil/en.json");
 let tr = require("../Languages/dil/tr.json");
     
-  var lg = dils.get(`dilang.${message.guild.id}`);
+  var lg = dils.get(`dilang.${message.guild.id}`)
   if (lg == "en") {
 var lang = en;
   }
@@ -92,68 +92,6 @@ var lang = en;
 var lang = tr;
   }
   
- 
-  if (cmd) {
-  let bakım = await db.fetch('bakım');
-/*
-if(!lg){
-if(!cmd.help.name === "dil-ayarla"){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})}
-
-if(!cmd.conf.aliases === "language-set"){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})}
-
-if(!cmd.conf.aliases === "set-language"){
-const embedd = new Discord.MessageEmbed()
-.setThumbnail(client.user.avatarURL())
-.setAuthor(client.user.username)
-
-.addField("<:hayir0:838855037161570375> **Hata | Error**",`
-**TR:** Botu kullanmadan önce dil seçmeniz gerekmektedir!
-Kullanım: **a!dil-ayarla Tr/En**
-
-**EN:** You must select the language before using the bot!
-Usage: **a!set-language En/Tr**`)
-.setFooter(message.author.tag, message.author.avatarURL())
-return message.channel.send({embed: embedd})}};
-*/
-  
-  /*
-  if(message.author.id !== ayarlar.ownerID)
-  if(message.author.id !== ayarlar.ownerİD){
-if (db.has(`karalist_${message.author.id}`) === true) {
-    let embed = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setDescription(`${lang.blackList.msg0}`)
-    message.channel.send({embed: embed})
-    return
-  };
-    */
-    if(message.author.id !== ayarlar.ownerID){
-    /*
-    if(!lg) return;
     if (db.has(`karalist_${message.author.id}`) === true) {
     let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
@@ -161,26 +99,29 @@ if (db.has(`karalist_${message.author.id}`) === true) {
     message.channel.send({embed: embed})
     return
   };
-    */
-    
-    if(bakım){
- let bakımTIME = new Date("2022-6-10:20:30")
- let time = ms(bakımTIME - Date.now())
-  return message.reply(new Discord.MessageEmbed().setDescription(`${message.author}
-**:gear: Sizlere en iyi hizmeti verebilmek için bakımdayız!/We are in care to give you the best service!**
-**❓Bakım Sebebi/Care Reason:** \`${bakım}\`
-**Tahmini Süre/Estimated Time:** **${time.days}** gün/days, **${time.hours}** saat/hours, **${time.minutes}** dakika/minutes **${time.seconds}** saniye/seconds
 
-Alvi neden büyük güncellemede? Neden prefix sistemi devre dışı? vb. sorular için/Why is Alvi in the big update? Why is the prefix system disabled? etc. for questions [Tıkla Ve Gel/Click And Join](https://discord.gg/WBEvG7efdK)
-`).setColor("RANDOM"))
+
+  
+  if (cmd) {
+  let bakım = await db.fetch('bakım');
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD){
+
+    if(bakım){
+ let bakımTIME = new Date("2021-11-30:20:30")
+ let time = ms(bakımTIME - Date.now())
+  return message.channel.send(new Discord.MessageEmbed().setDescription(`
+${message.author}
+${lang.care.msg} \`${bakım}\`${lang.care.msg1} **${time.days}** ${lang.care.Dhms} **${time.hours}** ${lang.care.dHms} **${time.minutes}** ${lang.care.dhMs} **${time.seconds}** ${lang.care.dhmS}
+
+  `).setColor("RANDOM"))
      /*
 **:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:** `{bakım}`\n⏱️**Tahmini Süre:** **{time.days}** gün, **{time.hours}** saat, **{time.minutes}** dakika, **%{time.seconds}** saniye\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**
-     */                         }}}
-//if(!cmd === cmd.help.name){return message.channel.send(new Discord.MessageEmbed().setDescription(`Komutlarımın arasında \`${cmd}\` adında komut bulunmuyor lütfen \`a!yardım\` yazarak tekrar bakınız!`))}
-if(!cmd === cmd.help.name) return;
-cmd.run(client, message, params, perms);
+     */                         }}
+    if (perms < cmd.conf.permLevel) return;
+    cmd.run(client, message, params, perms);
   }
-
+};
 
 /*
 const Discord = require('discord.js');

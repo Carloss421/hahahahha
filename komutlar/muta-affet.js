@@ -26,7 +26,7 @@ let embed2 = new Discord.MessageEmbed()
 .setColor("RED")
 if (!message.member.hasPermission("MANAGE_MESSAGES"))
     return message.channel.send(embed)
-  let toMute = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+  let toMute = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
 if (!toMute) return message.channel.send(xdemb);
 const embed3 = new Discord.MessageEmbed()
   .setDescription(":warning: **Bu kullanıcının susturulmamış!**")
@@ -36,16 +36,18 @@ let role = message.guild.roles.cache.find(val => val.name === "Muted");
 
         if(!role || !toMute.roles.has(role.id)) return message.channel.send(embed3);
 
-        await toMute.roles.remove(role);
+        await toMute.removeRole(role);
+      let modlog = message.guild.channels.find('name', 'cezalog');
+    if (!modlog) return message.reply('`cezalog` kanalını bulamıyorum. Bunu gerçekliştirmek için **cezalog** adında kanal oluşturun!');
   let embed4 = new Discord.MessageEmbed()
-  .setDescription(`:white_check_mark: **<@${toMute.id}> susturmadan vazgeçildi!**`)
+  .setDescription(`:white_check_mark: **<@${toMute.id}> yoksaymaktan vazgeçildi!**`)
 .setColor("GREEN")
   message.channel.send(embed4)
 };
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["affet-mute"],
+  aliases: [],
   permlevel: 0
 }
 exports.help = {

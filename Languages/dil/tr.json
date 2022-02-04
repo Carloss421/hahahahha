@@ -17,7 +17,19 @@
 "AownerKaraSUCCESFLY": "adlı kullanıcı başarıyla kara listeye alındı!",
 "msg0": "Komutları kullanamazsın çünkü karalistedesin!"
 },
-  
+
+"care":{
+"msg": "**:gear: Sizlere En İyi Hizmeti Verebilmek İçin Bakımdayız.\n**❓**Bakım Sebebi:**",
+"msg1": "\n⏱️**Tahmini Süre:**",
+"msg2": "\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**",
+
+
+"Dhms": "gün,",
+"dHms": "saat,",
+"dhMs": "dakika,",
+"dhmS": "saniye,"
+},
+
 "rebootS":{
 "CrebootWARNNED": "Bir komut ismi gir!",
 "CrebootERRORED": "Komut Yeniden Yüklenemedi:",
@@ -40,67 +52,6 @@
 "aSUCCESFLY": "✔️ **Abone yetkilisi başarıyla",
 "aSUCCESFLY0": "olarak ayarlandı.**"},
 
-"systemAFK":{
-"msg": "moduna girmek için bir sebep yazmalısın.",
-"msg0": "Başarıyla",
-"msg1": "sebebiyle",
-"msg2": "moduna geçildi!",
-"msg3": "AFK modundan ayrıldın",
-"msg4": "şuanda AFK.",
-"msg5": "Sebep"
-},
-
-"love":{
-"a": "Lütfen bir üye etiketleyin!",
-"b": "Sizi evlendirelim <3",
-"c": "Siz birlikte güzelsiniz <3",
-"ç": "Seviyoruz",
-"d": "Terazi değilim ama karşı tarafta bir ağırlık var gibi.",
-"e": "Püü çirkin unut gitsin",
-"f": "AŞK Yüzde"
-},
-  
-"settings":{
-"a": "Sunucusu'nun Ayarları",
-"b": "İsim",
-"c": "Küfür Engel",
-"ç": "Reklam Engel",
-"d": "Otorol",
-"e": "Bot Koruma",
-"f": "Rol Koruma",
-"g": "Kanal Koruma",
-"ğ": "Emoji Koruma",
-"h": "Sayaç",
-"ı": "Açık",
-"i": "Kapalı"
-},
-  
-"care":{
-"msg": "**:gear: Sizlere rn iyi hizmeti verebilmek için bakımdayız.\n**❓**Bakım Sebebi:**",
-"msg1": "\n⏱️**Tahmini Süre:**",
-"msg2": "\n\n:arrows_counterclockwise: **Lütfen Daha Sonra Tekrar Deneyin.**",
-
-
-"Dhms": "gün,",
-"dHms": "saat,",
-"dhMs": "dakika,",
-"dhmS": "saniye,"
-},
-
-"ban":{"B": "BanSistemi","AN": "Ban komutu.",
-"a": "Belirtilmemiş.",
-"b": "`UYELERI_YASAKLA` izniniz bulunmamakta!",
-"c": "Lütfen banlanacak kullanıcıyı etiketleyiniz!",
-"ç": "Kullanım:",
-"d": "kullanıcı",
-"e": "sebep",
-"f": "Benim ban yetkim yok!",
-"g": "adlı kullanıcı",
-"ğ": "adlı yetkili tarafından",
-"h": "sebebiyle banlandı!"
-},
-
-"lsupport":{"CD": "Bu komut şuan bakımdadır!"},
   
 "statistic":{
 "Title": "İstatistik",
@@ -114,6 +65,7 @@
 "msg6": "Toplam sunucu",
 "msg7": "Toplam kanal",
 "msg8": "Toplam komut",
+"msg9": "Müzik Oynatılan sunucu",
 "msg10": "Discord.js sürümü",
 "msg11": "Node.js sürümü",
 "msg12": "Verileri alınan komutlar",
@@ -128,7 +80,7 @@
 
 "helpMenu":{
 "hTitle": "Yardım",
-"hDescription": "Alvi'de bulduğunuz hata, çalışmama veya açıkları bildirmek için **a!hata-bildir** komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyorsanız [Destek Sunucumuza](https://discord.gg/NAzGC2cxXR) gelerekte bildirebilirsiniz.\n\n**Kullanıcı menüsü** `a!yardım-kullanıcı` Kullanıcı menüsünü açar.\n**Eğlence menüsü** `a!yardım-eğlence` Canı sıkılanlar için yararlı bir menü.\n**Moderasyon menüsü** `a!yardım-moderasyon` Yetkilere kolaylık olsun diye ayarlandı.\n**Yapımcı menüsü** `a!yardım-yapımcı | a!yardım-owner` Yapımcı'nın kullanabiliceği komutları açar.\n**Güncelleme menüsü** `a!güncellemeler | a!uptades` Bot'a gelen güncellemeleri gösterir.\n**Güncelleme versionları** `a!güncelleme-v | a!güncelleme-version` Gelen güncelleme versionlarını gösterir.\n**Bot menüsü** `a!yardım-bot` Bot'un davet linkini gibi şeyleri gösterir.\n**Ekonomi menüsü** `a!yardım-ekonomi` Eğlence amaçlı ayarlanmıştır."
+"hDescription": "Alvi'de bulduğunuz hata,çalışmama veya açıkları bildirmek için **a!hata-bildir** komutunu kullanarak hatayı bildirebilirsiniz eğer komutu kullanmayı bilmiyorsanız [Destek Sunucumuza](https://discord.gg/NAzGC2cxXR) gelerekte bildirebilirsiniz.\n\n**kullanıcı menüsü** `a!yardım-kullanıcı` Kullanıcı menüsünü açar.\n**eğlence menüsü** `a!yardım-eğlence` Canı sıkılanlar için yararlı bir menü.\n**moderasyon menüsü** `a!yardım-moderasyon` Yetkilere kolaylık olsun diye ayarlandı.\n**yapımcı menüsü** `a!yardım-yapımcı | a!yardım-owner` Yapımcı'nın kullanabiliceği komutları açar.\n**güncelleme menüsü** `a!güncellemeler | a!uptades` Bot'a gelen güncellemeleri gösterir.\n**güncelleme versionları** `a!güncelleme-v | a!güncelleme-version` Gelen güncelleme versionlarını gösterir.\n**bot menüsü** `a!yardım-bot` Bot'un davet linkini gibi şeyleri gösterir.\n\n~~**ekonomi menüsü** `a!yardım-ekonomi` Eğlence amaçlı ayarlanmıştır.~~"
 }
 
 }

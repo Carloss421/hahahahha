@@ -132,7 +132,7 @@ client.unload = command => {
 
 //     [-----------------> BOT ETIKET <---------------] \\
 client.on('message', async message => {
-const prefixÖ = await ayarlar.prefix;
+const prefixÖ = await db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 
   const embed = new Discord.MessageEmbed()
 .setThumbnail(client.user.avatarURL())
@@ -151,7 +151,7 @@ client.on('message', message  => {
 
 
 let user = message.author;
-let prefixX = ayarlar.prefix;
+let prefixX = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
 if(message.author.bot || message.content.startsWith(prefixX)) return;
 
 db.add(`görevMesajGönder.${message.guild.id}.${user.id}`, 1)
@@ -160,21 +160,7 @@ db.add(`görevMesajGönder.${message.guild.id}.${user.id}`, 1)
 //     [-----------------> Afk <------------------]  \\
 
 client.on("message", async message => {
-const dil = require("./Languages/dil");
-const dils = new dil("dil", "diller");
-
-  let en = require("./Languages/dil/en.json");
-  let tr = require("./Languages/dil/tr.json");
-
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-  if (lg == "tr") {
-var lang = tr;
-  }
-  if(!lg) return;
-
+  
   let prefix = ayarlar.prefix;
   let kullanıcı = message.mentions.users.first() || message.author;
   let afkdkullanıcı = await db.fetch(`afk_${message.author.id}`);
@@ -183,17 +169,23 @@ var lang = tr;
   if (message.author.bot) return;
   if (message.content.includes(`${prefix}afk`)) return;
   if (message.content.includes(`<@${kullanıcı.id}>`)) {
-if (afkdkullanıcı) {message.channel.send(new Discord.MessageEmbed().setDescription(`${lang.systemAFK.msg3} <@${kullanıcı.id}>.`)
+    if (afkdkullanıcı) {
+      message.channel.send(
+        new Discord.MessageEmbed().setDescription(`
+AFK modundan ayrıldın <@${kullanıcı.id}>.`)
       );
       db.delete(`afk_${message.author.id}`);
     }
-if (afkkullanıcı) return message.channel.send(`${message.author}\`${kullanıcı.tag}\` ${lang.systemAFK.msg4}\n${lang.systemAFK.msg5}: \`${sebep}\``
+    if (afkkullanıcı)
+      return message.channel.send(
+        `${message.author}\`${kullanıcı.tag}\` şu anda AFK. \n Sebep : \`${sebep}\``
       );
   }
   if (!message.content.includes(`<@${kullanıcı.id}>`)) {
     if (afkdkullanıcı) {
       message.channel.send(
-        new Discord.MessageEmbed().setDescription(`${lang.systemAFK.msg3} <@${kullanıcı.id}>.`)
+        new Discord.MessageEmbed().setDescription(`
+AFK modundan ayrıldın <@${kullanıcı.id}>.`)
       );
       db.delete(`afk_${message.author.id}`);
     }
@@ -226,6 +218,7 @@ client.on('guildMemberAdd', async member => {
 
 });
 //     [-----------------> Sayaç <------------------]  \\
+
 client.on("guildMemberAdd", async member => {
   let sayac = await db.fetch(`sayac_${member.guild.id}`);
   let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
@@ -258,7 +251,293 @@ client.on("guildMemberRemove", async member => {
   );
 });
 
+// ------------------> [Tag Alana Rol Ver] <------------------- \\
+
+
 //                        OYUNLAR                           \\
+
+// ------------------->  [CAPTCHA] <--------------------------- \\
+
+
+// --------------------> [Müzik Sistemi] <----------------------- \\
+
+const youtube = new YouTube("API");
+
+client.on("message", async (msg, message) => {
+  let prefix = ayarlar.prefix;
+  if (msg.author.bot) return undefined;
+  if (!msg.content.startsWith(prefix)) return undefined;
+
+  const args = msg.content.split(" ");
+  const searchString = args.slice(1).join(" ");
+  const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : "";
+  const serverQueue = queue.get(msg.guild.id);
+  let command = msg.content.toLowerCase().split(" ")[0];
+  command = command.slice(prefix.length);
+
+  if (command === "sadecebotunsahibikullanır") {
+    const voiceChannel = msg.member.voiceChannel;
+    if (!voiceChannel)
+      return msg.channel.send(
+        new Discord.MessageEmbed()
+          .setColor("BLACK")
+          .setDescription(
+            ":x: **Bu komutu kullanmak için bir ses kanalında olmanız gerekir.**"
+          )
+      );
+    const permissions = voiceChannel.permissionsFor(msg.client.user);
+    if (!permissions.has("CONNECT")) {
+      return msg.channel.send(
+        new Discord.MessageEmbed()
+          .setColor("BLACK")
+          .setTitle(
+            ":x: **Bu komutu kullanmak için bir ses kanalında olmanız gerekir.**"
+          )
+      );
+    }
+    if (!permissions.has("SPEAK")) {
+      return msg.channel.send(
+        new Discord.MessageEmbed()
+          .setColor("BLACK")
+          .setTitle(
+            ":x: Müziği açamıyorum / kanalda konuşmama izin verilmediğinden veya mikrofonum kapalı olduğundan şarkı çalamıyorum."
+          )
+      );
+    }
+
+    if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
+      const playlist = await youtube.getPlaylist(url);
+      const videos = await playlist.getVideos();
+      for (const video of Object.values(videos)) {
+        const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
+        await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
+      }
+      return msg.channel
+        .send(new Discord.MessageEmbed())
+        .setTitle(`**Oynatma Listesi **${playlist.title}** Sıraya eklendi!**`);
+    } else {
+      try {
+        var video = await youtube.getVideo(url);
+      } catch (error) {
+        try {
+          var videos = await youtube.searchVideos(searchString, 10);
+          let index = 0;
+
+          msg.channel.send(
+            new Discord.MessageEmbed()
+              .setTitle(":musical_note: Şarkı Seçimi")
+              .setThumbnail(
+                "https://i.postimg.cc/W1b1LW13/youtube-kids-new-logo.png"
+              )
+              .setDescription(
+                `${videos
+                  .map(video2 => `**${++index} -** ${video2.title}`)
+                  .join("\n")}`
+              )
+              .setFooter(
+                "Lütfen 1-10 arasında bir rakam seçin ve liste 10 saniye içinde iptal edilecektir.."
+              )
+              .setColor("BLACK")
+          );
+          msg.delete(5000);
+
+          try {
+            var response = await msg.channel.awaitMessages(
+              msg2 => msg2.content > 0 && msg2.content < 11,
+              {
+                maxMatches: 1,
+                time: 10000,
+                errors: ["time"]
+              }
+            );
+          } catch (err) {
+            console.error(err);
+            return msg.channel.send(
+              new Discord.MessageEmbed()
+                .setColor("BLACK")
+                .setDescription(
+                  ":x: **Şarkı Değerini belirtmediği için seçim iptal edildi**."
+                )
+            );
+          }
+          const videoIndex = parseInt(response.first().content);
+          var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
+        } catch (err) {
+          console.error(err);
+          return msg.channel.send(
+            new Discord.MessageEmbed()
+              .setColor("BLACK")
+              .setDescription(":x: **Aradım ama sonuç yok**")
+          );
+        }
+      }
+      return handleVideo(video, msg, voiceChannel);
+    }
+  } else if (command === "volume") {
+    if (!msg.member.voiceChannel)
+      if (!msg.member.voiceChannel)
+        return msg.channel.send(
+          new Discord.MessageEmbed()
+            .setColor("BLACK")
+            .setDescription(
+              ":x: **Bu komutu kullanmak için bir ses kanalında olmanız gerekir.**"
+            )
+        );
+    if (!serverQueue)
+      return msg.channel.send(
+        new Discord.MessageEmbed()
+          .setColor("BLACK")
+          .setTitle(":x: Şu anda çalan şarkı yok.")
+      );
+    if (!args[1])
+      return msg.channel.send(
+        new Discord.MessageEmbed()
+          .setTitle(`Current Volume: **${serverQueue.volume}**`)
+          .setColor("BLACK")
+      );
+    serverQueue.volume = args[1];
+    serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
+    return msg.channel.send(
+      new Discord.MessageEmbed()
+        .setTitle(`Setting Volume: **${args[1]}**`)
+        .setColor("BLACK")
+    );
+  } else if (command === "now") {
+    if (!serverQueue)
+      return msg.channel.send(
+        new Discord.MessageEmbed()
+          .setTitle(":x: **Şu anda çalan şarkı yok.**")
+          .setColor("BLACK")
+      );
+    return msg.channel.send(
+      new Discord.MessageEmbed()
+        .setColor("BLACK")
+        .setTitle(" :headphones: | Şimdi oynuyor")
+        .addField(
+          "Şarkı Adı",
+          `[${serverQueue.songs[0].title}](${serverQueue.songs[0].url})`,
+          true
+        )
+        .addField(
+          "Oynamaya kadar tahmini süre",
+          `${serverQueue.songs[0].durationm}:${serverQueue.songs[0].durations}`,
+          true
+        )
+    );
+  } else if (command === "") {
+    let index = 0;
+    if (!serverQueue)
+      return msg.channel.send(
+        new Discord.MessageEmbed()
+          .setTitle(":x: **Sırada Müzik Yok**")
+          .setColor("BLACK")
+      );
+    return msg.channel
+      .send(
+        new Discord.MessageEmbed()
+          .setColor("RANDOM")
+          .setTitle("Şarkı sırası")
+          .setDescription(
+            `${serverQueue.songs
+              .map(song => `**${++index} -** ${song.title}`)
+              .join("\n")}`
+          )
+      )
+      .addField("Şimdi oynuyor: " + `${serverQueue.songs[0].title}`);
+  }
+});
+
+async function handleVideo(video, msg, voiceChannel, playlist = false) {
+  const serverQueue = queue.get(msg.guild.id);
+  const song = {
+    id: video.id,
+    title: video.title,
+    url: `https://www.youtube.com/watch?v=${video.id}`,
+    durationh: video.duration.hours,
+    durationm: video.duration.minutes,
+    durations: video.duration.seconds,
+    zg: video.raw.snippet.channelId,
+    best: video.channel.title,
+    views: video.raw.views
+  };
+  if (!serverQueue) {
+    const queueConstruct = {
+      textChannel: msg.channel,
+      voiceChannel: voiceChannel,
+      connection: null,
+      songs: [],
+      volume: 5,
+      playing: true
+    };
+    queue.set(msg.guild.id, queueConstruct);
+
+    queueConstruct.songs.push(song);
+
+    try {
+      var connection = await voiceChannel.join();
+      queueConstruct.connection = connection;
+      play(msg.guild, queueConstruct.songs[0]);
+    } catch (error) {
+      console.error(`:x: Ses kanalına giremedim HATA: ${error}**`);
+      queue.delete(msg.guild.id);
+      return msg.channel.send(
+        new Discord.MessageEmbed()
+          .setTitle(`:x: Ses kanalına giremedim HATA: ${error}**`)
+          .setColor("BLACK")
+      );
+    }
+  } else {
+    serverQueue.songs.push(song);
+    console.log(serverQueue.songs);
+    if (playlist) return undefined;
+    return msg.channel.send(
+      new Discord.MessageEmbed()
+        .setTitle(
+          `:arrow_heading_up:  **${song.title}** Sıraya Adlandırılmış Müzik Eklendi!`
+        )
+        .setColor("BLACK")
+    );
+  }
+  return undefined;
+}
+
+function play(guild, song) {
+  const serverQueue = queue.get(guild.id);
+
+  if (!song) {
+    serverQueue.voiceChannel.leave();
+    queue.delete(guild.id);
+    return;
+  }
+  console.log(serverQueue.songs);
+
+  const dispatcher = serverQueue.connection
+    .playStream(ytdl(song.url))
+    .on("end", reason => {
+      if (reason === " :x: **Yayın akış hızı yeterli değil.**")
+        console.log("Şarkı Sona Erdi");
+      else console.log(reason);
+      serverQueue.songs.shift();
+      play(guild, serverQueue.songs[0]);
+    })
+    .on("error", error => console.error(error));
+  dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+
+  serverQueue.textChannel.send(
+    new Discord.MessageEmbed()
+      .setTitle("**:microphone: Şarkı Başladı**")
+      .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg`)
+      .addField("Şarkı adı", `[${song.title}](${song.url})`, true)
+      .addField("Ses", `${serverQueue.volume}%`, true)
+      .addField("Süre", `${song.durationm}:${song.durations}`, true)
+      .addField("Video ID", `${song.id}`, true)
+      .addField("Kanal ID", `${song.zg}`, true)
+      .addField("Kanal adı", `${song.best}`, true)
+      .addField("Video Link", `${song.url}`, true)
+      .setImage(`https://i.ytimg.com/vi/${song.id}/hqdefault.jpg`)
+      .setColor("BLACK")
+  );
+}
 client.on("message", (msg, message, guild) => {
   if (msg.content.toLowerCase() === prefix +"invite") {
     const eris = new Discord.MessageEmbed().setDescription(
@@ -267,7 +546,7 @@ client.on("message", (msg, message, guild) => {
     msg.channel.send(eris);
   }
 });
-/*
+
 client.on("guildCreate", async(guild, message) => {
 
 let alındı = `${ayarlar.oldu2}`
@@ -290,7 +569,7 @@ let alınıyor = "<a:yükleniyor:839266395308687421>"
   alın.edit("Sunucu Verileri alınıyor..")
   alın.edit("Sunucu Verileri alınıyor...").then(m => m.delete({ timeout: 2542 }))
   defaultChannel.send(emmmmbed);
-});*/
+});
 /*
 client.on('guildCreate', guild => {
 let kanal = guild.channels.filters(c => c.type === "text").random()
@@ -437,6 +716,27 @@ client.on("guildMemberAdd", async member => {
   if (member.user.bot)
     return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
+// ----------------> [kayıt-sistemi] <---------------- \\
+client.on("guildMemberAdd", async(member, message) => {
+let kanal = db.fetch(`kayıtkanal_${member.guild.id}`)
+if(!kanal) return;
+let olus = moment.utc(member.createdAt).format("YYYY, MMMM DD **(D.MM.YYYY)**")
+/*
+${moment.utc(message.author.joinedAt).format("MMMM DD, YYYY").replace("0", "")}
+${moment.utc(message.author.createdAt).format("MMMM DD, YYYY").replace("0", "")}
+*/
+     let süre = olus
+     let guven;
+     if(süre < 2629800000) guven = ':warning: Tehlikeli!'
+     if(süre > 2629800000) guven = ':white_check_mark: Güvenilir.'
+return member.guild.channels.cache.get(kanal).send(new Discord.MessageEmbed().setDescription(`
+${member}(${member.tag}) Sunucumuza hoşgeldin.
+
+Kayıt olmak için sesli kanala geçip yetkililerin gelmesini beklemen yeterlidir eğer öyle bir oda bulunmuyorsa bulunduğun kanala \`İsim Yaş\` yazman yeterli olucaktır.
+
+Hesap Oluşturulma Tarihi: \`${olus}\`
+Güvenirlik: ${guven}`))
+})
 // ----------------> [Hoşgeldin - Hoşçakal] <---------------- \\
 client.on("guildMemberAdd", async(member, message, guild) => {
 let kanal = db.fetch(`hoşgeldinK_${member.guild.id}`)
@@ -600,7 +900,56 @@ client.on("message", async msg => {
         if (!msg.member.hasPermission("ADMINISTRATOR")) {
           if (!msg.mentions.users.first()) {
             msg.delete();
-            return msg.channel.send(`<@${msg.author.id}> Lütfen CAPS kapat!`).edit(`Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor. Bu yüzden mesajını sildim!`).then(m => m.delete(5000))}}}}}});
+            return msg.channel
+              .send(`<@${msg.author.id}> Lütfen CAPS kapat!`)
+              .edit(
+                `Bu sunucuda Caps Lock Engelleme sistemi kullanılıyor. Bu yüzden mesajını sildim!`
+              )
+              .then(m => m.delete(5000));
+          }
+        }
+      }
+    }
+  }
+});
+// -------------------> [Snipe] <---------------- \\
+client.on("messageDelete", msg => {
+  let asd = JSON.parse(fs.readFileSync("./jsonlar/snipe.json", "utf8"));
+  asd[msg.guild.id] = {
+    mesaj: msg.content,
+    isim: msg.author.username + "#" + msg.author.discriminator
+  };
+
+  fs.writeFile("./jsonlar/snipe.json", JSON.stringify(asd), err => {
+    //console.log(err)
+  });
+
+  asd[msg.guild.id].mesaj = msg.content;
+});
+// -------------------> [Spam-koruma] <--------------- \\
+client.on("message", msg => {
+  const antispam = require("discord-anti-spam-tr");
+  let spamEngel = JSON.parse(
+    fs.readFileSync("./jsonlar/spamEngelle.json", "utf8")
+  );
+  if (!msg.guild) return;
+  if (!spamEngel[msg.guild.id]) return;
+  if (spamEngel[msg.guild.id].spamEngel === "kapali") return;
+  if (spamEngel[msg.guild.id].spamEngel === "acik") {
+    antispam(client, {
+      uyarmaSınırı: 3,
+      banlamaSınırı: 7,
+      aralık: 1000,
+      uyarmaMesajı: "Spamı Durdur Yoksa Mutelerim.",
+      rolMesajı: "Spam için yasaklandı, başka biri var mı?",
+      maxSpamUyarı: 4,
+      maxSpamBan: 12,
+      zaman: 7,
+      rolİsimi: "spamMUTED"
+    });
+  }
+});
+
 // -------------------> [Kufur-Engel] <---------------- \\
 client.on("message", message => {
 if (db.has(`küfürE_${message.guild.id}`) === true) {
@@ -647,29 +996,90 @@ message.channel.send(ke).then(message => message.delete(5000));
 // -------------------> [Reklam-Engel] <---------------- \\
 client.on("message", message => {
   if (db.has(`reklamE_${message.guild.id}`) === true) {
-const reklam = [
-".ml", "discord.gg", "invite", "discordapp", "discordgg", ".com", ".net", ".xyz", ".tk", ".tv", ".pw", ".io", ".me", 
-".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az", "glitch.me", "glitch.com"];
+      const reklam = [
+    ".ml",
+    "discord.gg",
+    "invite",
+    "discordapp",
+    "discordgg",
+    ".com",
+    ".net",
+    ".xyz",
+    ".tk",
+    ".tv",
+    ".pw",
+    ".io",
+    ".me",
+    ".gg",
+    "www.",
+    "https",
+    "http",
+    ".gl",
+    ".org",
+    ".com.tr",
+    ".biz",
+    ".party",
+    ".rf.gd",
+    ".az",
+    "glitch.me",
+    "glitch.com"
+  ];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
       if (!message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
-        var ke = new Discord.MessageEmbed().setColor("RANDOM").setAuthor("Reklam Engel (SISTEM)").setDescription(`Hey <@${message.author.id}>, Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`);
+        var ke = new Discord.MessageEmbed()
+          .setColor("RANDOM")
+          .setAuthor("Reklam Engel (SISTEM)")
+          .setDescription(
+            `Hey <@${message.author.id}>, Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`
+          );
         
         db.add(`reklamEwarn_${message.author.id}`, 1);
-        message.channel.send(ke).then(message => message.delete(5000))}}}});
+        message.channel.send(ke).then(message => message.delete(5000));
+      }}}});
 client.on("messageUptade", message => {
     if (db.has(`reklamE_${message.guild.id}`) === true) {
       const reklam = [
-".ml", "discord.gg", "invite", "discordapp", "discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", 
-".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az", "glitch.me","glitch.com"];
+    ".ml",
+    "discord.gg",
+    "invite",
+    "discordapp",
+    "discordgg",
+    ".com",
+    ".net",
+    ".xyz",
+    ".tk",
+    ".pw",
+    ".io",
+    ".me",
+    ".gg",
+    "www.",
+    "https",
+    "http",
+    ".gl",
+    ".org",
+    ".com.tr",
+    ".biz",
+    ".party",
+    ".rf.gd",
+    ".az",
+    "glitch.me",
+    "glitch.com"
+  ];
     if (reklam.some(word => message.content.toLowerCase().includes(word))) {
       if (!message.member.hasPermission("ADMINISTRATOR")) {
         message.delete();
-        var ke = new Discord.MessageEmbed().setColor("RANDOM").setAuthor("Reklam Engel (SISTEM)").setDescription(`Sen kendini akıllımı sanıyorsun <@${message.author.id}>
-Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`);
+        var ke = new Discord.MessageEmbed()
+          .setColor("RANDOM")
+          .setAuthor("Reklam Engel (SISTEM)")
+          .setDescription(`
+            Sen kendini akıllımı sanıyorsun <@${message.author.id}>
+           Bu sunucuda reklamlar **${client.user.username}** tarafından engellenmektedir! Reklam yapmana izin vermeyeceğim!`
+          );
         
         db.add(`reklamEwarn_${message.author.id}`, 1);
-        message.channel.send(ke).then(message => message.delete(5000))}}}});
+        message.channel.send(ke).then(message => message.delete(5000));
+      }}}});
 // -------------------> [ROL-KORUMA] <------------------ \\
 client.on("roleCreate", async (rolee, member, guild, message) => {
   let rolkoruma = await db.fetch(`rolK_${rolee.guild.id}`);
@@ -783,19 +1193,19 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
   const i = await db.fetch(`emojikoruma_${emoji.guild.id}`, true);
   if (i) {
     const entry = await emoji.guild
-      .fetchAuditLogs({ type: "EMOJI_DELETE" })
+      .fetchAuditLogs({ type: "EMOJİ_DELETE" })
       .then(audit => audit.entries.first());
 
     let kisi = emoji.guild.member(entry.executor);
     kisi.roles
       .filter(a => a.hasPermission("ADMINISTRATOR"))
-      .forEach(x => kisi.roles.remove(x.id));
+      .forEach(x => kisi.removeRole(x.id));
     kisi.roles
       .filter(a => a.hasPermission("MANAGE_CHANNELS"))
-      .forEach(x => kisi.roles.remove(x.id));
+      .forEach(x => kisi.removeRole(x.id));
     kisi.roles
       .filter(a => a.hasPermission("MANAGE_ROLES"))
-      .forEach(x => kisi.roles.remove(x.id));
+      .forEach(x => kisi.removeRole(x.id));
     kisi.mute();
 
     const deleter = emoji.executor;
@@ -807,7 +1217,102 @@ client.on("emojiDelete", async function(emoji, kisi, user, yetkili) {
       if (members.id !== id) return;
       members.roles.forEach(role => {
         if (role.hasPermission(8) || role.hasPermission("MANAGE_EMOJIS")) {
-          members.roles.remove(role.id);
-emoji.guild.owner.send(`**<@${yetkili.id}> İsimli yetkili <@${user.id}>** adlı kişi **${emoji.guild.name}** adlı sunucunuzda emoji sildi ve yetkileri alındı!`)}})})}});
+          members.removeRole(role.id);
+
+          emoji.guild.owner.send(
+            `**<@${yetkili.id}> İsimli yetkili <@${user.id}>** adlı kişi **${emoji.guild.name}** adlı sunucunuzda emoji sildi ve yetkileri alındı!`
+          );
+        }
+      });
+    });
+  }
+});
+
+
+// -----------------------> [Davet-Sistemi] <------------------------------ \\
+client.on("guildMemberRemove", async member => {
+  let kanal = await db.fetch(`davetkanal_${member.guild.id}`);
+  if (!kanal) return;
+  let veri = await db.fetch(`rol1_${member.guild.id}`);
+  let veri12 = await db.fetch(`roldavet1_${member.guild.id}`);
+  let veri21 = await db.fetch(`roldavet2_${member.guild.id}`);
+  let veri2 = await db.fetch(`rol2_${member.guild.id}`);
+  let d = await db.fetch(`bunudavet_${member.id}`);
+  const sa = client.users.get(d);
+  const sasad = member.guild.members.get(d);
+  let sayı2 = await db.fetch(`davet_${d}_${member.guild.id}`);
+  db.add(`davet_${d}_${member.guild.id}`, -1);
+  db.add(`görevDavetEt.${member.guild.id}.${sa.id}`, -1)
+
+  if (!d) {
+    client.channels.get(kanal).send(`<:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ **BULUNAMADI**]`);
+    return;
+  } else {
+    client.channels.get(kanal).send(`:outbox_tray:  <@${member.user.id}> Sunucudan Ayrıldı.! Davet Eden Kişi: [ <@${sa.id}> ]`);
+
+    if (!veri) return;
+
+    if (sasad.roles.has(veri)) {
+      if (sayı2 <= veri12) {
+        sasad.removeRole(veri);
+        return;
+      }
+    }
+    if (sasad.roles.has(veri2)) {
+      if (!veri2) return;
+      if (sayı2 <= veri21) {
+        sasad.removeRole(veri2);
+        return;
+      }
+    }
+  }
+});
+
+client.on("guildMemberAdd", async member => {
+  member.guild.fetchInvites().then(async guildInvites => {
+    let veri = await db.fetch(`rol1_${member.guild.id}`);
+    let veri12 = await db.fetch(`roldavet1_${member.guild.id}`);
+    let veri21 = await db.fetch(`roldavet2_${member.guild.id}`);
+    let veri2 = await db.fetch(`rol2_${member.guild.id}`);
+    let kanal = await db.fetch(`davetkanal_${member.guild.id}`);
+    if (!kanal) return;
+    let invites;
+    const ei = invites[member.guild.id];
+
+    invites[member.guild.id] = guildInvites;
+
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const sasad = member.guild.members.get(invite.inviter.id);
+    const davetçi = client.users.get(invite.inviter.id);
+     
+    db.add(`görevDavetEt.${member.guild.id}.${invite.inviter.id}`, 1)
+    db.add(`davet_${invite.inviter.id}_${member.guild.id}`, +1);
+    db.set(`bunudavet_${member.id}`, invite.inviter.id);
+    let sayı = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
+
+    let sayı2;
+    if (!sayı) {
+      sayı2 = 0;
+    } else {
+      sayı2 = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
+    }
+
+    client.channels.get(kanal).send(`:inbox_tray:  <@${member.user.id}> Sunucuya Katıldı.! Davet Eden Kişi: <@${davetçi.id}> [**${sayı2}**]`);
+    if (!veri) return;
+
+    if (!sasad.roles.has(veri)) {
+      if (sayı2 => veri12) {
+        sasad.addRole(veri);
+        return;
+      }
+    } else {
+      if (!veri2) return;
+      if (sayı2 => veri21) {
+        sasad.addRole(veri2);
+        return;
+      }
+    }
+  });
+});
 
 client.login(ayarlar.token);

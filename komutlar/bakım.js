@@ -3,15 +3,13 @@ const db = require("quick.db");
 const ayarlar = require("../ayarlar.json")
 exports.run = async (client, message, args) => {
 
-  if(message.author.id !== ayarlar.ownerID){
+  if(message.author.id !== ayarlar.ownerID)
+  if(message.author.id !== ayarlar.ownerİD)  {
     const embed = new Discord.MessageEmbed()
-    .setDescription(`**:x: Bu komutu sahip kullanabilir/Here command use owner!**`)
+    .setDescription(`**:x: Bu Komut Yapımcıma Özeldir !**`)
     .setColor('BLUE')
     return message.channel.send(embed).then(msg=>msg.delete(5000));
     }
-
-if(!["aç", "kapat"].includes(args[0])) return message.channel.send(new Discord.MessageEmbed().setDescription(`${message.author} Hazretleri sana haşa cevap veya sual sormak gibi niyetim yok ama \`aç\` veya \`kapat\` yazarsan memnun olurum paşam.`))
-  
 if(args[0] === "aç"){
   if(!args[1]){
   message.channel.send('Bakım modu sebebini belirtin!')
