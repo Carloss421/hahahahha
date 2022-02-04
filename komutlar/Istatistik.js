@@ -2,6 +2,7 @@ const Discord = require('discord.js')
 const ayarlar = require('../ayarlar.json')
 const moment = require("moment");
 require("moment-duration-format");
+moment.locale("tr");
 
 exports.run = function(client, message, args) {
 const araEmoji =  "**⇢**"
@@ -13,7 +14,7 @@ Geliştirici/Sahip ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
 Kuruluş Tarihi ${araEmoji} **${ayarlar.krştrh}**
 Sunuluş Tarihi ${araEmoji} **${ayarlar.snştrh}**
 
-${lang.statistic.msg2} ${araEmoji} **${duration}**
+Ut ${araEmoji} **${moment.duration(client.duration)}**
 ${lang.statistic.msg3} ${araEmoji} **${client.ws.ping}ms**
 ${lang.statistic.msg4} ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
 
