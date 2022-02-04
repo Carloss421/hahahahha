@@ -53,8 +53,6 @@ const ayarlar = require('../ayarlar.json');
 const Discord = require('discord.js');
 const db = require('quick.db');
 const ms = require('parse-ms')
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
 
 let talkedRecently = new Set();
 module.exports = async (message, args) => {
@@ -80,22 +78,12 @@ if(message.author.bot) return
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
   }
- 
-  let en = require("../Languages/dil/en.json");
-let tr = require("../Languages/dil/tr.json");
-    
-  var lg = dils.get(`dilang.${message.guild.id}`)
-  if (lg == "en") {
-var lang = en;
-  }
-  if (lg == "tr") {
-var lang = tr;
-  }
+
   
     if (db.has(`karalist_${message.author.id}`) === true) {
     let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .setDescription(`${lang.blackList.msg0}`)
+    .setDescription(`Karalistedesin!`)
     message.channel.send({embed: embed})
     return
   };
@@ -112,7 +100,7 @@ var lang = tr;
  let time = ms(bakımTIME - Date.now())
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
 ${message.author}
-${lang.care.msg} \`${bakım}\`${lang.care.msg1} **${time.days}** ${lang.care.Dhms} **${time.hours}** ${lang.care.dHms} **${time.minutes}** ${lang.care.dhMs} **${time.seconds}** ${lang.care.dhmS}
+Bot Satılıktır almak isteyenler için link koyucaz!
 
   `).setColor("RANDOM"))
      /*

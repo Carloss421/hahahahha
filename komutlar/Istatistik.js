@@ -14,7 +14,7 @@ Geliştirici/Sahip ${araEmoji} **<@${ayarlar.ownerID}> - AliBerat**
 Kuruluş Tarihi ${araEmoji} **${ayarlar.krştrh}**
 Sunuluş Tarihi ${araEmoji} **${ayarlar.snştrh}**
 
-Uptime Süresi ${araEmoji} **${moment.duration(client.duration)}**
+Uptime Süresi ${araEmoji} **${moment.duration(client.duration).format("D [gün], H [saat], m [dakika], s [saniye]")}**
 Bot Pingi ${araEmoji} **${client.ws.ping}ms**
 Mesaj Pingi ${araEmoji} **-${new Date().getTime() - message.createdTimestamp}ms**
 

@@ -62,16 +62,16 @@ exports.run = async (client, message, args) => {
     let giren_cıkan = new Discord.MessageEmbed()
       .setColor("RANDOM")
       .setDescription(
-        `${lang.evalCommand.AownerEvalCODE}\n\`\`\`javascript\n${code}\n\`\`\``
+        `Kod\n\`\`\`javascript\n${code}\n\`\`\``
       )
       .setDescription(
-        `${lang.evalCommand.AownerEvalCONCLUSION}\n\`\`\`xl\n${evaled}\`\`\``
+        `Sonuç\n\`\`\`xl\n${evaled}\`\`\``
       );
     message.channel.send(giren_cıkan);
   } catch (err) {
     embed.setColor("RANDOM");
     embed.setDescription(
-      `${lang.evalCommand.AownerEvalERROReD}\n\`\`\`xl\n${err}\n\`\`\``
+      `Aovğ! Bir hata var!\n\`\`\`xl\n${err}\n\`\`\``
     );
     message.channel.send(embed);
   }
