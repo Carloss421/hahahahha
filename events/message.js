@@ -91,7 +91,8 @@ if(message.author.bot) return
 
   
   if (cmd) {
-if(!client.user.hasPermission("SEND_MESSAGE")){
+const member = message.guild.member(client.user)
+if(!member.hasPermission("SEND_MESSAGE")){
 message.member.send(new Discord.MessageEmbed().setDescription(`${message.channel ? "<#"+message.channel.id+">" : "`"+message.channel.name+"`"} adlı kanalda mesaj göndermeye iznim yok! Ya iznimi aç yada Kurucum olan \`AliBerat#6892\` iletişime geç!`))
 }
   let bakım = await db.fetch('bakım');
