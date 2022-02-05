@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
-const dil = require("../Languages/dil");
-const dils = new dil("dil", "diller");
 
 exports.run = async(client, message, args) => {
 
