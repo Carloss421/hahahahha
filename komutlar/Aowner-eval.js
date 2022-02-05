@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
       .setColor("BLUE");
     return message.channel.send(embed).then(msg => msg.delete(3000));
   }
-  let tokenuyari = "Gel g!tümüde veriyim! 31 POK PULURSUN APIĞ!"
+  let tokenuyari = "Gel g!tümüde veriyim!"
   var embed = new Discord.MessageEmbed().setColor("RANDOM");
   var code = args.join(" ");
   //var code2 = args.slice(1).join(' ') ||  args.join(' ');
@@ -31,9 +31,9 @@ exports.run = async (client, message, args) => {
     return;
   }
   if (args[0] === "ayarlar.token")
-    code = "Gel g!tümüde veriyim! 31 POK PULURSUN APIĞ!"
+    code = "Gel g!tümüde veriyim! "
   if (args[0] === "config.token")
-    code = "Gel g!tümüde veriyim! 31 POK PULURSUN APIĞ!"
+    code = "Gel g!tümüde veriyim! "
   if (code.match(/(client["token"])/g)) {
     let token_uyari2 = new Discord.MessageEmbed()
       .setColor("RANDOM")
