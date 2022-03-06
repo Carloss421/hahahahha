@@ -22,8 +22,11 @@ let prefix = db.fetch(`prefix_${message.guild.id}`) || ayarlar.prefix;
           .setColor(`#ee7621`)
           .setDescription(
             `
-**Ticket açarken lütfen Doğru ve Düzgün bir şekilde açınız, aksi taktirde açılan destek taleblerine Cevap verilmeyecektir ve kapatılcaktır.**
-**Ticket açmak için aşağıdaki Emojiye Basmanız Yeterli Olucaktır, ardından size Özel Kanal açılır ve sizinle özel olarak ilgileniriz.**`
+**Ticket açarken lütfen Doğru ve Düzgün bir şekilde açınız, 
+aksi taktirde açılan destek taleblerine Cevap verilmeyecektir ve kapatılcaktır.**
+
+**Ticket açmak için aşağıdaki Emojiye Basmanız Yeterli Olucaktır, 
+ardından size Özel Kanal açılır ve sizinle özel olarak ilgileniriz.**`
             
           )
       )
