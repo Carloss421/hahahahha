@@ -1,22 +1,22 @@
 {
-  "prefix": "a!",
-  "token": "ODI4MjY3NDc0MTkyNTY0MjQ1.YGnGMg.9APsoNMLes1PyaOyJL6169oNkR",
+  "prefix": "PREFIX",
+  "token": "TOKEN",
 
-  "ownerID": "739411430171738142",
-  "ownerNAME": "AliBerat",
-  "ownerDcname": "AliBerat#4125",
+  "ownerID": "BOT SAHIP ID",
+  "ownerNAME": "BOT SAHIP NAME",
+  "ownerDcname": "BOT SAHIP DISCORD TAG NAME/AliBerat#6892",
 
-  "krştrh": "15.03.2021",
-  "snştrh": "29.04.2021 - 20:00 - Perşembe",
+  "krştrh": "00.00.0000",
+  "snştrh": "00.00.0000 - 00:00 - ************",
 
-  "hata": "<:hayir0:838855037161570375>",
-  "hata2": "<:hayir1:827620346491830272>",
-  "ekle": "<:ekle0:838855131495268414>",
-  "oldu": "<:evet1:838854924875726898>",
-  "oldu2": "<:evet0:838853383082868928>",
-  "açık": "<:acik:842931863379378197>",
-  "kapalı": "<:kapali:831811077339217961>",
-  "bot": "Alvi - Kayıt",
+  "hata": "X EMOJI",
+  "hata2": "XX EMOJI",
+  "ekle": "V EMOJI",
+  "oldu": "VV EMOJI",
+  "oldu2": "VVV EMOJI",
+  "açık": "VVVV EMOJI",
+  "kapalı": "XXX EMOJI",
+  "bot": "Bot Name - Kayıt",
   "embedFalse": "#",
   "embedTrue": "#"
 }
