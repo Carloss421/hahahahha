@@ -5,7 +5,7 @@ require("moment-duration-format");
 moment.locale("tr");
 
 exports.run = function(client, message, args) {
-const araEmoji =  "**⇢**"
+const araEmoji =  "**⇢**";
 let embed = new Discord.MessageEmbed()
 .setTitle(`Alvi - İstatistik`)
 .setColor("RANDOM")
@@ -30,7 +30,7 @@ Node.js Version ${araEmoji} **${process.version}**
 **Veri Alınan Komutlar**
 \`Otorol - Sayaç - KayıtSistemi - CaptchaSistemi - GörevSistemi\`
 **Veriler Temizlendi**
-[Destek Sunucusu - ](https://discord.gg/NAzGC2cxXR)[Davet Et(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=828267474192564245&permissions=8&scope=bot)[Davet Et(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=828267474192564245&permissions=0&scope=bot)[Oy Ver - ](https://discordbots.org/bot/${client.user.id}/vote)`)
+[Destek Sunucusu - ](https://discord.gg/NAzGC2cxXR)[Davet Et(Perm 8) - ](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot)[Davet Et(Perm 0) - ](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=0&scope=bot)[Oy Ver - ](https://discordbots.org/bot/${client.user.id}/vote)`)
 message.channel.send(embed)
 };
 exports.conf = {

@@ -105,7 +105,6 @@ message.member.send(new Discord.MessageEmbed().setDescription(`${message.channel
   return message.channel.send(new Discord.MessageEmbed().setDescription(`
 ${message.author}
 Bot Satılıktır almak isteyenler için link koyucaz!
-[LINK](https://www.itemsatis.com/discord/destek-sunucusuyla-beraber-gelismis-bot-484047.html)
 
   `).setColor("RANDOM"))
      /*
